@@ -1,0 +1,105 @@
+extends templates/layout
+
+block content
+	.block.second-code
+		.second-code-hack
+		form(class="promo-code-2" name="promo-code-2")
+			a.popup-close-cross
+			h3 Есть еще один промо-код?
+			.fields-holder 
+				input(type="text" name="promoCode2" for="promo-code-2" autocomplete="off")
+				button(type="submit") Отправить
+				a(href="#") Отмена
+
+	.block.header
+		.partners-block
+			.partner-traveller
+			.partner-lingualeo
+
+		.content
+			a.logo-main(href="/")
+
+		.icons-block
+			a.ico-account(href="#").unauthorized
+			.ico-burger(href="#")
+		.right-menu-holder
+			ul.right-menu
+				li
+					a(href="#") Правила акции
+				li
+					a(href="#") FAQ
+				li
+					a(href="#") Галерея призов
+				li
+					a(href="#") Победители
+
+	.block.menu-holder
+		.content
+			ul.top-menu
+				li
+					a(href="#") Чайная коллекция
+				li
+					a(href="#") Мир чая
+				li
+					a(href="#") Goodstarter
+	.main-content
+		.block.promo-code
+			.content
+				.promo-steps
+					
+					.promo-step.step-1
+						.step-number 1
+						h2 Купите
+						p Новинку Lipton Discovery Collection в промо-упаковке
+					
+					.promo-step.step-2
+						.step-number 2
+						h2 Зарегистрируйте
+						p Код, размещенный<br>под крышкой
+					
+					.promo-step.step-3
+						.step-number 3
+						h2 Получайте
+						p Призы от Lingualeo и&nbsp;National Geographic Traveler
+
+				form(action="http://lipton.dev/build/ajax/promo.json" id="promo-code-form" class="promo-code" name="promo-code" data-user-auth="authorized")
+					input(type="text" name="promoCode1" for="promo-code" class="promoCode1" autocomplete="off")
+					button(type="submit") Отправить
+
+		.block.footer
+			.content
+				.plane-block
+				.block-left
+					h3 У меня нет промо-кода
+					p Ничего страшного. Расскажите нам о том, почему именно вы достойны отправиться навстречу приключениям с National Geographic Traveller, и одним 10 из победителей можете стать вы!
+					a.involvement(href="/participate.html") Принять участие
+				.block-right
+					a.traveller-card(href="#" target="_blank")
+						.traveller-logo
+						h3.new-issue Читайте новый выпуск
+
+
+	.sub-footer
+		.copyright
+			p ООО «ЮНИЛЕВЕР РУСЬ». ЮРИДИЧЕСКИЙ И ПОЧТОВЫЙ АДРЕС: 123022, Г. МОСКВА, УЛ. СЕРГЕЯ МАКЕЕВА, Д. 13. 
+			p ЭЛЕКТРОННАЯ ПОЧТА: 
+				a(href="mailto:COMMUNICATIONS.RUSSIA@UNILEVER.COM") COMMUNICATIONS.RUSSIA@UNILEVER.COM
+
+		ul.sharing-block
+			li
+				a(href="#") Полные правила акции
+			li
+				a(href="/feedback.html") Обратная связь
+			li 
+				span Рассказать друзьям
+					
+					a.soc.ok(href="#")
+					a.soc.vk(href="#")
+					a.soc.fb(href="#")
+
+	.footer-decor-left
+	.footer-decor-right
+	script.
+		Dictionary = window.Dictionary || {};
+		Dictionary.redirectUrl = '/build/participate.html'
+		Dictionary.redirectUrlCabinet = '/build/cabinet.html'

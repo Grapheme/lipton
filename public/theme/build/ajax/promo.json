@@ -1,0 +1,6 @@
+{
+	"status": true,
+	"responseTextSuccsess": "Succsess",
+	"responseTextFail": "Fail",
+	"redirect": "/test.html"
+}

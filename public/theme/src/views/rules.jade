@@ -1,0 +1,90 @@
+extends templates/layout
+
+block content
+	.block.second-code
+		.second-code-hack
+		form(class="promo-code promo-code-2" name="promo-code-2")
+			h3 Есть еще один промо-код?
+			.fields-holder 
+				input(type="text" for="promo-code-2" autocomplete="off")
+				button(disabled="disabled") Отправить
+				a(href="#") Отмена
+
+	.block.header
+		.partners-block
+			.partner-traveller
+			.partner-lingualeo
+
+		.content
+			a.logo-main(href="/")
+
+		.icons-block
+			a.ico-account(href="#")
+			.ico-burger(href="#")
+		.right-menu-holder
+			ul.right-menu
+				li
+					a(href="#") Правила акции
+				li
+					a(href="#") FAQ
+				li
+					a(href="#") Галерея призов
+				li
+					a(href="#") Победители
+
+	.block.menu-holder
+		.content
+			ul.top-menu
+				li
+					a(href="#") Чайная коллекция
+				li
+					a(href="#") Мир чая
+				li
+					a(href="#") Goodstarter
+	.main-content.sub-page
+		.block
+			.content
+				h2 Правила и условия акции
+				.rules-row
+					.rule-item.rule-1
+						.rule-img
+						h3 Купи новинку<br>чая <a href="#">Lipton<br>Discovery</a>
+					.rule-item.rule-2
+						.rule-img
+						h3 Зарегистрируй код из-под крышки на&nbsp;сайте
+					.rule-item.rule-3
+						.rule-img
+						h3 Гарантированно Получи приз от&nbsp;Lingualeo
+					.rule-item.rule-4
+						.rule-img
+						h3 Возможность отправиться в&nbsp;путешествие
+				.rules-text-block
+					p.head Период проведения акции
+						p 01.09.2015 — 31.12.2015 включительно
+					p.head Период регистрации кодов для изучения английского языка с Lingua Leo
+						p 01.09.2015 — 31.12.2015 включительно
+					p.head Период приема заявок на розыгрыш путешествий с National Geographic Traveler
+						p 01.09.2015 — 31.12.2015 включительно
+
+	.block.sub-footer-holder
+		.sub-footer
+			.copyright
+				p ООО «ЮНИЛЕВЕР РУСЬ». ЮРИДИЧЕСКИЙ И ПОЧТОВЫЙ АДРЕС: 123022, Г. МОСКВА, УЛ. СЕРГЕЯ МАКЕЕВА, Д. 13. 
+				p ЭЛЕКТРОННАЯ ПОЧТА: 
+					a(href="mailto:COMMUNICATIONS.RUSSIA@UNILEVER.COM") COMMUNICATIONS.RUSSIA@UNILEVER.COM
+
+			ul.sharing-block
+				li
+					a(href="#") Полные правила акции
+				li
+					a(href="#") Обратная связь
+				li 
+					span Рассказать друзьям
+						
+						a.soc.ok(href="#")
+						a.soc.vk(href="#")
+						a.soc.fb(href="#")
+
+		.footer-decor-left
+		.footer-decor-right
+				
