@@ -1420,6 +1420,8 @@ $( document ).ready(function() {
 // PROMO-CODE FORM VALIDATION //
 
   var auth = $('#promo-code-form').attr('data-user-auth');
+    var redirectUrl = $('').attr('data-redirect-authorization');
+    // var redirectUrlCabinet = $('').attr('data-redirect-cabinet');
     
   $('form.promo-code').validate({
     rules: {
@@ -1461,11 +1463,10 @@ $( document ).ready(function() {
         $.cookie('firstCodeCookie', firstCodeCookie);
         // var cookiePromo = $.cookie('firstCodeCookie'); // wright cookie cookie into var
         // console.log('Кука: ' + cookiePromo);
-
-        function goToAuthorization () {
-          window.location.href = Dictionary.redirectUrl;
-        };
-        setTimeout(goToAuthorization, 3000);
+          function goToAuthorization () {
+            window.location.href = redirectUrl;
+          };
+          setTimeout(goToAuthorization, 3000);
       }
     }
   });
@@ -1490,10 +1491,10 @@ $( document ).ready(function() {
       var options = {
         success: function(data){
           console.log(data.responseTextSuccsess);
-          function goToCabinet () {
-            window.location.href = '/build/cabinet.html';
-          };
-          setTimeout(goToCabinet, 3000);
+            function goToCabinet () {
+              window.location.href = data.redirect;
+            };
+            setTimeout(goToCabinet, 3000);
         },
         error: function(data) {
           $('.promo-code-2 button').removeClass('loading');
@@ -1529,11 +1530,10 @@ $( document ).ready(function() {
       $('.promo-code-2 button').addClass('loading');
       var options = {
         success: function(data){
-          console.log(data.responseTextSuccsess);
-          function goToCabinet () {
-            window.location.href = '/build/cabinet.html';
-          };
-          setTimeout(goToCabinet, 3000);
+            function goToCabinet () {
+              window.location.href = data.redirect;
+            };
+            setTimeout(goToCabinet, 3000);
         },
         error: function(data) {
           $('.promo-code-2 button').removeClass('loading');
@@ -1589,10 +1589,10 @@ $( document ).ready(function() {
       $('form.full-registration button').addClass('loading');
       var options = {
         success: function(data){
-          function goToCabinet () {
-            window.location.href = Dictionary.redirectUrlCabinet;
-          };
-          setTimeout(goToCabinet, 3000);
+            function goToCabinet () {
+              window.location.href = data.redirect;
+            };
+            setTimeout(goToCabinet, 3000);
         },
         error: function(data) {
           $('form.full-registration button').removeClass('loading');
@@ -1602,5 +1602,4 @@ $( document ).ready(function() {
       $(form).ajaxSubmit(options);
     }
   });
-
 });

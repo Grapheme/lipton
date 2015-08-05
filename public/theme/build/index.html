@@ -74,7 +74,7 @@
           </div>
           <form action="http://lipton.dev/build/ajax/promo.json" id="promo-code-form" name="promo-code" data-user-auth="authorized" class="promo-code">
             <input type="text" name="promoCode1" for="promo-code" autocomplete="off" class="promoCode1">
-            <button type="submit">Отправить</button>
+            <button type="submit" data-redirect-authorization="/participate.html">Отправить</button>
           </form>
         </div>
       </div>
@@ -104,11 +104,6 @@
     </div>
     <div class="footer-decor-left"></div>
     <div class="footer-decor-right"></div>
-    <script>
-      Dictionary = window.Dictionary || {};
-      Dictionary.redirectUrl = '/build/participate.html'
-      Dictionary.redirectUrlCabinet = '/build/cabinet.html'
-    </script>
     <script src="scripts/main.concat.js"></script>
   </body>
 </html>
