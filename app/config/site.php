@@ -34,7 +34,6 @@ return array(
         '200x200'
     ],
 
-
     'seo' => [
         'default_title'       => 'Lingualeo',
         'default_description' => '',

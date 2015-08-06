@@ -17,7 +17,7 @@ class ApplicationController extends BaseController {
             'name' => self::$name,
             'group' => self::$group,
             'title' => 'Lingualeo',
-            'visible' => FALSE,
+            'visible' => TRUE,
         );
     }
 
