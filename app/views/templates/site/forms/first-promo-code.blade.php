@@ -11,6 +11,6 @@
 @else
 {{ Form::open(array('route'=>'mainpage', 'id'=>'promo-code-form','name'=>'promo-code', 'class'=>'promo-code')) }}
 {{ Form::text('promoCode1', NULL, array('for'=>'promo-code', 'autocomplete'=>'off', 'class'=>'promoCode1')) }}
-{{ Form::button('Отправить',array('data-redirect-authorization'=>pageurl('auth'))) }}
+{{ Form::button('Отправить',array('type'=>'submit', 'data-redirect-authorization'=>pageurl('auth'))) }}
 {{ Form::close() }}
 @endif
