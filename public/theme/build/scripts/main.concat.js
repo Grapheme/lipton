@@ -1602,4 +1602,18 @@ $( document ).ready(function() {
       $(form).ajaxSubmit(options);
     }
   });
+// MOSAIC //
+  var winnersWidth = $('.mosaic-holder').outerWidth();
+  var winnersHeight = $('.mosaic-holder').outerHeight();
+  var mosaicHorisontal = Math.ceil(winnersWidth / 100);
+  var mosaicVertical = Math.ceil(winnersHeight / 100);
+  var mosaicTotal = mosaicHorisontal * mosaicVertical + 10;
+  console.log(winnersWidth + ' x ' + winnersHeight + ' (' + mosaicHorisontal + 'x' + mosaicVertical + ') = ' + mosaicTotal);
+  
+  var curentMosaic = 1;
+  do {
+    $('.mosaic-fuckup').append('<div class="mosaic"><div class="mosaic-blured"></div></div>');
+    curentMosaic++;
+  }
+  while (curentMosaic <= mosaicTotal);
 });

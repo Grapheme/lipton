@@ -371,9 +371,10 @@ body {
   margin: 0;
   padding: 0;
   background-color: #ffe26a;
-  background-image: url(../images/bg-main.png);
+  background-image: url(../images/bg-main.jpg);
   background-position: center 90px;
   background-repeat: no-repeat;
+  background-size: cover;
   min-height: 1024px; }
 
 p, a, span, li {
@@ -487,11 +488,11 @@ input:-ms-input-placeholder {
           .sub-footer .sharing-block li a.soc:hover {
             opacity: 0.8; }
           .sub-footer .sharing-block li a.soc.fb {
-            background-image: url("/images/ico-fb.png"); }
+            background-image: url("../images/ico-fb.png"); }
           .sub-footer .sharing-block li a.soc.vk {
-            background-image: url("/images/ico-vk.png"); }
+            background-image: url("../images/ico-vk.png"); }
           .sub-footer .sharing-block li a.soc.ok {
-            background-image: url("/images/ico-ok.png"); }
+            background-image: url("../images/ico-ok.png"); }
 
 .block {
   width: 100%; }
@@ -524,7 +525,7 @@ input:-ms-input-placeholder {
       background: no-repeat; }
   .block.header {
     height: 104px;
-    background: url("/images/bg-head.png");
+    background: url("../images/bg-head.png");
     background-position: center;
     position: relative;
     z-index: 10; }
@@ -532,7 +533,7 @@ input:-ms-input-placeholder {
       display: block;
       width: 84px;
       height: 79px;
-      background: url("/images/logo-lipton.png");
+      background: url("../images/logo-lipton.png");
       margin: 0 auto; }
     .block.header .partners-block {
       width: 295px;
@@ -544,13 +545,13 @@ input:-ms-input-placeholder {
         width: 120px;
         height: 37px;
         float: left;
-        background: url("/images/logo-traveller.png"); }
+        background: url("../images/logo-traveller.png"); }
       .block.header .partners-block .partner-lingualeo {
         width: 152px;
         height: 28px;
         float: right;
         margin-top: 5px;
-        background: url("/images/logo-lingualeo.png"); }
+        background: url("../images/logo-lingualeo.png"); }
     .block.header .icons-block {
       width: 116px;
       height: 48px;
@@ -563,7 +564,7 @@ input:-ms-input-placeholder {
         height: 48px;
         border-radius: 25px;
         background-color: #e8c523;
-        background-image: url("/images/ico-account.png");
+        background-image: url("../images/ico-account.png");
         background-repeat: no-repeat;
         background-position: center;
         float: left;
@@ -577,7 +578,7 @@ input:-ms-input-placeholder {
         display: block;
         width: 38px;
         height: 28px;
-        background-image: url("/images/ico-burger.png");
+        background-image: url("../images/ico-burger.png");
         background-position: center;
         background-repeat: no-repeat;
         float: right;
@@ -586,7 +587,7 @@ input:-ms-input-placeholder {
         z-index: 101;
         position: relative; }
         .block.header .icons-block .ico-burger.close-ico {
-          background-image: url("/images/ico-close-menu.png");
+          background-image: url("../images/ico-close-menu.png");
           background-position: center;
           background-repeat: no-repeat; }
     .block.header .right-menu-holder {
@@ -604,7 +605,7 @@ input:-ms-input-placeholder {
         width: 345px;
         bottom: -72px;
         position: absolute;
-        background: url("/images/bg-right-menu.png"); }
+        background: url("../images/bg-right-menu.png"); }
       .block.header .right-menu-holder .right-menu {
         margin: 44px 0 0 50px;
         padding: 0;
@@ -659,7 +660,7 @@ input:-ms-input-placeholder {
             font-size: 18px; }
   .block.promo-code {
     height: 475px;
-    background-image: url("/images/bg-promo-code-arch.png");
+    background-image: url("../images/bg-promo-code-arch.png");
     background-position: center -15px;
     background-repeat: no-repeat;
     z-index: 8;
@@ -681,7 +682,7 @@ input:-ms-input-placeholder {
             position: absolute;
             width: 30px;
             height: 52px;
-            background-image: url("/images/ico-step-arrow.png");
+            background-image: url("../images/ico-step-arrow.png");
             top: 32px;
             right: -30px; }
           .block.promo-code .content .promo-steps .promo-step:last-child {
@@ -732,7 +733,7 @@ input:-ms-input-placeholder {
         position: absolute;
         width: 197px;
         height: 141px;
-        background-image: url("/images/bg-plane-block.png");
+        background-image: url("../images/bg-plane-block.png");
         left: 50%;
         top: -50px;
         margin-left: -99px; }
@@ -795,11 +796,11 @@ input:-ms-input-placeholder {
           box-sizing: border-box;
           text-align: center;
           background: #666;
-          background-image: url("/images/bg-traveller-promo.jpg"); }
+          background-image: url("../images/bg-traveller-promo.jpg"); }
           .block.footer .content .block-right a.traveller-card .traveller-logo {
             width: 195px;
             height: 59px;
-            background-image: url("/images/logo-traveller-big.png");
+            background-image: url("../images/logo-traveller-big.png");
             background-repeat: no-repeat;
             padding-bottom: 20px;
             border-bottom: 5px solid #f7d402; }
@@ -1426,15 +1427,40 @@ input:-ms-input-placeholder {
     .block .rules-text-block p {
       margin-bottom: 25px;
       margin-top: 0; }
+  .block .mosaic-holder {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 78px;
+    overflow: hidden;
+    background-image: url("../images/bg-winners.jpg"); }
+  .block .mosaic-fuckup {
+    width: 110%;
+    height: 110%;
+    position: absolute; }
   .block.winners {
-    height: 800px;
-    margin-top: -48px; }
+    height: 800px; }
+    .block.winners .mosaic {
+      width: 100px;
+      height: 100px;
+      float: left;
+      position: relative;
+      overflow: hidden; }
+      .block.winners .mosaic .mosaic-blured {
+        width: 150px;
+        height: 150px;
+        margin: -20px 0 0 -20px;
+        background-image: url("../images/bg-winners.jpg");
+        -webkit-filter: blur(10px);
+        filter: blur(10px); }
     .block.winners .content {
       position: relative;
       height: 900px; }
       .block.winners .content h2 {
         padding-top: 100px;
-        margin-top: 0; }
+        margin-top: 0;
+        position: relative;
+        z-index: 10; }
       .block.winners .content .block-plain {
         background-image: url("../images/bg-plain.png");
         background-repeat: no-repeat;
@@ -1443,9 +1469,95 @@ input:-ms-input-placeholder {
         position: absolute;
         top: 48px;
         left: -135px;
-        z-index: -1; }
+        z-index: 0; }
         .block.winners .content .block-plain .illuminators {
-          background: #666; }
+          width: 888px;
+          height: 63px;
+          top: 440px;
+          left: 205px;
+          position: absolute; }
+          .block.winners .content .block-plain .illuminators .illuminator {
+            background-color: #ffde00;
+            width: 77px;
+            height: 63px;
+            border-radius: 3px;
+            position: relative;
+            -webkit-transition: .2s all;
+                    transition: .2s all;
+            margin-right: 13px;
+            float: left;
+            box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.5);
+            cursor: pointer;
+            z-index: 10; }
+            .block.winners .content .block-plain .illuminators .illuminator .number {
+              margin: 2px 0 0 5px;
+              color: #c90119;
+              font-size: 13px;
+              font-family: 'Intro-regular'; }
+            .block.winners .content .block-plain .illuminators .illuminator .avatar {
+              width: 37px;
+              height: 37px;
+              border-radius: 51%;
+              margin: -4px auto;
+              background-size: 37px;
+              background-repeat: no-repeat;
+              background-position: center; }
+            .block.winners .content .block-plain .illuminators .illuminator:after {
+              content: '';
+              display: block;
+              position: absolute;
+              background-image: url("../images/ico-bar-code.png");
+              background-position: top center;
+              bottom: 5px;
+              right: 5px;
+              background-repeat: no-repeat;
+              width: 15px;
+              height: 9px; }
+            .block.winners .content .block-plain .illuminators .illuminator:last-child {
+              margin-right: 0; }
+            .block.winners .content .block-plain .illuminators .illuminator:hover {
+              background-color: #c90119; }
+              .block.winners .content .block-plain .illuminators .illuminator:hover .number {
+                color: #ffde00; }
+              .block.winners .content .block-plain .illuminators .illuminator:hover:after {
+                background-position: bottom center; }
+              .block.winners .content .block-plain .illuminators .illuminator:hover .magnifier {
+                display: block; }
+            .block.winners .content .block-plain .illuminators .illuminator .magnifier {
+              width: 266px;
+              min-height: 150px;
+              background-color: #c90119;
+              display: none;
+              position: absolute;
+              top: -168px;
+              left: -95px;
+              border-radius: 3px;
+              -webkit-transition: .2s all;
+                      transition: .2s all; }
+              .block.winners .content .block-plain .illuminators .illuminator .magnifier .number {
+                color: #ffde00;
+                font-size: 30px;
+                font-family: 'Intro-regular';
+                margin: 10px 0 0 10px; }
+              .block.winners .content .block-plain .illuminators .illuminator .magnifier .avatar {
+                width: 69px;
+                height: 69px;
+                border-radius: 51%;
+                margin: -28px auto 10px;
+                background-size: 69px;
+                background-repeat: no-repeat;
+                background-position: center; }
+              .block.winners .content .block-plain .illuminators .illuminator .magnifier .name {
+                color: #ffde00;
+                font-size: 14px;
+                font-family: 'Intro-regular';
+                text-align: center;
+                text-transform: uppercase; }
+              .block.winners .content .block-plain .illuminators .illuminator .magnifier .info {
+                margin-top: 5px;
+                text-align: center;
+                font-size: 13px;
+                color: #ffde00; }
 
 /* MODULES CUSTOMISATION */
 .ui-selectmenu-button span.ui-selectmenu-text {

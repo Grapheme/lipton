@@ -6,9 +6,10 @@ body {
 	margin: 0;
 	padding: 0;
 	background-color: #ffe26a;
-	background-image: url(../images/bg-main.png);
+	background-image: url(../images/bg-main.jpg);
 	background-position: center 90px;
 	background-repeat: no-repeat;
+	background-size: cover;
 	min-height: 1024px;
 }
 
@@ -149,13 +150,13 @@ input:-ms-input-placeholder {
 						
 
 						&.fb {
-							background-image: url('/images/ico-fb.png');
+							background-image: url('../images/ico-fb.png');
 						}
 						&.vk {
-							background-image: url('/images/ico-vk.png');
+							background-image: url('../images/ico-vk.png');
 						}
 						&.ok {
-							background-image: url('/images/ico-ok.png');
+							background-image: url('../images/ico-ok.png');
 						}
 					}
 				}
@@ -207,7 +208,7 @@ input:-ms-input-placeholder {
 
 	&.header {
 		height: 104px;
-		background: url('/images/bg-head.png');
+		background: url('../images/bg-head.png');
 		background-position: center;
 		position: relative;
 		z-index: 10;
@@ -219,7 +220,7 @@ input:-ms-input-placeholder {
 				display: block;
 				width: 84px;
 				height: 79px;
-				background: url('/images/logo-lipton.png');
+				background: url('../images/logo-lipton.png');
 				margin: 0 auto;
 			}
 		}
@@ -235,7 +236,7 @@ input:-ms-input-placeholder {
 				width: 120px;
 				height: 37px;
 				float: left;
-				background: url('/images/logo-traveller.png');
+				background: url('../images/logo-traveller.png');
 			}
 
 			.partner-lingualeo {
@@ -243,7 +244,7 @@ input:-ms-input-placeholder {
 				height: 28px;
 				float: right;
 				margin-top: 5px;
-				background: url('/images/logo-lingualeo.png');
+				background: url('../images/logo-lingualeo.png');
 			}
 		}
 
@@ -260,7 +261,7 @@ input:-ms-input-placeholder {
 				height: 48px;
 				border-radius: 25px;
 				background-color: #e8c523;
-				background-image: url('/images/ico-account.png');
+				background-image: url('../images/ico-account.png');
 				background-repeat: no-repeat;
 				background-position: center;
 				float: left;
@@ -279,7 +280,7 @@ input:-ms-input-placeholder {
 				display: block;
 				width: 38px;
 				height: 28px;
-				background-image: url('/images/ico-burger.png');
+				background-image: url('../images/ico-burger.png');
 				background-position: center;
 				background-repeat: no-repeat;
 				float: right;
@@ -289,7 +290,7 @@ input:-ms-input-placeholder {
 				position: relative;
 
 				&.close-ico {
-					background-image: url('/images/ico-close-menu.png');
+					background-image: url('../images/ico-close-menu.png');
 					background-position: center;
 					background-repeat: no-repeat;
 				}
@@ -312,7 +313,7 @@ input:-ms-input-placeholder {
 				width: 345px;
 				bottom: -72px;
 				position: absolute;
-				background: url('/images/bg-right-menu.png');
+				background: url('../images/bg-right-menu.png');
 			}
 
 			.right-menu {
@@ -398,8 +399,8 @@ input:-ms-input-placeholder {
 	&.promo-code {
 		height: 475px;
 		// FOOTER OLD
-		// background-image: url('/images/bg-promo-code.jpg');
-		background-image: url('/images/bg-promo-code-arch.png');
+		// background-image: url('../images/bg-promo-code.jpg');
+		background-image: url('../images/bg-promo-code-arch.png');
 		background-position: center -15px;
 		background-repeat: no-repeat;
 		z-index: 8;
@@ -425,7 +426,7 @@ input:-ms-input-placeholder {
 						position: absolute;
 						width: 30px;
 						height: 52px;
-						background-image: url('/images/ico-step-arrow.png');
+						background-image: url('../images/ico-step-arrow.png');
 						top: 32px;
 						right: -30px
 					}
@@ -489,7 +490,7 @@ input:-ms-input-placeholder {
 
 	&.footer {
 		height: 428px;
-		// FOOTER OLD background-image: url('/images/bg-footer.png');
+		// FOOTER OLD background-image: url('../images/bg-footer.png');
 		margin-top: -22px;
 		position: relative;
 
@@ -501,7 +502,7 @@ input:-ms-input-placeholder {
 				position: absolute;
 				width: 197px;
 				height: 141px;
-				background-image: url('/images/bg-plane-block.png');
+				background-image: url('../images/bg-plane-block.png');
 				left: 50%;
 				top: -50px;
 				margin-left: -99px;
@@ -576,12 +577,12 @@ input:-ms-input-placeholder {
 					box-sizing: border-box;
 					text-align: center;
 					background: #666;
-					background-image: url('/images/bg-traveller-promo.jpg');
+					background-image: url('../images/bg-traveller-promo.jpg');
 
 					.traveller-logo {
 						width: 195px;
 						height: 59px;
-						background-image: url('/images/logo-traveller-big.png');
+						background-image: url('../images/logo-traveller-big.png');
 						background-repeat: no-repeat;
 						padding-bottom: 20px;
 						border-bottom: 5px solid #f7d402;
@@ -1459,10 +1460,43 @@ input:-ms-input-placeholder {
 		}
 	}
 
+	.mosaic-holder {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 78px;
+		overflow: hidden;
+		background-image: url('../images/bg-winners.jpg');
+	}
+
+	.mosaic-fuckup {
+		width: 110%;
+		height: 110%;
+		position: absolute;
+	}
+
 	&.winners {
 		height: 800px;
-		margin-top: -48px;
-		// background-image: url('../images/bg-winners.jpg');
+		.mosaic {
+			width: 100px;
+			height: 100px;
+			float: left;
+			position: relative;
+			overflow: hidden;
+
+			// &:nth-child(2n) {
+			// 	background: #777;
+			// }
+
+			.mosaic-blured {
+				width: 150px;
+				height: 150px;
+				margin: -20px 0 0 -20px;
+				background-image: url('../images/bg-winners.jpg');
+			    -webkit-filter: blur(10px);
+			    filter: blur(10px);
+			}
+		}
 
 		.content {
 			position: relative;
@@ -1471,6 +1505,8 @@ input:-ms-input-placeholder {
 			h2 {
 				padding-top: 100px;
 				margin-top: 0;
+				position: relative;
+				z-index: 10;
 			}
 
 			.block-plain {
@@ -1481,10 +1517,122 @@ input:-ms-input-placeholder {
 				position: absolute;
 				top: 48px;
 				left: -135px;
-				z-index: -1;
+				z-index: 0;
 
 				.illuminators {
-					background: #666;
+					width: 888px;
+					height: 63px;
+					top: 440px;
+					left: 205px;
+					position: absolute;
+
+					.illuminator {
+						background-color: #ffde00;
+						width: 77px;
+						height: 63px;
+						border-radius: 3px;
+						position: relative;
+						transition: .2s all;
+						margin-right: 13px;
+						float: left;
+						box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.5);
+						cursor: pointer;
+						z-index: 10;
+
+						.number {
+							margin: 2px 0 0 5px;
+							color: #c90119;
+							font-size: 13px;
+							font-family: 'Intro-regular';
+						}
+
+						.avatar {
+							width: 37px;
+							height: 37px;
+							border-radius: 51%;
+							margin: -4px auto;
+							background-size: 37px;
+							background-repeat: no-repeat;
+							background-position: center;
+						}
+
+						&:after {
+							content: '';
+							display: block;
+							position: absolute;
+							background-image: url('../images/ico-bar-code.png');
+							background-position: top center;
+							bottom: 5px;
+							right: 5px;
+							background-repeat: no-repeat;
+							width: 15px;
+							height: 9px;
+						}
+
+						&:last-child {
+							margin-right: 0;
+						}
+
+						&:hover {
+							background-color: #c90119;
+
+							.number {
+								color: #ffde00;
+							}
+
+							&:after {
+								background-position: bottom center;
+							}
+
+							.magnifier {
+								display: block;
+							}
+						}
+
+						.magnifier {
+							width: 266px;
+							min-height: 150px;
+							background-color: #c90119;
+							display: none;
+							position: absolute;
+							top: -168px;
+							left: -95px;
+							border-radius: 3px;
+							transition: .2s all;
+
+							.number {
+								color: #ffde00;
+								font-size: 30px;
+								font-family: 'Intro-regular';
+								margin: 10px 0 0 10px;
+							}
+
+							.avatar {
+								width: 69px;
+								height: 69px;
+								border-radius: 51%;
+								margin: -28px auto 10px;
+								background-size: 69px;
+								background-repeat: no-repeat;
+								background-position: center;
+							}
+
+							.name {
+								color: #ffde00;
+								font-size: 14px;
+								font-family: 'Intro-regular';
+								text-align: center;
+								text-transform: uppercase;
+							}
+
+							.info {
+								margin-top: 5px;
+								text-align: center;
+								font-size: 13px;
+								color: #ffde00;
+							}
+						}
+					}
 				}
 			}
 		}
