@@ -1,0 +1,69 @@
+extends templates/layout
+
+block content
+	.block.second-code
+		.second-code-hack
+		form(class="promo-code promo-code-2" name="promo-code-2")
+			h3 Есть еще один промо-код?
+			.fields-holder 
+				input(type="text" for="promo-code-2" autocomplete="off")
+				button(disabled="disabled") Отправить
+				a(href="#") Отмена
+	.block.header
+		.partners-block
+			.partner-traveller
+			.partner-lingualeo
+
+		.content
+			a.logo-main(href="/")
+
+		.icons-block
+			a.ico-account(href="#")
+			.ico-burger(href="#")
+		.right-menu-holder
+			ul.right-menu
+				li
+					a(href="#") Правила акции
+				li
+					a(href="#") FAQ
+				li
+					a(href="#") Галерея призов
+				li
+					a(href="#") Победители
+	.main-content
+		.block.menu-holder
+			.content
+				ul.top-menu
+					li
+						a(href="#") Чайная коллекция
+					li
+						a(href="#") Мир чая
+					li
+						a(href="#") Goodstarter
+		.block.winners
+			.content
+				h2 Победители
+				.block-plain
+				
+	.block.sub-footer-holder
+		.sub-footer
+			.copyright
+				p ООО «ЮНИЛЕВЕР РУСЬ». ЮРИДИЧЕСКИЙ И ПОЧТОВЫЙ АДРЕС: 123022, Г. МОСКВА, УЛ. СЕРГЕЯ МАКЕЕВА, Д. 13. 
+				p ЭЛЕКТРОННАЯ ПОЧТА: 
+					a(href="mailto:COMMUNICATIONS.RUSSIA@UNILEVER.COM") COMMUNICATIONS.RUSSIA@UNILEVER.COM
+
+			ul.sharing-block
+				li
+					a(href="#") Полные правила акции
+				li
+					a(href="#") Обратная связь
+				li 
+					span Рассказать друзьям
+						
+						a.soc.ok(href="#")
+						a.soc.vk(href="#")
+						a.soc.fb(href="#")
+
+		.footer-decor-left
+		.footer-decor-right
+			

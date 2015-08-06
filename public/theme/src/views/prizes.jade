@@ -1,0 +1,86 @@
+extends templates/layout
+
+block content
+	.block.second-code
+		.second-code-hack
+		form(class="promo-code promo-code-2" name="promo-code-2")
+			h3 Есть еще один промо-код?
+			.fields-holder 
+				input(type="text" for="promo-code-2" autocomplete="off")
+				button(disabled="disabled") Отправить
+				a(href="#") Отмена
+
+	.block.header
+		.partners-block
+			.partner-traveller
+			.partner-lingualeo
+
+		.content
+			a.logo-main(href="/")
+
+		.icons-block
+			a.ico-account(href="#")
+			.ico-burger(href="#")
+		.right-menu-holder
+			ul.right-menu
+				li
+					a(href="#") Правила акции
+				li
+					a(href="#") FAQ
+				li
+					a(href="#") Галерея призов
+				li
+					a(href="#") Победители
+
+	.block.menu-holder
+		.content
+			ul.top-menu
+				li
+					a(href="#") Чайная коллекция
+				li
+					a(href="#") Мир чая
+				li
+					a(href="#") Goodstarter
+	.main-content.sub-page
+		.block
+			.content
+				h2 Галерея призов
+
+				.prize-gallery
+					.prize-block.third-place
+						.big-ico
+						h3 Спецкурс: английский для туристов
+						p Введите один промо-код с упаковки чая Lipton Discovery и получите курс английского языка для туристов от Lingualeo
+					.prize-block.second-place
+						.big-ico
+						h3 Спецкурс<br>на выбор
+						p Введите сразу два промо-кода с упаковки чая Lipton Discovery и получите один из спецкурсов Lingualeo на выбор.
+					.prize-block.first-place
+						.big-ico
+						h3 Путешествие с National Geographic Traveller
+						p Главный приз — увлекательное путешествия в одну из шести стран, представленных вкусами Lipton Discovery с National Geographic Traveller
+					
+					a.prize-link(href="#") Lipton Discovery Collection
+
+	.block.sub-footer-holder
+		.sub-footer
+			.copyright
+				p ООО «ЮНИЛЕВЕР РУСЬ». ЮРИДИЧЕСКИЙ И ПОЧТОВЫЙ АДРЕС: 123022, Г. МОСКВА, УЛ. СЕРГЕЯ МАКЕЕВА, Д. 13. 
+				p ЭЛЕКТРОННАЯ ПОЧТА: 
+					a(href="mailto:COMMUNICATIONS.RUSSIA@UNILEVER.COM") COMMUNICATIONS.RUSSIA@UNILEVER.COM
+
+			ul.sharing-block
+				li
+					a(href="#") Полные правила акции
+				li
+					a(href="#") Обратная связь
+				li 
+					span Рассказать друзьям
+						
+						a.soc.ok(href="#")
+						a.soc.vk(href="#")
+						a.soc.fb(href="#")
+
+		.footer-decor-left
+		.footer-decor-right
+				
