@@ -45,16 +45,12 @@ endif;
             <div class="content">
                 <div class="plane-block"></div>
                 <div class="block-left">
-                    <h3>У меня нет промо-кода</h3>
-
-                    <p>Ничего страшного. Расскажите нам о том, почему именно вы достойны отправиться навстречу
-                        приключениям
-                        с National Geographic Traveller, и одним 10 из победителей можете стать вы!</p><a
-                            href="/participate.html" class="involvement">Принять участие</a>
+                    {{ $page->block('block-left') }}
+                    <a href="{{ pageurl('registering') }}" class="involvement">Принять участие</a>
                 </div>
-                <div class="block-right"><a href="#" target="_blank" class="traveller-card">
-                        <div class="traveller-logo"></div>
-                        <h3 class="new-issue">Читайте новый выпуск</h3></a></div>
+                <div class="block-right">
+                    {{ $page->block('block-right') }}
+                </div>
             </div>
         </div>
     </div>
