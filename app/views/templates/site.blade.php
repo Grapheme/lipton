@@ -1,6 +1,6 @@
 <?
 /**
- * MENU_PLACEMENTS: main_menu=Основное меню|footer_menu=Меню в подвале
+ * MENU_PLACEMENTS: main_menu=Основное меню|center_menu=Центральное меню|footer_menu=Нижнее меню
  */
 ?>
 <!DOCTYPE html>
