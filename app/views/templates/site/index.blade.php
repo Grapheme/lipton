@@ -38,11 +38,7 @@ endif;
                     </div>
                 @endforeach
                 </div>
-                <form action="http://lipton.dev/build/ajax/promo.json" id="promo-code-form" name="promo-code"
-                      data-user-auth="authorized" class="promo-code">
-                    <input type="text" name="promoCode1" for="promo-code" autocomplete="off" class="promoCode1">
-                    <button type="submit" data-redirect-authorization="/participate.html">Отправить</button>
-                </form>
+                @include(Helper::layout('forms.first-promo-code'))
             </div>
         </div>
         <div class="block footer">
