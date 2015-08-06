@@ -38,7 +38,7 @@ return array(
                         'title' => 'Состояние',
                         'type' => 'text',
                     ],
-                    'decs' => [
+                    'desc' => [
                         'title' => 'Описание',
                         'type' => 'text',
                     ],
