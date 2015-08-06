@@ -3,15 +3,6 @@
  * TEMPLATE_IS_NOT_SETTABLE
  */
 ?>
-
-<header>
-    @if (Request::is('/'))
-
-    @else
-
-    @endif
-</header>
-
 <div class="block header">
     <div class="partners-block">
         <div class="partner-traveller"></div>
