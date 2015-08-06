@@ -62,8 +62,5 @@ if (isset($page->seos) && is_object($page->seos) && isset($page->seos[Config::ge
 <meta name="keywords" content="@yield('keywords')">
 <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
 
-<link rel="icon" type="image/png" href="{{ Config::get('site.theme_path') }}/images/favicon-32x32.png" sizes="32x32">
-<link rel="icon" type="image/png" href="{{ Config::get('site.theme_path') }}/images/favicon-16x16.png" sizes="16x16">
-
 {{ HTML::style(Config::get('site.theme_path').'/styles/vendor.css') }}
 {{ HTML::style(Config::get('site.theme_path').'/styles/main.css') }}
