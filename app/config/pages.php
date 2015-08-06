@@ -31,27 +31,15 @@ return array(
 
         $block_tpls = [
 
-            'first' => [
-                'title' => 'Контакты',
+            'steps' => [
+                'title' => 'Этапы',
                 'fields' => [
-                    'office' => [
-                        'title' => 'Офис',
+                    'title' => [
+                        'title' => 'Состояние',
                         'type' => 'text',
                     ],
-                    'otdel' => [
-                        'title' => 'Отдел продаж',
-                        'type' => 'text',
-                    ],
-                    'email' => [
-                        'title' => 'Email',
-                        'type' => 'text',
-                    ],
-                    'times' => [
-                        'title' => 'Часы работы',
-                        'type' => 'text',
-                    ],
-                    'address' => [
-                        'title' => 'Адрес',
+                    'decs' => [
+                        'title' => 'Описание',
                         'type' => 'text',
                     ],
                 ],
