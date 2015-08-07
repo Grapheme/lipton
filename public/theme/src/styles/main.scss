@@ -6,10 +6,10 @@ body {
 	margin: 0;
 	padding: 0;
 	background-color: #ffe26a;
-	background-image: url(../images/bg-main.jpg);
-	background-position: center 90px;
+	background-image: url(../images/bg-cup.png), url(../images/bg-main.jpg);
+	background-position: right bottom, center 90px;
 	background-repeat: no-repeat;
-	background-size: cover;
+	background-size: initial, cover;
 	min-height: 1024px;
 }
 
@@ -1776,11 +1776,67 @@ input:-ms-input-placeholder {
 
 			.prize {
 				width: 230px;
-				height: 210px;
+				height: 270px;
 				float: left;
 				margin-right: 110px;
-				background: #666;
 				text-align: center;
+
+				.ico {
+					width: 148px;
+					height: 148px;
+					border-radius: 51%;
+					margin: 0 auto 17px;
+
+					&.leo {
+						background-image: url('../images/ico-gain-leo.png');
+					}
+
+					&.spec {
+						background-image: url('../images/ico-gain-spec.png');
+					}
+
+					&.ngt {
+						background-image: url('../images/ico-gain-ngt.png');
+					}
+				}
+
+				p {
+					font-family: 'Intro-regular';
+					font-size: 16px;
+					color: #c90119;
+					text-transform: uppercase;
+					margin: 0 0 10px 0px;
+					padding: 0;
+				}
+
+				a {
+					display: block;
+					width: 136px;
+					height: 50px;
+					margin: 0 auto;
+					background-color: #c90119;
+					color: #ffde00;
+					font-size: 18px;
+					border-width: 0 0 3px 0;
+					border-color: #a40000;
+					border-style: solid;
+					border-radius: 3px;
+					text-transform: uppercase;
+					transition: .1s all;
+					text-decoration: none;
+					text-align: center;
+					line-height: 50px;
+					font-family: 'Intro';
+					cursor: pointer;
+
+					&:hover {
+						background-color: #a40000;
+						color: #c90119;
+						border-width: 3px 0 0 0;
+						border-style: solid;
+						border-color: #c90119;
+					}
+				}
 
 				&:last-child {
 					margin: 0;
