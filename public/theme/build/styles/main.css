@@ -1558,6 +1558,109 @@ input:-ms-input-placeholder {
                 text-align: center;
                 font-size: 13px;
                 color: #ffde00; }
+  .block .profile {
+    width: 910px;
+    height: 510px;
+    margin: 55px auto 0; }
+    .block .profile .profile-head {
+      height: 80px;
+      width: 100%; }
+      .block .profile .profile-head .profile-info {
+        height: 80px;
+        width: 405px;
+        float: left; }
+        .block .profile .profile-head .profile-info .avatar {
+          width: 80px;
+          height: 80px;
+          border-radius: 51%;
+          margin-right: 20px;
+          float: left;
+          background-repeat: no-repeat;
+          background-position: center;
+          background-size: 80px; }
+        .block .profile .profile-head .profile-info h3 {
+          margin: 0 0 5px 0;
+          font-family: 'Intro-regular';
+          color: #c90119;
+          font-size: 18px;
+          text-transform: uppercase; }
+        .block .profile .profile-head .profile-info p {
+          margin: 0 0 14px 0;
+          font-size: 16px; }
+        .block .profile .profile-head .profile-info a {
+          text-decoration: underline; }
+          .block .profile .profile-head .profile-info a:hover {
+            text-decoration: none; }
+      .block .profile .profile-head .request {
+        width: 505px;
+        height: 80px;
+        overflow: hidden; }
+        .block .profile .profile-head .request .note {
+          width: 80px;
+          height: 80px;
+          margin-right: 20px;
+          float: left;
+          background-image: url("../images/ico-note.png"); }
+        .block .profile .profile-head .request h3 {
+          margin: 0 0 16px 0;
+          font-family: 'Intro-regular';
+          color: #c90119;
+          font-size: 18px;
+          text-transform: uppercase; }
+        .block .profile .profile-head .request a {
+          display: block;
+          float: left;
+          font-size: 16px; }
+        .block .profile .profile-head .request .moderation {
+          float: right;
+          font-size: 12px;
+          color: transparent;
+          margin-top: 5px;
+          margin-right: 35px; }
+          .block .profile .profile-head .request .moderation .bullet {
+            width: 8px;
+            height: 8px;
+            border-radius: 51%;
+            float: left;
+            margin-right: 5px;
+            margin-top: 3px;
+            background-color: transparent; }
+          .block .profile .profile-head .request .moderation.positive {
+            color: #2e8d00; }
+            .block .profile .profile-head .request .moderation.positive .bullet {
+              background-color: #2e8d00; }
+          .block .profile .profile-head .request .moderation.negative {
+            color: #c90119; }
+            .block .profile .profile-head .request .moderation.negative .bullet {
+              background-color: #c90119; }
+          .block .profile .profile-head .request .moderation.neutral {
+            color: #6c6b6b; }
+            .block .profile .profile-head .request .moderation.neutral .bullet {
+              background-color: #6c6b6b; }
+    .block .profile .profile-border {
+      margin: 50px auto;
+      width: 890px;
+      height: 9px;
+      background-image: url("../images/bg-profile-border.png"); }
+    .block .profile h3 {
+      text-align: center;
+      text-transform: uppercase;
+      color: #c90119;
+      font-family: 'Intro-regular';
+      font-size: 21px; }
+    .block .profile .gained-prizes {
+      overflow: hidden;
+      width: 100%;
+      height: 270px; }
+      .block .profile .gained-prizes .prize {
+        width: 230px;
+        height: 210px;
+        float: left;
+        margin-right: 110px;
+        background: #666;
+        text-align: center; }
+        .block .profile .gained-prizes .prize:last-child {
+          margin: 0; }
 
 /* MODULES CUSTOMISATION */
 .ui-selectmenu-button span.ui-selectmenu-text {

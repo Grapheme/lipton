@@ -55,8 +55,7 @@ $( document ).ready(function() {
 // PROMO-CODE FORM VALIDATION //
 
   var auth = $('#promo-code-form').attr('data-user-auth');
-    var redirectUrl = $('').attr('data-redirect-authorization');
-    // var redirectUrlCabinet = $('').attr('data-redirect-cabinet');
+    var redirectUrl = $('#promo-code-form button').attr('data-redirect-authorization');
     
   $('form.promo-code').validate({
     rules: {
@@ -98,10 +97,12 @@ $( document ).ready(function() {
         $.cookie('firstCodeCookie', firstCodeCookie);
         // var cookiePromo = $.cookie('firstCodeCookie'); // wright cookie cookie into var
         // console.log('Кука: ' + cookiePromo);
+        if(redirectUrl) {
           function goToAuthorization () {
             window.location.href = redirectUrl;
           };
           setTimeout(goToAuthorization, 3000);
+        }
       }
     }
   });
@@ -126,10 +127,12 @@ $( document ).ready(function() {
       var options = {
         success: function(data){
           console.log(data.responseTextSuccsess);
-            function goToCabinet () {
-              window.location.href = data.redirect;
-            };
-            setTimeout(goToCabinet, 3000);
+            if(data.redirect) {
+              function goToCabinet () {
+                window.location.href = data.redirect;
+              };
+              setTimeout(goToCabinet, 3000);
+            }
         },
         error: function(data) {
           $('.promo-code-2 button').removeClass('loading');
@@ -165,10 +168,12 @@ $( document ).ready(function() {
       $('.promo-code-2 button').addClass('loading');
       var options = {
         success: function(data){
+          if(data.redirect) {
             function goToCabinet () {
               window.location.href = data.redirect;
             };
             setTimeout(goToCabinet, 3000);
+          }
         },
         error: function(data) {
           $('.promo-code-2 button').removeClass('loading');
@@ -224,10 +229,12 @@ $( document ).ready(function() {
       $('form.full-registration button').addClass('loading');
       var options = {
         success: function(data){
+          if(data.redirect) {
             function goToCabinet () {
               window.location.href = data.redirect;
             };
             setTimeout(goToCabinet, 3000);
+          }
         },
         error: function(data) {
           $('form.full-registration button').removeClass('loading');
