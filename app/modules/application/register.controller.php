@@ -38,14 +38,14 @@ class RegisterController extends BaseController {
             $validator = Validator::make(Input::all(), Accounts::$rules);
             if ($validator->passes()):
                 if (User::where('email', Input::get('email'))->exists() == FALSE):
-                    $password = Str::random(4);
+                    $password = rand(1111, 9999);
                     $post = Input::all();
                     $post['password'] = Hash::make($password);
                     if ($account = self::getRegisterAccount($post)):
                         Mail::send('emails.auth.signup', array('account' => $account, 'password' => $password,
                             'verified_email' => $post['verified_email']), function ($message) {
                             $message->from(Config::get('mail.from.address'), Config::get('mail.from.name'));
-                            $message->to(Input::get('email'))->subject('Amway - регистрация');
+                            $message->to(Input::get('email'))->subject('Lipton - регистрация');
                         });
                         self::createULogin($account->id, $post);
                         Auth::loginUsingId($account->id, TRUE);
