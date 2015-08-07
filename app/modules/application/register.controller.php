@@ -37,9 +37,6 @@ class RegisterController extends BaseController {
         if (Request::ajax()):
             $validator = Validator::make(Input::all(), Accounts::$rules);
             if ($validator->passes()):
-
-                Helper::tad(Input::all());
-
                 if (User::where('email', Input::get('email'))->exists() == FALSE):
                     $password = Str::random(4);
                     $post = Input::all();
@@ -91,14 +88,14 @@ class RegisterController extends BaseController {
         if (!is_null($post)):
             $user->group_id = Group::where('name', 'participant')->pluck('id');
             $user->name = $post['name'];
-            $user->surname = '';
+            $user->surname = $post['surname'];
             $user->email = $post['email'];
             $user->active = $post['verified_email'] == 1 ? 1 : 0;
 
-            $user->location = $post['location'];
-            $user->age = $post['age'];
             $user->phone = $post['phone'];
-            $user->social = !empty($post['social']) ? json_encode($post['social']) : json_encode(array());
+            $user->sex = $post['sex'];
+            $bdate = (new myDateTime())->setDateString($post['yyyy'].'-'.$post['mm'].'-'.$post['dd'])->format('Y-m-d');
+            $user->bdate = $bdate;
 
             $user->password = $post['password'];
             $user->photo = '';
@@ -122,9 +119,9 @@ class RegisterController extends BaseController {
             $ulogin->identity = $post['identity'];
             $ulogin->email = $post['email'];
             $ulogin->first_name = $post['name'];
-            $ulogin->last_name = '';
+            $ulogin->last_name = $post['surname'];
             $ulogin->nickname = '';
-            $ulogin->city = $post['location'];
+            $ulogin->city = '';
             $ulogin->photo = $post['photo'];
             $ulogin->photo_big = $post['photo_big'];
             $ulogin->profile = $post['profile'];
@@ -133,8 +130,8 @@ class RegisterController extends BaseController {
             $ulogin->verified_email = $post['verified_email'];
             $ulogin->token_secret = '';
 
-            $ulogin->bdate = '';
-            $ulogin->sex = 0;
+            $ulogin->bdate = $post['yyyy'].'-'.$post['mm'].'-'.$post['dd'];
+            $ulogin->sex = $post['sex'];
 
             $ulogin->save();
             $ulogin->touch();
