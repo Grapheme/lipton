@@ -13,13 +13,13 @@
             <div class="content">
                 <div class="participate-block">
                     <h2>{{ $page->seo->h1 }}</h2>
-
+                    @if(Auth::guest())
                     <div class="forms-holder">
                         @include(Helper::layout('forms.auth'))
                         <div class="devider"></div>
                         <div class="login-block">
                             <h3>Нет учетной записи?</h3>
-                            <a href="{{ pageurl('registration') }}" class="login">Зарегистрироваться</a>
+                            <a href="{{ pageurl('registering') }}" class="login">Зарегистрироваться</a>
 
                             <h3>Войти через соцсеть</h3>
 
@@ -31,10 +31,18 @@
                             </div>
                         </div>
                     </div>
+                    @endif
                 </div>
             </div>
         </div>
     </div>
 @stop
 @section('scripts')
+@if(Auth::check()):
+    <script type="application/javascript">
+        $(function(){
+            window.location.href = '{{ URL::route('dashboard') }}';
+        })
+    </script>
+@endif
 @stop
