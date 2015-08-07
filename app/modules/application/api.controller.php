@@ -30,11 +30,14 @@ class ApiController extends BaseController {
     }
 
     /****************************************************************************/
-    public static function returnInfo() {}
+    public static function returnInfo() {
+    }
 
-    public static function returnMenu() {}
+    public static function returnMenu() {
+    }
 
-    public static function returnActions() {}
+    public static function returnActions() {
+    }
 
     /****************************************************************************/
     public function debug($method = 'config') {
@@ -52,7 +55,7 @@ class ApiController extends BaseController {
         Helper::ta($this->headers);
     }
 
-    private function create_xml($xml, array $vars = []){
+    private function create_xml($xml, array $vars = []) {
 
         if (is_null($xml)):
             $this->xml = new SimpleXMLElement('<?xml version="1.0" encoding="UTF-8"?><response/>');
@@ -162,17 +165,18 @@ class ApiController extends BaseController {
         endif;
         $uri_request = $this->config['server_url'] . '/v2/customers?operation=Unilever.FillSlimProfile';
         ob_start();
-?><customer>
-    <name last="Харсеев" first="Владимир" middle="Александрович" />
-    <sex>male</sex>
-    <email>test@test.ru</email>
-    <birthdate year="1980" month="06" day="20" />
-    <password value="123456" value2="123456" />
-    <subscription isActiveForCurrentBrand="true" />
-    <externalIdentities>
-        <externalIdentity provider="vkontakte" value="123456" />
-    </externalIdentities>
-</customer><?php
+        ?>
+        <customer>
+            <name last="Харсеев" first="Владимир" middle="Александрович"/>
+            <sex>male</sex>
+            <email>test@test.ru</email>
+            <birthdate year="1980" month="06" day="20"/>
+            <password value="123456" value2="123456"/>
+            <subscription isActiveForCurrentBrand="true"/>
+            <externalIdentities>
+                <externalIdentity provider="vkontakte" value="123456"/>
+            </externalIdentities>
+        </customer><?php
         $xml = ob_get_clean();
         $this->strlen_xml = mb_strlen($xml);
         Helper::ta(self::curlHandle());
