@@ -13,21 +13,16 @@ class SocialController extends BaseController {
         Route::post('social-signin', ['as' => 'signin.ulogin', 'uses' => $class . '@postUlogin']);
     }
 
-    public static function returnShortCodes() {
-    }
+    public static function returnShortCodes() {}
 
-    public static function returnActions() {
-    }
+    public static function returnActions() {}
 
-    public static function returnInfo() {
-    }
+    public static function returnInfo() {}
 
-    public static function returnMenu() {
-    }
+    public static function returnMenu() {}
 
     /****************************************************************************/
-    public function __construct() {
-    }
+    public function __construct() {}
 
     /****************************************************************************/
     public function postUlogin() {
@@ -35,7 +30,7 @@ class SocialController extends BaseController {
         $_user = json_decode(file_get_contents('http://ulogin.ru/token.php?token=' . Input::get('token') . '&host=' . $_SERVER['HTTP_HOST']), true);
         $validate = Validator::make([], []);
         if (isset($_user['error'])):
-            return Redirect::to('/#popup=enter');
+            return Redirect::to(URL::route('page','registering'));
         endif;
         if ($check = Ulogin::where('identity', '=', $_user['identity'])->first()):
             Auth::loginUsingId($check->user_id, true);
@@ -50,21 +45,22 @@ class SocialController extends BaseController {
                 'email' => 'required|unique:ulogin|unique:users');
             $validate = Validator::make($_user, $rules);
             if ($validate->passes()):
-                return Redirect::to('/#popup=reg')
+                return Redirect::to(URL::route('page','registering'))
                     ->with('token', Input::get('token'))
                     ->with('email', $_user['email'])
                     ->with('identity', $_user['identity'])
                     ->with('profile', $_user['profile'])
                     ->with('first_name', $_user['first_name'])
                     ->with('last_name', $_user['last_name'])
-                    ->with('city', $_user['city'])
+                    ->with('sex', $_user['sex'])
+                    ->with('bdate', $_user['bdate'])
                     ->with('uid', $_user['uid'])
                     ->with('photo_big', $_user['photo_big'])
                     ->with('photo', $_user['photo'])
                     ->with('network', $_user['network'])
                     ->with('verified_email', $_user['verified_email']);
             else:
-                return Redirect::to('/#popup=enter');
+                return Redirect::to(URL::route('page','registering'));
             endif;
         endif;
     }
