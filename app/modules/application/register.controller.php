@@ -17,35 +17,17 @@ class RegisterController extends BaseController {
         });
     }
 
-    public static function returnShortCodes() {
-    }
+    public static function returnShortCodes() {}
 
-    public static function returnActions() {
-    }
+    public static function returnActions() {}
 
-    public static function returnInfo() {
-    }
+    public static function returnInfo() {}
 
-    public static function returnMenu() {
-    }
+    public static function returnMenu() {}
 
     /****************************************************************************/
 
-    public function __construct() {
-
-        $this->module = array(
-            'name' => self::$name,
-            'group' => self::$group,
-            'rest' => self::$group,
-            'tpl' => static::returnTpl(),
-            'gtpl' => static::returnTpl(),
-            'class' => __CLASS__,
-
-            'entity' => self::$entity,
-            'entity_name' => self::$entity_name,
-        );
-        View::share('module', $this->module);
-    }
+    public function __construct() {}
 
     /****************************************************************************/
 
@@ -55,6 +37,9 @@ class RegisterController extends BaseController {
         if (Request::ajax()):
             $validator = Validator::make(Input::all(), Accounts::$rules);
             if ($validator->passes()):
+
+                Helper::tad(Input::all());
+
                 if (User::where('email', Input::get('email'))->exists() == FALSE):
                     $password = Str::random(4);
                     $post = Input::all();
