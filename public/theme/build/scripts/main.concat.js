@@ -1530,10 +1530,11 @@ $( document ).ready(function() {
         required: 'Необходимо заполнить это поле!',
       }
     },
-
+console.log(1);    
     submitHandler: function(form) {
       $('form.registration button').addClass('loading');
       var options = {
+console.log(2); 
         success: function(data){
           if(data.redirect) {
             function goToCabinet () {
@@ -1543,11 +1544,14 @@ $( document ).ready(function() {
           }
         },
         error: function(data) {
+console.log(3); 
           $('form.registration button').removeClass('loading');
           // ERROR
         }
       };
+console.log(4); 
       $(form).ajaxSubmit(options);
+console.log(5); 
     }
   });
 
