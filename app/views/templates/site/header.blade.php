@@ -16,7 +16,9 @@
     @endif
     </div>
     <div class="icons-block">
-        <a href="#" class="ico-account"></a>
+        @if(Auth::check())
+        <a href="{{ URL::route('dashboard') }}" class="ico-account"></a>
+        @endif
         <div href="#" class="ico-burger"></div>
     </div>
     <div class="right-menu-holder">
