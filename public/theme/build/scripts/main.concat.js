@@ -1532,7 +1532,7 @@ $( document ).ready(function() {
     },
 
     submitHandler: function(form) {
-      $('.promo-code-2 button').addClass('loading');
+      $('form.registration button').addClass('loading');
       var options = {
         success: function(data){
           if(data.redirect) {
@@ -1543,7 +1543,7 @@ $( document ).ready(function() {
           }
         },
         error: function(data) {
-          $('.promo-code-2 button').removeClass('loading');
+          $('form.registration button').removeClass('loading');
           // ERROR
         }
       };
