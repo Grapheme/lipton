@@ -41,6 +41,13 @@ class RegisterController extends BaseController {
                     $password = rand(1111, 9999);
                     $post = Input::all();
                     $post['password'] = Hash::make($password);
+                    $api = new ApiController();
+                    if($api->send_register($post)):
+
+                        $json_request['responseText'] = 'Ошибка связи с сервером регистрации.';
+                        return Response::json($json_request, 200);
+                    endif;
+                    exit;
                     if ($account = self::getRegisterAccount($post)):
                         Mail::send('emails.auth.signup', array('account' => $account, 'password' => $password,
                             'verified_email' => $post['verified_email']), function ($message) {
