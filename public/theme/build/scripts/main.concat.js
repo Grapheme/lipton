@@ -1510,13 +1510,15 @@ $( document ).ready(function() {
 
 // LOGIN FORM VALIDATION //
 
-  $('form.registration-form').validate({
+  $('form.registration').validate({
     rules: {
       login: {
         required: true,
+        email: true,
       },
       password: {
         required: true,
+        minlength: 4
       }
     },
 
