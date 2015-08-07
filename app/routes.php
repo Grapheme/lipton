@@ -37,6 +37,12 @@ Route::group(array('before' => 'guest', 'prefix' => ''), function(){
 Route::get('login', array('before' => 'login', 'as' => 'login', 'uses' => 'GlobalController@loginPage'));
 Route::get('logout', array('before' => 'auth', 'as' => 'logout', 'uses' => 'GlobalController@logout'));
 
+
+
+Route::any('post-log', function(){
+    Log::info('POST', Input::all());
+});
+
 #################################################################
 
 /**
