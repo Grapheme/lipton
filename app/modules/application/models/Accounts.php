@@ -3,8 +3,8 @@
 class Accounts extends \User {
 
     public static $rules = array(
-        'name' => 'required', 'email' => 'required|email', 'location' => 'required', 'age' => 'required',
-        'phone' => 'required', 'agree1' => 'required', 'agree2' => 'required'
+        'name' => 'required', 'surname' => 'required', 'email' => 'required|email', 'dd' => 'required', 'mm' => 'required',
+        'phone' => 'required', 'acceptCheckbox' => 'required', 'sex' => 'required', 'yyyy' => 'required'
     );
 
     public function ulogin() {
