@@ -279,5 +279,23 @@ class ApiController extends BaseController {
             return FALSE;
         endif;
     }
+
+    public function activateEmail($params){
+
+        if (empty($params)):
+            App::abort(404);
+        endif;
+        $uri_request = $this->config['server_url'] . "/v2/customers/current/ticket?ticket=$params";
+        $result = $this->postCurl($uri_request);
+        if($this->validCode($result)):
+            return TRUE;
+        else:
+            Config::set('api.message', 'Возникла ошибка на сервере регистрации.');
+            if($message = $this->getErrorMessage($result)):
+                Config::set('api.message', $message);
+            endif;
+            return FALSE;
+        endif;
+    }
     /****************************************************************************/
 }
