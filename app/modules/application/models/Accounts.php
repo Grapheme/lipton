@@ -11,4 +11,14 @@ class Accounts extends \User {
 
         return $this->hasOne('Ulogin', 'user_id', 'id');
     }
+
+    public function prizes(){
+
+        return $this->hasMany('UserPrizes','user_id','id');
+    }
+
+    public function writing(){
+
+        return $this->hasMany('UserWritings','user_id','id');
+    }
 }

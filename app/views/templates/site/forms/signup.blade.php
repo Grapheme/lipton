@@ -12,6 +12,7 @@
 {{ Form::hidden('photo', Session::get('photo')) }}
 {{ Form::hidden('network', Session::get('network')) }}
 {{ Form::hidden('verified_email', Session::has('verified_email') ? Session::get('verified_email') : 0) }}
+{{ Form::hidden('promo-code', isset($_COOKIE['firstCodeCookie']) ? str_replace(' ', '', $_COOKIE['firstCodeCookie']) : '' ) }}
 <div class="form-block-left">
     <p class="field-title required">Фамилия</p>
     {{ Form::text('surname', trim(Session::get('last_name')), array('for'=>'full-registration-form','autocomplete'=>'off')) }}

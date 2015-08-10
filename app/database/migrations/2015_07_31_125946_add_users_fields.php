@@ -9,6 +9,7 @@ class AddUsersFields extends Migration {
 		Schema::table('users', function(Blueprint $table){
 			$table->integer('sex')->unsigned()->default(0)->nullable();
 			$table->string('phone', 20)->nullable();
+			$table->string('city', 50)->nullable();
 			$table->timestamp('bdate')->nullable();
 
 			$table->integer('remote_id')->after('id')->unsigned()->default(0)->nullable();
