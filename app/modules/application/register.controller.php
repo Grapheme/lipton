@@ -38,8 +38,17 @@ class RegisterController extends BaseController {
             $validator = Validator::make(Input::all(), Accounts::$rules);
             if ($validator->passes()):
                 if (User::where('email', Input::get('email'))->exists() == FALSE):
-                    $password = rand(1111, 9999);
+                    $password = Str::random(8);
                     $post = Input::all();
+                    $post['password'] = $password;
+                    $api = (new ApiController())->send_register($post);
+                    if($api === FALSE):
+                        $json_request['responseText'] = Config::get('api.message');
+                        return Response::json($json_request, 200);
+                    elseif(is_array($api)):
+                        $post['remote_id'] = @$api['id'];
+                        $post['sessionKey'] = @$api['sessionKey'];
+                    endif;
                     $post['password'] = Hash::make($password);
                     if ($account = self::getRegisterAccount($post)):
                         Mail::send('emails.auth.signup', array('account' => $account, 'password' => $password,
@@ -96,6 +105,9 @@ class RegisterController extends BaseController {
             $user->sex = $post['sex'];
             $bdate = (new myDateTime())->setDateString($post['yyyy'].'-'.$post['mm'].'-'.$post['dd'])->format('Y-m-d');
             $user->bdate = $bdate;
+
+            $user->remote_id = @$post['remote_id'];
+            $user->sessionKey = @$post['sessionKey'];
 
             $user->password = $post['password'];
             $user->photo = '';
