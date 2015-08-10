@@ -12,6 +12,8 @@ class RegisterController extends BaseController {
         Route::group(array('before' => 'guest', 'prefix' => ''), function () use ($class) {
             Route::post('registration', array('before' => 'csrf', 'as' => 'signup.participant',
                 'uses' => $class . '@signup'));
+        });
+        Route::group(array('before' => '', 'prefix' => ''), function () use ($class) {
             Route::get('registration/activation/{activate_code}', array('as' => 'signup-activation',
                 'uses' => $class . '@activation'));
         });
@@ -51,11 +53,13 @@ class RegisterController extends BaseController {
                     endif;
                     $post['password'] = Hash::make($password);
                     if ($account = self::getRegisterAccount($post)):
-                        Mail::send('emails.auth.signup', array('account' => $account, 'password' => $password,
-                            'verified_email' => $post['verified_email']), function ($message) {
-                            $message->from(Config::get('mail.from.address'), Config::get('mail.from.name'));
-                            $message->to(Input::get('email'))->subject('Lipton - регистрация');
-                        });
+                        if (Config::get('directcrm.send_local_messages')):
+                            Mail::send('emails.auth.signup', array('account' => $account, 'password' => $password,
+                                'verified_email' => $post['verified_email']), function ($message) {
+                                $message->from(Config::get('mail.from.address'), Config::get('mail.from.name'));
+                                $message->to(Input::get('email'))->subject('Lipton - регистрация');
+                            });
+                        endif;
                         self::createULogin($account->id, $post);
                         Auth::loginUsingId($account->id, TRUE);
                         $json_request['redirect'] = URL::to(AuthAccount::getGroupStartUrl());
@@ -74,19 +78,16 @@ class RegisterController extends BaseController {
         return Response::json($json_request, 200);
     }
 
-    public function activation($temporary_key = '') {
+    public function activation($ticket) {
 
-        if ($account = User::where('active', 0)->where('temporary_code', $temporary_key)->where('code_life', '>=', time())->first()
-        ):
-            $account->code_life = 0;
-            $account->temporary_code = '';
-            $account->active = 1;
-            $account->save();
-            $account->touch();
-            Auth::login($account, TRUE);
-            return Redirect::to(AuthAccount::getGroupStartUrl());
+        $api = (new ApiController())->activateEmail($ticket);
+        if($api === FALSE):
+            return Redirect::to('/')->with('message', Config::get('api.message'));
+        endif;
+        if(Auth::check()):
+            return Redirect::route('dashboard');
         else:
-            return Redirect::to('/')->with('message.status', 'error')->with('message.text', 'Код активации не действителен.');
+            return Redirect::to('/');
         endif;
     }
 
@@ -112,8 +113,8 @@ class RegisterController extends BaseController {
             $user->password = $post['password'];
             $user->photo = '';
             $user->thumbnail = '';
-            $user->temporary_code = Str::random(24);
-            $user->code_life = myDateTime::getFutureDays(5);
+            $user->temporary_code = '';
+            $user->code_life = '';
             $user->save();
             $user->touch();
             return $user;

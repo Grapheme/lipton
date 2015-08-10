@@ -15,5 +15,7 @@ return array(
         )
     ),
     'server_url' => 'https://unilever-services.staging.directcrm.ru',
-    'host' => 'unilever-services.staging.directcrm.ru'
+    'host' => 'unilever-services.staging.directcrm.ru',
+
+    'send_local_messages' => FALSE
 );

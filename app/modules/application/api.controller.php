@@ -50,14 +50,14 @@ class ApiController extends BaseController {
     }
 
     /****************************************************************************/
-    private function validCode($result, $code = NULL){
+    private function validCode($result, $code = NULL) {
 
         if (isset($result['curl_info']['http_code'])):
-            if(is_null($code)):
+            if (is_null($code)):
                 if ($result['curl_info']['http_code'] >= 200 && $result['curl_info']['http_code'] <= 299):
                     return TRUE;
                 endif;
-            elseif($result['curl_info']['http_code'] == $code):
+            elseif ($result['curl_info']['http_code'] == $code):
                 return TRUE;
             endif;
         endif;
@@ -73,21 +73,22 @@ class ApiController extends BaseController {
         endif;
         return FALSE;
     }
+
     /****************************************************************************/
     public function config() {
 
         Helper::ta($this->headers);
     }
 
-    private function getErrorMessage($result){
+    private function getErrorMessage($result) {
 
         if (isset($result['curl_result'])):
             $xml_object = new SimpleXMLElement($result['curl_result']);
             $message = array();
-            foreach($xml_object->validationError as $messages):
-                $message[] = (string) $messages->message;
+            foreach ($xml_object->validationError as $messages):
+                $message[] = (string)$messages->message;
             endforeach;
-            if(!empty($message)):
+            if (!empty($message)):
                 return implode("<br>\n", $message);
             endif;
         endif;
@@ -122,7 +123,7 @@ class ApiController extends BaseController {
         if (isset($xml)):
             $xml_object = new SimpleXMLElement($xml);
             $return_value = array();
-            if(empty($items)):
+            if (empty($items)):
                 foreach ($xml_object as $item => $item_value):
                     if ($item == $value):
                         if (!is_null($tag)):
@@ -142,12 +143,12 @@ class ApiController extends BaseController {
 
         if (isset($xml)):
             $xml_object = new SimpleXMLElement($xml);
-            if(empty($items)):
-                return (string) $xml_object->$value;
-            elseif(is_string($items)):
-                return (string) $xml_object->$items->$value;
-            elseif(is_array($items)):
-                foreach($items as $item):
+            if (empty($items)):
+                return (string)$xml_object->$value;
+            elseif (is_string($items)):
+                return (string)$xml_object->$items->$value;
+            elseif (is_array($items)):
+                foreach ($items as $item):
                     print_r($item);
                     exit;
                 endforeach;
@@ -219,11 +220,11 @@ class ApiController extends BaseController {
     /****************************************************************************/
     /***************************** Регистрация **********************************/
     /****************************************************************************/
-    public function availableOperations(){
+    public function availableOperations() {
 
         $uri_request = $this->config['server_url'] . '/v2/customers/current/available-operations';
         $result = $this->getCurl($uri_request);
-        return $this->getXmlValues($result,'','allowedOperation', 'name');
+        return $this->getXmlValues($result, '', 'allowedOperation', 'name');
 
     }
 
@@ -240,7 +241,7 @@ class ApiController extends BaseController {
 
     public function send_register(array $params = [], $operation = 'Unilever.FillSlimProfile') {
 
-        if($this->validAvailableOperation($operation) === FALSE):
+        if ($this->validAvailableOperation($operation) === FALSE):
             Config::set('api.message', 'Операция добавление новых пользователей недоступна.');
             return FALSE;
         endif;
@@ -250,30 +251,50 @@ class ApiController extends BaseController {
         $uri_request = $this->config['server_url'] . "/v2/customers?operation=$operation";
         $sex = array('none', 'female', 'male');
         ob_start();
-?><customer>
-<name last="<?= $params['surname']; ?>" first="<?= $params['name']; ?>" middle=""/>
-<sex><?= @$sex[$params['sex']]; ?></sex>
-<email><?= $params['email']; ?></email>
-<birthdate year="<?= (int) $params['yyyy']; ?>" month="<?= (int) $params['mm']; ?>" day="<?= (int) $params['dd']; ?>"/>
-<password value="<?= $params['password']; ?>" value2="<?= $params['password']; ?>"/>
-<subscription isActiveForCurrentBrand="true"/>
-<?php if (isset($params['network']) && !empty($params['network']) && isset($params['uid']) && !empty($params['uid'])): ?>
-<externalIdentities>
-<externalIdentity provider="<?= $params['network']; ?>" value="<?= $params['uid']; ?>"/>
-</externalIdentities>
-<?php endif; ?>
-</customer><?php
+        ?>
+        <customer>
+        <name last="<?= $params['surname']; ?>" first="<?= $params['name']; ?>" middle=""/>
+        <sex><?= @$sex[$params['sex']]; ?></sex>
+        <email><?= $params['email']; ?></email>
+        <birthdate year="<?= (int)$params['yyyy']; ?>" month="<?= (int)$params['mm']; ?>"
+                   day="<?= (int)$params['dd']; ?>"/>
+        <password value="<?= $params['password']; ?>" value2="<?= $params['password']; ?>"/>
+        <subscription isActiveForCurrentBrand="true"/>
+        <?php if (isset($params['network']) && !empty($params['network']) && isset($params['uid']) && !empty($params['uid'])): ?>
+            <externalIdentities>
+                <externalIdentity provider="<?= $params['network']; ?>" value="<?= $params['uid']; ?>"/>
+            </externalIdentities>
+        <?php endif; ?>
+        </customer><?php
         $xml = ob_get_clean();
         $this->strlen_xml = strlen($xml);
         $result = $this->postCurl($uri_request, $xml);
-        if($this->validCode($result, 201)):
+        if ($this->validCode($result, 201)):
             $user = array();
             $user['id'] = $this->getXmlValue($result['curl_result'], '', 'id');
             $user['sessionKey'] = $this->getXmlValue($result['curl_result'], '', 'sessionKey');
             return $user;
         else:
             Config::set('api.message', 'Возникла ошибка на сервере регистрации.');
-            if($message = $this->getErrorMessage($result)):
+            if ($message = $this->getErrorMessage($result)):
+                Config::set('api.message', $message);
+            endif;
+            return FALSE;
+        endif;
+    }
+
+    public function activateEmail($params) {
+
+        if (empty($params)):
+            App::abort(404);
+        endif;
+        $uri_request = $this->config['server_url'] . "/v2/customers/current/ticket?ticket=$params";
+        $result = $this->postCurl($uri_request);
+        if ($this->validCode($result)):
+            return TRUE;
+        else:
+            Config::set('api.message', 'Возникла ошибка на сервере регистрации.');
+            if ($message = $this->getErrorMessage($result)):
                 Config::set('api.message', $message);
             endif;
             return FALSE;
