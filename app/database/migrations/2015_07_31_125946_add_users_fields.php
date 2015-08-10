@@ -12,7 +12,7 @@ class AddUsersFields extends Migration {
 			$table->timestamp('bdate')->nullable();
 
 			$table->integer('remote_id')->after('id')->unsigned()->default(0)->nullable();
-			$table->string('sessionKey', 255)->nullable();
+			$table->text('sessionKey')->nullable();
 		});
 	}
 

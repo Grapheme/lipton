@@ -19,17 +19,22 @@ class RegisterController extends BaseController {
         });
     }
 
-    public static function returnShortCodes() {}
+    public static function returnShortCodes() {
+    }
 
-    public static function returnActions() {}
+    public static function returnActions() {
+    }
 
-    public static function returnInfo() {}
+    public static function returnInfo() {
+    }
 
-    public static function returnMenu() {}
+    public static function returnMenu() {
+    }
 
     /****************************************************************************/
 
-    public function __construct() {}
+    public function __construct() {
+    }
 
     /****************************************************************************/
 
@@ -44,10 +49,10 @@ class RegisterController extends BaseController {
                     $post = Input::all();
                     $post['password'] = $password;
                     $api = (new ApiController())->send_register($post);
-                    if($api === FALSE):
+                    if ($api === FALSE):
                         $json_request['responseText'] = Config::get('api.message');
                         return Response::json($json_request, 200);
-                    elseif(is_array($api)):
+                    elseif (is_array($api)):
                         $post['remote_id'] = @$api['id'];
                         $post['sessionKey'] = @$api['sessionKey'];
                     endif;
@@ -81,10 +86,16 @@ class RegisterController extends BaseController {
     public function activation($ticket) {
 
         $api = (new ApiController())->activateEmail($ticket);
-        if($api === FALSE):
+        if ($api === FALSE):
             return Redirect::to('/')->with('message', Config::get('api.message'));
+        else:
+            if ($account = User::where('remote_id', $api['id'])->first()):
+                $account->remote_id = $api['id'];
+                $account->sessionKey = $api['sessionKey'];
+                $account->save();
+            endif;
         endif;
-        if(Auth::check()):
+        if (Auth::check()):
             return Redirect::route('dashboard');
         else:
             return Redirect::to('/');
@@ -104,7 +115,7 @@ class RegisterController extends BaseController {
 
             $user->phone = $post['phone'];
             $user->sex = $post['sex'];
-            $bdate = (new myDateTime())->setDateString($post['yyyy'].'-'.$post['mm'].'-'.$post['dd'])->format('Y-m-d');
+            $bdate = (new myDateTime())->setDateString($post['yyyy'] . '-' . $post['mm'] . '-' . $post['dd'])->format('Y-m-d');
             $user->bdate = $bdate;
 
             $user->remote_id = @$post['remote_id'];
@@ -143,7 +154,7 @@ class RegisterController extends BaseController {
             $ulogin->verified_email = $post['verified_email'];
             $ulogin->token_secret = '';
 
-            $ulogin->bdate = $post['yyyy'].'-'.$post['mm'].'-'.$post['dd'];
+            $ulogin->bdate = $post['yyyy'] . '-' . $post['mm'] . '-' . $post['dd'];
             $ulogin->sex = $post['sex'];
 
             $ulogin->save();
