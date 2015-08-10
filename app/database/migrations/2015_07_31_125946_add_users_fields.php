@@ -10,6 +10,9 @@ class AddUsersFields extends Migration {
 			$table->integer('sex')->unsigned()->default(0)->nullable();
 			$table->string('phone', 20)->nullable();
 			$table->timestamp('bdate')->nullable();
+
+			$table->integer('remote_id')->after('id')->unsigned()->default(0)->nullable();
+			$table->string('sessionKey', 255)->nullable();
 		});
 	}
 
@@ -18,6 +21,8 @@ class AddUsersFields extends Migration {
 			$table->dropColumn('sex');
 			$table->dropColumn('phone');
 			$table->dropColumn('bdate');
+			$table->dropColumn('remote_id');
+			$table->dropColumn('sessionKey');
 		});
 	}
 }

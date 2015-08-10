@@ -50,9 +50,48 @@ class ApiController extends BaseController {
     }
 
     /****************************************************************************/
+    private function validCode($result, $code = NULL){
+
+        if (isset($result['curl_info']['http_code'])):
+            if(is_null($code)):
+                if ($result['curl_info']['http_code'] >= 200 && $result['curl_info']['http_code'] <= 299):
+                    return TRUE;
+                endif;
+            elseif($result['curl_info']['http_code'] == $code):
+                return TRUE;
+            endif;
+        endif;
+        return FALSE;
+    }
+
+    private function validAvailableOperation($operation) {
+
+        if ($operations = $this->availableOperations()):
+            if (in_array($operation, $operations)):
+                return TRUE;
+            endif;
+        endif;
+        return FALSE;
+    }
+    /****************************************************************************/
     public function config() {
 
         Helper::ta($this->headers);
+    }
+
+    private function getErrorMessage($result){
+
+        if (isset($result['curl_result'])):
+            $xml_object = new SimpleXMLElement($result['curl_result']);
+            $message = array();
+            foreach($xml_object->validationError as $messages):
+                $message[] = (string) $messages->message;
+            endforeach;
+            if(!empty($message)):
+                return implode("<br>\n", $message);
+            endif;
+        endif;
+        return FALSE;
     }
 
     private function create_xml($xml, array $vars = []) {
@@ -78,12 +117,43 @@ class ApiController extends BaseController {
         });
     }
 
-    private function getXmlValue($xml, $value) {
+    private function getXmlValues($xml, $item, $value, $tag = NULL) {
 
-        if (is_string($xml)):
-            $xml = new SimpleXMLElement($xml);
+        if (isset($xml)):
+            $xml_object = new SimpleXMLElement($xml);
+            $return_value = array();
+            if(empty($items)):
+                foreach ($xml_object as $item => $item_value):
+                    if ($item == $value):
+                        if (!is_null($tag)):
+                            $return_value[] = (string)$item_value[$tag];
+                        else:
+                            $return_value[] = (string)$item_value->$value;
+                        endif;
+                    endif;
+                endforeach;
+            endif;
+            return $return_value;
         endif;
-        #return $xml->addChild($key, $value);
+        return FALSE;
+    }
+
+    private function getXmlValue($xml, $items, $value) {
+
+        if (isset($xml)):
+            $xml_object = new SimpleXMLElement($xml);
+            if(empty($items)):
+                return (string) $xml_object->$value;
+            elseif(is_string($items)):
+                return (string) $xml_object->$items->$value;
+            elseif(is_array($items)):
+                foreach($items as $item):
+                    print_r($item);
+                    exit;
+                endforeach;
+            endif;
+        endif;
+        return FALSE;
     }
 
     private function handle() {
@@ -108,12 +178,12 @@ class ApiController extends BaseController {
 
         $headers = array();
         foreach (self::handle() as $header => $value):
-            $headers[] = $header . ': ' . $value;
+            $headers[] = trim($header) . ': ' . trim($value);
         endforeach;
         return $headers;
     }
 
-    private function getCurl($url, $post_data = NULL) {
+    private function getCurl($url) {
 
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $url);
@@ -140,13 +210,23 @@ class ApiController extends BaseController {
         endif;
         curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-        $data = curl_exec($ch);
+        $data['curl_result'] = curl_exec($ch);
+        $data['curl_info'] = curl_getinfo($ch);
         curl_close($ch);
         return $data;
     }
+
     /****************************************************************************/
     /***************************** Регистрация **********************************/
     /****************************************************************************/
+    public function availableOperations(){
+
+        $uri_request = $this->config['server_url'] . '/v2/customers/current/available-operations';
+        $result = $this->getCurl($uri_request);
+        return $this->getXmlValues($result,'','allowedOperation', 'name');
+
+    }
+
     public function email_availability(array $params = []) {
 
         if (empty($params)):
@@ -158,32 +238,46 @@ class ApiController extends BaseController {
         return Response::xml([], 200, [], $result);
     }
 
-    public function send_register(array $params = []) {
+    public function send_register(array $params = [], $operation = 'Unilever.FillSlimProfile') {
 
+        if($this->validAvailableOperation($operation) === FALSE):
+            Config::set('api.message', 'Операция добавление новых пользователей недоступна.');
+            return FALSE;
+        endif;
         if (empty($params)):
             App::abort(404);
         endif;
-        $uri_request = $this->config['server_url'] . '/v2/customers?operation=Unilever.FillSlimProfile';
+        $uri_request = $this->config['server_url'] . "/v2/customers?operation=$operation";
+        $sex = array('none', 'female', 'male');
         ob_start();
-        ?>
-        <customer>
-            <name last="Харсеев" first="Владимир" middle="Александрович"/>
-            <sex>male</sex>
-            <email>test@test.ru</email>
-            <birthdate year="1980" month="06" day="20"/>
-            <password value="123456" value2="123456"/>
-            <subscription isActiveForCurrentBrand="true"/>
-            <externalIdentities>
-                <externalIdentity provider="vkontakte" value="123456"/>
-            </externalIdentities>
-        </customer><?php
+?><customer>
+<name last="<?= $params['surname']; ?>" first="<?= $params['name']; ?>" middle=""/>
+<sex><?= @$sex[$params['sex']]; ?></sex>
+<email><?= $params['email']; ?></email>
+<birthdate year="<?= (int) $params['yyyy']; ?>" month="<?= (int) $params['mm']; ?>" day="<?= (int) $params['dd']; ?>"/>
+<password value="<?= $params['password']; ?>" value2="<?= $params['password']; ?>"/>
+<subscription isActiveForCurrentBrand="true"/>
+<?php if (isset($params['network']) && !empty($params['network']) && isset($params['uid']) && !empty($params['uid'])): ?>
+<externalIdentities>
+<externalIdentity provider="<?= $params['network']; ?>" value="<?= $params['uid']; ?>"/>
+</externalIdentities>
+<?php endif; ?>
+</customer><?php
         $xml = ob_get_clean();
-        $this->strlen_xml = mb_strlen($xml);
-        Helper::ta(self::curlHandle());
-        Helper::ta($xml);
-
+        $this->strlen_xml = strlen($xml);
         $result = $this->postCurl($uri_request, $xml);
-        Helper::tad($result);
+        if($this->validCode($result, 201)):
+            $user = array();
+            $user['id'] = $this->getXmlValue($result['curl_result'], '', 'id');
+            $user['sessionKey'] = $this->getXmlValue($result['curl_result'], '', 'sessionKey');
+            return $user;
+        else:
+            Config::set('api.message', 'Возникла ошибка на сервере регистрации.');
+            if($message = $this->getErrorMessage($result)):
+                Config::set('api.message', $message);
+            endif;
+            return FALSE;
+        endif;
     }
     /****************************************************************************/
 }
