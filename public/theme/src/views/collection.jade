@@ -1,0 +1,137 @@
+extends templates/layout
+
+block content
+	.block.second-code
+		.second-code-hack
+		form(class="promo-code promo-code-2" name="promo-code-2")
+			h3 Есть еще один промо-код?
+			.fields-holder 
+				input(type="text" for="promo-code-2" autocomplete="off")
+				button(disabled="disabled") Отправить
+				a(href="#") Отмена
+
+	.block.header
+		.partners-block
+			.partner-traveller
+			.partner-lingualeo
+
+		.content
+			a.logo-main(href="/")
+
+		.icons-block
+			a.ico-account(href="#")
+			.ico-burger(href="#")
+		.right-menu-holder
+			ul.right-menu
+				li
+					a(href="#") Правила акции
+				li
+					a(href="#") FAQ
+				li
+					a(href="#") Галерея призов
+				li
+					a(href="#") Победители
+
+	.block.menu-holder
+		.content
+			ul.top-menu
+				li
+					a(href="#") Чайная коллекция
+				li
+					a(href="#") Мир чая
+				li
+					a(href="#") Goodstarter
+	.main-content.sub-page
+		.block
+			.content
+				h2 Угадай, в какую страну полетят победители
+				.collection
+
+					.country.cuba
+						.photo
+						.tea
+						p Куба
+						.content.cuba
+							.column-left
+								.logo 111
+								.text 111
+							.column-right
+								.tea-pack 111
+					.country.england
+						.photo
+						.tea
+						p Англия
+						.content.england
+							.column-left
+								.logo
+								.text 222
+							.column-right
+								.tea-pack 222
+					.country.china
+						.photo
+						.tea
+						p Китай
+						.content.china
+							.column-left
+								.logo 333
+								.text 333
+							.column-right
+								.tea-pack 333
+					.country.shri
+						.photo
+						.tea
+						p Шри-ланка
+						.content.shri
+							.column-left
+								.logo 444
+								.text 444
+							.column-right
+								.tea-pack 444
+					.country.turkey
+						.photo
+						.tea
+						p Турция
+						.content.turkey
+							.column-left
+								.logo 555
+								.text 555
+							.column-right
+								.tea-pack 555
+					.country.marokko
+						.photo
+						.tea
+						p Марокко
+						.content.marokko
+							.column-left
+								.logo
+								.text Пряный чёрный чай со вкусом мяты и мандарина<br>и слегка горьковатым послевкусием имбиря<br>откроет вам пленительный мир Марокко,<br>полный контрастов и разных культур.
+							.column-right
+								img(src="../images/bg-tea-marokko-big.png")
+
+				.learn-more-popup-holder
+					.learn-more-popup-hack
+					.learn-more-popup
+						a.popup-close-cross(href="#")
+	
+	.block.sub-footer-holder
+		.sub-footer
+			.copyright
+				p ООО «ЮНИЛЕВЕР РУСЬ». ЮРИДИЧЕСКИЙ И ПОЧТОВЫЙ АДРЕС: 123022, Г. МОСКВА, УЛ. СЕРГЕЯ МАКЕЕВА, Д. 13. 
+				p ЭЛЕКТРОННАЯ ПОЧТА: 
+					a(href="mailto:COMMUNICATIONS.RUSSIA@UNILEVER.COM") COMMUNICATIONS.RUSSIA@UNILEVER.COM
+
+			ul.sharing-block
+				li
+					a(href="#") Полные правила акции
+				li
+					a(href="#") Обратная связь
+				li 
+					span Рассказать друзьям
+						
+						a.soc.ok(href="#")
+						a.soc.vk(href="#")
+						a.soc.fb(href="#")
+
+		.footer-decor-left
+		.footer-decor-right
+				

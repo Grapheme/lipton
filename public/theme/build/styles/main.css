@@ -372,7 +372,7 @@ body {
   padding: 0;
   background-color: #ffe26a;
   background-image: url(../images/bg-cup.png), url(../images/bg-main.jpg);
-  background-position: right bottom, center 90px;
+  background-position: calc(100% - 80px) 114px, center 90px;
   background-repeat: no-repeat;
   background-size: initial, cover;
   min-height: 1024px; }
@@ -649,13 +649,13 @@ input:-ms-input-placeholder {
           text-decoration: none;
           font-family: 'Intro-regular'; }
         .block.menu-holder .top-menu li:first-child {
-          padding: 0 41px 0 29px; }
+          padding: 0 36px 0 34px; }
         .block.menu-holder .top-menu li:nth-child(2) {
           padding: 0 38px 0 38px; }
         .block.menu-holder .top-menu li:last-child {
           border: none;
           padding-right: 0;
-          padding: 0 0 0 45px; }
+          padding: 0 0 0 35px; }
           .block.menu-holder .top-menu li:last-child a {
             font-size: 18px; }
   .block.promo-code {
@@ -887,10 +887,10 @@ input:-ms-input-placeholder {
         display: block;
         position: absolute;
         background-image: url("../images/ico-close-popup.png");
-        width: 31px;
-        height: 31px;
-        right: 20px;
-        top: 20px; }
+        width: 39px;
+        height: 38px;
+        right: 30px;
+        top: 30px; }
       .block.second-code form.promo-code-2 h3 {
         text-transform: uppercase;
         font-size: 21px;
@@ -1139,7 +1139,8 @@ input:-ms-input-placeholder {
           float: left; }
         .block .participate-block .forms-holder form.full-registration .accept-block-holder {
           width: 100%;
-          overflow: hidden; }
+          overflow: hidden;
+          clear: both; }
           .block .participate-block .forms-holder form.full-registration .accept-block-holder p {
             display: block;
             margin: 0;
@@ -1249,12 +1250,11 @@ input:-ms-input-placeholder {
     overflow: hidden;
     width: 910px;
     height: 430px;
-    margin-top: 50px;
-    margin-bottom: 164px; }
-    .block .feedback-form-holder form.feedback .input-row {
+    margin: 50px auto 146px; }
+    .block .feedback-form-holder form.feedback .input-row, .block .feedback-form-holder form.story .input-row {
       margin-bottom: 20px;
       overflow: hidden; }
-      .block .feedback-form-holder form.feedback .input-row input {
+      .block .feedback-form-holder form.feedback .input-row input, .block .feedback-form-holder form.story .input-row input {
         width: 285px;
         height: 50px;
         border-radius: 3px;
@@ -1265,7 +1265,7 @@ input:-ms-input-placeholder {
         outline: 0;
         font-size: 14px;
         margin-right: 20px; }
-    .block .feedback-form-holder form.feedback textarea {
+    .block .feedback-form-holder form.feedback textarea, .block .feedback-form-holder form.story textarea {
       width: 904px;
       height: 282px;
       border-radius: 3px;
@@ -1277,8 +1277,8 @@ input:-ms-input-placeholder {
       font-size: 14px;
       display: block;
       margin-bottom: 20px; }
-    .block .feedback-form-holder form.feedback button {
-      width: 136px;
+    .block .feedback-form-holder form.feedback button, .block .feedback-form-holder form.story button {
+      width: 206px;
       height: 50px;
       background-color: #c90119;
       color: #ffde00;
@@ -1294,14 +1294,27 @@ input:-ms-input-placeholder {
       outline: 0;
       line-height: 47px;
       cursor: pointer; }
-      .block .feedback-form-holder form.feedback button:hover {
+      .block .feedback-form-holder form.feedback button:hover, .block .feedback-form-holder form.story button:hover {
         background-color: #a40000;
         color: #c90119;
         border-width: 3px 0 0 0;
         border-style: solid;
         border-color: #c90119; }
-      .block .feedback-form-holder form.feedback button.loading {
+      .block .feedback-form-holder form.feedback button.loading, .block .feedback-form-holder form.story button.loading {
         background: #666 !important; }
+  .block form.story {
+    margin: 0 auto;
+    display: block; }
+    .block form.story button {
+      margin: 0 auto;
+      display: block; }
+  .block h3.tell-story-header {
+    font-size: 18px;
+    margin: 50px 0 0 0;
+    color: #c90119;
+    text-align: center;
+    font-family: 'Intro-regular';
+    text-transform: uppercase; }
   .block .prize-gallery {
     width: 100%;
     overflow: hidden;
@@ -1339,13 +1352,13 @@ input:-ms-input-placeholder {
       text-align: center;
       margin-right: 15px; }
       .block .prize-gallery .prize-block.third-place .big-ico {
-        background-image: url("../images/ico-third-place.png"); }
+        background-image: url("../images/ico-gain-leo.png"); }
       .block .prize-gallery .prize-block.second-place .big-ico {
-        background-image: url("../images/ico-second-place.png"); }
+        background-image: url("../images/ico-gain-spec.png"); }
       .block .prize-gallery .prize-block.first-place {
         margin: 0; }
         .block .prize-gallery .prize-block.first-place .big-ico {
-          background-image: url("../images/ico-first-place.png"); }
+          background-image: url("../images/ico-gain-ngt.png"); }
       .block .prize-gallery .prize-block .big-ico {
         width: 224px;
         height: 224px;
@@ -1375,7 +1388,6 @@ input:-ms-input-placeholder {
       height: 215px;
       margin-right: 106px;
       float: left;
-      background-image: url("../images/bg-rule.png");
       background-repeat: no-repeat;
       background-position: center top; }
       .block .rules-row .rule-item h3 {
@@ -1404,20 +1416,29 @@ input:-ms-input-placeholder {
         background-position: center;
         background-repeat: no-repeat;
         margin-bottom: 15px; }
-      .block .rules-row .rule-item.rule-1 .rule-img {
-        background-image: url("../images/ico-step-1.png"); }
-      .block .rules-row .rule-item.rule-2 .rule-img {
-        background-image: url("../images/ico-step-2.png"); }
-      .block .rules-row .rule-item.rule-2:before {
-        top: 73px;
-        background-position: 0 20px; }
-      .block .rules-row .rule-item.rule-3 .rule-img {
-        background-image: url("../images/ico-step-3.png"); }
-      .block .rules-row .rule-item.rule-4 .rule-img {
-        background-image: url("../images/ico-step-4.png"); }
+      .block .rules-row .rule-item.rule-1 {
+        background-image: url("../images/bg-rule-1.png"); }
+        .block .rules-row .rule-item.rule-1 .rule-img {
+          background-image: url("../images/ico-step-1.png"); }
+      .block .rules-row .rule-item.rule-2 {
+        background-image: url("../images/bg-rule-2.png"); }
+        .block .rules-row .rule-item.rule-2 .rule-img {
+          background-image: url("../images/ico-step-2.png"); }
+        .block .rules-row .rule-item.rule-2:before {
+          top: 73px;
+          background-position: 0 20px; }
+      .block .rules-row .rule-item.rule-3 {
+        background-image: url("../images/bg-rule-3.png"); }
+        .block .rules-row .rule-item.rule-3 .rule-img {
+          background-image: url("../images/ico-step-3.png"); }
+      .block .rules-row .rule-item.rule-4 {
+        background-image: url("../images/bg-rule-4.png"); }
+        .block .rules-row .rule-item.rule-4 .rule-img {
+          background-image: url("../images/ico-step-4.png"); }
   .block .rules-text-block {
     overflow: hidden;
-    margin-bottom: 30px; }
+    margin-bottom: 30px;
+    position: relative; }
     .block .rules-text-block p.head {
       color: #c90119;
       font-size: 16px;
@@ -1427,6 +1448,32 @@ input:-ms-input-placeholder {
     .block .rules-text-block p {
       margin-bottom: 25px;
       margin-top: 0; }
+    .block .rules-text-block a.download-block {
+      display: block;
+      position: absolute;
+      width: 200px;
+      height: 50px;
+      right: 0;
+      bottom: 22px;
+      cursor: pointer; }
+      .block .rules-text-block a.download-block:hover h3 {
+        text-decoration: underline; }
+      .block .rules-text-block a.download-block .ico {
+        width: 40px;
+        height: 48px;
+        background-image: url("../images/ico-pdf.png");
+        float: left;
+        margin-right: 20px; }
+      .block .rules-text-block a.download-block h3 {
+        font-family: 'Intro-regular';
+        font-size: 14px;
+        margin: -4px 0 6px 0;
+        text-transform: uppercase; }
+      .block .rules-text-block a.download-block p {
+        color: #000;
+        font-size: 12px;
+        font-family: 'PT Sans', 'Open Sans', Arial;
+        text-transform: capitalize; }
   .block .mosaic-holder {
     position: absolute;
     width: 100%;
@@ -1662,6 +1709,7 @@ input:-ms-input-placeholder {
           width: 148px;
           height: 148px;
           border-radius: 51%;
+          background-size: 148px;
           margin: 0 auto 17px; }
           .block .profile .gained-prizes .prize .ico.leo {
             background-image: url("../images/ico-gain-leo.png"); }
@@ -1704,6 +1752,160 @@ input:-ms-input-placeholder {
             border-color: #c90119; }
         .block .profile .gained-prizes .prize:last-child {
           margin: 0; }
+  .block .collection {
+    width: 620px;
+    height: 560px;
+    position: relative;
+    margin: 0 auto;
+    background-image: url("../images/bg-glowing-plane.png");
+    background-repeat: no-repeat;
+    background-position: -10px 100px; }
+    .block .collection .country {
+      width: 179px;
+      height: 137px;
+      position: absolute;
+      cursor: pointer;
+      background-position: bottom center;
+      background-repeat: no-repeat; }
+      .block .collection .country .content {
+        display: none; }
+      .block .collection .country p {
+        text-align: center;
+        font-size: 18px;
+        text-transform: uppercase;
+        font-family: 'Intro-regular';
+        color: #c90119;
+        margin: 119px 0 0 0; }
+      .block .collection .country .photo {
+        width: 114px;
+        height: 114px;
+        border-radius: 51%;
+        background: #777;
+        position: absolute;
+        z-index: 1;
+        left: 50%;
+        margin-left: -57px; }
+      .block .collection .country .tea {
+        width: 179px;
+        height: 137px;
+        position: absolute;
+        z-index: 2; }
+      .block .collection .country.cuba {
+        top: 70px;
+        left: 110px; }
+        .block .collection .country.cuba .tea {
+          background-image: url("../images/bg-tea-cuba.png"); }
+      .block .collection .country.england {
+        top: 70px;
+        right: 110px; }
+        .block .collection .country.england .tea {
+          background-image: url("../images/bg-tea-england.png"); }
+        .block .collection .country.england .photo {
+          background-image: url("../images/bg-photo-england.png"); }
+      .block .collection .country.china {
+        right: 0px;
+        top: 245px; }
+        .block .collection .country.china .tea {
+          background-image: url("../images/bg-tea-china.png"); }
+      .block .collection .country.shri {
+        bottom: 0px;
+        right: 110px; }
+        .block .collection .country.shri .tea {
+          background-image: url("../images/bg-tea-shri.png"); }
+        .block .collection .country.shri .photo {
+          background-image: url("../images/bg-photo-shri.png"); }
+      .block .collection .country.turkey {
+        bottom: 0px;
+        left: 110px; }
+        .block .collection .country.turkey .tea {
+          background-image: url("../images/bg-tea-turkey.png"); }
+      .block .collection .country.marokko {
+        left: 0;
+        top: 245px; }
+        .block .collection .country.marokko .tea {
+          height: 142px;
+          background-image: url("../images/bg-tea-marokko.png");
+          top: -22px; }
+        .block .collection .country.marokko .photo {
+          background-image: url("../images/bg-photo-marokko.png"); }
+  .block .learn-more-popup-holder {
+    position: fixed;
+    display: none;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.3); }
+    .block .learn-more-popup-holder .learn-more-popup-hack {
+      position: relative;
+      width: 1px;
+      height: 100%;
+      top: 0;
+      bottom: 0;
+      display: inline-block;
+      vertical-align: middle; }
+    .block .learn-more-popup-holder .learn-more-popup {
+      position: relative;
+      left: 50%;
+      margin-left: -455px;
+      width: 910px;
+      height: 407px;
+      background: #666;
+      display: inline-block;
+      vertical-align: middle;
+      border-radius: 10px;
+      background-image: url("../images/bg-learnmore-popup.jpg"); }
+      .block .learn-more-popup-holder .learn-more-popup a.popup-close-cross {
+        display: block;
+        position: absolute;
+        background-image: url("../images/ico-close-popup.png");
+        width: 39px;
+        z-index: 10;
+        height: 38px;
+        right: 30px;
+        top: 30px; }
+      .block .learn-more-popup-holder .learn-more-popup .content {
+        width: 100%;
+        height: 100%; }
+        .block .learn-more-popup-holder .learn-more-popup .content.marokko .logo {
+          background-image: url("../images/logo-spicy-marakkesh.png"); }
+        .block .learn-more-popup-holder .learn-more-popup .content .column-left {
+          width: 455px;
+          float: left;
+          height: 100%; }
+          .block .learn-more-popup-holder .learn-more-popup .content .column-left .logo {
+            height: 145px;
+            width: 455px;
+            position: relative;
+            background-repeat: no-repeat;
+            background-position: center bottom;
+            margin-bottom: 55px; }
+            .block .learn-more-popup-holder .learn-more-popup .content .column-left .logo:after {
+              content: '';
+              width: 100px;
+              height: 2px;
+              background-color: #c90119;
+              position: absolute;
+              bottom: -30px;
+              left: 50%;
+              margin-left: -50px; }
+          .block .learn-more-popup-holder .learn-more-popup .content .column-left .text {
+            text-align: center;
+            font-size: 16px; }
+        .block .learn-more-popup-holder .learn-more-popup .content .column-right {
+          width: 455px;
+          height: 100%;
+          float: left;
+          position: relative; }
+          .block .learn-more-popup-holder .learn-more-popup .content .column-right img {
+            position: absolute;
+            bottom: 0;
+            right: 20px;
+            z-index: 0;
+            pointer-events: none; }
 
 /* MODULES CUSTOMISATION */
 .ui-selectmenu-button span.ui-selectmenu-text {
