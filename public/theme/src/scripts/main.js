@@ -20,8 +20,24 @@ $( document ).ready(function() {
     checkScroll();
   });
 
+  $('.country').click(function(){
+    var popupContent = $(this).find('.content').clone();
+    $('.learn-more-popup').html(popupContent);
+    $('.learn-more-popup').append('<a href="" class="popup-close-cross"></a>');
+    $('.learn-more-popup-holder').fadeIn();
+  });
+
+  $('.learn-more-popup a.popup-close-cross').click(function() {
+    $('.learn-more-popup-holder').fadeOut();
+  });
+
+// WONDERFULL MASKS //
+
   $.mask.definitions['c'] = "[A-Za-z0-9]";
   $('form.promo-code input, form.promo-code-2 input').mask('ccc ccc ccc ccc');
+  $('form.full-registration input[name="phone"]').mask('+7 (999) 999 99 99');
+  $('form.full-registration input.dd, form.full-registration input.mm').mask('99');
+  $('form.full-registration input.yyyy').mask('9999');
 
 // SCROLL BLOCK //
 
@@ -178,6 +194,40 @@ $( document ).ready(function() {
         },
         error: function(data) {
           $('form.registration button').removeClass('loading');
+          // ERROR
+        }
+      };
+      $(form).ajaxSubmit(options);
+    }
+  });
+
+// STORY FOTM VALIDATION //
+
+  $('form.story').validate({
+    rules: {
+      message: {
+        required: true,
+      },
+    },
+
+    messages: {
+      message: {
+        required: 'Необходимо yfgbcfnm bcnjhb.!',
+      },
+    },   
+    submitHandler: function(form) {
+      $('form.story button').addClass('loading');
+      var options = { 
+        success: function(data){
+          if(data.redirect) {
+            function goToCabinet () {
+              window.location.href = data.redirect;
+            };
+            setTimeout(goToCabinet, 3000);
+          }
+        },
+        error: function(data) {
+          $('form.story button').removeClass('loading');
           // ERROR
         }
       };
