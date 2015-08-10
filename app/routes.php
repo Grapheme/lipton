@@ -38,11 +38,6 @@ Route::get('login', array('before' => 'login', 'as' => 'login', 'uses' => 'Globa
 Route::get('logout', array('before' => 'auth', 'as' => 'logout', 'uses' => 'GlobalController@logout'));
 
 
-
-Route::any('post-log', function(){
-    Log::info('POST', Input::all());
-});
-
 #################################################################
 
 /**
