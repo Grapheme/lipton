@@ -12,9 +12,12 @@ class PromoController extends BaseController {
         $class = __CLASS__;
 
         Route::group(array('before' => 'user.auth', 'prefix' => 'promo'), function () use ($class) {
-            Route::post('/first/register', array('before' => 'csrf', 'as' => 'promo.first.register', 'uses' => $class . '@firstRegister'));
-            Route::post('/second/register', array('before' => 'csrf', 'as' => 'promo.second.register', 'uses' => $class . '@secondRegister'));
-            Route::post('/third/register', array('before' => 'csrf', 'as' => 'promo.third.register', 'uses' => $class . '@thirdRegister'));
+            Route::post('/first/register', array('before' => 'csrf', 'as' => 'promo.first.register',
+                'uses' => $class . '@firstRegister'));
+            Route::post('/second/register', array('before' => 'csrf', 'as' => 'promo.second.register',
+                'uses' => $class . '@secondRegister'));
+            Route::post('/third/register', array('before' => 'csrf', 'as' => 'promo.third.register',
+                'uses' => $class . '@thirdRegister'));
         });
     }
 
@@ -38,10 +41,10 @@ class PromoController extends BaseController {
 
     /****************************************************************************/
 
-    public function firstRegister(){
+    public function firstRegister() {
 
-        $json_request = array('status' => FALSE, 'responseText' => '', 'next_code'=> FALSE, 'redirectURL' => FALSE);
-        $validator = Validator::make(Input::all(), array('promoCode1'=>'required'));
+        $json_request = array('status' => FALSE, 'responseText' => '', 'next_code' => FALSE, 'redirectURL' => FALSE);
+        $validator = Validator::make(Input::all(), array('promoCode1' => 'required'));
         if ($validator->passes()):
             self::registerPromoCode(Input::get('promoCode1'));
             $json_request['responseText'] = 'Код зарегистрирован';
@@ -56,27 +59,36 @@ class PromoController extends BaseController {
         endif;
     }
 
-    public function secondRegister(){
+    public function secondRegister() {
 
         Helper::tad(Input::all());
 
     }
 
-    public function thirdRegister(){
+    public function thirdRegister() {
 
         Helper::tad(Input::all());
     }
 
-    public static function registerPromoCode($code){
+    public static function registerPromoCode($code) {
 
         $post['code'] = str_replace(' ', '', $code);
         $post['customerId'] = Auth::user()->remote_id;
         $post['sessionKey'] = Auth::user()->sessionKey;
-        $api = (new ApiController())->activate_promo_code($post);
-        if ($api === FALSE):
+        $api_result = (new ApiController())->activate_promo_code($post);
+        if ($api_result === FALSE):
             return FALSE;
-        elseif (is_array($api)):
+        elseif ($api_result === TRUE):
+            $user_codes_count = UserCodes::where('user_id', Auth::user()->id)->count();
+            $user_code = new UserCodes();
+            $user_code->user_id = Auth::user()->id;
+            $user_code->code_number = $user_codes_count + 1;
+            $user_code->code = $code;
+            $user_code->save();
             return TRUE;
+        elseif ($api_result == -1):
+            Auth::logout();
+            return Redirect::to(pageurl('auth'));
         endif;
     }
 }

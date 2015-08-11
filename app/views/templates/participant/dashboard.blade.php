@@ -18,6 +18,12 @@ $now = Carbon::now();
             <div class="content">
                 <h2>Личный кабинет</h2>
                 <a href="{{ URL::route('logout') }}">Выйти</a>
+                @if(Session::has('message'))
+                <div>{{ Session::get('message') }}</div>
+                @endif
+                @if(Session::has('promo'))
+                <div>{{ Session::get('promo') }}</div>
+                @endif
                 <div class="profile">
                     <div class="profile-head">
                         <div class="profile-info">

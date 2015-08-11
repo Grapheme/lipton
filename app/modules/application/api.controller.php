@@ -419,20 +419,16 @@ class ApiController extends BaseController {
         $this->strlen_xml = strlen($xml);
         $result = $this->postCurl($uri_request, $xml);
         if ($this->validCode($result, 200)):
-            $user = array();
-            $user['id'] = $this->getXmlValue($result['curl_result'], '', 'id');
-            $user['sessionKey'] = $this->getXmlValue($result['curl_result'], '', 'sessionKey');
-            if(empty($user['id']) && empty($user['sessionKey'])):
-                if ($message = $this->getErrorMessage($result)):
-                    Config::set('api.message', $message);
-                endif;
+            if ($message = $this->getErrorMessage($result)):
+                Config::set('api.message', $message);
                 return FALSE;
             else:
-                return $user;
+                $message = $this->getXmlValue($result['curl_result'], 'messages', 'message');
+                Config::set('api.message', $message);
+                return TRUE;
             endif;
         elseif ($this->validCode($result, 401)):
-            Auth::logout();
-            return Redirect::to(pageurl('auth'));
+            return -1;
         else:
             Config::set('api.message', 'Возникла ошибка на сервере регистрации.');
             if ($message = $this->getErrorMessage($result)):
