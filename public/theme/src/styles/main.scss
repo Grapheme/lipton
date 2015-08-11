@@ -576,7 +576,6 @@ input:-ms-input-placeholder {
 					padding: 46px 65px 47px;
 					box-sizing: border-box;
 					text-align: center;
-					background: #666;
 					background-image: url('../images/bg-traveller-promo.jpg');
 
 					.traveller-logo {
@@ -639,7 +638,7 @@ input:-ms-input-placeholder {
 			background-color: rgba(255, 246, 186, 0.5);
 			outline: 0;
 			font-family: 'Intro-regular';
-			font-size: 24px;
+			font-size: 20px;
 			text-transform: uppercase;
 		}
 
@@ -671,7 +670,12 @@ input:-ms-input-placeholder {
 			}
 
 			&.loading {
-				background: #666 !important;
+				background-color: #a40000!important;
+				color: #c90119!important;
+				border-width: 3px 0 0 0!important;
+				border-style: solid!important;
+				border-color: #c90119!important;
+				opacity: 0.8;
 			}
 		}
 	}
@@ -1267,7 +1271,17 @@ input:-ms-input-placeholder {
 				}
 
 				&.loading {
-					background: #666 !important;
+					background-color: #a40000 !important;
+					color: #c90119 !important;
+					border-width: 3px 0 0 0 !important;
+					border-style: solid !important;
+					border-color: #c90119 !important;
+
+					i {
+						color: #ffde00 !important;
+						font-size: 40px !important;
+						line-height: 45px !important;
+					}
 				}
 			}
 		}
@@ -1532,6 +1546,7 @@ input:-ms-input-placeholder {
 		top: 78px;
 		overflow: hidden;
 		background-image: url('../images/bg-winners.jpg');
+		background-repeat: no-repeat;
 	}
 
 	.mosaic-fuckup {
@@ -1542,6 +1557,12 @@ input:-ms-input-placeholder {
 
 	&.winners {
 		height: 800px;
+		
+		.mosaic-row {
+			width: 100%;
+			height: 100px;
+		}
+		
 		.mosaic {
 			width: 100px;
 			height: 100px;
@@ -1572,6 +1593,7 @@ input:-ms-input-placeholder {
 				margin-top: 0;
 				position: relative;
 				z-index: 10;
+				pointer-events: none;
 			}
 
 			.block-plain {
@@ -1928,6 +1950,12 @@ input:-ms-input-placeholder {
 			background-position: bottom center;
 			background-repeat: no-repeat;
 
+			&:hover {
+				.photo {
+					top: -20px;
+				}
+			}
+
 			.content {
 				display: none;
 			}
@@ -1950,6 +1978,8 @@ input:-ms-input-placeholder {
 				z-index: 1;
 				left: 50%;
 				margin-left: -57px;
+				top: 0;
+				transition: 0.5s all;
 			}
 
 			.tea {
@@ -2069,7 +2099,6 @@ input:-ms-input-placeholder {
 			margin-left: -455px;
 			width: 910px;
 			height: 407px;
-			background: #666;
 			display: inline-block;
 			vertical-align: middle;
 			border-radius: 10px;
@@ -2148,6 +2177,10 @@ input:-ms-input-placeholder {
 }
 
 /* MODULES CUSTOMISATION */
+
+input.error {
+	background-color: rgba(201, 1, 25, 0.15) !important;
+}
 
 .ui-selectmenu-button span.ui-selectmenu-text {
 	padding: 0;
