@@ -448,6 +448,31 @@ input:-ms-input-placeholder {
     padding: 0;
     text-align: right;
     margin-top: 17px; }
+    .sub-footer .sharing-block span {
+      display: block;
+      float: left;
+      height: 18px; }
+    .sub-footer .sharing-block a {
+      color: #000;
+      text-decoration: underline; }
+      .sub-footer .sharing-block a:hover {
+        text-decoration: none; }
+      .sub-footer .sharing-block a.soc {
+        display: block;
+        width: 18px;
+        height: 18px;
+        margin: -2px 0 0 10px;
+        float: right;
+        -webkit-transition: .1s all;
+                transition: .1s all; }
+        .sub-footer .sharing-block a.soc:hover {
+          opacity: 0.8; }
+        .sub-footer .sharing-block a.soc.fb {
+          background-image: url("../images/ico-fb.png"); }
+        .sub-footer .sharing-block a.soc.vk {
+          background-image: url("../images/ico-vk.png"); }
+        .sub-footer .sharing-block a.soc.ok {
+          background-image: url("../images/ico-ok.png"); }
     .sub-footer .sharing-block li {
       display: inline-block;
       position: relative;
@@ -469,31 +494,6 @@ input:-ms-input-placeholder {
         background-color: #ffffae;
         top: 5px;
         left: -18px; }
-      .sub-footer .sharing-block li span {
-        display: block;
-        float: left;
-        height: 18px; }
-      .sub-footer .sharing-block li a {
-        color: #000;
-        text-decoration: underline; }
-        .sub-footer .sharing-block li a:hover {
-          text-decoration: none; }
-        .sub-footer .sharing-block li a.soc {
-          display: block;
-          width: 18px;
-          height: 18px;
-          margin: -2px 0 0 10px;
-          float: right;
-          -webkit-transition: .1s all;
-                  transition: .1s all; }
-          .sub-footer .sharing-block li a.soc:hover {
-            opacity: 0.8; }
-          .sub-footer .sharing-block li a.soc.fb {
-            background-image: url("../images/ico-fb.png"); }
-          .sub-footer .sharing-block li a.soc.vk {
-            background-image: url("../images/ico-vk.png"); }
-          .sub-footer .sharing-block li a.soc.ok {
-            background-image: url("../images/ico-ok.png"); }
 
 .block {
   width: 100%; }
@@ -551,7 +551,7 @@ input:-ms-input-placeholder {
         width: 152px;
         height: 28px;
         float: right;
-        margin-top: 5px;
+        margin-top: 9px;
         background: url("../images/logo-lingualeo.png"); }
     .block.header .icons-block {
       width: 116px;
