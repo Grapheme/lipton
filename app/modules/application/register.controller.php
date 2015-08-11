@@ -72,9 +72,9 @@ class RegisterController extends BaseController {
                         $json_request['status'] = TRUE;
                         $json_request['responseText'] = Lang::get('interface.SIGNUP.success');
                         $json_request['redirect'] = URL::to(AuthAccount::getGroupStartUrl());
-                        if(isset($post['code']) && !empty($post['code'])):
+                        if (isset($post['code']) && !empty($post['code'])):
                             $result = PromoController::registerPromoCode($post['code']);
-                            if($result === FALSE):
+                            if ($result === FALSE):
                                 Session::flash('message', Config::get('api.message'));
                                 Session::flash('promo', $post['code']);
                             else:
@@ -110,16 +110,18 @@ class RegisterController extends BaseController {
                     $json_request['responseText'] = Config::get('api.message');
                     return Response::json($json_request, 200);
                 endif;
-                if (Auth::attempt(array('email' => Input::get('login'), 'password' => Input::get('password'), 'active' => 1), FALSE)):
+                if (Auth::attempt(array('email' => Input::get('login'), 'password' => Input::get('password'),
+                    'active' => 1), FALSE)
+                ):
                     if (Auth::check()):
                         Auth::user()->remote_id = @$api['id'];
                         Auth::user()->sessionKey = @$api['sessionKey'];
                         Auth::user()->save();
                         $json_request['redirect'] = AuthAccount::getGroupStartUrl();
                         $json_request['status'] = TRUE;
-                        if(isset($post['code']) && !empty($post['code'])):
+                        if (isset($post['code']) && !empty($post['code'])):
                             $result = PromoController::registerPromoCode($post['code']);
-                            if($result === FALSE):
+                            if ($result === FALSE):
                                 Session::flash('message', Config::get('api.message'));
                                 Session::flash('promo', $post['code']);
                             else:
