@@ -83,7 +83,7 @@ $( document ).ready(function() {
 // PROMO-CODE FORM VALIDATION //
 
   var auth = $('#promo-code-form').attr('data-user-auth');
-  var redirectUrl = $('#promo-code-form button').attr('data-redirect-authorization');
+  var redirectURL = $('#promo-code-form button').attr('data-redirect-authorization');
     
   $('form#promo-code-form').validate({
     rules: {
@@ -100,12 +100,12 @@ $( document ).ready(function() {
 
   submitHandler: function(form) {
       if(auth == 'authorized') {
-        $('.promo-code button').html();
-        $('.promo-code button').addClass('loading');
-        $('.promo-code button').html('<i class="fa fa-cog fa-spin"></i>');
+        $('#promo-code-form button').html();
+        $('#promo-code-form button').addClass('loading');
+        $('#promo-code-form button').html('<i class="fa fa-cog fa-spin"></i>');
         var options = {
           success: function(data){
-            $('.promo-code button').removeClass('loading');
+            $('#promo-code-form button').removeClass('loading');
               if(data.next_code) {
                 $('.second-code').fadeIn();
 
@@ -114,24 +114,23 @@ $( document ).ready(function() {
                 };
           },
           error: function(data) {
-            $('.promo-code button').removeClass('loading');
-            $('.promo-code button').html('Отправить');
+            $('#promo-code-form button').removeClass('loading');
+            $('#promo-code-form button').html('Отправить');
             // ERROR
           }
         };
         $(form).ajaxSubmit(options);
 
       } else { // UNAUTORIZED USER
-        $('.promo-code button').addClass('loading');
-        $('.promo-code button').addClass('loading');
-        $('.promo-code button').html('<i class="fa fa-cog fa-spin"></i>')
+        $('#promo-code-form button').addClass('loading');
+        $('#promo-code-form button').html('<i class="fa fa-cog fa-spin"></i>')
         var firstCodeCookie = $(".promo-code .promoCode1").val();
         $.cookie('firstCodeCookie', firstCodeCookie);
         // var cookiePromo = $.cookie('firstCodeCookie'); // wright cookie cookie into var
         // console.log('Кука: ' + cookiePromo);
-        if(redirectUrl) {
+        if(redirectURL) {
           function goToAuthorization () {
-            window.location.href = redirectUrl;
+            window.location.href = redirectURL;
           };
           setTimeout(goToAuthorization, 3000);
         }
@@ -161,9 +160,9 @@ $( document ).ready(function() {
       var options = {
         success: function(data){
           console.log(data.responseTextSuccsess);
-            if(data.redirect) {
+            if(data.redirectURL) {
               function goToCabinet () {
-                window.location.href = data.redirect;
+                window.location.href = data.redirectURL;
               };
               setTimeout(goToCabinet, 3000);
             }
@@ -171,6 +170,45 @@ $( document ).ready(function() {
         error: function(data) {
           $('.promo-code-2 button').html('Отправить');
           $('.promo-code-2 button').removeClass('loading');
+          // ERROR
+        }
+      };
+      $(form).ajaxSubmit(options);
+    }
+  });
+
+// PROFILE-FORM CODE VALIDATION //
+
+  $('form.profile-promo-code').validate({
+    rules: {
+      promoCode2: {
+        required: true,
+      }
+    },
+
+    messages: {
+      promoCode2: {
+        required: "Необходимо заполнить поле",
+      }
+    },
+
+    submitHandler: function(form) {
+      $('form.profile-promo-code button').html();
+      $('form.profile-promo-code button').addClass('loading');
+      $('form.profile-promo-code button').html('<i class="fa fa-cog fa-spin"></i>')
+      var options = {
+        success: function(data){
+          console.log(data.responseTextSuccsess);
+            if(data.redirectURL) {
+              function goToCabinet () {
+                window.location.href = data.redirectURL;
+              };
+              setTimeout(goToCabinet, 3000);
+            }
+        },
+        error: function(data) {
+          $('form.profile-promo-code button').html('Отправить');
+          $('form.profile-promo-code button').removeClass('loading');
           // ERROR
         }
       };
