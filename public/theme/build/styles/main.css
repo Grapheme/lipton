@@ -448,16 +448,16 @@ input:-ms-input-placeholder {
     padding: 0;
     text-align: right;
     margin-top: 17px; }
-    .sub-footer .sharing-block span {
+    .sub-footer .sharing-block .sharing-links span {
       display: block;
       float: left;
       height: 18px; }
-    .sub-footer .sharing-block a {
+    .sub-footer .sharing-block .sharing-links a {
       color: #000;
       text-decoration: underline; }
-      .sub-footer .sharing-block a:hover {
+      .sub-footer .sharing-block .sharing-links a:hover {
         text-decoration: none; }
-      .sub-footer .sharing-block a.soc {
+      .sub-footer .sharing-block .sharing-links a.soc {
         display: block;
         width: 18px;
         height: 18px;
@@ -465,13 +465,13 @@ input:-ms-input-placeholder {
         float: right;
         -webkit-transition: .1s all;
                 transition: .1s all; }
-        .sub-footer .sharing-block a.soc:hover {
+        .sub-footer .sharing-block .sharing-links a.soc:hover {
           opacity: 0.8; }
-        .sub-footer .sharing-block a.soc.fb {
+        .sub-footer .sharing-block .sharing-links a.soc.fb {
           background-image: url("../images/ico-fb.png"); }
-        .sub-footer .sharing-block a.soc.vk {
+        .sub-footer .sharing-block .sharing-links a.soc.vk {
           background-image: url("../images/ico-vk.png"); }
-        .sub-footer .sharing-block a.soc.ok {
+        .sub-footer .sharing-block .sharing-links a.soc.ok {
           background-image: url("../images/ico-ok.png"); }
     .sub-footer .sharing-block li {
       display: inline-block;

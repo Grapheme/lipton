@@ -91,41 +91,43 @@ input:-ms-input-placeholder {
 				text-align: right;
 				margin-top: 17px;
 
-			span {
+			.sharing-links {
+				span {
 					display: block;
 					float: left;
 					height: 18px;
 				}
 
-			a {
-				color: #000;
-				text-decoration: underline;
-
-				&:hover {
-					text-decoration: none;
-				}
-
-				&.soc {
-					display: block;
-					width: 18px;
-					height: 18px;
-					margin: -2px 0 0 10px;
-					float: right;
-					transition: .1s all;
+				a {
+					color: #000;
+					text-decoration: underline;
 
 					&:hover {
-						opacity: 0.8;
+						text-decoration: none;
 					}
-					
 
-					&.fb {
-						background-image: url('../images/ico-fb.png');
-					}
-					&.vk {
-						background-image: url('../images/ico-vk.png');
-					}
-					&.ok {
-						background-image: url('../images/ico-ok.png');
+					&.soc {
+						display: block;
+						width: 18px;
+						height: 18px;
+						margin: -2px 0 0 10px;
+						float: right;
+						transition: .1s all;
+
+						&:hover {
+							opacity: 0.8;
+						}
+						
+
+						&.fb {
+							background-image: url('../images/ico-fb.png');
+						}
+						&.vk {
+							background-image: url('../images/ico-vk.png');
+						}
+						&.ok {
+							background-image: url('../images/ico-ok.png');
+						}
 					}
 				}
 			}
