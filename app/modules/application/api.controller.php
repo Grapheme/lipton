@@ -73,12 +73,13 @@ class ApiController extends BaseController {
 
     private function validAvailableOperation($operation) {
 
-        if ($operations = $this->availableOperations()):
+        $operations = $this->availableOperations();
+        if (is_array($operations)):
             if (in_array($operation, $operations)):
                 return TRUE;
             endif;
         endif;
-        return FALSE;
+        return $operations;
     }
 
     /****************************************************************************/
@@ -199,7 +200,8 @@ class ApiController extends BaseController {
         curl_setopt($ch, CURLOPT_HTTPHEADER, self::curlHandle());
         curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-        $data = curl_exec($ch);
+        $data['curl_result'] = curl_exec($ch);
+        $data['curl_info'] = curl_getinfo($ch);
         curl_close($ch);
         return $data;
     }
@@ -230,7 +232,11 @@ class ApiController extends BaseController {
 
         $uri_request = $this->config['server_url'] . '/v2/customers/current/available-operations';
         $result = $this->getCurl($uri_request);
-        return $this->getXmlValues($result, '', 'allowedOperation', 'name');
+        if ($this->validCode($result, 200)):
+            return $this->getXmlValues($result['curl_result'], '', 'allowedOperation', 'name');
+        else:
+            return -1;
+        endif;
     }
 
     public function email_availability(array $params = []) {
@@ -405,7 +411,11 @@ class ApiController extends BaseController {
         endif;
         $this->headers['authorization']['customerId'] = $params['customerId'];
         $this->headers['authorization']['sessionKey'] = $params['sessionKey'];
-        if ($this->validAvailableOperation($operation) === FALSE):
+        $valid = $this->validAvailableOperation($operation);
+        if ($valid === -1):
+            var_dump($valid); exit;
+            return $valid;
+        elseif ($valid === FALSE):
             Config::set('api.message', 'Операция регистрации промо кодов недоступна.');
             return FALSE;
         endif;

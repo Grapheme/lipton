@@ -46,9 +46,18 @@ class PromoController extends BaseController {
         $json_request = array('status' => FALSE, 'responseText' => '', 'next_code' => FALSE, 'redirectURL' => FALSE);
         $validator = Validator::make(Input::all(), array('promoCode1' => 'required'));
         if ($validator->passes()):
-            self::registerPromoCode(Input::get('promoCode1'));
-            $json_request['responseText'] = 'Код зарегистрирован';
-            $json_request['status'] = TRUE;
+            $result = self::registerPromoCode(Input::get('promoCode1'));
+            if ($result === -1):
+                Auth::logout();
+                $json_request['redirectURL'] = pageurl('auth');
+                return Response::json($json_request, 200);
+            elseif ($result === FALSE):
+                $json_request['status'] = FALSE;
+            else:
+                $json_request['status'] = TRUE;
+                $json_request['next_code'] = TRUE;
+            endif;
+            $json_request['responseText'] = Config::get('api.message');
         else:
             $json_request['responseText'] = $validator->messages()->all();
         endif;
@@ -86,9 +95,8 @@ class PromoController extends BaseController {
             $user_code->code = $code;
             $user_code->save();
             return TRUE;
-        elseif ($api_result == -1):
-            Auth::logout();
-            return Redirect::to(pageurl('auth'));
+        elseif ($api_result === -1):
+            return -1;
         endif;
     }
 }
