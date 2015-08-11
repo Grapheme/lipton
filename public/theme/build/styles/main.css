@@ -474,31 +474,45 @@ input:-ms-input-placeholder {
         background-color: #ffffae;
         top: 5px;
         left: -18px; }
-  .sub-footer .sharing-links span {
-    display: block;
-    float: left;
-    height: 18px; }
-  .sub-footer .sharing-links a {
-    color: #000;
-    text-decoration: underline; }
-    .sub-footer .sharing-links a:hover {
-      text-decoration: none; }
-    .sub-footer .sharing-links a.soc {
+  .sub-footer .sharing-links {
+    float: right;
+    margin-top: 19px;
+    position: relative; }
+    .sub-footer .sharing-links:before {
+      content: '';
       display: block;
-      width: 18px;
-      height: 18px;
-      margin: -2px 0 0 10px;
-      float: right;
-      -webkit-transition: .1s all;
-              transition: .1s all; }
-      .sub-footer .sharing-links a.soc:hover {
-        opacity: 0.8; }
-      .sub-footer .sharing-links a.soc.fb {
-        background-image: url("../images/ico-fb.png"); }
-      .sub-footer .sharing-links a.soc.vk {
-        background-image: url("../images/ico-vk.png"); }
-      .sub-footer .sharing-links a.soc.ok {
-        background-image: url("../images/ico-ok.png"); }
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      border-radius: 51%;
+      background-color: #ffffae;
+      top: 5px;
+      left: -18px; }
+    .sub-footer .sharing-links span {
+      display: block;
+      float: left;
+      height: 18px; }
+    .sub-footer .sharing-links a {
+      color: #000;
+      text-decoration: underline; }
+      .sub-footer .sharing-links a:hover {
+        text-decoration: none; }
+      .sub-footer .sharing-links a.soc {
+        display: block;
+        width: 18px;
+        height: 18px;
+        margin: -2px 0 0 10px;
+        float: right;
+        -webkit-transition: .1s all;
+                transition: .1s all; }
+        .sub-footer .sharing-links a.soc:hover {
+          opacity: 0.8; }
+        .sub-footer .sharing-links a.soc.fb {
+          background-image: url("../images/ico-fb.png"); }
+        .sub-footer .sharing-links a.soc.vk {
+          background-image: url("../images/ico-vk.png"); }
+        .sub-footer .sharing-links a.soc.ok {
+          background-image: url("../images/ico-ok.png"); }
 
 .block {
   width: 100%; }
