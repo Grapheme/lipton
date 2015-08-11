@@ -72,11 +72,20 @@ class PromoController extends BaseController {
         $post['code'] = str_replace(' ', '', $code);
         $post['customerId'] = Auth::user()->remote_id;
         $post['sessionKey'] = Auth::user()->sessionKey;
-        $api = (new ApiController())->activate_promo_code($post);
-        if ($api === FALSE):
+        $api_result = (new ApiController())->activate_promo_code($post);
+        if ($api_result === FALSE):
             return FALSE;
-        elseif (is_array($api)):
+        elseif($api_result === TRUE):
+            $user_codes_count = UserCodes::where('user_id', Auth::user()->id)->count();
+            $user_code = new UserCodes();
+            $user_code->user_id = Auth::user()->id;
+            $user_code->code_number = $user_codes_count + 1;
+            $user_code->code = $code;
+            $user_code->save();
             return TRUE;
+        elseif($api_result == -1):
+            Auth::logout();
+            return Redirect::to(pageurl('auth'));
         endif;
     }
 }
