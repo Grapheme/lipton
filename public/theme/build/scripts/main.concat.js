@@ -1380,6 +1380,10 @@ $( document ).ready(function() {
       $('.send-instructions').fadeIn();
   });
 
+  $('.profile-head .request a').click(function(){
+    $('.story').fadeIn();
+  });
+
   $('.send-instructions .fields-holder a').click(function() {
       $('.send-instructions').fadeOut();
   });
@@ -1407,7 +1411,7 @@ $( document ).ready(function() {
 // WONDERFULL MASKS //
 
   $.mask.definitions['c'] = "[A-Za-z0-9]";
-  $('form.promo-code .promoCode1, form.promo-code-2 .promoCode2').mask('ccc ccc ccc ccc ccc');
+  $('form.promo-code .promoCode1, form.promo-code-2 .promoCode2').mask('cccccccc');
   $('form.full-registration input[name="phone"]').mask('+7 (999) 999 99 99');
   $('form.full-registration input.dd, form.full-registration input.mm').mask('99');
   $('form.full-registration input.yyyy').mask('9999');
