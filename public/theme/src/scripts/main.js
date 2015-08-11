@@ -407,7 +407,7 @@ $( document ).ready(function() {
 /////////
   function parseHash(){
     var hash = window.location.hash;
-    if (hash == '#show') {
+    if (hash == '#promo') {
       $('.second-code').fadeIn();
     }
   }
