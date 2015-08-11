@@ -15,7 +15,7 @@ class GlobalController extends \BaseController {
 			$rules = array('login'=>'required','password'=>'required|alpha_num|between:4,50');
 			$validator = Validator::make(Input::all(),$rules);
 			if($validator->passes()):
-				if(Auth::attempt(array('email'=>Input::get('login'),'password'=>Input::get('password'),'active'=>1),(bool)Input::get('remember'))):
+				if(Auth::attempt(array('email'=>Input::get('login'),'password'=>Input::get('password'),'active'=>1), FALSE)):
 					if(Auth::check()):
                         $redirect = AuthAccount::getGroupStartUrl();
 						$json_request['redirect'] = $redirect;
@@ -88,7 +88,7 @@ class GlobalController extends \BaseController {
 			$account->code_life = 0;
 			$account->save();
 			$account->touch();
-			Auth::login($account);
+			Auth::login($account, FALSE);
 			if(Auth::check()):
 				return Redirect::to(AuthAccount::getStartPage());
 			endif;

@@ -43,7 +43,14 @@ class ApiController extends BaseController {
     public function debug($method = 'config') {
 
         if (method_exists(__CLASS__, $method)):
-            return self::$method(Input::all());
+            $result = self::$method(Input::all());
+            if(is_array($result)):
+                Helper::ta($result);
+            elseif(is_json($result)):
+                Helper::ta(json_decode($result, TRUE));
+            elseif(is_string($result)):
+                echo $result;
+            endif;
         else:
             echo 'Error...';
         endif;
@@ -162,7 +169,6 @@ class ApiController extends BaseController {
         return array(
             'X-Customer-Agent' => $this->headers['x_customer_agent'],
             'Accept' => 'application/xml',
-            #'Authorization' => 'DirectCrm key="'.$this->headers['authorization']['key'].'" staffLogin="'.$this->headers['authorization']['staffLogin'].'" staffPassword="'.$this->headers['authorization']['staffPassword'].'"',
             'Authorization' => 'DirectCrm key="' . $this->headers['authorization']['key'] . '" customerId="' . $this->headers['authorization']['customerId'] . '" sessionKey="' . $this->headers['authorization']['sessionKey'] . '"',
             'X-Brand' => $this->headers['x_brand'],
             'X-Channel' => $this->headers['x_chanel'],
@@ -225,7 +231,6 @@ class ApiController extends BaseController {
         $uri_request = $this->config['server_url'] . '/v2/customers/current/available-operations';
         $result = $this->getCurl($uri_request);
         return $this->getXmlValues($result, '', 'allowedOperation', 'name');
-
     }
 
     public function email_availability(array $params = []) {
@@ -273,7 +278,14 @@ class ApiController extends BaseController {
             $user = array();
             $user['id'] = $this->getXmlValue($result['curl_result'], '', 'id');
             $user['sessionKey'] = $this->getXmlValue($result['curl_result'], '', 'sessionKey');
-            return $user;
+            if(empty($user['id']) && empty($user['sessionKey'])):
+                if ($message = $this->getErrorMessage($result)):
+                    Config::set('api.message', $message);
+                endif;
+                return FALSE;
+            else:
+                return $user;
+            endif;
         else:
             Config::set('api.message', 'Возникла ошибка на сервере регистрации.');
             if ($message = $this->getErrorMessage($result)):
@@ -294,7 +306,86 @@ class ApiController extends BaseController {
             $user = array();
             $user['id'] = $this->getXmlValue($result['curl_result'], '', 'id');
             $user['sessionKey'] = $this->getXmlValue($result['curl_result'], '', 'sessionKey');
-            return $user;
+            if(empty($user['id']) && empty($user['sessionKey'])):
+                if ($message = $this->getErrorMessage($result)):
+                    Config::set('api.message', $message);
+                endif;
+                return FALSE;
+            else:
+                return $user;
+            endif;
+        else:
+            Config::set('api.message', 'Возникла ошибка на сервере регистрации.');
+            if ($message = $this->getErrorMessage($result)):
+                Config::set('api.message', $message);
+            endif;
+            return FALSE;
+        endif;
+    }
+
+    public function logon(array $params = [], $operation = 'DirectCrm.LogOn'){
+
+        if ($this->validAvailableOperation($operation) === FALSE):
+            Config::set('api.message', 'Операция авторизаици пользователей недоступна.');
+            return FALSE;
+        endif;
+        if (empty($params)):
+            App::abort(404);
+        endif;
+        $uri_request = $this->config['server_url'] . "/v2/customers/current/logon/via-password?operation=".$operation."&credential=".$params['login']."&password=".$params['password']."&mode=session";
+        $result = $this->postCurl($uri_request);
+        if ($this->validCode($result, 200)):
+            $user = array();
+            $user['id'] = $this->getXmlValue($result['curl_result'], '', 'id');
+            $user['sessionKey'] = $this->getXmlValue($result['curl_result'], '', 'sessionKey');
+            if(empty($user['id']) && empty($user['sessionKey'])):
+                if ($message = $this->getErrorMessage($result)):
+                    Config::set('api.message', $message);
+                endif;
+                return FALSE;
+            else:
+                return $user;
+            endif;
+        else:
+            Config::set('api.message', 'Возникла ошибка на сервере регистрации.');
+            if ($message = $this->getErrorMessage($result)):
+                Config::set('api.message', $message);
+            endif;
+            return FALSE;
+        endif;
+    }
+
+    public function social_logon(array $params = [], $operation = 'DirectCrm.ExternalLogOn'){
+
+        if ($this->validAvailableOperation($operation) === FALSE):
+            Config::set('api.message', 'Операция авторизаици пользователей недоступна.');
+            return FALSE;
+        endif;
+        if (empty($params)):
+            App::abort(404);
+        endif;
+        $uri_request = $this->config['server_url'] . "/v2/customers/current/logon?operation=$operation";
+        ob_start();
+        ?>
+        <credentials mode="session">
+            <provider><?=$params['provider'];?></provider>
+            <identity><?=$params['identity'];?></identity>
+        </credentials><?php
+        $xml = ob_get_clean();
+        $this->strlen_xml = strlen($xml);
+        $result = $this->postCurl($uri_request, $xml);
+        if ($this->validCode($result, 200)):
+            $user = array();
+            $user['id'] = $this->getXmlValue($result['curl_result'], '', 'id');
+            $user['sessionKey'] = $this->getXmlValue($result['curl_result'], '', 'sessionKey');
+            if(empty($user['id']) && empty($user['sessionKey'])):
+                if ($message = $this->getErrorMessage($result)):
+                    Config::set('api.message', $message);
+                endif;
+                return FALSE;
+            else:
+                return $user;
+            endif;
         else:
             Config::set('api.message', 'Возникла ошибка на сервере регистрации.');
             if ($message = $this->getErrorMessage($result)):
@@ -304,4 +395,50 @@ class ApiController extends BaseController {
         endif;
     }
     /****************************************************************************/
+    /******************************* PROMO **************************************/
+    /****************************************************************************/
+
+    public function activate_promo_code(array $params = [], $operation = 'LiptonArkenstone2015PolzovatelAktivirovalPromoCode'){
+
+        if (empty($params)):
+            App::abort(404);
+        endif;
+        $this->headers['authorization']['customerId'] = $params['customerId'];
+        $this->headers['authorization']['sessionKey'] = $params['sessionKey'];
+        if ($this->validAvailableOperation($operation) === FALSE):
+            Config::set('api.message', 'Операция регистрации промо кодов недоступна.');
+            return FALSE;
+        endif;
+        $uri_request = $this->config['server_url'] . "/v2/customers/current/activate-code?operation=$operation";
+        ob_start();
+        ?>
+        <activate>
+        <code><?= $params['code']; ?></code>
+        </activate><?php
+        $xml = ob_get_clean();
+        $this->strlen_xml = strlen($xml);
+        $result = $this->postCurl($uri_request, $xml);
+        if ($this->validCode($result, 200)):
+            $user = array();
+            $user['id'] = $this->getXmlValue($result['curl_result'], '', 'id');
+            $user['sessionKey'] = $this->getXmlValue($result['curl_result'], '', 'sessionKey');
+            if(empty($user['id']) && empty($user['sessionKey'])):
+                if ($message = $this->getErrorMessage($result)):
+                    Config::set('api.message', $message);
+                endif;
+                return FALSE;
+            else:
+                return $user;
+            endif;
+        elseif ($this->validCode($result, 401)):
+            Auth::logout();
+            return Redirect::to(pageurl('auth'));
+        else:
+            Config::set('api.message', 'Возникла ошибка на сервере регистрации.');
+            if ($message = $this->getErrorMessage($result)):
+                Config::set('api.message', $message);
+            endif;
+            return FALSE;
+        endif;
+    }
 }
