@@ -502,7 +502,7 @@ input:-ms-input-placeholder {
         display: block;
         width: 18px;
         height: 18px;
-        margin: -2px 0 0 10px;
+        margin: -3px 0 0 10px;
         float: right;
         -webkit-transition: .1s all;
                 transition: .1s all; }
@@ -924,14 +924,18 @@ input:-ms-input-placeholder {
         height: 38px;
         right: 30px;
         top: 30px; }
-      .block.second-code .story-popup .sory-text, .block.send-instructions .story-popup .sory-text, .block.story .story-popup .sory-text {
+      .block.second-code .story-popup .story-wrapper, .block.send-instructions .story-popup .story-wrapper, .block.story .story-popup .story-wrapper {
+        width: 750px;
+        margin: 0 auto;
         height: 440px;
-        height: 750px;
         padding: 0 80px 25px 80px;
-        box-sizing: border-box; }
-        .block.second-code .story-popup .sory-text p, .block.send-instructions .story-popup .sory-text p, .block.story .story-popup .sory-text p {
-          text-align: center;
-          font-size: 16px; }
+        overflow: hidden; }
+        .block.second-code .story-popup .story-wrapper .story-text, .block.send-instructions .story-popup .story-wrapper .story-text, .block.story .story-popup .story-wrapper .story-text {
+          overflow: scroll;
+          width: 780px; }
+          .block.second-code .story-popup .story-wrapper .story-text p, .block.send-instructions .story-popup .story-wrapper .story-text p, .block.story .story-popup .story-wrapper .story-text p {
+            text-align: center;
+            font-size: 16px; }
     .block.second-code form.promo-code-2, .block.second-code form.send-instructions, .block.send-instructions form.promo-code-2, .block.send-instructions form.send-instructions, .block.story form.promo-code-2, .block.story form.send-instructions {
       position: relative;
       background-image: url("../images/bg-promo-popup.png");
@@ -995,7 +999,11 @@ input:-ms-input-placeholder {
           border-style: solid;
           border-color: #c90119; }
         .block.second-code form.promo-code-2 button.loading, .block.second-code form.send-instructions button.loading, .block.send-instructions form.promo-code-2 button.loading, .block.send-instructions form.send-instructions button.loading, .block.story form.promo-code-2 button.loading, .block.story form.send-instructions button.loading {
-          background: #666 !important; }
+          background-color: #a40000 !important;
+          color: #c90119 !important;
+          border-width: 3px 0 0 0 !important;
+          border-style: solid !important;
+          border-color: #c90119 !important; }
       .block.second-code form.promo-code-2 .fields-holder, .block.second-code form.send-instructions .fields-holder, .block.send-instructions form.promo-code-2 .fields-holder, .block.send-instructions form.send-instructions .fields-holder, .block.story form.promo-code-2 .fields-holder, .block.story form.send-instructions .fields-holder {
         width: 292px;
         height: 130px;
