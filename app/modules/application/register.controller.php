@@ -12,6 +12,8 @@ class RegisterController extends BaseController {
         Route::group(array('before' => 'guest', 'prefix' => ''), function () use ($class) {
             Route::post('registration', array('before' => 'csrf', 'as' => 'signup.participant',
                 'uses' => $class . '@signup'));
+            Route::post('auth', array('before' => 'csrf', 'as' => 'auth.participant',
+                'uses' => $class . '@signin'));
         });
         Route::group(array('before' => '', 'prefix' => ''), function () use ($class) {
             Route::get('registration/activation/{activate_code}', array('as' => 'signup-activation',
@@ -66,16 +68,69 @@ class RegisterController extends BaseController {
                             });
                         endif;
                         self::createULogin($account->id, $post);
-                        Auth::loginUsingId($account->id, TRUE);
-                        $json_request['redirect'] = URL::to(AuthAccount::getGroupStartUrl());
-                        $json_request['responseText'] = Lang::get('interface.SIGNUP.success');
+                        Auth::loginUsingId($account->id, FALSE);
                         $json_request['status'] = TRUE;
+                        $json_request['responseText'] = Lang::get('interface.SIGNUP.success');
+                        $json_request['redirect'] = URL::to(AuthAccount::getGroupStartUrl());
+                        if(isset($post['promo-code']) && !empty($post['promo-code'])):
+                            if($result = PromoController::registerPromoCode($post['promo-code'])):
+
+                            else:
+
+                            endif;
+                        endif;
                     endif;
                 else:
                     $json_request['responseText'] = Lang::get('interface.SIGNUP.email_exist');
                 endif;
             else:
                 $json_request['responseText'] = Lang::get('interface.SIGNUP.fail');
+            endif;
+        else:
+            return App::abort(404);
+        endif;
+        return Response::json($json_request, 200);
+    }
+
+    public function signin() {
+
+        $json_request = array('status' => FALSE, 'responseText' => '', 'redirect' => FALSE);
+        if (Request::ajax()):
+            $rules = array('login' => 'required', 'password' => 'required|alpha_num|between:4,50');
+            $validator = Validator::make(Input::all(), $rules);
+            if ($validator->passes()):
+                $post['login'] = Input::get('login');
+                $post['password'] = Input::get('password');
+                $post['code'] = Input::get('promo-code');
+                $api = (new ApiController())->logon($post);
+                if ($api === FALSE):
+                    $json_request['responseText'] = Config::get('api.message');
+                    return Response::json($json_request, 200);
+                endif;
+                if (Auth::attempt(array('email' => Input::get('login'), 'password' => Input::get('password'), 'active' => 1), FALSE)):
+                    if (Auth::check()):
+                        Auth::user()->remote_id = @$api['id'];
+                        Auth::user()->sessionKey = @$api['sessionKey'];
+                        Auth::user()->save();
+                        $json_request['redirect'] = AuthAccount::getGroupStartUrl();
+                        $json_request['status'] = TRUE;
+                        if(isset($post['code']) && !empty($post['code'])):
+                            if($result = PromoController::registerPromoCode($post['code'])):
+                                $json_request['status'] = TRUE;
+                                $json_request['redirect'] = URL::to('/#promo');
+                            else:
+                                $json_request['status'] = FALSE;
+                                $json_request['responseText'] = Config::get('api.message');
+                                $json_request['redirect'] = FALSE;
+                            endif;
+                        endif;
+                    endif;
+                else:
+                    $json_request['responseText'] = 'Неверное имя пользователя или пароль';
+                endif;
+            else:
+                $json_request['responseText'] = 'Неверно заполнены поля';
+                $json_request['responseErrorText'] = $validator->messages()->all();
             endif;
         else:
             return App::abort(404);

@@ -33,13 +33,30 @@ class SocialController extends BaseController {
             return Redirect::to(URL::route('page','registering'));
         endif;
         if ($check = Ulogin::where('identity', '=', $_user['identity'])->first()):
-            Auth::loginUsingId($check->user_id, true);
+            Auth::loginUsingId($check->user_id, FALSE);
+            $post['provider'] = $_user['network'];
+            $post['identity'] = $_user['uid'];
+            if ($api = (new ApiController())->social_logon($post)):
+                Auth::user()->remote_id = @$api['id'];
+                Auth::user()->sessionKey = @$api['sessionKey'];
+                Auth::user()->save();
+            endif;
             return Redirect::to(AuthAccount::getGroupStartUrl());
         elseif(isset($_user['email']) && User::where('email', $_user['email'])->exists()):
-            $userID = User::where('email', $_user['email'])->pluck('id');
-            self::createULogin($userID, $_user);
-            Auth::loginUsingId($userID, TRUE);
-            return Redirect::to(AuthAccount::getGroupStartUrl());
+            return Redirect::to(URL::route('page','registering'))
+                ->with('token', Input::get('token'))
+                ->with('email', $_user['email'])
+                ->with('identity', $_user['identity'])
+                ->with('profile', $_user['profile'])
+                ->with('first_name', $_user['first_name'])
+                ->with('last_name', $_user['last_name'])
+                ->with('sex', $_user['sex'])
+                ->with('bdate', $_user['bdate'])
+                ->with('uid', $_user['uid'])
+                ->with('photo_big', $_user['photo_big'])
+                ->with('photo', $_user['photo'])
+                ->with('network', $_user['network'])
+                ->with('verified_email', $_user['verified_email']);
         else:
             $rules = array('network' => 'required|max:255', 'identity' => 'required|max:255|unique:ulogin',
                 'email' => 'required|unique:ulogin|unique:users');

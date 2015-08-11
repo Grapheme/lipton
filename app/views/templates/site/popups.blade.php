@@ -3,6 +3,7 @@
  * TEMPLATE_IS_NOT_SETTABLE
  */
 ?>
+@if(Auth::check())
 <div class="block second-code">
     <div class="second-code-hack"></div>
     <form name="promo-code-2" class="promo-code promo-code-2">
@@ -15,3 +16,4 @@
         </div>
     </form>
 </div>
+@endif
