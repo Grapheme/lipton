@@ -1399,7 +1399,7 @@ $( document ).ready(function() {
 // WONDERFULL MASKS //
 
   $.mask.definitions['c'] = "[A-Za-z0-9]";
-  $('form.promo-code input, form.promo-code-2 input').mask('ccc ccc ccc ccc');
+  $('form.promo-code .promoCode1, form.promo-code-2 .promoCode2').mask('ccc ccc ccc ccc ccc');
   $('form.full-registration input[name="phone"]').mask('+7 (999) 999 99 99');
   $('form.full-registration input.dd, form.full-registration input.mm').mask('99');
   $('form.full-registration input.yyyy').mask('9999');
@@ -1436,7 +1436,7 @@ $( document ).ready(function() {
 // PROMO-CODE FORM VALIDATION //
 
   var auth = $('#promo-code-form').attr('data-user-auth');
-    var redirectUrl = $('#promo-code-form button').attr('data-redirect-authorization');
+  var redirectUrl = $('#promo-code-form button').attr('data-redirect-authorization');
     
   $('form.promo-code').validate({
     rules: {
@@ -1453,11 +1453,12 @@ $( document ).ready(function() {
 
   submitHandler: function(form) {
       if(auth == 'authorized') {
+        $('.promo-code button').html();
         $('.promo-code button').addClass('loading');
+        $('.promo-code button').html('<i class="fa fa-cog fa-spin"></i>');
         var options = {
           success: function(data){
             $('.promo-code button').removeClass('loading');
-              console.log(data);
               if(data.status) {
                 $('.second-code').fadeIn();
 
@@ -1467,6 +1468,7 @@ $( document ).ready(function() {
           },
           error: function(data) {
             $('.promo-code button').removeClass('loading');
+            $('.promo-code button').html('Отправить');
             // ERROR
           }
         };
@@ -1474,6 +1476,8 @@ $( document ).ready(function() {
 
       } else { // UNAUTORIZED USER
         $('.promo-code button').addClass('loading');
+        $('.promo-code button').addClass('loading');
+        $('.promo-code button').html('<i class="fa fa-cog fa-spin"></i>')
         var firstCodeCookie = $(".promo-code .promoCode1").val();
         $.cookie('firstCodeCookie', firstCodeCookie);
         // var cookiePromo = $.cookie('firstCodeCookie'); // wright cookie cookie into var
@@ -1504,7 +1508,9 @@ $( document ).ready(function() {
     },
 
     submitHandler: function(form) {
+      $('.promo-code-2 button').html();
       $('.promo-code-2 button').addClass('loading');
+      $('.promo-code-2 button').html('<i class="fa fa-cog fa-spin"></i>')
       var options = {
         success: function(data){
           console.log(data.responseTextSuccsess);
@@ -1516,6 +1522,7 @@ $( document ).ready(function() {
             }
         },
         error: function(data) {
+          $('.promo-code-2 button').html('Отправить');
           $('.promo-code-2 button').removeClass('loading');
           // ERROR
         }
@@ -1547,7 +1554,9 @@ $( document ).ready(function() {
       }
     },   
     submitHandler: function(form) {
+      $('form.registration button').html();
       $('form.registration button').addClass('loading');
+      $('form.registration button').html('<i class="fa fa-cog fa-spin"></i>');
       var options = { 
         success: function(data){
           if(data.redirect) {
@@ -1558,6 +1567,7 @@ $( document ).ready(function() {
           }
         },
         error: function(data) {
+          $('form.registration button').html('Отправить');
           $('form.registration button').removeClass('loading');
           // ERROR
         }
@@ -1581,7 +1591,9 @@ $( document ).ready(function() {
       },
     },   
     submitHandler: function(form) {
+      $('form.story button').html();
       $('form.story button').addClass('loading');
+      $('form.story button').html('<i class="fa fa-cog fa-spin"></i>')
       var options = { 
         success: function(data){
           if(data.redirect) {
@@ -1592,6 +1604,7 @@ $( document ).ready(function() {
           }
         },
         error: function(data) {
+          $('form.story button').html('Отправить');
           $('form.story button').removeClass('loading');
           // ERROR
         }
@@ -1642,7 +1655,9 @@ $( document ).ready(function() {
     },
 
     submitHandler: function(form) {
+      $('form.full-registration button').html();
       $('form.full-registration button').addClass('loading');
+      $('form.full-registration button').html('<i class="fa fa-cog fa-spin"></i>')
       var options = {
         success: function(data){
           if(data.redirect) {
@@ -1653,6 +1668,7 @@ $( document ).ready(function() {
           }
         },
         error: function(data) {
+          $('form.full-registration button').html('Отправить');
           $('form.full-registration button').removeClass('loading');
           // ERROR
         }
@@ -1660,18 +1676,53 @@ $( document ).ready(function() {
       $(form).ajaxSubmit(options);
     }
   });
+
 // MOSAIC //
-  var winnersWidth = $('.mosaic-holder').outerWidth();
-  var winnersHeight = $('.mosaic-holder').outerHeight();
-  var mosaicHorisontal = Math.ceil(winnersWidth / 100);
-  var mosaicVertical = Math.ceil(winnersHeight / 100);
-  var mosaicTotal = mosaicHorisontal * mosaicVertical + 10;
-  console.log(winnersWidth + ' x ' + winnersHeight + ' (' + mosaicHorisontal + 'x' + mosaicVertical + ') = ' + mosaicTotal);
-  
-  var curentMosaic = 1;
-  do {
-    $('.mosaic-fuckup').append('<div class="mosaic"><div class="mosaic-blured"></div></div>');
-    curentMosaic++;
+
+  function mosaicBlink() {
+    $('.mosaic .mosaic-blured').fadeIn();
+    var mosaicTotal = $('.mosaic').length;
+
+      //в условие цикла цисло активных блоков
+
+    for (randomArray = 0; randomArray < 10; randomArray++ ) {
+      var randomMosaic = Math.floor(Math.random() * (mosaicTotal - 0 + 1)) + 0;
+      $('.mosaic .mosaic-blured').eq(randomMosaic).fadeOut();
+    }
+      setTimeout(mosaicBlink, 5000);
   }
-  while (curentMosaic <= mosaicTotal);
+
+  function mosaicBuild() {
+
+    var winnersWidth = $('.mosaic-holder').outerWidth();
+    var winnersHeight = $('.mosaic-holder').outerHeight();
+    var mosaicHorisontal = Math.ceil(winnersWidth / 100);
+    var mosaicVertical = Math.ceil(winnersHeight / 100);
+    var curentMosaic = 0;
+    var mosaicRows = 0;
+
+    do {
+    var $row = $('<div class="mosaic-row"></div>').appendTo($('.mosaic-fuckup'));
+    mosaicRows++;
+    curentMosaic = 1;
+
+      do {
+        $row.append('<div class="mosaic"><div class="mosaic-blured" style="background-position: -'+ (curentMosaic-1) * 100 + 'px -' + (mosaicRows-1) * 100 +'px"></div></div>');
+        curentMosaic++;
+      }
+      while (curentMosaic <= mosaicHorisontal);
+
+    }
+    while (mosaicRows <= mosaicVertical);
+
+    mosaicBlink();
+  }
+
+  mosaicBuild();
+
+  $(window).resize(function(){
+    $('.mosaic-fuckup').html('');
+    mosaicBuild();
+  });
+
 });
