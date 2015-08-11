@@ -1,14 +1,17 @@
 extends templates/layout
 
 block content
-	.block.second-code
+	.block.send-instructions
 		.second-code-hack
-		form(class="promo-code promo-code-2" name="promo-code-2")
-			h3 Есть еще один промо-код?
+		form(class="promo-code send-instructions" name="send-instructions")
+			h3 На какую почту отправить приз?
 			.fields-holder 
-				input(type="text" for="promo-code-2" autocomplete="off")
+				input(type="text" for="send-instructions" name="instructionsEmail" autocomplete="off")
 				button(disabled="disabled") Отправить
 				a(href="#") Отмена
+	.block.story
+		.second-code-hack
+		
 
 	.block.header
 		.partners-block
