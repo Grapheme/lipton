@@ -70,7 +70,42 @@ class PromoController extends BaseController {
 
     public function secondRegister() {
 
-        Helper::tad(Input::all());
+        $json_request = array('status' => FALSE, 'responseText' => '', 'next_code' => FALSE, 'redirectURL' => FALSE);
+        $validator = Validator::make(Input::all(), array('promoCode2' => 'required'));
+        if ($validator->passes()):
+            $user_codes_count = UserCodes::where('user_id', Auth::user()->id)->count();
+            if($user_codes_count == 0):
+                $json_request['responseText'] = 'Сначала вводите первый промо-код.';
+                return Response::json($json_request, 200);
+            elseif($user_codes_count == 2):
+                $json_request['responseText'] = 'Вы уже вводили второй промо-код.';
+                return Response::json($json_request, 200);
+            elseif($user_codes_count >= 3):
+                $json_request['responseText'] = 'Вы не можете больше вводить промо-коды.';
+                return Response::json($json_request, 200);
+            endif;
+            $result = self::registerPromoCode(Input::get('promoCode2'));
+            if ($result === -1):
+                Auth::logout();
+                $json_request['redirectURL'] = pageurl('auth');
+                return Response::json($json_request, 200);
+            elseif ($result === FALSE):
+                $json_request['status'] = FALSE;
+            else:
+                $json_request['status'] = TRUE;
+                $json_request['next_code'] = FALSE;
+                Session::flash('message', Config::get('api.message'));
+                $json_request['redirectURL'] = URL::route('dashboard');
+            endif;
+            $json_request['responseText'] = Config::get('api.message');
+        else:
+            $json_request['responseText'] = $validator->messages()->all();
+        endif;
+        if (Request::ajax()):
+            return Response::json($json_request, 200);
+        else:
+            return Redirect::route('mainpage');
+        endif;
 
     }
 

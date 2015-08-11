@@ -413,7 +413,6 @@ class ApiController extends BaseController {
         $this->headers['authorization']['sessionKey'] = $params['sessionKey'];
         $valid = $this->validAvailableOperation($operation);
         if ($valid === -1):
-            var_dump($valid); exit;
             return $valid;
         elseif ($valid === FALSE):
             Config::set('api.message', 'Операция регистрации промо кодов недоступна.');
