@@ -83,15 +83,22 @@ input:-ms-input-placeholder {
 		}
 
 		.sharing-block {
-				max-width: 700px;
-				float: right;
-				display: block;
-				margin: 0;
-				padding: 0;
-				text-align: right;
-				margin-top: 17px;
+			max-width: 700px;
+			float: right;
+			display: block;
+			margin: 0;
+			padding: 0;
+			text-align: right;
+			margin-top: 17px;
 
+			a {
+				color: #000;
+				text-decoration: underline;
 
+				&:hover {
+					text-decoration: none;
+				}
+			}
 
 			li {
 				display: inline-block;
@@ -121,43 +128,45 @@ input:-ms-input-placeholder {
 					top: 5px;
 					left: -18px;
 				}
+			}
+		}
 
-				span {
-					display: block;
-					float: left;
-					height: 18px;
+		.sharing-links {
+			span {
+				display: block;
+				float: left;
+				height: 18px;
+			}
+
+			a {
+				color: #000;
+				text-decoration: underline;
+
+				&:hover {
+					text-decoration: none;
 				}
 
-				a {
-					color: #000;
-					text-decoration: underline;
+				&.soc {
+					display: block;
+					width: 18px;
+					height: 18px;
+					margin: -2px 0 0 10px;
+					float: right;
+					transition: .1s all;
 
 					&:hover {
-						text-decoration: none;
+						opacity: 0.8;
 					}
+					
 
-					&.soc {
-						display: block;
-						width: 18px;
-						height: 18px;
-						margin: -2px 0 0 10px;
-						float: right;
-						transition: .1s all;
-
-						&:hover {
-							opacity: 0.8;
-						}
-						
-
-						&.fb {
-							background-image: url('../images/ico-fb.png');
-						}
-						&.vk {
-							background-image: url('../images/ico-vk.png');
-						}
-						&.ok {
-							background-image: url('../images/ico-ok.png');
-						}
+					&.fb {
+						background-image: url('../images/ico-fb.png');
+					}
+					&.vk {
+						background-image: url('../images/ico-vk.png');
+					}
+					&.ok {
+						background-image: url('../images/ico-ok.png');
 					}
 				}
 			}
@@ -226,7 +235,7 @@ input:-ms-input-placeholder {
 		}
 
 		.partners-block {
-			width: 295px;
+			width: 320px;
 			height: 37px;
 			position: absolute;
 			left: 50px;
@@ -243,7 +252,7 @@ input:-ms-input-placeholder {
 				width: 152px;
 				height: 28px;
 				float: right;
-				margin-top: 5px;
+				margin-top: 9px;
 				background: url('../images/logo-lingualeo.png');
 			}
 		}
@@ -732,6 +741,18 @@ input:-ms-input-placeholder {
 				height: 38px;
 				right: 30px;
 				top: 30px;
+			}
+
+			.sory-text {
+				height: 440px;
+				height: 750px;
+				padding: 0 80px 25px 80px;
+				box-sizing: border-box;
+
+				p {
+					text-align: center;
+					font-size: 16px;
+				}
 			}
 		}
 

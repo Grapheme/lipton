@@ -448,6 +448,11 @@ input:-ms-input-placeholder {
     padding: 0;
     text-align: right;
     margin-top: 17px; }
+    .sub-footer .sharing-block a {
+      color: #000;
+      text-decoration: underline; }
+      .sub-footer .sharing-block a:hover {
+        text-decoration: none; }
     .sub-footer .sharing-block li {
       display: inline-block;
       position: relative;
@@ -469,31 +474,31 @@ input:-ms-input-placeholder {
         background-color: #ffffae;
         top: 5px;
         left: -18px; }
-      .sub-footer .sharing-block li span {
-        display: block;
-        float: left;
-        height: 18px; }
-      .sub-footer .sharing-block li a {
-        color: #000;
-        text-decoration: underline; }
-        .sub-footer .sharing-block li a:hover {
-          text-decoration: none; }
-        .sub-footer .sharing-block li a.soc {
-          display: block;
-          width: 18px;
-          height: 18px;
-          margin: -2px 0 0 10px;
-          float: right;
-          -webkit-transition: .1s all;
-                  transition: .1s all; }
-          .sub-footer .sharing-block li a.soc:hover {
-            opacity: 0.8; }
-          .sub-footer .sharing-block li a.soc.fb {
-            background-image: url("../images/ico-fb.png"); }
-          .sub-footer .sharing-block li a.soc.vk {
-            background-image: url("../images/ico-vk.png"); }
-          .sub-footer .sharing-block li a.soc.ok {
-            background-image: url("../images/ico-ok.png"); }
+  .sub-footer .sharing-links span {
+    display: block;
+    float: left;
+    height: 18px; }
+  .sub-footer .sharing-links a {
+    color: #000;
+    text-decoration: underline; }
+    .sub-footer .sharing-links a:hover {
+      text-decoration: none; }
+    .sub-footer .sharing-links a.soc {
+      display: block;
+      width: 18px;
+      height: 18px;
+      margin: -2px 0 0 10px;
+      float: right;
+      -webkit-transition: .1s all;
+              transition: .1s all; }
+      .sub-footer .sharing-links a.soc:hover {
+        opacity: 0.8; }
+      .sub-footer .sharing-links a.soc.fb {
+        background-image: url("../images/ico-fb.png"); }
+      .sub-footer .sharing-links a.soc.vk {
+        background-image: url("../images/ico-vk.png"); }
+      .sub-footer .sharing-links a.soc.ok {
+        background-image: url("../images/ico-ok.png"); }
 
 .block {
   width: 100%; }
@@ -537,7 +542,7 @@ input:-ms-input-placeholder {
       background: url("../images/logo-lipton.png");
       margin: 0 auto; }
     .block.header .partners-block {
-      width: 295px;
+      width: 320px;
       height: 37px;
       position: absolute;
       left: 50px;
@@ -551,7 +556,7 @@ input:-ms-input-placeholder {
         width: 152px;
         height: 28px;
         float: right;
-        margin-top: 5px;
+        margin-top: 9px;
         background: url("../images/logo-lingualeo.png"); }
     .block.header .icons-block {
       width: 116px;
@@ -904,6 +909,14 @@ input:-ms-input-placeholder {
         height: 38px;
         right: 30px;
         top: 30px; }
+      .block.second-code .story-popup .sory-text, .block.send-instructions .story-popup .sory-text, .block.story .story-popup .sory-text {
+        height: 440px;
+        height: 750px;
+        padding: 0 80px 25px 80px;
+        box-sizing: border-box; }
+        .block.second-code .story-popup .sory-text p, .block.send-instructions .story-popup .sory-text p, .block.story .story-popup .sory-text p {
+          text-align: center;
+          font-size: 16px; }
     .block.second-code form.promo-code-2, .block.second-code form.send-instructions, .block.send-instructions form.promo-code-2, .block.send-instructions form.send-instructions, .block.story form.promo-code-2, .block.story form.send-instructions {
       position: relative;
       background-image: url("../images/bg-promo-popup.png");

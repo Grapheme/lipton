@@ -11,7 +11,7 @@
         </p>
     </div>
     {{ Menu::placement('footer_menu') }}
-    <div>
+    <div class="sharing-links">
         <span> Рассказать друзьям
             <a href="#" class="soc ok"></a>
             <a href="#" class="soc vk"></a>
