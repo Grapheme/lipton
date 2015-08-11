@@ -167,7 +167,7 @@ input:-ms-input-placeholder {
 					display: block;
 					width: 18px;
 					height: 18px;
-					margin: -2px 0 0 10px;
+					margin: -3px 0 0 10px;
 					float: right;
 					transition: .1s all;
 
@@ -760,15 +760,21 @@ input:-ms-input-placeholder {
 				top: 30px;
 			}
 
-			.sory-text {
+			.story-wrapper {
+				width: 750px;
+				margin: 0 auto;
 				height: 440px;
-				height: 750px;
 				padding: 0 80px 25px 80px;
-				box-sizing: border-box;
+				overflow: hidden;
 
-				p {
-					text-align: center;
-					font-size: 16px;
+				.story-text {
+					overflow: scroll;
+					width: 780px;
+
+					p {
+						text-align: center;
+						font-size: 16px;
+					}
 				}
 			}
 		}
@@ -847,7 +853,11 @@ input:-ms-input-placeholder {
 				}
 
 				&.loading {
-					background: #666 !important;
+					background-color: #a40000 !important;
+					color: #c90119 !important;
+					border-width: 3px 0 0 0 !important;
+					border-style: solid !important;
+					border-color: #c90119 !important;
 				}
 			}
 
