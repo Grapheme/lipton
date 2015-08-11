@@ -11,6 +11,14 @@ $( document ).ready(function() {
       $('.second-code').fadeOut();
   });
 
+  $('.gained-prizes .prize a').click(function() {
+      $('.send-instructions').fadeIn();
+  });
+
+  $('.send-instructions .fields-holder a').click(function() {
+      $('.send-instructions').fadeOut();
+  });
+
   $('#sex').selectmenu();
   $('#accept').button();
 
@@ -94,7 +102,7 @@ $( document ).ready(function() {
         var options = {
           success: function(data){
             $('.promo-code button').removeClass('loading');
-              if(data.status) {
+              if(data.next_code) {
                 $('.second-code').fadeIn();
 
                 } else {
@@ -211,7 +219,7 @@ $( document ).ready(function() {
     }
   });
 
-// STORY FOTM VALIDATION //
+// STORY FORM VALIDATION //
 
   $('form.story').validate({
     rules: {
@@ -222,7 +230,7 @@ $( document ).ready(function() {
 
     messages: {
       message: {
-        required: 'Необходимо yfgbcfnm bcnjhb.!',
+        required: 'Необходимо написать сообщение!',
       },
     },   
     submitHandler: function(form) {
@@ -241,6 +249,45 @@ $( document ).ready(function() {
         error: function(data) {
           $('form.story button').html('Отправить');
           $('form.story button').removeClass('loading');
+          // ERROR
+        }
+      };
+      $(form).ajaxSubmit(options);
+    }
+  });
+
+// EMAIL-REQUEST FORM VALIDATION //
+
+  $('form.send-instructions').validate({
+    rules: {
+      instructionsEmail: {
+        required: true,
+        email: true,
+      },
+    },
+
+    messages: {
+      message: {
+        required: 'Необходимо заполнить поле!',
+        email: 'Проверьте правильность адреса!',
+      },
+    },   
+    submitHandler: function(form) {
+      $('form.send-instructions button').html();
+      $('form.send-instructions button').addClass('loading');
+      $('form.send-instructions button').html('<i class="fa fa-cog fa-spin"></i>')
+      var options = { 
+        success: function(data){
+          if(data.redirect) {
+            function instructionsSended () {
+              window.location.href = data.redirect;
+            };
+            setTimeout(goToCabinet, 3000);
+          }
+        },
+        error: function(data) {
+          $('form.send-instructions button').html('Отправить');
+          $('form.send-instructions button').removeClass('loading');
           // ERROR
         }
       };

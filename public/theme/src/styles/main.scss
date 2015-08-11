@@ -680,7 +680,7 @@ input:-ms-input-placeholder {
 		}
 	}
 
-	&.second-code {
+	&.second-code, &.send-instructions, .story {
 		cursor: pointer;
 		position: fixed;
 		width: 100%;
@@ -703,7 +703,9 @@ input:-ms-input-placeholder {
 			vertical-align: middle;
 		}
 
-		form.promo-code-2 {
+		
+
+		form.promo-code-2, form.send-instructions {
 			position: relative;
 			background-image: url('../images/bg-promo-popup.png');
 			display: inline-block;
@@ -1756,6 +1758,7 @@ input:-ms-input-placeholder {
 					color: #c90119;
 					font-size: 18px;
 					text-transform: uppercase;
+					text-align: left;
 				}
 
 				p {
@@ -1792,6 +1795,7 @@ input:-ms-input-placeholder {
 					color: #c90119;
 					font-size: 18px;
 					text-transform: uppercase;
+					text-align: left;
 				}
 
 				a {
