@@ -1765,11 +1765,18 @@ $( document ).ready(function() {
     mosaicBlink();
   }
 
-  mosaicBuild();
-
   $(window).resize(function(){
     $('.mosaic-fuckup').html('');
     mosaicBuild();
   });
+/////////
+  function parseHash(){
+    var hash = window.location.hash;
+    if (hash == '#show') {
+      $('.second-code').fadeIn();
+    }
+  }
+
+  parseHash();
 
 });
