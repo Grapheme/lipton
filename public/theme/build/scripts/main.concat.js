@@ -1450,7 +1450,7 @@ $( document ).ready(function() {
   var auth = $('#promo-code-form').attr('data-user-auth');
   var redirectUrl = $('#promo-code-form button').attr('data-redirect-authorization');
     
-  $('form.promo-code').validate({
+  $('form#promo-code-form').validate({
     rules: {
       promoCode1: {
         required: true,
