@@ -1818,8 +1818,9 @@ input:-ms-input-placeholder {
 			
 			.profile-info {
 				height: 80px;
-				width: 405px;
+				width: 305px;
 				float: left;
+				border-right: 1px solid rgba(201, 1, 25, 0.3);
 
 				.avatar {
 					width: 80px;
@@ -1856,33 +1857,111 @@ input:-ms-input-placeholder {
 
 			}
 
-			.request {
-				width: 505px;
+			.profile-promo-code {
+				width: 416px;
+				border-right: 1px solid rgba(201, 1, 25, 0.3);
 				height: 80px;
-				overflow: hidden;
-
-				.note {
-					width: 80px;
-					height: 80px;
-					margin-right: 20px;
-					float: left;
-					background-image: url('../images/ico-note.png');
-				}
+				float: left;
+				padding: 0 25px;
+				box-sizing: border-box;
 
 				h3 {
+					margin: 0;
+					text-align: left;
+					font-size: 18px;
+					margin-bottom: 7px;
+				}
+
+				form.profile-code {
+					display: block;
+					width: 357px;
+					height: 50px;
+
+					input {
+						width: 211px;
+						height: 50px;
+						border-radius: 3px;
+						border: 3px solid #ca0619;
+						padding: 14px 20px;
+						box-sizing: border-box;
+						background-color: rgba(255, 246, 186, 0.5);
+						outline: 0;
+						font-family: 'Intro-regular';
+						font-size: 20px;
+						text-transform: uppercase;
+					}
+
+					button {
+						float: right;
+						width: 136px;
+						height: 50px;
+						background-color: #c90119;
+						color: #ffde00;
+						box-shadow: none;
+						font-size: 18px;
+						border-width: 0 0 3px 0;
+						border-color: #a40000;
+						border-style: solid;
+						border-radius: 3px;
+						text-transform: uppercase;
+						transition: .1s all;
+						outline: 0;
+						font-family: 'Intro';
+						line-height: 47px;
+						cursor: pointer;
+
+						&:hover {
+							background-color: #a40000;
+							color: #c90119;
+							border-width: 3px 0 0 0;
+							border-style: solid;
+							border-color: #c90119;
+						}
+
+						&.loading {
+							background-color: #a40000!important;
+							color: #c90119!important;
+							border-width: 3px 0 0 0!important;
+							border-style: solid!important;
+							border-color: #c90119!important;
+							opacity: 0.8;
+						}
+					}
+				}
+			}
+
+			.request {
+				width: 187px;
+				height: 80px;
+				overflow: hidden;
+				padding: 13px 0 0 0;
+				box-sizing: border-box;
+
+				.note {
+					width: 40px;
+					height: 40px;
+					margin: 5px 10px 0 22px;
+					float: left;
+					background-image: url('../images/ico-note.png');
+					background-size: 40px;
+				}
+
+				a {
 					margin: 0 0 16px 0;
 					font-family: 'Intro-regular';
 					color: #c90119;
 					font-size: 18px;
 					text-transform: uppercase;
 					text-align: left;
+					text-decoration: none;
+					border-bottom: 1px dotted #c90119;
 				}
 
-				a {
-					display: block;
-					float: left;
-					font-size: 16px;
-				}
+				// a {
+				// 	display: block;
+				// 	float: left;
+				// 	font-size: 16px;
+				// }
 
 				.moderation {
 					float: right;

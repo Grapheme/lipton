@@ -67,13 +67,21 @@ block content
 							h3 Дмитрий Иванов
 							p 26 лет, г. Москва
 							a(href="#") редактировать профиль
+						
+						.profile-promo-code
+							h3 Введите промо код
+							form.profile-code(name="profile-code")
+								input(type="text" for="profile-code" name="profile-code-code" autocomplete="off")
+								button Отправить
+
 						.request
 							.note
-							h3 Заявка на розыгрыш путешествия с&nbsp;National Geographic Traveler
-							a(href="#") Посмотреть рассказ о себе
-							.moderation.neutral На модерации
+							a Конкурс рассказов
+							//- a(href="#") Посмотреть рассказ о себе
+							//- .moderation.neutral На модерации
 								.bullet
 					.profile-border
+
 					h3 Полученные призы
 					.gained-prizes
 						.prize
