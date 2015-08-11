@@ -10,7 +10,6 @@
         <p>ЭЛЕКТРОННАЯ ПОЧТА: <a href="mailto:COMMUNICATIONS.RUSSIA@UNILEVER.COM">COMMUNICATIONS.RUSSIA@UNILEVER.COM</a>
         </p>
     </div>
-    {{ Menu::placement('footer_menu') }}
     <div class="sharing-links">
         <span> Рассказать друзьям
             <a href="#" class="soc ok"></a>
@@ -18,6 +17,7 @@
             <a href="#" class="soc fb"></a>
         </span>
     </div>
+    {{ Menu::placement('footer_menu') }}
 </div>
 <div class="footer-decor-left"></div>
 <div class="footer-decor-right"></div>
