@@ -132,6 +132,22 @@ input:-ms-input-placeholder {
 		}
 
 		.sharing-links {
+			float: right;
+			margin-top: 19px;
+			position: relative;
+
+			&:before {
+				content: '';
+				display: block;
+				position: absolute;
+				width: 8px;
+				height: 8px;
+				border-radius: 51%;
+				background-color: #ffffae;
+				top: 5px;
+				left: -18px;
+			}
+
 			span {
 				display: block;
 				float: left;
