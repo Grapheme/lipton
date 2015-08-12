@@ -123,18 +123,18 @@ class PromoController extends BaseController {
                 $story->save();
             elseif ($story->status == 2):
                 $json_request['responseText'] = 'Ваш рассказ находится на модерации. Дождитесь пожалуйста ответа.';
-                Session::set('message', $json_request['responseText']);
+                Session::flash('message', $json_request['responseText']);
                 return Response::json($json_request, 200);
             elseif ($story->status == 1):
                 $json_request['responseText'] = 'Ваш рассказ прошел модерацию. Дождитесь завершения розыгрыша.';
-                Session::set('message', $json_request['responseText']);
+                Session::flash('message', $json_request['responseText']);
                 return Response::json($json_request, 200);
             else:
                 $story->writing = Input::get('message');
                 $story->status = 2;
                 $story->save();
                 $json_request['responseText'] = 'Ваш рассказ отправлен на модерацию';
-                Session::set('message', $json_request['responseText']);
+                Session::flash('message', $json_request['responseText']);
                 $json_request['redirectURL'] = URL::route('dashboard');
                 $json_request['status'] = TRUE;
             endif;
