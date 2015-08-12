@@ -1129,6 +1129,7 @@ input:-ms-input-placeholder {
 				.form-block-right {
 					width: 275px;
 					float: left;
+					clear: right;
 				}
 
 				.accept-block-holder {
@@ -1816,6 +1817,56 @@ input:-ms-input-placeholder {
 		}
 	}
 
+	.accept-block-holder {
+		
+		.profile-info {
+			height: 120px;
+			width: 110px;
+			margin: 0 auto;
+			margin-bottom: 20px;
+
+			input {
+				display: none;
+			}
+
+			.avatar {
+				width: 100px;
+				height: 100px;
+				border-radius: 51%;
+				margin: 0 auto;
+				text-align: center;
+				background-repeat: no-repeat;
+				background-position: center;
+				background-size: 100px;
+			}
+
+			h3 {
+				margin: 0 0 5px 0;
+				font-family: 'Intro-regular';
+				color: #c90119;
+				font-size: 18px;
+				text-transform: uppercase;
+				text-align: left;
+			}
+
+			p {
+				margin: 0 0 14px 0;
+				font-size: 16px;
+			}
+
+			a {
+				text-decoration: underline;
+				margin-top: 5px;
+				margin-bottom: 10px;
+    			display: block;
+
+				&:hover {
+					text-decoration: none;
+				}
+			}
+		}
+	}
+
 	.profile {
 		width: 910px;
 		height: 510px;
@@ -2115,7 +2166,7 @@ input:-ms-input-placeholder {
 		background-position: -10px 100px;
 
 		.country {
-			width: 179px;
+			width: 180px;
 			height: 137px;
 			position: absolute;
 			cursor: pointer;
@@ -2124,7 +2175,7 @@ input:-ms-input-placeholder {
 
 			&:hover {
 				.photo {
-					top: -20px;
+					box-shadow: 0px 0px 3px 0px inset, 0 0 0px 10px #c90119;
 				}
 			}
 
@@ -2138,12 +2189,14 @@ input:-ms-input-placeholder {
 				text-transform: uppercase;
 				font-family: 'Intro-regular';
 				color: #c90119;
-				margin: 119px 0 0 0;
+				margin: 43px 0 0 0;
+				position: relative;
+				z-index: 20;
 			}
 
 			.photo {
-				width: 114px;
-				height: 114px;
+				width: 180px;
+				height: 180px;
 				border-radius: 51%;
 				background: #777;
 				position: absolute;
@@ -2152,6 +2205,7 @@ input:-ms-input-placeholder {
 				margin-left: -57px;
 				top: 0;
 				transition: 0.5s all;
+				box-shadow: 0px 0px 3px 0px inset;
 			}
 
 			.tea {
@@ -2170,7 +2224,7 @@ input:-ms-input-placeholder {
 				}
 
 				.photo {
-
+					background-image: url('../images/bg-photo-cuba.png');
 				}
 			}
 
@@ -2196,7 +2250,7 @@ input:-ms-input-placeholder {
 				}
 
 				.photo {
-					
+					background-image: url('../images/bg-photo-china.png');
 				}
 			}
 
@@ -2222,7 +2276,7 @@ input:-ms-input-placeholder {
 				}
 
 				.photo {
-					
+					background-image: url('../images/bg-photo-turkey.png');
 				}
 			}
 

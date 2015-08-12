@@ -1208,7 +1208,8 @@ input:-ms-input-placeholder {
           float: left; }
         .block .participate-block .forms-holder form.full-registration .form-block-right, .block .participate-block .forms-holder form.profile-edit .form-block-right {
           width: 275px;
-          float: left; }
+          float: left;
+          clear: right; }
         .block .participate-block .forms-holder form.full-registration .accept-block-holder, .block .participate-block .forms-holder form.profile-edit .accept-block-holder {
           width: 100%;
           overflow: hidden;
@@ -1690,6 +1691,39 @@ input:-ms-input-placeholder {
                 text-align: center;
                 font-size: 13px;
                 color: #ffde00; }
+  .block .accept-block-holder .profile-info {
+    height: 120px;
+    width: 110px;
+    margin: 0 auto;
+    margin-bottom: 20px; }
+    .block .accept-block-holder .profile-info input {
+      display: none; }
+    .block .accept-block-holder .profile-info .avatar {
+      width: 100px;
+      height: 100px;
+      border-radius: 51%;
+      margin: 0 auto;
+      text-align: center;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 100px; }
+    .block .accept-block-holder .profile-info h3 {
+      margin: 0 0 5px 0;
+      font-family: 'Intro-regular';
+      color: #c90119;
+      font-size: 18px;
+      text-transform: uppercase;
+      text-align: left; }
+    .block .accept-block-holder .profile-info p {
+      margin: 0 0 14px 0;
+      font-size: 16px; }
+    .block .accept-block-holder .profile-info a {
+      text-decoration: underline;
+      margin-top: 5px;
+      margin-bottom: 10px;
+      display: block; }
+      .block .accept-block-holder .profile-info a:hover {
+        text-decoration: none; }
   .block .profile {
     width: 910px;
     height: 510px;
@@ -1910,14 +1944,14 @@ input:-ms-input-placeholder {
     background-repeat: no-repeat;
     background-position: -10px 100px; }
     .block .collection .country {
-      width: 179px;
+      width: 180px;
       height: 137px;
       position: absolute;
       cursor: pointer;
       background-position: bottom center;
       background-repeat: no-repeat; }
       .block .collection .country:hover .photo {
-        top: -20px; }
+        box-shadow: 0px 0px 3px 0px inset, 0 0 0px 10px #c90119; }
       .block .collection .country .content {
         display: none; }
       .block .collection .country p {
@@ -1926,10 +1960,12 @@ input:-ms-input-placeholder {
         text-transform: uppercase;
         font-family: 'Intro-regular';
         color: #c90119;
-        margin: 119px 0 0 0; }
+        margin: 43px 0 0 0;
+        position: relative;
+        z-index: 20; }
       .block .collection .country .photo {
-        width: 114px;
-        height: 114px;
+        width: 180px;
+        height: 180px;
         border-radius: 51%;
         background: #777;
         position: absolute;
@@ -1938,7 +1974,8 @@ input:-ms-input-placeholder {
         margin-left: -57px;
         top: 0;
         -webkit-transition: 0.5s all;
-                transition: 0.5s all; }
+                transition: 0.5s all;
+        box-shadow: 0px 0px 3px 0px inset; }
       .block .collection .country .tea {
         width: 179px;
         height: 137px;
@@ -1949,6 +1986,8 @@ input:-ms-input-placeholder {
         left: 110px; }
         .block .collection .country.cuba .tea {
           background-image: url("../images/bg-tea-cuba.png"); }
+        .block .collection .country.cuba .photo {
+          background-image: url("../images/bg-photo-cuba.png"); }
       .block .collection .country.england {
         top: 70px;
         right: 110px; }
@@ -1961,6 +2000,8 @@ input:-ms-input-placeholder {
         top: 245px; }
         .block .collection .country.china .tea {
           background-image: url("../images/bg-tea-china.png"); }
+        .block .collection .country.china .photo {
+          background-image: url("../images/bg-photo-china.png"); }
       .block .collection .country.shri {
         bottom: 0px;
         right: 110px; }
@@ -1973,6 +2014,8 @@ input:-ms-input-placeholder {
         left: 110px; }
         .block .collection .country.turkey .tea {
           background-image: url("../images/bg-tea-turkey.png"); }
+        .block .collection .country.turkey .photo {
+          background-image: url("../images/bg-photo-turkey.png"); }
       .block .collection .country.marokko {
         left: 0;
         top: 245px; }
