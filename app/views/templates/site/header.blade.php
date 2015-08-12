@@ -27,6 +27,10 @@
 </div>
 <div class="block menu-holder">
     <div class="content">
-        {{ Menu::placement('center_menu') }}
+        <ul class="top-menu">
+            <li><a href="http://discovery.liptontea.ru">Чайная коллекция</a></li>
+            <li><a href="http://www.liptontea.ru">Мир чая</a></li>
+            <li><a href="http://goodstarter.liptontea.ru">Goodstarter</a></li>
+        </ul>
     </div>
 </div>

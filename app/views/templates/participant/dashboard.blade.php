@@ -42,7 +42,11 @@ $now = Carbon::now();
                         </div>
                         <div class="request">
                             <div class="note"></div>
-                            <a {{ count($profile->codes) == 2 && count($profile->writing) ? '' : 'class="disabled-button"' }} href="javascript:void(0);">Конкурс рассказов</a>
+                            @if(count($profile->codes) == 2 && isset($profile->writing->writing) && !empty($profile->writing->writing))
+                                <a href="javascript:void(0);">Конкурс рассказов</a>
+                            @else
+                                <a class="disabled-button" href="javascript:void(0);">Конкурс рассказов</a>
+                            @endif
                         </div>
                     </div>
                     <div class="profile-border"></div>
@@ -69,8 +73,12 @@ $now = Carbon::now();
                         @if(count($profile->codes) == 2)
                             @if(count($profile->writing) == 0)
                             <a href="{{ URL::route('profile.tell-story') }}">Написать</a>
+                            @elseif(isset($profile->writing->status) && $profile->writing->status == 1)
+                            <a class="disabled-button">Одобрен</a>
                             @elseif(isset($profile->writing->status) && $profile->writing->status == 2)
-                            <a class="disabled-button">На модерации</a>
+                            <a class="disabled-button">Модерация</a>
+                            @elseif(isset($profile->writing->status) && $profile->writing->status == 3)
+                            <a href="{{ URL::route('profile.tell-story') }}">Изменить</a>
                             @endif
                         @endif
                         </div>

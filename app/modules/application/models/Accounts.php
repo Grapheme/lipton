@@ -29,6 +29,6 @@ class Accounts extends \User {
 
     public function writing(){
 
-        return $this->hasMany('UserWritings','user_id','id');
+        return $this->hasOne('UserWritings','user_id','id');
     }
 }
