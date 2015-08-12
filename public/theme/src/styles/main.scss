@@ -472,7 +472,8 @@ input:-ms-input-placeholder {
 
 					&.step-2 {
 						width: 412px;
-						margin-right: 67px
+						margin-right: 67px;
+						height: 160px;
 					}
 
 					&.step-3 {
@@ -652,7 +653,8 @@ input:-ms-input-placeholder {
 	form.promo-code {
 		width: 447px;
 		height: 50px;
-		margin: 20px auto;
+		margin: 20px 0px 0px -40px;
+		position: relative;
 
 		input {
 			width: 285px;
@@ -928,6 +930,7 @@ input:-ms-input-placeholder {
 				width: 325px;
 				float: left;
 				height: 100%;
+				position: relative;
 
 				input {
 					width: 253px;
@@ -1368,12 +1371,8 @@ input:-ms-input-placeholder {
 					border-width: 3px 0 0 0 !important;
 					border-style: solid !important;
 					border-color: #c90119 !important;
-
-					i {
-						color: #ffde00 !important;
-						font-size: 40px !important;
-						line-height: 45px !important;
-					}
+					font-size: 40px !important;
+					line-height: 37px !important;
 				}
 			}
 		}
@@ -2163,7 +2162,7 @@ input:-ms-input-placeholder {
 		margin-left: -7%;
 		background-image: url('../images/bg-glowing-plane.png');
 		background-repeat: no-repeat;
-		background-position: 200px 100px;
+		background-position: 200px 120px;
 
 		.country {
 			width: 180px;
@@ -2206,6 +2205,7 @@ input:-ms-input-placeholder {
 				top: 0;
 				transition: 0.5s all;
 				box-shadow: 0px 0px 3px 0px inset;
+				background-repeat: no-repeat;
 			}
 
 			.tea {
@@ -2215,10 +2215,11 @@ input:-ms-input-placeholder {
 				z-index: 2;
 				bottom: 0px;
 				left: -30px;
+				background-repeat: no-repeat;
 			}
 
 			&.cuba {
-				top: 70px;
+				top: 45px;
 				left: 265px;
 
 				.tea {
@@ -2231,7 +2232,7 @@ input:-ms-input-placeholder {
 			}
 
 			&.england {
-				top: 70px;
+				top: 45px;
 				right: 265px;
 
 				.tea {
@@ -2245,7 +2246,7 @@ input:-ms-input-placeholder {
 
 			&.china {
 				right: 0px;
-				top: 245px;
+				top: 247px;
 
 				.tea {
 					background-image: url('../images/bg-tea-china.png');
@@ -2257,7 +2258,7 @@ input:-ms-input-placeholder {
 			}
 
 			&.shri {
-				bottom: 0px;
+				bottom: -40px;
 				right: 265px;
 
 				.tea {
@@ -2270,7 +2271,7 @@ input:-ms-input-placeholder {
 			}
 
 			&.turkey {
-				bottom: 0px;
+				bottom: -40px;
 				left: 265px;
 
 				.tea {
@@ -2284,7 +2285,7 @@ input:-ms-input-placeholder {
 
 			&.marokko {
 				left: 0;
-				top: 245px;
+				top: 247px;
 
 				.tea {
 					background-image: url('../images/bg-tea-marokko.png');
@@ -2504,4 +2505,144 @@ input.error {
 	pointer-events: none;
 	opacity: 0.7;
 	cursor: default;
+}
+
+//* RESPONSIVE *//
+
+@media (max-width: 1220px) {
+	
+	.block {
+
+		&.promo-code {
+			height: 565px;
+
+			.content {
+				width: 100%;
+
+				.promo-steps {
+					margin-top: 115px;
+					width: 100%;
+					padding: 0px 35%;
+					box-sizing: border-box;
+
+					.promo-step:after {
+						content: '';
+						display: block;
+						position: absolute;
+						width: 30px;
+						height: 52px;
+						background-image: url('../images/ico-step-arrow-down.png');
+						top: 32px;
+						right: -30px
+					}
+				}
+			}
+		}
+	}
+
+	.promo-step{
+		.step-1 {
+			margin-right: 7%;
+		}
+
+		.step-2 {
+			margin-right: 5%;
+			margin-bottom: 10px;
+		}
+	}
+}
+
+//* ERRORS *//
+
+#promoCode1-error {
+    position: absolute;
+    left: 0;
+    top: 50px;
+    color: #000000;
+}
+
+.error-block {
+	position: relative;
+	background-image: url('../images/bg-promo-popup.png');
+	display: inline-block;
+	vertical-align: middle;
+	left: 50%;
+	margin-left: -266px;
+	width: 532px;
+	height: 287px;
+	border-radius: 10px;
+
+	h3 {
+		text-transform: uppercase;
+		font-size: 21px;
+		color: #c90119;
+		font-family: 'Intro-regular';
+		margin: 55px 0 30px 0;
+		text-align: center;
+	}
+
+	p {
+		font-size: 16px;
+		text-align: center;
+		padding: 0 40px;
+	}
+
+	a {
+		display: block;
+		width: 136px;
+		height: 47px;
+		background-color: #c90119;
+		color: #ffde00;
+		font-size: 18px;
+		border-width: 0 0 3px 0;
+		border-color: #a40000;
+		border-style: solid;
+		border-radius: 3px;
+		text-transform: uppercase;
+		transition: .1s all;
+		text-decoration: none;
+		text-align: center;
+		line-height: 50px;
+		font-family: 'Intro';
+		cursor: pointer;
+		margin: 0 auto;
+
+		&:hover {
+			background-color: #a40000;
+			color: #c90119;
+			border-width: 3px 0 0 0;
+			border-style: solid;
+			border-color: #c90119;
+		}
+	}
+}
+
+form.registration {
+	label {
+		position: relative;
+		display: block;
+		margin-bottom: -14px;
+		top: -20px;
+		color: #c90119;
+		font-size: 14px;
+	}
+}
+
+.erros-message-block {
+	width: 100%;
+	padding: 11px 20px;
+	font-weight: bold;
+	background-color: rgba(201, 1, 25, 0.3);
+	margin-top: 20px;
+
+	&:before {
+		content:'';
+		display: block;
+		position: relative;
+		width: 28px;
+		height: 28px;
+		background-image: url('../images/ico-error.png');
+		float: left;
+		margin-right: 10px;
+	}
 }

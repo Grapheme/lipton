@@ -56,15 +56,15 @@ block content
 						.step-number 2
 						h2 Зарегистрируйте
 						p Код, размещенный<br>под крышкой
+
+						form(action="http://lipton.dev/build/ajax/promo.json" id="promo-code-form" class="promo-code" name="promo-code" data-user-auth="authorized")
+							input(type="text" name="promoCode1" for="promo-code" class="promoCode1" autocomplete="off")
+							button(type="submit" data-redirect-authorization="/participate.html") Отправить
 					
 					.promo-step.step-3
 						.step-number 3
 						h2 Получайте
 						p Призы от Lingualeo и&nbsp;National Geographic Traveler
-
-				form(action="http://lipton.dev/build/ajax/promo.json" id="promo-code-form" class="promo-code" name="promo-code" data-user-auth="authorized")
-					input(type="text" name="promoCode1" for="promo-code" class="promoCode1" autocomplete="off")
-					button(type="submit" data-redirect-authorization="/participate.html") Отправить
 
 		.block.footer
 			.content
