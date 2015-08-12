@@ -260,7 +260,7 @@ class ApiController extends BaseController {
             App::abort(404);
         endif;
         $uri_request = $this->config['server_url'] . "/v2/customers?operation=$operation";
-        $sex = array('none', 'female', 'male');
+        $sex = array('female', 'male');
         ob_start();
         ?>
         <customer>

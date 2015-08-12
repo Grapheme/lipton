@@ -19,7 +19,7 @@
     <p class="field-title required">Имя</p>
     {{ Form::text('name', trim(Session::get('first_name')), array('for'=>'full-registration-form','autocomplete'=>'off')) }}
     <p class="field-title">Пол</p>
-    {{ Form::select('sex', array('Не указан', 'Женский', 'Мужской'), Session::get('sex'), array('id' => 'sex', 'for' => 'full-registration-form')) }}
+    {{ Form::select('sex', array('Женский', 'Мужской'), Session::get('sex'), array('id' => 'sex', 'for' => 'full-registration-form')) }}
 </div>
 <div class="devider no-dots"></div>
 <div class="form-block-right">
