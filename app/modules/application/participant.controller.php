@@ -42,8 +42,6 @@ class ParticipantController extends BaseController {
             'gtpl' => static::returnTpl(),
             'class' => __CLASS__,
 
-            'entity' => self::$entity,
-            'entity_name' => self::$entity_name,
         );
         View::share('module', $this->module);
     }
