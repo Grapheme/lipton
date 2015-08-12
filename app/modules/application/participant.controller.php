@@ -61,13 +61,13 @@ class ParticipantController extends BaseController {
 
     public function profileSave() {
 
-        $json_request = array('status' => FALSE, 'responseText' => '', 'redirect' => FALSE);
+        $json_request = array('status' => FALSE, 'responseText' => '', 'redirectURL' => FALSE);
         $validator = Validator::make(Input::all(), Accounts::$update_rules);
         if ($validator->passes()):
             $post = Input::all();
             if (self::accountUpdate($post)):
                 self::crmAccountUpdate($post);
-                $json_request['redirect'] = URL::route('dashboard');
+                $json_request['redirectURL'] = URL::route('dashboard');
                 $json_request['responseText'] = Lang::get('interface.DEFAULT.success_save');
                 $json_request['status'] = TRUE;
             else:
@@ -120,7 +120,7 @@ class ParticipantController extends BaseController {
         if($api === -1):
             #Auth::logout();
             $json_request['responseText'] = Config::get('api.message');
-            $json_request['redirect'] = pageurl('auth');
+            $json_request['redirectURL'] = pageurl('auth');
             return Response::json($json_request, 200);
         elseif(isset($api['version'])):
             $post['version'] = $api['version'];
@@ -129,7 +129,7 @@ class ParticipantController extends BaseController {
             if($api === -1):
                 #Auth::logout();
                 $json_request['responseText'] = Config::get('api.message');
-                $json_request['redirect'] = pageurl('auth');
+                $json_request['redirectURL'] = pageurl('auth');
                 return Response::json($json_request, 200);
             elseif (is_array($api)):
                 Auth::user()->remote_id = @$api['id'];
