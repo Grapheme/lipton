@@ -115,18 +115,18 @@ class PromoController extends BaseController {
         $validator = Validator::make(Input::all(), array('message' => 'required'));
         if ($validator->passes()):
             $story = UserWritings::where('user_id', Auth::user()->id)->first();
-            if(!$story):
+            if (!$story):
                 $story = new UserWritings();
                 $story->user_id = Auth::user()->id;
                 $story->writing = Input::get('message');
                 $story->status = 0;
                 $story->save();
-            elseif($story->status == 2):
-                $json_request['responseText'] =  'Ваш рассказ находится на модерации. Дождитесь пожалуйста ответа.';
+            elseif ($story->status == 2):
+                $json_request['responseText'] = 'Ваш рассказ находится на модерации. Дождитесь пожалуйста ответа.';
                 Session::set('message', $json_request['responseText']);
                 return Response::json($json_request, 200);
-            elseif($story->status == 1):
-                $json_request['responseText'] =  'Ваш рассказ прошел модерацию. Дождитесь завершения розыгрыша.';
+            elseif ($story->status == 1):
+                $json_request['responseText'] = 'Ваш рассказ прошел модерацию. Дождитесь завершения розыгрыша.';
                 Session::set('message', $json_request['responseText']);
                 return Response::json($json_request, 200);
             else:
