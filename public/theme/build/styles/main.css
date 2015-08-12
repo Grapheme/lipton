@@ -416,6 +416,9 @@ input:-ms-input-placeholder {
   overflow: hidden;
   margin-top: -106px;
   min-height: 940px; }
+  @media (max-width: 320px) {
+    .main-content {
+      position: relative; } }
   .main-content.sub-page {
     margin-top: 0; }
 
@@ -430,9 +433,16 @@ input:-ms-input-placeholder {
   width: 100%;
   position: relative;
   padding-bottom: 3px; }
+  @media (max-width: 320px) {
+    .sub-footer {
+      height: auto;
+      text-align: center; } }
   .sub-footer .copyright {
     max-width: 700px;
     float: left; }
+    @media (max-width: 320px) {
+      .sub-footer .copyright {
+        float: none; } }
     .sub-footer .copyright p {
       margin: 8px 0; }
       .sub-footer .copyright p a {
@@ -449,6 +459,9 @@ input:-ms-input-placeholder {
     text-align: right;
     margin-top: 17px;
     margin-right: 27px; }
+    @media (max-width: 320px) {
+      .sub-footer .sharing-block {
+        display: none; } }
     .sub-footer .sharing-block a {
       color: #000;
       text-decoration: underline; }
@@ -479,6 +492,11 @@ input:-ms-input-placeholder {
     float: right;
     margin-top: 19px;
     position: relative; }
+    @media (max-width: 320px) {
+      .sub-footer .sharing-links {
+        float: none;
+        height: 38px;
+        position: inherit; } }
     .sub-footer .sharing-links:before {
       content: '';
       display: block;
@@ -489,10 +507,20 @@ input:-ms-input-placeholder {
       background-color: #ffffae;
       top: 3px;
       left: -18px; }
+      @media (max-width: 320px) {
+        .sub-footer .sharing-links:before {
+          display: none; } }
     .sub-footer .sharing-links span {
       display: block;
       float: left;
       height: 18px; }
+      @media (max-width: 320px) {
+        .sub-footer .sharing-links span {
+          float: none;
+          height: 38px;
+          position: inherit;
+          width: 145px;
+          margin: 0 auto; } }
     .sub-footer .sharing-links a {
       color: #000;
       text-decoration: underline; }
@@ -506,14 +534,19 @@ input:-ms-input-placeholder {
         float: right;
         -webkit-transition: .1s all;
                 transition: .1s all; }
+        @media (max-width: 320px) {
+          .sub-footer .sharing-links a.soc {
+            height: 38px;
+            width: 38px;
+            background-size: 38px; } }
         .sub-footer .sharing-links a.soc:hover {
           opacity: 0.8; }
         .sub-footer .sharing-links a.soc.fb {
-          background-image: url("../images/ico-fb.png"); }
+          background-image: url("../images/ico-fb-m.png"); }
         .sub-footer .sharing-links a.soc.vk {
-          background-image: url("../images/ico-vk.png"); }
+          background-image: url("../images/ico-vk-m.png"); }
         .sub-footer .sharing-links a.soc.ok {
-          background-image: url("../images/ico-ok.png"); }
+          background-image: url("../images/ico-ok-m.png"); }
 
 .block {
   width: 100%; }
@@ -527,6 +560,9 @@ input:-ms-input-placeholder {
     width: 960px;
     margin: 0 auto;
     position: relative; }
+    @media (max-width: 320px) {
+      .block .content {
+        width: 100% !important; } }
   .block h2 {
     font-family: 'Intro-regular';
     color: #c90119;
@@ -562,6 +598,9 @@ input:-ms-input-placeholder {
       position: absolute;
       left: 50px;
       top: 31px; }
+      @media (max-width: 320px) {
+        .block.header .partners-block {
+          display: none; } }
       .block.header .partners-block .partner-traveller {
         width: 120px;
         height: 37px;
@@ -579,6 +618,10 @@ input:-ms-input-placeholder {
       position: absolute;
       top: 26px;
       right: 50px; }
+      @media (max-width: 320px) {
+        .block.header .icons-block {
+          top: 16px;
+          right: 30px; } }
       .block.header .icons-block .ico-account {
         display: block;
         width: 48px;
@@ -591,6 +634,10 @@ input:-ms-input-placeholder {
         float: left;
         -webkit-transition: .2s all;
                 transition: .2s all; }
+        @media (max-width: 320px) {
+          .block.header .icons-block .ico-account {
+            position: absolute;
+            left: -143px; } }
         .block.header .icons-block .ico-account:hover {
           background-color: #ffd400; }
         .block.header .icons-block .ico-account.unauthorized {
@@ -644,6 +691,9 @@ input:-ms-input-placeholder {
     height: 53px;
     z-index: 9;
     margin-top: -23px; }
+    @media (max-width: 320px) {
+      .block.menu-holder {
+        display: none; } }
     .block.menu-holder .top-menu {
       display: block;
       padding: 0;
@@ -686,17 +736,31 @@ input:-ms-input-placeholder {
     background-repeat: no-repeat;
     z-index: 8;
     overflow: hidden; }
+    @media (max-width: 320px) {
+      .block.promo-code {
+        height: 1125px;
+        background-size: cover; } }
     .block.promo-code .content {
       width: 1220px; }
       .block.promo-code .content .promo-steps {
         margin: 158px auto 0;
         width: 1220px;
         overflow: hidden; }
+        @media (max-width: 320px) {
+          .block.promo-code .content .promo-steps {
+            margin-top: 115px;
+            width: 100%;
+            box-sizing: border-box; } }
         .block.promo-code .content .promo-steps .promo-step {
           display: block;
           float: left;
           height: 115px;
           position: relative; }
+          @media (max-width: 320px) {
+            .block.promo-code .content .promo-steps .promo-step {
+              float: none;
+              text-align: center;
+              margin-right: 0 !important; } }
           .block.promo-code .content .promo-steps .promo-step:after {
             content: '';
             display: block;
@@ -706,6 +770,18 @@ input:-ms-input-placeholder {
             background-image: url("../images/ico-step-arrow.png");
             top: 32px;
             right: -30px; }
+            @media (max-width: 320px) {
+              .block.promo-code .content .promo-steps .promo-step:after {
+                content: '';
+                display: block;
+                position: absolute;
+                width: 52px;
+                height: 30px;
+                background-image: url("../images/ico-step-arrow-down.png");
+                bottom: 0px;
+                top: inherit;
+                right: 50%;
+                margin-right: -27px; } }
           .block.promo-code .content .promo-steps .promo-step:last-child {
             margin-left: 0; }
             .block.promo-code .content .promo-steps .promo-step:last-child:after {
@@ -713,12 +789,26 @@ input:-ms-input-placeholder {
           .block.promo-code .content .promo-steps .promo-step.step-1 {
             width: 344px;
             margin-right: 88px; }
+            @media (max-width: 320px) {
+              .block.promo-code .content .promo-steps .promo-step.step-1 {
+                width: auto;
+                height: 245px;
+                margin-bottom: 50px; } }
           .block.promo-code .content .promo-steps .promo-step.step-2 {
             width: 412px;
             margin-right: 67px;
             height: 160px; }
+            @media (max-width: 320px) {
+              .block.promo-code .content .promo-steps .promo-step.step-2 {
+                width: auto;
+                height: 366px;
+                margin-bottom: 50px; } }
           .block.promo-code .content .promo-steps .promo-step.step-3 {
             width: 309px; }
+            @media (max-width: 320px) {
+              .block.promo-code .content .promo-steps .promo-step.step-3 {
+                width: auto;
+                height: 166px; } }
           .block.promo-code .content .promo-steps .promo-step .step-number {
             width: 55px;
             height: 55px;
@@ -730,6 +820,10 @@ input:-ms-input-placeholder {
             background-color: #cb0919;
             text-align: center;
             float: left; }
+            @media (max-width: 320px) {
+              .block.promo-code .content .promo-steps .promo-step .step-number {
+                float: none;
+                margin: 0 auto 20px; } }
           .block.promo-code .content .promo-steps .promo-step h2 {
             color: #c90119;
             font-size: 30px;
@@ -737,6 +831,11 @@ input:-ms-input-placeholder {
             margin: 9px 0 9px 64px;
             font-weight: normal;
             text-align: left; }
+            @media (max-width: 320px) {
+              .block.promo-code .content .promo-steps .promo-step h2 {
+                float: none;
+                margin: 0 auto 20px;
+                text-align: center; } }
           .block.promo-code .content .promo-steps .promo-step p {
             margin: 0 0 0 64px;
             font-family: 'Intro-regular';
@@ -744,10 +843,21 @@ input:-ms-input-placeholder {
             font-size: 18px;
             text-transform: uppercase;
             line-height: 22px; }
+            @media (max-width: 320px) {
+              .block.promo-code .content .promo-steps .promo-step p {
+                text-align: center;
+                margin: 0;
+                padding: 0 20px;
+                word-wrap: nowrap; } }
   .block.footer {
     height: 428px;
     margin-top: -22px;
     position: relative; }
+    @media (max-width: 320px) {
+      .block.footer {
+        margin-top: -102px;
+        height: auto;
+        padding-bottom: 50px; } }
     .block.footer .content {
       z-index: 1;
       width: 910px; }
@@ -759,10 +869,17 @@ input:-ms-input-placeholder {
         left: 50%;
         top: -50px;
         margin-left: -99px; }
+        @media (max-width: 320px) {
+          .block.footer .content .plane-block {
+            top: -190px; } }
       .block.footer .content .block-left {
         margin-top: 80px;
         width: 50%;
         float: left; }
+        @media (max-width: 320px) {
+          .block.footer .content .block-left {
+            width: 100%;
+            float: none; } }
         .block.footer .content .block-left h3 {
           color: #c90119;
           font-size: 21px;
@@ -770,10 +887,17 @@ input:-ms-input-placeholder {
           margin: 0 0 30px 0;
           padding: 0;
           text-transform: uppercase; }
+          @media (max-width: 320px) {
+            .block.footer .content .block-left h3 {
+              margin-top: 220px;
+              text-align: center; } }
         .block.footer .content .block-left p {
           font-size: 16px;
           margin: 0 0 50px 0;
           padding: 0; }
+          @media (max-width: 320px) {
+            .block.footer .content .block-left p {
+              text-align: center; } }
         .block.footer .content .block-left a.involvement {
           display: block;
           width: 209px;
@@ -793,6 +917,9 @@ input:-ms-input-placeholder {
           line-height: 50px;
           font-family: 'Intro';
           cursor: pointer; }
+          @media (max-width: 320px) {
+            .block.footer .content .block-left a.involvement {
+              margin: 0 auto; } }
           .block.footer .content .block-left a.involvement:hover {
             background-color: #a40000;
             color: #c90119;
@@ -804,6 +931,10 @@ input:-ms-input-placeholder {
         width: 50%;
         float: right;
         position: relative; }
+        @media (max-width: 320px) {
+          .block.footer .content .block-right {
+            width: 100%;
+            float: none; } }
         .block.footer .content .block-right a.traveller-card {
           display: block;
           text-decoration: none;
@@ -818,6 +949,21 @@ input:-ms-input-placeholder {
           box-sizing: border-box;
           text-align: center;
           background-image: url("../images/bg-traveller-promo.jpg"); }
+          @media (max-width: 320px) {
+            .block.footer .content .block-right a.traveller-card {
+              display: block;
+              text-decoration: none;
+              cursor: pointer;
+              width: 250px;
+              height: 232px;
+              border-radius: 5px;
+              padding: 46px 25px 47px;
+              box-sizing: border-box;
+              text-align: center;
+              background-image: url("../images/bg-traveller-promo.jpg");
+              margin: 0 auto;
+              box-shadow: 0 0 5px 0px #000;
+              position: inherit; } }
           .block.footer .content .block-right a.traveller-card .traveller-logo {
             width: 195px;
             height: 59px;
@@ -836,6 +982,10 @@ input:-ms-input-placeholder {
     height: 50px;
     margin: 20px 0px 0px -40px;
     position: relative; }
+    @media (max-width: 320px) {
+      .block form.promo-code {
+        width: 100%;
+        margin: 20px 0px 0px 0px; } }
     .block form.promo-code input {
       width: 285px;
       height: 50px;
@@ -848,6 +998,12 @@ input:-ms-input-placeholder {
       font-family: 'Intro-regular';
       font-size: 24px;
       text-transform: uppercase; }
+      @media (max-width: 320px) {
+        .block form.promo-code input {
+          float: none;
+          margin: 0 auto;
+          width: 259px;
+          margin-bottom: 20px; } }
     .block form.promo-code button {
       float: right;
       width: 136px;
@@ -867,6 +1023,10 @@ input:-ms-input-placeholder {
       font-family: 'Intro';
       line-height: 47px;
       cursor: pointer; }
+      @media (max-width: 320px) {
+        .block form.promo-code button {
+          float: none;
+          margin: 0 auto; } }
       .block form.promo-code button:hover {
         background-color: #a40000;
         color: #c90119;
@@ -1775,7 +1935,8 @@ input:-ms-input-placeholder {
         .block .profile .profile-head .profile-promo-code form.promo-code {
           display: block;
           width: 357px;
-          height: 50px; }
+          height: 50px;
+          margin: 0; }
           .block .profile .profile-head .profile-promo-code form.promo-code input {
             width: 211px;
             height: 50px;
@@ -2195,31 +2356,6 @@ input.error {
   pointer-events: none;
   opacity: 0.7;
   cursor: default; }
-
-@media (max-width: 1220px) {
-  .block.promo-code {
-    height: 565px; }
-    .block.promo-code .content {
-      width: 100%; }
-      .block.promo-code .content .promo-steps {
-        margin-top: 115px;
-        width: 100%;
-        padding: 0px 35%;
-        box-sizing: border-box; }
-        .block.promo-code .content .promo-steps .promo-step:after {
-          content: '';
-          display: block;
-          position: absolute;
-          width: 30px;
-          height: 52px;
-          background-image: url("../images/ico-step-arrow-down.png");
-          top: 32px;
-          right: -30px; }
-  .promo-step .step-1 {
-    margin-right: 7%; }
-  .promo-step .step-2 {
-    margin-right: 5%;
-    margin-bottom: 10px; } }
 
 #promoCode1-error {
   position: absolute;
