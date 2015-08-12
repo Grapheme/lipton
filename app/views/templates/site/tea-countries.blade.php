@@ -24,7 +24,7 @@
                                 <div class="logo">111</div>
                                 <div class="text">111</div>
                             </div>
-                            <div class="column-right"><img src="../images/bg-tea-cuba-big.png"></div>
+                            <div class="column-right"><img src="{{ asset(Config::get('site.theme_path')) }}/images/bg-tea-cuba-big.png"></div>
                         </div>
                     </div>
                     <div class="country england">
@@ -37,7 +37,7 @@
                                 <div class="logo"></div>
                                 <div class="text">222</div>
                             </div>
-                            <div class="column-right"><img src="../images/bg-tea-england-big.png"></div>
+                            <div class="column-right"><img src="{{ asset(Config::get('site.theme_path')) }}/images/bg-tea-england-big.png"></div>
                         </div>
                     </div>
                     <div class="country china">
@@ -50,7 +50,7 @@
                                 <div class="logo">333</div>
                                 <div class="text">333</div>
                             </div>
-                            <div class="column-right"><img src="../images/bg-tea-china-big.png"></div>
+                            <div class="column-right"><img src="{{ asset(Config::get('site.theme_path')) }}/images/bg-tea-china-big.png"></div>
                         </div>
                     </div>
                     <div class="country shri">
@@ -63,7 +63,7 @@
                                 <div class="logo">444</div>
                                 <div class="text">444</div>
                             </div>
-                            <div class="column-right"><img src="../images/bg-tea-shri-big.png"></div>
+                            <div class="column-right"><img src="{{ asset(Config::get('site.theme_path')) }}/images/bg-tea-shri-big.png"></div>
                         </div>
                     </div>
                     <div class="country turkey">
@@ -76,7 +76,7 @@
                                 <div class="logo">555</div>
                                 <div class="text">555</div>
                             </div>
-                            <div class="column-right"><img src="../images/bg-tea-turkey-big.png"></div>
+                            <div class="column-right"><img src="{{ asset(Config::get('site.theme_path')) }}/images/bg-tea-turkey-big.png"></div>
                         </div>
                     </div>
                     <div class="country marokko">
@@ -92,7 +92,7 @@
                                     разных культур.
                                 </div>
                             </div>
-                            <div class="column-right"><img src="../images/bg-tea-marokko-big.png"></div>
+                            <div class="column-right"><img src="{{ asset(Config::get('site.theme_path')) }}/images/bg-tea-marokko-big.png"></div>
                         </div>
                     </div>
                 </div>
