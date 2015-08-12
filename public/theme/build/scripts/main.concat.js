@@ -1421,6 +1421,10 @@ $( document ).ready(function() {
   $('form.full-registration input.dd, form.full-registration input.mm').mask('99');
   $('form.full-registration input.yyyy').mask('9999');
 
+  $('form.profile-edit input[name="phone"]').mask('+7 (999) 999 99 99');
+  $('form.profile-edit input.dd, form.profile-edit input.mm').mask('99');
+  $('form.profile-edit input.yyyy').mask('9999');
+
 // SCROLL BLOCK //
 
   function checkScroll() {
@@ -1764,6 +1768,70 @@ $( document ).ready(function() {
         error: function(data) {
           $('form.full-registration button').html('Отправить');
           $('form.full-registration button').removeClass('loading');
+          // ERROR
+        }
+      };
+      $(form).ajaxSubmit(options);
+    }
+  });
+
+// PROFILE EDITING FORM VALIDATION //
+
+  $('form.profile-edit').validate({
+    rules: {
+      name: {
+        required: true,
+      },
+      surname: {
+        required: true,
+      },
+      email: {
+        required: true,
+        email: true
+      },
+      phone: {
+        required: true,
+      },
+      acceptСheckbox: {
+        required: true,
+      },
+    },
+
+    messages: {
+      name: {
+        required: 'Необходимо заполнить это поле!',
+      },
+      surname: {
+        required: 'Необходимо заполнить это поле!',
+      },
+      email: {
+        required: 'Необходимо заполнить это поле!',
+        email: 'Проверте правильность адреса'
+      },
+      phone: {
+        required: 'Необходимо заполнить это поле!',
+      },
+      acceptСheckbox: {
+        required: 'Необходимо заполнить это поле!',
+      },
+    },
+
+    submitHandler: function(form) {
+      $('form.profile-edit button').html();
+      $('form.profile-edit button').addClass('loading');
+      $('form.profile-edit button').html('<i class="fa fa-cog fa-spin"></i>')
+      var options = {
+        success: function(data){
+          if(data.redirect) {
+            function goToCabinet () {
+              window.location.href = data.redirect;
+            };
+            setTimeout(goToCabinet, 3000);
+          }
+        },
+        error: function(data) {
+          $('form.profile-edit button').html('Отправить');
+          $('form.profile-edit button').removeClass('loading');
           // ERROR
         }
       };

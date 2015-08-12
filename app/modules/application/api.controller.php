@@ -155,11 +155,6 @@ class ApiController extends BaseController {
                 return (string)$xml_object->$value;
             elseif (is_string($items)):
                 return (string)$xml_object->$items->$value;
-            elseif (is_array($items)):
-                foreach ($items as $item):
-                    print_r($item);
-                    exit;
-                endforeach;
             endif;
         endif;
         return FALSE;
@@ -219,6 +214,23 @@ class ApiController extends BaseController {
         endif;
         curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+        $data['curl_result'] = curl_exec($ch);
+        $data['curl_info'] = curl_getinfo($ch);
+        curl_close($ch);
+        return $data;
+    }
+
+    private function putCurl($url, $post_data = NULL) {
+
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_VERBOSE, TRUE);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "PUT");
+        curl_setopt($ch, CURLOPT_HTTPHEADER, self::curlHandle());
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $post_data);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, FALSE);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
         $data['curl_result'] = curl_exec($ch);
         $data['curl_info'] = curl_getinfo($ch);
         curl_close($ch);
@@ -285,6 +297,92 @@ class ApiController extends BaseController {
             $user['id'] = $this->getXmlValue($result['curl_result'], '', 'id');
             $user['sessionKey'] = $this->getXmlValue($result['curl_result'], '', 'sessionKey');
             if(empty($user['id']) && empty($user['sessionKey'])):
+                if ($message = $this->getErrorMessage($result)):
+                    Config::set('api.message', $message);
+                endif;
+                return FALSE;
+            else:
+                return $user;
+            endif;
+        else:
+            Config::set('api.message', 'Возникла ошибка на сервере регистрации.');
+            if ($message = $this->getErrorMessage($result)):
+                Config::set('api.message', $message);
+            endif;
+            return FALSE;
+        endif;
+    }
+
+    public function get_register(array $params = [], $operation = 'Unilever.EditSlimProfile'){
+
+        if (empty($params)):
+            App::abort(404);
+        endif;
+        $this->headers['authorization']['customerId'] = $params['customerId'];
+        $this->headers['authorization']['sessionKey'] = $params['sessionKey'];
+
+        $valid = $this->validAvailableOperation($operation);
+        if ($valid === -1):
+            return $valid;
+        elseif ($valid === FALSE):
+            Config::set('api.message', 'Операция обновление профиля пользователей недоступна.');
+            return FALSE;
+        endif;
+        $uri_request = $this->config['server_url'] . "/v2/customers/current?operation=$operation";
+        $result = $this->getCurl($uri_request);
+        if ($this->validCode($result, 200)):
+            $return['version'] = $this->getXmlValue($result['curl_result'], '', 'version');
+            if (empty($return['version']) && empty($return['version'])):
+                if ($message = $this->getErrorMessage($result)):
+                    Config::set('api.message', $message);
+                endif;
+                return FALSE;
+            else:
+                return $return;
+            endif;
+        else:
+            Config::set('api.message', 'Возникла ошибка на сервере регистрации.');
+            if ($message = $this->getErrorMessage($result)):
+                Config::set('api.message', $message);
+            endif;
+            return FALSE;
+        endif;
+    }
+
+    public function update_register(array $params = [], $operation = 'Unilever.EditSlimProfile'){
+
+        if (empty($params)):
+            App::abort(404);
+        endif;
+        $this->headers['authorization']['customerId'] = $params['customerId'];
+        $this->headers['authorization']['sessionKey'] = $params['sessionKey'];
+
+        $valid = $this->validAvailableOperation($operation);
+        if ($valid === -1):
+            return $valid;
+        elseif ($valid === FALSE):
+            Config::set('api.message', 'Операция обновление профиля пользователей недоступна.');
+            return FALSE;
+        endif;
+        $uri_request = $this->config['server_url'] . "/v2/customers/current?operation=$operation";
+        $sex = array('female', 'male');
+        ob_start();
+        ?><customer>
+        <name last="<?= $params['surname']; ?>" first="<?= $params['name']; ?>" middle=""/>
+        <version><?= $params['version']; ?></version>
+        <sex><?= @$sex[$params['sex']]; ?></sex>
+        <email><?= $params['email']; ?></email>
+        <birthdate year="<?= (int)$params['yyyy']; ?>" month="<?= (int)$params['mm']; ?>" day="<?= (int)$params['dd']; ?>"/>
+        <subscription isActiveForCurrentBrand="true" />
+        </customer><?php
+        $xml = ob_get_clean();
+        $this->strlen_xml = strlen($xml);
+        $result = $this->putCurl($uri_request, $xml);
+        if ($this->validCode($result, 201)):
+            $user = array();
+            $user['id'] = $this->getXmlValue($result['curl_result'], '', 'id');
+            $user['sessionKey'] = $this->getXmlValue($result['curl_result'], '', 'sessionKey');
+            if (empty($user['id']) && empty($user['sessionKey'])):
                 if ($message = $this->getErrorMessage($result)):
                     Config::set('api.message', $message);
                 endif;

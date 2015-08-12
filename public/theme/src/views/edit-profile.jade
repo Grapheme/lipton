@@ -37,9 +37,15 @@ block content
 		.block
 			.content
 				.participate-block
-					h2 Редактирование информации
+					h2 Редактирование профиля
 					.forms-holder.full-registration-holder
 						form.profile-edit(name="profile-edit")
+							.accept-block-holder
+								.profile-info
+									.avatar(style="background-image: url(http://placehold.it/80x80);")
+									a(href="#") Сменить аватар
+									input(name="avatar")
+
 							.form-block-left
 								p.field-title.required Фамилия
 								input(name="surname" for="profile-edit" autocomplete="off")
@@ -67,7 +73,7 @@ block content
 									input.dd(name="dd" placeholder="ДД" for="profile-edit" autocomplete="off")
 									input.mm(name="mm" placeholder="ММ" for="profile-edit" autocomplete="off")
 									input.yyyy(name="yyyy" placeholder="ГГГГ" for="profile-edit" autocomplete="off")
-							
+
 							button(type="submit") Сохранить
 	.block.sub-footer-holder
 		.sub-footer
