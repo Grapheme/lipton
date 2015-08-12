@@ -1468,7 +1468,7 @@ $( document ).ready(function() {
 
   messages: {
     promoCode1: {
-      required: "Необходимо заполнить поле",
+      required: "Необходимо заполнить поле!",
     }
   },
 
@@ -1483,8 +1483,10 @@ $( document ).ready(function() {
               if(data.next_code) {
                 $('.second-code').fadeIn();
 
-                } else {
-                  console.log(data.responseTextFail); // PROMOCODE OLLREADY REGISTERED
+                } else { // PROMOCODE OLLREADY REGISTERED
+                  $('form.promo-code-2').html('');
+                  $('.second-code').html('<div class="error-block"><h3>Ошибка</h3><p>' + data.responseText + '</p> <a href="#">Закрыть</a></div>');
+                  $('.second-code').fadeIn();
                 };
           },
           error: function(data) {
@@ -1533,7 +1535,9 @@ $( document ).ready(function() {
       $('.promo-code-2 button').html('<i class="fa fa-cog fa-spin"></i>')
       var options = {
         success: function(data){
-          console.log(data.responseTextSuccsess);
+          $('form.promo-code-2').html('');
+          $('.second-code').html('<div class="error-block"><h3>' + data.responseText + '</h3>');
+          $('.second-code').fadeIn();
             if(data.redirectURL) {
               function goToCabinet () {
                 window.location.href = data.redirectURL;
@@ -1618,11 +1622,13 @@ $( document ).ready(function() {
       $('form.registration button').html('<i class="fa fa-cog fa-spin"></i>');
       var options = { 
         success: function(data){
-          if(data.redirect) {
+          if(data.redirectURL) {
             function goToCabinet () {
-              window.location.href = data.redirect;
+              window.location.href = data.redirectURL;
             };
             setTimeout(goToCabinet, 3000);
+          } else {
+            $('form.registration').append('<div class="erros-message-block">' + data.responseText + '</div>');
           }
         },
         error: function(data) {
@@ -1655,11 +1661,13 @@ $( document ).ready(function() {
       $('form.story button').html('<i class="fa fa-cog fa-spin"></i>')
       var options = { 
         success: function(data){
-          if(data.redirect) {
+          if(data.redirectURL) {
             function goToCabinet () {
-              window.location.href = data.redirect;
+              window.location.href = data.redirectURL;
             };
             setTimeout(goToCabinet, 3000);
+          } else {
+            $('form.story').append('<div class="erros-message-block">' + data.responseText + '</div>');
           }
         },
         error: function(data) {
@@ -1694,9 +1702,9 @@ $( document ).ready(function() {
       $('form.send-instructions button').html('<i class="fa fa-cog fa-spin"></i>')
       var options = { 
         success: function(data){
-          if(data.redirect) {
+          if(data.redirectURL) {
             function instructionsSended () {
-              window.location.href = data.redirect;
+              window.location.href = data.redirectURL;
             };
             setTimeout(goToCabinet, 3000);
           }
@@ -1758,11 +1766,13 @@ $( document ).ready(function() {
       $('form.full-registration button').html('<i class="fa fa-cog fa-spin"></i>')
       var options = {
         success: function(data){
-          if(data.redirect) {
+          if(data.redirectURL) {
             function goToCabinet () {
-              window.location.href = data.redirect;
+              window.location.href = data.redirectURL;
             };
             setTimeout(goToCabinet, 3000);
+          } else {
+            $('form.full-registration').append('<div class="erros-message-block">' + data.responseText + '</div>');
           }
         },
         error: function(data) {
@@ -1822,11 +1832,13 @@ $( document ).ready(function() {
       $('form.profile-edit button').html('<i class="fa fa-cog fa-spin"></i>')
       var options = {
         success: function(data){
-          if(data.redirect) {
+          if(data.redirectURL) {
             function goToCabinet () {
-              window.location.href = data.redirect;
+              window.location.href = data.redirectURL;
             };
             setTimeout(goToCabinet, 3000);
+          } else {
+            $('form.profile-edit').append('<div class="erros-message-block">' + data.responseText + '</div>');
           }
         },
         error: function(data) {
@@ -1869,7 +1881,7 @@ $( document ).ready(function() {
     curentMosaic = 1;
 
       do {
-        $row.append('<div class="mosaic"><div class="mosaic-blured" style="background-position: -'+ (curentMosaic-1) * 100 + 'px -' + (mosaicRows-1) * 100 +'px"></div></div>');
+        $row.append('<div class="mosaic"><div class="mosaic-blured" style="background-position: -'+ (curentMosaic) * 75 + 'px -' + (mosaicRows-1) * 75 +'px"></div></div>');
         curentMosaic++;
       }
       while (curentMosaic <= mosaicHorisontal);
@@ -1884,6 +1896,8 @@ $( document ).ready(function() {
     $('.mosaic-fuckup').html('');
     mosaicBuild();
   });
+
+  mosaicBuild();
 /////////
   function parseHash(){
     var hash = window.location.hash;
