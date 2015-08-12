@@ -11,7 +11,18 @@ $profile = Accounts::where('id', Auth::user()->id)->with('ulogin')->first();
 @stop
 @section('page_class')  @stop
 @section('content')
-    
+    <div class="main-content sub-page">
+        <div class="block">
+            <div class="content">
+                <div class="participate-block">
+                    <h2>Редактирование профиля</h2>
+                    <div class="forms-holder full-registration-holder">
+                        @include(Helper::acclayout('forms.profile'))
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 @stop
 @section('scripts')
 

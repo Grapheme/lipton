@@ -7,6 +7,11 @@ class Accounts extends \User {
         'phone' => 'required', 'acceptCheckbox' => 'required', 'sex' => 'required', 'yyyy' => 'required'
     );
 
+    public static $update_rules = array(
+        'name' => 'required', 'surname' => 'required', 'dd' => 'required', 'mm' => 'required', 'city' => 'required',
+        'phone' => 'required', 'sex' => 'required', 'yyyy' => 'required'
+    );
+
     public function ulogin() {
 
         return $this->hasOne('Ulogin', 'user_id', 'id');
