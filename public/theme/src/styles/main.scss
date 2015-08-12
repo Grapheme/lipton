@@ -1932,7 +1932,7 @@ input:-ms-input-placeholder {
 					margin-bottom: 7px;
 				}
 
-				form.profile-code {
+				form.promo-code {
 					display: block;
 					width: 357px;
 					height: 50px;
@@ -2157,17 +2157,17 @@ input:-ms-input-placeholder {
 	}
 
 	.collection {
-		width: 620px;
-		height: 560px;
+		width: 1090px;
+		height: 590px;
 		position: relative;
-		margin: 0 auto;
+		margin-left: -7%;
 		background-image: url('../images/bg-glowing-plane.png');
 		background-repeat: no-repeat;
-		background-position: -10px 100px;
+		background-position: 200px 100px;
 
 		.country {
 			width: 180px;
-			height: 137px;
+			height: 180px;
 			position: absolute;
 			cursor: pointer;
 			background-position: bottom center;
@@ -2202,22 +2202,24 @@ input:-ms-input-placeholder {
 				position: absolute;
 				z-index: 1;
 				left: 50%;
-				margin-left: -57px;
+				margin-left: -90px;
 				top: 0;
 				transition: 0.5s all;
 				box-shadow: 0px 0px 3px 0px inset;
 			}
 
 			.tea {
-				width: 179px;
-				height: 137px;
+				width: 251px;
+				height: 187px;
 				position: absolute;
 				z-index: 2;
+				bottom: 0px;
+				left: -30px;
 			}
 
 			&.cuba {
 				top: 70px;
-				left: 110px;
+				left: 265px;
 
 				.tea {
 					background-image: url('../images/bg-tea-cuba.png');
@@ -2230,7 +2232,7 @@ input:-ms-input-placeholder {
 
 			&.england {
 				top: 70px;
-				right: 110px;
+				right: 265px;
 
 				.tea {
 					background-image: url('../images/bg-tea-england.png');
@@ -2256,7 +2258,7 @@ input:-ms-input-placeholder {
 
 			&.shri {
 				bottom: 0px;
-				right: 110px;
+				right: 265px;
 
 				.tea {
 					background-image: url('../images/bg-tea-shri.png');
@@ -2269,7 +2271,7 @@ input:-ms-input-placeholder {
 
 			&.turkey {
 				bottom: 0px;
-				left: 110px;
+				left: 265px;
 
 				.tea {
 					background-image: url('../images/bg-tea-turkey.png');
@@ -2285,9 +2287,9 @@ input:-ms-input-placeholder {
 				top: 245px;
 
 				.tea {
-					height: 142px;
 					background-image: url('../images/bg-tea-marokko.png');
-					top: -22px;
+					height: 225px;
+					bottom: 0px;
 				}
 
 				.photo {
