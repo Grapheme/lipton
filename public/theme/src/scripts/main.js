@@ -25,6 +25,7 @@ $( document ).ready(function() {
 
   $('#sex').selectmenu();
   $('#accept').button();
+  $('#gain-list').selectmenu();
 
   $('.accordion-item .accordion-head').click( function() {
     $(this).next().slideToggle();
@@ -37,6 +38,10 @@ $( document ).ready(function() {
     $('.learn-more-popup').html(popupContent);
     $('.learn-more-popup').append('<a href="" class="popup-close-cross"></a>');
     $('.learn-more-popup-holder').fadeIn();
+  });
+
+  $('.story a.popup-close-cross').click(function() {
+    $('.story').fadeOut();
   });
 
   $('.learn-more-popup a.popup-close-cross').click(function() {
