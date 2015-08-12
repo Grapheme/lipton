@@ -42,7 +42,7 @@ class RegisterController extends BaseController {
 
     public function signup() {
 
-        $json_request = array('status' => FALSE, 'responseText' => '', 'redirect' => FALSE);
+        $json_request = array('status' => FALSE, 'responseText' => '', 'redirectURL' => FALSE);
         if (Request::ajax()):
             $validator = Validator::make(Input::all(), Accounts::$rules);
             if ($validator->passes()):
@@ -71,7 +71,7 @@ class RegisterController extends BaseController {
                         Auth::loginUsingId($account->id, FALSE);
                         $json_request['status'] = TRUE;
                         $json_request['responseText'] = Lang::get('interface.SIGNUP.success');
-                        $json_request['redirect'] = URL::to(AuthAccount::getGroupStartUrl());
+                        $json_request['redirectURL'] = URL::to(AuthAccount::getGroupStartUrl());
                         if (isset($post['code']) && !empty($post['code'])):
                             $result = PromoController::registerPromoCode($post['code']);
                             if ($result === FALSE):
@@ -97,7 +97,7 @@ class RegisterController extends BaseController {
 
     public function signin() {
 
-        $json_request = array('status' => FALSE, 'responseText' => '', 'redirect' => FALSE);
+        $json_request = array('status' => FALSE, 'responseText' => '', 'redirectURL' => FALSE);
         if (Request::ajax()):
             $rules = array('login' => 'required', 'password' => 'required|alpha_num|between:4,50');
             $validator = Validator::make(Input::all(), $rules);
@@ -117,7 +117,7 @@ class RegisterController extends BaseController {
                         Auth::user()->remote_id = @$api['id'];
                         Auth::user()->sessionKey = @$api['sessionKey'];
                         Auth::user()->save();
-                        $json_request['redirect'] = AuthAccount::getGroupStartUrl();
+                        $json_request['redirectURL'] = AuthAccount::getGroupStartUrl();
                         $json_request['status'] = TRUE;
                         if (isset($post['code']) && !empty($post['code'])):
                             $result = PromoController::registerPromoCode($post['code']);
