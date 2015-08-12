@@ -1772,7 +1772,7 @@ textarea:-ms-textarea-placeholder {
         background-image: url("../images/bg-plain.png");
         background-repeat: no-repeat;
         width: 1155px;
-        height: 900px;
+        height: 850px;
         position: absolute;
         top: 48px;
         left: -135px;
@@ -1945,12 +1945,12 @@ textarea:-ms-textarea-placeholder {
           text-align: left;
           font-size: 18px;
           margin-bottom: 7px; }
-        .block .profile .profile-head .profile-promo-code form.profile-code {
+        .block .profile .profile-head .profile-promo-code form.promo-code {
           display: block;
           width: 357px;
           height: 50px;
           margin: 0; }
-          .block .profile .profile-head .profile-promo-code form.profile-code input {
+          .block .profile .profile-head .profile-promo-code form.promo-code input {
             width: 211px;
             height: 50px;
             border-radius: 3px;
@@ -1962,7 +1962,7 @@ textarea:-ms-textarea-placeholder {
             font-family: 'Intro-regular';
             font-size: 20px;
             text-transform: uppercase; }
-          .block .profile .profile-head .profile-promo-code form.profile-code button {
+          .block .profile .profile-head .profile-promo-code form.promo-code button {
             float: right;
             width: 136px;
             height: 50px;
@@ -1981,13 +1981,13 @@ textarea:-ms-textarea-placeholder {
             font-family: 'Intro';
             line-height: 47px;
             cursor: pointer; }
-            .block .profile .profile-head .profile-promo-code form.profile-code button:hover {
+            .block .profile .profile-head .profile-promo-code form.promo-code button:hover {
               background-color: #a40000;
               color: #c90119;
               border-width: 3px 0 0 0;
               border-style: solid;
               border-color: #c90119; }
-            .block .profile .profile-head .profile-promo-code form.profile-code button.loading {
+            .block .profile .profile-head .profile-promo-code form.promo-code button.loading {
               background-color: #a40000 !important;
               color: #c90119 !important;
               border-width: 3px 0 0 0 !important;
