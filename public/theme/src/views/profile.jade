@@ -9,6 +9,17 @@ block content
 				input(type="text" for="send-instructions" name="instructionsEmail" autocomplete="off")
 				button(disabled="disabled") Отправить
 				a(href="#") Отмена
+	.block.select-gain
+		.second-code-hack
+		form(class="promo-code select-gain" name="select-gain")
+			h3 Выберите желаемый курс
+			.fields-holder 
+				select#gain-list
+					option(value="0") Не выбран
+					option(value="1") Курс 1
+					option(value="2") Курс 2
+				button(disabled="disabled") Отправить
+				a(href="#") Отмена	
 	.block.story
 		.second-code-hack
 		.story-popup
@@ -76,7 +87,7 @@ block content
 
 						.request
 							.note
-							a Конкурс рассказов
+							a(href="#") Конкурс рассказов
 							//- a(href="#") Посмотреть рассказ о себе
 							//- .moderation.neutral На модерации
 								.bullet

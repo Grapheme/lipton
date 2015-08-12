@@ -844,7 +844,7 @@ input:-ms-input-placeholder {
       background-color: rgba(255, 246, 186, 0.5);
       outline: 0;
       font-family: 'Intro-regular';
-      font-size: 20px;
+      font-size: 24px;
       text-transform: uppercase; }
     .block form.promo-code button {
       float: right;
@@ -878,7 +878,7 @@ input:-ms-input-placeholder {
         border-style: solid !important;
         border-color: #c90119 !important;
         opacity: 0.8; }
-  .block.second-code, .block.send-instructions, .block.story {
+  .block.second-code, .block.send-instructions, .block.story, .block.select-gain {
     position: fixed;
     width: 100%;
     height: 100%;
@@ -889,7 +889,7 @@ input:-ms-input-placeholder {
     background-color: rgba(0, 0, 0, 0.3);
     display: none;
     z-index: 1000; }
-    .block.second-code .second-code-hack, .block.send-instructions .second-code-hack, .block.story .second-code-hack {
+    .block.second-code .second-code-hack, .block.send-instructions .second-code-hack, .block.story .second-code-hack, .block.select-gain .second-code-hack {
       position: relative;
       width: 1px;
       height: 100%;
@@ -897,7 +897,7 @@ input:-ms-input-placeholder {
       bottom: 0;
       display: inline-block;
       vertical-align: middle; }
-    .block.second-code .story-popup, .block.send-instructions .story-popup, .block.story .story-popup {
+    .block.second-code .story-popup, .block.send-instructions .story-popup, .block.story .story-popup, .block.select-gain .story-popup {
       position: relative;
       background-image: url("../images/bg-story.jpg");
       display: inline-block;
@@ -907,7 +907,7 @@ input:-ms-input-placeholder {
       width: 910px;
       height: 546px;
       border-radius: 10px; }
-      .block.second-code .story-popup h2, .block.send-instructions .story-popup h2, .block.story .story-popup h2 {
+      .block.second-code .story-popup h2, .block.send-instructions .story-popup h2, .block.story .story-popup h2, .block.select-gain .story-popup h2 {
         font-family: 'Intro-regular';
         color: #c90119;
         font-size: 28px;
@@ -916,7 +916,7 @@ input:-ms-input-placeholder {
         margin: 0;
         line-height: 23px;
         margin-top: 35px; }
-      .block.second-code .story-popup a.popup-close-cross, .block.send-instructions .story-popup a.popup-close-cross, .block.story .story-popup a.popup-close-cross {
+      .block.second-code .story-popup a.popup-close-cross, .block.send-instructions .story-popup a.popup-close-cross, .block.story .story-popup a.popup-close-cross, .block.select-gain .story-popup a.popup-close-cross {
         display: block;
         position: absolute;
         background-image: url("../images/ico-close-popup.png");
@@ -924,19 +924,20 @@ input:-ms-input-placeholder {
         height: 38px;
         right: 30px;
         top: 30px; }
-      .block.second-code .story-popup .story-wrapper, .block.send-instructions .story-popup .story-wrapper, .block.story .story-popup .story-wrapper {
-        width: 750px;
+      .block.second-code .story-popup .story-wrapper, .block.send-instructions .story-popup .story-wrapper, .block.story .story-popup .story-wrapper, .block.select-gain .story-popup .story-wrapper {
+        width: 765px;
         margin: 0 auto;
         height: 440px;
-        padding: 0 80px 25px 80px;
-        overflow: hidden; }
-        .block.second-code .story-popup .story-wrapper .story-text, .block.send-instructions .story-popup .story-wrapper .story-text, .block.story .story-popup .story-wrapper .story-text {
+        overflow: hidden;
+        width: 765px; }
+        .block.second-code .story-popup .story-wrapper .story-text, .block.send-instructions .story-popup .story-wrapper .story-text, .block.story .story-popup .story-wrapper .story-text, .block.select-gain .story-popup .story-wrapper .story-text {
           overflow: scroll;
-          width: 780px; }
-          .block.second-code .story-popup .story-wrapper .story-text p, .block.send-instructions .story-popup .story-wrapper .story-text p, .block.story .story-popup .story-wrapper .story-text p {
+          width: 780px;
+          margin-right: 10px; }
+          .block.second-code .story-popup .story-wrapper .story-text p, .block.send-instructions .story-popup .story-wrapper .story-text p, .block.story .story-popup .story-wrapper .story-text p, .block.select-gain .story-popup .story-wrapper .story-text p {
             text-align: center;
             font-size: 16px; }
-    .block.second-code form.promo-code-2, .block.second-code form.send-instructions, .block.send-instructions form.promo-code-2, .block.send-instructions form.send-instructions, .block.story form.promo-code-2, .block.story form.send-instructions {
+    .block.second-code form.promo-code-2, .block.second-code form.send-instructions, .block.second-code form.select-gain, .block.send-instructions form.promo-code-2, .block.send-instructions form.send-instructions, .block.send-instructions form.select-gain, .block.story form.promo-code-2, .block.story form.send-instructions, .block.story form.select-gain, .block.select-gain form.promo-code-2, .block.select-gain form.send-instructions, .block.select-gain form.select-gain {
       position: relative;
       background-image: url("../images/bg-promo-popup.png");
       display: inline-block;
@@ -946,7 +947,7 @@ input:-ms-input-placeholder {
       width: 532px;
       height: 287px;
       border-radius: 10px; }
-      .block.second-code form.promo-code-2 a.popup-close-cross, .block.second-code form.send-instructions a.popup-close-cross, .block.send-instructions form.promo-code-2 a.popup-close-cross, .block.send-instructions form.send-instructions a.popup-close-cross, .block.story form.promo-code-2 a.popup-close-cross, .block.story form.send-instructions a.popup-close-cross {
+      .block.second-code form.promo-code-2 a.popup-close-cross, .block.second-code form.send-instructions a.popup-close-cross, .block.second-code form.select-gain a.popup-close-cross, .block.send-instructions form.promo-code-2 a.popup-close-cross, .block.send-instructions form.send-instructions a.popup-close-cross, .block.send-instructions form.select-gain a.popup-close-cross, .block.story form.promo-code-2 a.popup-close-cross, .block.story form.send-instructions a.popup-close-cross, .block.story form.select-gain a.popup-close-cross, .block.select-gain form.promo-code-2 a.popup-close-cross, .block.select-gain form.send-instructions a.popup-close-cross, .block.select-gain form.select-gain a.popup-close-cross {
         display: block;
         position: absolute;
         background-image: url("../images/ico-close-popup.png");
@@ -954,14 +955,14 @@ input:-ms-input-placeholder {
         height: 38px;
         right: 30px;
         top: 30px; }
-      .block.second-code form.promo-code-2 h3, .block.second-code form.send-instructions h3, .block.send-instructions form.promo-code-2 h3, .block.send-instructions form.send-instructions h3, .block.story form.promo-code-2 h3, .block.story form.send-instructions h3 {
+      .block.second-code form.promo-code-2 h3, .block.second-code form.send-instructions h3, .block.second-code form.select-gain h3, .block.send-instructions form.promo-code-2 h3, .block.send-instructions form.send-instructions h3, .block.send-instructions form.select-gain h3, .block.story form.promo-code-2 h3, .block.story form.send-instructions h3, .block.story form.select-gain h3, .block.select-gain form.promo-code-2 h3, .block.select-gain form.send-instructions h3, .block.select-gain form.select-gain h3 {
         text-transform: uppercase;
         font-size: 21px;
         color: #c90119;
         font-family: 'Intro-regular';
         margin: 55px 0 30px 0;
         text-align: center; }
-      .block.second-code form.promo-code-2 input, .block.second-code form.send-instructions input, .block.send-instructions form.promo-code-2 input, .block.send-instructions form.send-instructions input, .block.story form.promo-code-2 input, .block.story form.send-instructions input {
+      .block.second-code form.promo-code-2 input, .block.second-code form.send-instructions input, .block.second-code form.select-gain input, .block.send-instructions form.promo-code-2 input, .block.send-instructions form.send-instructions input, .block.send-instructions form.select-gain input, .block.story form.promo-code-2 input, .block.story form.send-instructions input, .block.story form.select-gain input, .block.select-gain form.promo-code-2 input, .block.select-gain form.send-instructions input, .block.select-gain form.select-gain input {
         width: 285px;
         height: 50px;
         border-radius: 3px;
@@ -973,7 +974,7 @@ input:-ms-input-placeholder {
         font-family: 'Intro-regular';
         font-size: 24px;
         text-transform: uppercase; }
-      .block.second-code form.promo-code-2 button, .block.second-code form.send-instructions button, .block.send-instructions form.promo-code-2 button, .block.send-instructions form.send-instructions button, .block.story form.promo-code-2 button, .block.story form.send-instructions button {
+      .block.second-code form.promo-code-2 button, .block.second-code form.send-instructions button, .block.second-code form.select-gain button, .block.send-instructions form.promo-code-2 button, .block.send-instructions form.send-instructions button, .block.send-instructions form.select-gain button, .block.story form.promo-code-2 button, .block.story form.send-instructions button, .block.story form.select-gain button, .block.select-gain form.promo-code-2 button, .block.select-gain form.send-instructions button, .block.select-gain form.select-gain button {
         float: right;
         width: 136px;
         height: 50px;
@@ -992,29 +993,29 @@ input:-ms-input-placeholder {
         font-family: 'Intro';
         line-height: 47px;
         cursor: pointer; }
-        .block.second-code form.promo-code-2 button:hover, .block.second-code form.send-instructions button:hover, .block.send-instructions form.promo-code-2 button:hover, .block.send-instructions form.send-instructions button:hover, .block.story form.promo-code-2 button:hover, .block.story form.send-instructions button:hover {
+        .block.second-code form.promo-code-2 button:hover, .block.second-code form.send-instructions button:hover, .block.second-code form.select-gain button:hover, .block.send-instructions form.promo-code-2 button:hover, .block.send-instructions form.send-instructions button:hover, .block.send-instructions form.select-gain button:hover, .block.story form.promo-code-2 button:hover, .block.story form.send-instructions button:hover, .block.story form.select-gain button:hover, .block.select-gain form.promo-code-2 button:hover, .block.select-gain form.send-instructions button:hover, .block.select-gain form.select-gain button:hover {
           background-color: #a40000;
           color: #c90119;
           border-width: 3px 0 0 0;
           border-style: solid;
           border-color: #c90119; }
-        .block.second-code form.promo-code-2 button.loading, .block.second-code form.send-instructions button.loading, .block.send-instructions form.promo-code-2 button.loading, .block.send-instructions form.send-instructions button.loading, .block.story form.promo-code-2 button.loading, .block.story form.send-instructions button.loading {
+        .block.second-code form.promo-code-2 button.loading, .block.second-code form.send-instructions button.loading, .block.second-code form.select-gain button.loading, .block.send-instructions form.promo-code-2 button.loading, .block.send-instructions form.send-instructions button.loading, .block.send-instructions form.select-gain button.loading, .block.story form.promo-code-2 button.loading, .block.story form.send-instructions button.loading, .block.story form.select-gain button.loading, .block.select-gain form.promo-code-2 button.loading, .block.select-gain form.send-instructions button.loading, .block.select-gain form.select-gain button.loading {
           background-color: #a40000 !important;
           color: #c90119 !important;
           border-width: 3px 0 0 0 !important;
           border-style: solid !important;
           border-color: #c90119 !important; }
-      .block.second-code form.promo-code-2 .fields-holder, .block.second-code form.send-instructions .fields-holder, .block.send-instructions form.promo-code-2 .fields-holder, .block.send-instructions form.send-instructions .fields-holder, .block.story form.promo-code-2 .fields-holder, .block.story form.send-instructions .fields-holder {
+      .block.second-code form.promo-code-2 .fields-holder, .block.second-code form.send-instructions .fields-holder, .block.second-code form.select-gain .fields-holder, .block.send-instructions form.promo-code-2 .fields-holder, .block.send-instructions form.send-instructions .fields-holder, .block.send-instructions form.select-gain .fields-holder, .block.story form.promo-code-2 .fields-holder, .block.story form.send-instructions .fields-holder, .block.story form.select-gain .fields-holder, .block.select-gain form.promo-code-2 .fields-holder, .block.select-gain form.send-instructions .fields-holder, .block.select-gain form.select-gain .fields-holder {
         width: 292px;
         height: 130px;
         margin: 0 auto; }
-        .block.second-code form.promo-code-2 .fields-holder input, .block.second-code form.send-instructions .fields-holder input, .block.send-instructions form.promo-code-2 .fields-holder input, .block.send-instructions form.send-instructions .fields-holder input, .block.story form.promo-code-2 .fields-holder input, .block.story form.send-instructions .fields-holder input {
+        .block.second-code form.promo-code-2 .fields-holder input, .block.second-code form.send-instructions .fields-holder input, .block.second-code form.select-gain .fields-holder input, .block.send-instructions form.promo-code-2 .fields-holder input, .block.send-instructions form.send-instructions .fields-holder input, .block.send-instructions form.select-gain .fields-holder input, .block.story form.promo-code-2 .fields-holder input, .block.story form.send-instructions .fields-holder input, .block.story form.select-gain .fields-holder input, .block.select-gain form.promo-code-2 .fields-holder input, .block.select-gain form.send-instructions .fields-holder input, .block.select-gain form.select-gain .fields-holder input {
           display: block;
           width: 292px;
           margin-bottom: 30px; }
-        .block.second-code form.promo-code-2 .fields-holder button, .block.second-code form.send-instructions .fields-holder button, .block.send-instructions form.promo-code-2 .fields-holder button, .block.send-instructions form.send-instructions .fields-holder button, .block.story form.promo-code-2 .fields-holder button, .block.story form.send-instructions .fields-holder button {
+        .block.second-code form.promo-code-2 .fields-holder button, .block.second-code form.send-instructions .fields-holder button, .block.second-code form.select-gain .fields-holder button, .block.send-instructions form.promo-code-2 .fields-holder button, .block.send-instructions form.send-instructions .fields-holder button, .block.send-instructions form.select-gain .fields-holder button, .block.story form.promo-code-2 .fields-holder button, .block.story form.send-instructions .fields-holder button, .block.story form.select-gain .fields-holder button, .block.select-gain form.promo-code-2 .fields-holder button, .block.select-gain form.send-instructions .fields-holder button, .block.select-gain form.select-gain .fields-holder button {
           float: left; }
-        .block.second-code form.promo-code-2 .fields-holder a, .block.second-code form.send-instructions .fields-holder a, .block.send-instructions form.promo-code-2 .fields-holder a, .block.send-instructions form.send-instructions .fields-holder a, .block.story form.promo-code-2 .fields-holder a, .block.story form.send-instructions .fields-holder a {
+        .block.second-code form.promo-code-2 .fields-holder a, .block.second-code form.send-instructions .fields-holder a, .block.second-code form.select-gain .fields-holder a, .block.send-instructions form.promo-code-2 .fields-holder a, .block.send-instructions form.send-instructions .fields-holder a, .block.send-instructions form.select-gain .fields-holder a, .block.story form.promo-code-2 .fields-holder a, .block.story form.send-instructions .fields-holder a, .block.story form.select-gain .fields-holder a, .block.select-gain form.promo-code-2 .fields-holder a, .block.select-gain form.send-instructions .fields-holder a, .block.select-gain form.select-gain .fields-holder a {
           display: block;
           width: 136px;
           height: 47px;
@@ -1034,7 +1035,7 @@ input:-ms-input-placeholder {
           font-family: 'Intro';
           cursor: pointer;
           float: right; }
-          .block.second-code form.promo-code-2 .fields-holder a:hover, .block.second-code form.send-instructions .fields-holder a:hover, .block.send-instructions form.promo-code-2 .fields-holder a:hover, .block.send-instructions form.send-instructions .fields-holder a:hover, .block.story form.promo-code-2 .fields-holder a:hover, .block.story form.send-instructions .fields-holder a:hover {
+          .block.second-code form.promo-code-2 .fields-holder a:hover, .block.second-code form.send-instructions .fields-holder a:hover, .block.second-code form.select-gain .fields-holder a:hover, .block.send-instructions form.promo-code-2 .fields-holder a:hover, .block.send-instructions form.send-instructions .fields-holder a:hover, .block.send-instructions form.select-gain .fields-holder a:hover, .block.story form.promo-code-2 .fields-holder a:hover, .block.story form.send-instructions .fields-holder a:hover, .block.story form.select-gain .fields-holder a:hover, .block.select-gain form.promo-code-2 .fields-holder a:hover, .block.select-gain form.send-instructions .fields-holder a:hover, .block.select-gain form.select-gain .fields-holder a:hover {
             background-color: #a40000;
             color: #c90119;
             border-width: 3px 0 0 0;
@@ -1051,11 +1052,11 @@ input:-ms-input-placeholder {
         height: 400px;
         margin-top: 75px;
         padding-bottom: 165px; }
-      .block .participate-block .forms-holder form.registration {
+      .block .participate-block .forms-holder form.registration, .block .participate-block .forms-holder form.profile-edit {
         width: 325px;
         float: left;
         height: 100%; }
-        .block .participate-block .forms-holder form.registration input {
+        .block .participate-block .forms-holder form.registration input, .block .participate-block .forms-holder form.profile-edit input {
           width: 253px;
           height: 50px;
           border-radius: 3px;
@@ -1067,7 +1068,7 @@ input:-ms-input-placeholder {
           font-family: 'PT Sans', 'Open Sans', Arial;
           font-size: 18px;
           margin-bottom: 20px; }
-        .block .participate-block .forms-holder form.registration button {
+        .block .participate-block .forms-holder form.registration button, .block .participate-block .forms-holder form.profile-edit button {
           display: block;
           width: 136px;
           height: 50px;
@@ -1086,13 +1087,13 @@ input:-ms-input-placeholder {
           font-family: 'Intro';
           line-height: 47px;
           cursor: pointer; }
-          .block .participate-block .forms-holder form.registration button:hover {
+          .block .participate-block .forms-holder form.registration button:hover, .block .participate-block .forms-holder form.profile-edit button:hover {
             background-color: #a40000;
             color: #c90119;
             border-width: 3px 0 0 0;
             border-style: solid;
             border-color: #c90119; }
-          .block .participate-block .forms-holder form.registration button.loading {
+          .block .participate-block .forms-holder form.registration button.loading, .block .participate-block .forms-holder form.profile-edit button.loading {
             background: #666 !important; }
       .block .participate-block .forms-holder .login-block {
         width: 325px;
@@ -1154,14 +1155,18 @@ input:-ms-input-placeholder {
               background-image: url("../images/ico-vk-red.png"); }
             .block .participate-block .forms-holder .login-block .soc-holder .soc.ok {
               background-image: url("../images/ico-ok-red.png"); }
-      .block .participate-block .forms-holder form.full-registration {
+      .block .participate-block .forms-holder form.profile-edit {
+        float: none !important; }
+        .block .participate-block .forms-holder form.profile-edit button {
+          margin: 0 !important; }
+      .block .participate-block .forms-holder form.full-registration, .block .participate-block .forms-holder form.profile-edit {
         display: block;
         width: 650px;
         margin: 0 auto;
         height: 100%; }
-        .block .participate-block .forms-holder form.full-registration .devider {
+        .block .participate-block .forms-holder form.full-registration .devider, .block .participate-block .forms-holder form.profile-edit .devider {
           height: 240px; }
-        .block .participate-block .forms-holder form.full-registration p.field-title {
+        .block .participate-block .forms-holder form.full-registration p.field-title, .block .participate-block .forms-holder form.profile-edit p.field-title {
           display: block;
           line-height: 10px;
           font-size: 14px;
@@ -1170,7 +1175,7 @@ input:-ms-input-placeholder {
           margin: 0 0 10px 0;
           text-transform: uppercase;
           position: relative; }
-          .block .participate-block .forms-holder form.full-registration p.field-title.required:before {
+          .block .participate-block .forms-holder form.full-registration p.field-title.required:before, .block .participate-block .forms-holder form.profile-edit p.field-title.required:before {
             content: '*';
             position: absolute;
             font-size: 14px;
@@ -1179,7 +1184,7 @@ input:-ms-input-placeholder {
             font-family: 'Intro-regular';
             color: #c90119;
             right: 0; }
-        .block .participate-block .forms-holder form.full-registration input {
+        .block .participate-block .forms-holder form.full-registration input, .block .participate-block .forms-holder form.profile-edit input {
           width: 100%;
           height: 50px;
           border-radius: 3px;
@@ -1191,28 +1196,28 @@ input:-ms-input-placeholder {
           font-family: 'PT Sans', 'Open Sans', Arial;
           font-size: 18px;
           margin-bottom: 20px; }
-          .block .participate-block .forms-holder form.full-registration input.dd, .block .participate-block .forms-holder form.full-registration input.mm, .block .participate-block .forms-holder form.full-registration input.yyyy {
+          .block .participate-block .forms-holder form.full-registration input.dd, .block .participate-block .forms-holder form.full-registration input.mm, .block .participate-block .forms-holder form.full-registration input.yyyy, .block .participate-block .forms-holder form.profile-edit input.dd, .block .participate-block .forms-holder form.profile-edit input.mm, .block .participate-block .forms-holder form.profile-edit input.yyyy {
             width: 77px;
             float: left;
             margin-right: 22px; }
-          .block .participate-block .forms-holder form.full-registration input.yyyy {
+          .block .participate-block .forms-holder form.full-registration input.yyyy, .block .participate-block .forms-holder form.profile-edit input.yyyy {
             padding: 14px 16px;
             margin-right: 0; }
-        .block .participate-block .forms-holder form.full-registration .form-block-left {
+        .block .participate-block .forms-holder form.full-registration .form-block-left, .block .participate-block .forms-holder form.profile-edit .form-block-left {
           width: 275px;
           float: left; }
-        .block .participate-block .forms-holder form.full-registration .form-block-right {
+        .block .participate-block .forms-holder form.full-registration .form-block-right, .block .participate-block .forms-holder form.profile-edit .form-block-right {
           width: 275px;
           float: left; }
-        .block .participate-block .forms-holder form.full-registration .accept-block-holder {
+        .block .participate-block .forms-holder form.full-registration .accept-block-holder, .block .participate-block .forms-holder form.profile-edit .accept-block-holder {
           width: 100%;
           overflow: hidden;
           clear: both; }
-          .block .participate-block .forms-holder form.full-registration .accept-block-holder p {
+          .block .participate-block .forms-holder form.full-registration .accept-block-holder p, .block .participate-block .forms-holder form.profile-edit .accept-block-holder p {
             display: block;
             margin: 0;
             font-size: 14px; }
-        .block .participate-block .forms-holder form.full-registration button {
+        .block .participate-block .forms-holder form.full-registration button, .block .participate-block .forms-holder form.profile-edit button {
           display: block;
           width: 136px;
           height: 50px;
@@ -1232,13 +1237,13 @@ input:-ms-input-placeholder {
           line-height: 47px;
           cursor: pointer;
           margin: 25px auto; }
-          .block .participate-block .forms-holder form.full-registration button:hover {
+          .block .participate-block .forms-holder form.full-registration button:hover, .block .participate-block .forms-holder form.profile-edit button:hover {
             background-color: #a40000;
             color: #c90119;
             border-width: 3px 0 0 0;
             border-style: solid;
             border-color: #c90119; }
-          .block .participate-block .forms-holder form.full-registration button.loading {
+          .block .participate-block .forms-holder form.full-registration button.loading, .block .participate-block .forms-holder form.profile-edit button.loading {
             background: #666 !important; }
   .block .faq-mask {
     overflow: hidden;
@@ -2137,3 +2142,8 @@ input.error {
   border-style: solid;
   border-width: 9px 5px 0 5px;
   border-color: #c90118 transparent transparent transparent; }
+
+.disabled-button {
+  pointer-events: none;
+  opacity: 0.7;
+  cursor: default; }
