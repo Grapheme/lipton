@@ -4,7 +4,7 @@
  */
 ?>
 <?php
-$profile = Accounts::where('id', Auth::user()->id)->with('ulogin','prizes','writing')->first();
+$profile = Accounts::where('id', Auth::user()->id)->with('ulogin', 'codes', 'prizes', 'writing')->first();
 $bdate = new Carbon($profile->bdate);
 $now = Carbon::now();
 ?>
@@ -19,10 +19,10 @@ $now = Carbon::now();
                 <h2>Личный кабинет</h2>
                 <a href="{{ URL::route('logout') }}">Выйти</a>
                 @if(Session::has('message'))
-                <div>{{ Session::get('message') }}</div>
+                    <div>{{ Session::get('message') }}</div>
                 @endif
                 @if(Session::has('promo'))
-                <div>{{ Session::get('promo') }}</div>
+                    <div>{{ Session::get('promo') }}</div>
                 @endif
                 <div class="profile">
                     <div class="profile-head">
@@ -33,23 +33,21 @@ $now = Carbon::now();
                             <div style="background-image: url({{ asset($profile->ulogin->photo_big) }});" class="avatar"></div>
                         @endif
                             <h3>{{ $profile->name }} {{ $profile->surname }}</h3>
-                            <p>{{ $bdate->diffInYears($now).' '.Lang::choice('год|года|лет', $bdate->diffInYears($now)) }} {{ !empty($profile->city) ? ', '.$profile->city : '' }}</p><a href="{{ URL::route('profile.edit') }}">редактировать профиль</a>
+                            <p>{{ $bdate->diffInYears($now).' '.Lang::choice('год|года|лет', $bdate->diffInYears($now)) }} {{ !empty($profile->city) ? ', '.$profile->city : '' }}</p>
+                            <a href="{{ URL::route('profile.edit') }}">редактировать профиль</a>
                         </div>
-                        @if(count($profile->writing))
+                        <div class="profile-promo-code">
+                            <h3>Введите промо код</h3>
+                            @include(Helper::layout('forms.first-promo-code'))
+                        </div>
                         <div class="request">
                             <div class="note"></div>
-                            <h3>Заявка на розыгрыш путешествия с&nbsp;National Geographic Traveler</h3><a href="#">Посмотреть
-                                рассказ о себе</a>
-                            @if($profile->writing->status == 1)
-                            <div class="moderation neutral">На модерации
-                                <div class="bullet"></div>
-                            </div>
-                            @endif
+                            <a{{ count($profile->codes) < 2 ? 'class="disabled-button" href="#"' : ' href="'.URL::route('profile.tell-story').'"' }}>Конкурс рассказов</a>
                         </div>
-                        @endif
                     </div>
                     <div class="profile-border"></div>
                     <h3>Полученные призы</h3>
+
                     <div class="gained-prizes">
                         <div class="prize">
                             <div class="ico leo"></div>
