@@ -50,7 +50,6 @@ $now = Carbon::now();
                     </div>
                     <div class="profile-border"></div>
                     <h3>Полученные призы</h3>
-                    @if(count($profile->prozes))
                     <div class="gained-prizes">
                         <div class="prize">
                             <div class="ico leo"></div>
@@ -65,9 +64,6 @@ $now = Carbon::now();
                             <p>Путешествие с national geographic traveler</p><a>Получить</a>
                         </div>
                     </div>
-                    @else
-                        <p>Вы не получали призы. Если у Вас есть промокод - зарегистрируйте его, воспользовавшись формой на <a href="{{ pageurl('mainpage') }}">главной</a> странице.</p>
-                    @endif
                 </div>
             </div>
         </div>
