@@ -398,6 +398,18 @@ input::-moz-placeholder {
 input:-ms-input-placeholder {
   color: #666; }
 
+textarea::-webkit-input-placeholder {
+  color: #666; }
+
+textarea:-moz-placeholder {
+  color: #666; }
+
+textarea::-moz-placeholder {
+  color: #666; }
+
+textarea:-ms-textarea-placeholder {
+  color: #666; }
+
 @font-face {
   font-family: 'Intro-regular';
   src: url("../fonts/intro-regular.eot");
@@ -1400,7 +1412,8 @@ input:-ms-input-placeholder {
           font-family: 'Intro';
           line-height: 47px;
           cursor: pointer;
-          margin: 25px auto; }
+          margin: 25px auto !important;
+          clear: both; }
           .block .participate-block .forms-holder form.full-registration button:hover, .block .participate-block .forms-holder form.profile-edit button:hover {
             background-color: #a40000;
             color: #c90119;
@@ -1932,12 +1945,12 @@ input:-ms-input-placeholder {
           text-align: left;
           font-size: 18px;
           margin-bottom: 7px; }
-        .block .profile .profile-head .profile-promo-code form.promo-code {
+        .block .profile .profile-head .profile-promo-code form.profile-code {
           display: block;
           width: 357px;
           height: 50px;
           margin: 0; }
-          .block .profile .profile-head .profile-promo-code form.promo-code input {
+          .block .profile .profile-head .profile-promo-code form.profile-code input {
             width: 211px;
             height: 50px;
             border-radius: 3px;
@@ -1949,7 +1962,7 @@ input:-ms-input-placeholder {
             font-family: 'Intro-regular';
             font-size: 20px;
             text-transform: uppercase; }
-          .block .profile .profile-head .profile-promo-code form.promo-code button {
+          .block .profile .profile-head .profile-promo-code form.profile-code button {
             float: right;
             width: 136px;
             height: 50px;
@@ -1968,13 +1981,13 @@ input:-ms-input-placeholder {
             font-family: 'Intro';
             line-height: 47px;
             cursor: pointer; }
-            .block .profile .profile-head .profile-promo-code form.promo-code button:hover {
+            .block .profile .profile-head .profile-promo-code form.profile-code button:hover {
               background-color: #a40000;
               color: #c90119;
               border-width: 3px 0 0 0;
               border-style: solid;
               border-color: #c90119; }
-            .block .profile .profile-head .profile-promo-code form.promo-code button.loading {
+            .block .profile .profile-head .profile-promo-code form.profile-code button.loading {
               background-color: #a40000 !important;
               color: #c90119 !important;
               border-width: 3px 0 0 0 !important;

@@ -47,6 +47,22 @@ input:-ms-input-placeholder {
 	color: #666;  
 }
 
+textarea::-webkit-input-placeholder {
+	color: #666;
+}
+
+textarea:-moz-placeholder {
+	color: #666;  
+}
+
+textarea::-moz-placeholder {
+	color: #666;  
+}
+
+textarea:-ms-textarea-placeholder {  
+	color: #666;  
+}
+
 @import "fonts";
 .main-content {
 	overflow: hidden;
@@ -1366,7 +1382,8 @@ input:-ms-input-placeholder {
 					font-family: 'Intro';
 					line-height: 47px;
 					cursor: pointer;
-					margin: 25px auto;
+					margin: 25px auto !important;
+					clear: both;
 
 					&:hover {
 						background-color: #a40000;
@@ -2128,7 +2145,7 @@ input:-ms-input-placeholder {
 					margin-bottom: 7px;
 				}
 
-				form.promo-code {
+				form.profile-code {
 					display: block;
 					width: 357px;
 					height: 50px;
