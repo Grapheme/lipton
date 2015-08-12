@@ -17,6 +17,11 @@ class Accounts extends \User {
         return $this->hasMany('UserPrizes','user_id','id');
     }
 
+    public function codes(){
+
+        return $this->hasMany('UserCodes','user_id','id');
+    }
+
     public function writing(){
 
         return $this->hasMany('UserWritings','user_id','id');

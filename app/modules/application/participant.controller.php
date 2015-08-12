@@ -13,6 +13,7 @@ class ParticipantController extends BaseController {
 
         Route::group(array('before' => 'user.auth', 'prefix' => 'participant'), function () use ($class) {
             Route::get('profile', array('as' => 'profile.edit', 'uses' => $class . '@profileEdit'));
+            Route::get('tell-story', array('as' => 'profile.tell-story', 'uses' => $class . '@tellStory'));
             Route::post('profile', array('as' => 'profile.save', 'uses' => $class . '@profileSave'));
         });
     }
@@ -117,5 +118,16 @@ class ParticipantController extends BaseController {
             return FALSE;
         }
         return TRUE;
+    }
+
+    /****************************************************************************/
+    public function tellStory(){
+
+        $page_data = array(
+            'page_title' => 'Личный кабинет',
+            'page_description' => '',
+            'page_keywords' => '',
+        );
+        return View::make(Helper::acclayout('tell-story'), $page_data);
     }
 }
