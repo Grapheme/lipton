@@ -1699,11 +1699,11 @@ $( document ).ready(function() {
       },
       fio: {
         required: true,
-      }
+      },
       email: {
         required: true,
         email: true,
-      }
+      },
     },
 
     messages: {
@@ -1712,11 +1712,11 @@ $( document ).ready(function() {
       },
       fio: {
         required: 'Необходимо заполнить поле!',
-      }
+      },
       email: {
         required: 'Необходимо заполнить поле!',
         email: 'Неверный адрес!',
-      }
+      },
     },   
     submitHandler: function(form) {
       $('form.feedback button').html();

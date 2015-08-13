@@ -458,6 +458,7 @@ textarea:-ms-textarea-placeholder {
 		height: 53px;
 		z-index: 9;
 		margin-top: -23px;
+		position: relative;
 
 		@include mobile {
 			display: none;
@@ -2005,6 +2006,7 @@ textarea:-ms-textarea-placeholder {
 
 	&.winners {
 		height: 800px;
+		margin-top: 58px;
 		
 		.mosaic-row {
 			width: 100%;
