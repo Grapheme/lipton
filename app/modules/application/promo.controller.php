@@ -43,7 +43,7 @@ class PromoController extends BaseController {
     /****************************************************************************/
     public function showWriting($url) {
 
-        if ($writing = UserWritings::where('id', (int)$url)->with('user.ulogin')->first()):
+        if ($writing = UserWritings::where('id', (int)$url)->where('status','>', 0)->with('user.ulogin')->first()):
             $page_data = array(
                 'page_title' => 'Рассказ от ' . @$writing->user->name . ' ' . @$writing->user->surname,
                 'page_description' => '',
