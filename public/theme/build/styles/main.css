@@ -1891,6 +1891,9 @@ textarea:-ms-textarea-placeholder {
   .block.winners {
     height: 800px;
     margin-top: 58px; }
+    @media (max-width: 320px) {
+      .block.winners {
+        height: auto; } }
     .block.winners .mosaic-row {
       width: 100%;
       height: 100px; }
@@ -1910,6 +1913,9 @@ textarea:-ms-textarea-placeholder {
     .block.winners .content {
       position: relative;
       height: 900px; }
+      @media (max-width: 320px) {
+        .block.winners .content {
+          height: auto; } }
       .block.winners .content h2 {
         padding-top: 100px;
         margin-top: 0;
@@ -1925,12 +1931,24 @@ textarea:-ms-textarea-placeholder {
         top: 48px;
         left: -135px;
         z-index: 0; }
+        @media (max-width: 320px) {
+          .block.winners .content .block-plain {
+            background-image: none;
+            width: 100%;
+            height: auto;
+            position: initial; } }
         .block.winners .content .block-plain .illuminators {
           width: 888px;
           height: 63px;
           top: 440px;
           left: 205px;
           position: absolute; }
+          @media (max-width: 320px) {
+            .block.winners .content .block-plain .illuminators {
+              width: 100%;
+              height: auto;
+              position: initial;
+              margin-top: 50px; } }
           .block.winners .content .block-plain .illuminators .illuminator {
             background-color: #ffde00;
             width: 77px;
@@ -1944,11 +1962,22 @@ textarea:-ms-textarea-placeholder {
             box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.5);
             cursor: pointer;
             z-index: 10; }
+            @media (max-width: 320px) {
+              .block.winners .content .block-plain .illuminators .illuminator {
+                float: none;
+                width: 266px;
+                height: 150px;
+                margin: 0 auto 30px;
+                background: none;
+                box-shadow: none; } }
             .block.winners .content .block-plain .illuminators .illuminator .number {
               margin: 2px 0 0 5px;
               color: #c90119;
               font-size: 13px;
               font-family: 'Intro-regular'; }
+              @media (max-width: 320px) {
+                .block.winners .content .block-plain .illuminators .illuminator .number {
+                  display: none; } }
             .block.winners .content .block-plain .illuminators .illuminator .avatar {
               width: 37px;
               height: 37px;
@@ -1957,6 +1986,9 @@ textarea:-ms-textarea-placeholder {
               background-size: 37px;
               background-repeat: no-repeat;
               background-position: center; }
+              @media (max-width: 320px) {
+                .block.winners .content .block-plain .illuminators .illuminator .avatar {
+                  display: none; } }
             .block.winners .content .block-plain .illuminators .illuminator:after {
               content: '';
               display: block;
@@ -1968,8 +2000,14 @@ textarea:-ms-textarea-placeholder {
               background-repeat: no-repeat;
               width: 15px;
               height: 9px; }
+              @media (max-width: 320px) {
+                .block.winners .content .block-plain .illuminators .illuminator:after {
+                  display: none; } }
             .block.winners .content .block-plain .illuminators .illuminator:last-child {
               margin-right: 0; }
+              @media (max-width: 320px) {
+                .block.winners .content .block-plain .illuminators .illuminator:last-child {
+                  margin: 0 auto 30px; } }
             .block.winners .content .block-plain .illuminators .illuminator:hover {
               background-color: #c90119; }
               .block.winners .content .block-plain .illuminators .illuminator:hover .number {
@@ -1989,6 +2027,10 @@ textarea:-ms-textarea-placeholder {
               border-radius: 3px;
               -webkit-transition: .2s all;
                       transition: .2s all; }
+              @media (max-width: 320px) {
+                .block.winners .content .block-plain .illuminators .illuminator .magnifier {
+                  display: block;
+                  position: initial; } }
               .block.winners .content .block-plain .illuminators .illuminator .magnifier .number {
                 color: #ffde00;
                 font-size: 30px;
