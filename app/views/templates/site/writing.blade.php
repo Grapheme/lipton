@@ -20,14 +20,7 @@ $text = $writing->writing
                 </div>
                  <div class="share-story-author">
                     <div class="profile-info">
-                      @if(!empty($profile->photo) && File::exists(public_path($profile->photo)))
-                            <div style="background-image: url({{ asset($profile->photo) }});" class="avatar"></div>
-                        @elseif(!empty($profile->ulogin) && !empty($profile->ulogin->photo_big))
-                            <div style="background-image: url({{ asset($profile->ulogin->photo_big) }});" class="avatar"></div>
-                        @else
-                            <img src="{{ asset(Config::get('site.theme_path').'/images/avatar_default.png') }}" alt="{{ $user->name }}"
-                                  class="{{ $user->name }}">
-                        @endif
+                      <div style="background-image: url({{ asset(Config::get('site.theme_path').'/images/avatar_default.png') }});" class="avatar"></div>
                       <h3>{{ $user->name }} {{ $user->surname }}</h3>
                       <p>{{ $user->name }} {{ $user->surname }}br/>
                         @if($user->age > 0){{ $user->age }} {{ Lang::choice('год|года|лет', (int)$user->age ) }}. {{ $user->location }} <br/>@endif
