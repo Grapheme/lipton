@@ -51,7 +51,7 @@ $now = Carbon::now();
                                 <div class="moderation">На модерации<div class="bullet"></div></div>
                                 @endif
                                 @if($profile->writing->status == 1)
-                                <a target="_blank" href="{{ URL::route('show.participant.writing', $profile->writing->id.'-'.BaseController::stringTranslite(Auth::user()->name.'-'.Auth::user()->surname)) }}">Смотреть</a>
+                                <a class="watch" target="_blank" href="{{ URL::route('show.participant.writing', $profile->writing->id.'-'.BaseController::stringTranslite(Auth::user()->name.'-'.Auth::user()->surname)) }}">Смотреть</a>
                                 @endif
                             @else
                                 <a class="disabled-button" href="javascript:void(0);">Конкурс рассказов</a>
