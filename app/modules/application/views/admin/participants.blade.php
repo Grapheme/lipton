@@ -41,7 +41,7 @@
                         @endif
                             <div style="margin-top: 50px">
                                 @if(count($user->writing) && !empty($user->writing->writing))
-                                    <p><a data-content="{{{ $user->writing->writing }}}" data-html="true" data-original-title="Рассказ участника" data-placement="right" rel="popover" class="btn btn-link" href="javascript:void(0);">Смотреть рассказ</a></p>
+                                    <p><a data-content="{{{ nl2br($user->writing->writing) }}}" data-html="true" data-original-title="Рассказ участника" data-placement="right" rel="popover" class="btn btn-link" href="javascript:void(0);">Смотреть рассказ</a></p>
                                 @else
                                     <p>Рассказ отсутсвует</p>
                                 @endif
