@@ -31,6 +31,9 @@ $now = Carbon::now();
                             <div style="background-image: url({{ asset($profile->photo) }});" class="avatar"></div>
                         @elseif(!empty($profile->ulogin) && !empty($profile->ulogin->photo_big))
                             <div style="background-image: url({{ asset($profile->ulogin->photo_big) }});" class="avatar"></div>
+                        @else
+                            <img src="{{ asset(Config::get('theme_path').'/images/avatar_default.png') }}" alt="{{ $user->name }}"
+                                  class="{{ $user->name }}">
                         @endif
                             <h3>{{ $profile->name }} {{ $profile->surname }}</h3>
                             <p>{{ $bdate->diffInYears($now).' '.Lang::choice('год|года|лет', $bdate->diffInYears($now)) }} {{ !empty($profile->city) ? ', '.$profile->city : '' }}</p>

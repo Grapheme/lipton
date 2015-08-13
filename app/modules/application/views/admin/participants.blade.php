@@ -36,7 +36,7 @@
                             <img src="{{ $user->photo }}" alt="{{ $user->name }}"
                                  class="{{ $user->name }}">
                         @else
-                            <img src="{{ asset('/uploads/users/award-'.rand(1, 3).'.png') }}" alt="{{ $user->name }}"
+                            <img src="{{ asset(Config::get('theme_path').'/images/avatar_default.png') }}" alt="{{ $user->name }}"
                                  class="{{ $user->name }}">
                         @endif
                             <div style="margin-top: 50px">
