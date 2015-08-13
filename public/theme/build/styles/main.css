@@ -817,6 +817,8 @@ textarea:-ms-textarea-placeholder {
             width: 412px;
             margin-right: 67px;
             height: 160px; }
+            .block.promo-code .content .promo-steps .promo-step.step-2 form.promo-code {
+              margin: 25px 0px 0px 0px; }
             @media (max-width: 320px) {
               .block.promo-code .content .promo-steps .promo-step.step-2 {
                 width: auto;

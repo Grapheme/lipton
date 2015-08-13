@@ -1662,7 +1662,7 @@ $( document ).ready(function() {
 
     messages: {
       message: {
-        required: 'Необходимо написать сообщение!',
+        required: 'Необходимо написать историю!',
       },
     },   
     submitHandler: function(form) {
@@ -1683,6 +1683,59 @@ $( document ).ready(function() {
         error: function(data) {
           $('form.story button').html('Отправить');
           $('form.story button').removeClass('loading');
+          // ERROR
+        }
+      };
+      $(form).ajaxSubmit(options);
+    }
+  });
+
+// FEEDBACK FORM VALIDATION //
+
+  $('form.feedback').validate({
+    rules: {
+      _token: {
+        required: true,
+      },
+      fio: {
+        required: true,
+      }
+      email: {
+        required: true,
+        email: true,
+      }
+    },
+
+    messages: {
+      message: {
+        required: 'Необходимо написать сообщение!',
+      },
+      fio: {
+        required: 'Необходимо заполнить поле!',
+      }
+      email: {
+        required: 'Необходимо заполнить поле!',
+        email: 'Неверный адрес!',
+      }
+    },   
+    submitHandler: function(form) {
+      $('form.feedback button').html();
+      $('form.feedback button').addClass('loading');
+      $('form.feedback button').html('<i class="fa fa-cog fa-spin"></i>')
+      var options = { 
+        success: function(data){
+          if(data.redirectURL) {
+            function goToCabinet () {
+              window.location.href = data.redirectURL;
+            };
+            setTimeout(goToCabinet, 3000);
+          } else {
+            $('form.feedback').append('<div class="erros-message-block">' + data.responseText + '</div>');
+          }
+        },
+        error: function(data) {
+          $('form.feedback button').html('Отправить');
+          $('form.feedback button').removeClass('loading');
           // ERROR
         }
       };
