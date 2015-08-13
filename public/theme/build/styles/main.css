@@ -2228,7 +2228,7 @@ textarea:-ms-textarea-placeholder {
         width: 187px;
         height: 80px;
         overflow: hidden;
-        padding: 13px 0 0 0;
+        padding: 0;
         box-sizing: border-box; }
         @media (max-width: 320px) {
           .block .profile .profile-head .request {
@@ -2260,16 +2260,15 @@ textarea:-ms-textarea-placeholder {
           float: right;
           font-size: 12px;
           color: transparent;
-          margin-top: 5px;
-          margin-right: 35px; }
+          margin-top: 6px;
+          margin-left: 84px; }
           .block .profile .profile-head .request .moderation .bullet {
             width: 8px;
             height: 8px;
             border-radius: 51%;
             float: left;
-            margin-right: 5px;
-            margin-top: 3px;
-            background-color: transparent; }
+            margin-left: -12px;
+            margin-top: -11px; }
           .block .profile .profile-head .request .moderation.positive {
             color: #2e8d00; }
             .block .profile .profile-head .request .moderation.positive .bullet {
@@ -2364,6 +2363,41 @@ textarea:-ms-textarea-placeholder {
           @media (max-width: 320px) {
             .block .profile .gained-prizes .prize:last-child {
               margin: 0 auto; } }
+  .block .share-story-block {
+    margin-top: 50px; }
+    .block .share-story-block p {
+      text-align: center;
+      margin: 0 0 35px 0; }
+  .block .share-story-author {
+    height: 120px;
+    margin-top: 30px; }
+    .block .share-story-author .profile-info {
+      height: 120px;
+      width: 300px;
+      margin: 0 auto;
+      margin-bottom: 20px; }
+      .block .share-story-author .profile-info input {
+        display: none; }
+      .block .share-story-author .profile-info .avatar {
+        width: 40px;
+        height: 40px;
+        border-radius: 51%;
+        float: left;
+        margin-right: 20px;
+        text-align: center;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 40px; }
+      .block .share-story-author .profile-info h3 {
+        margin: 0 0 5px 0;
+        font-family: 'Intro-regular';
+        color: #c90119;
+        font-size: 18px;
+        text-transform: uppercase;
+        text-align: left; }
+      .block .share-story-author .profile-info p {
+        margin: 0 0 14px 0;
+        font-size: 16px; }
   .block .collection {
     width: 1090px;
     height: 590px;

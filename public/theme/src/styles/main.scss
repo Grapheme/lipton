@@ -2493,7 +2493,7 @@ textarea:-ms-textarea-placeholder {
 				width: 187px;
 				height: 80px;
 				overflow: hidden;
-				padding: 13px 0 0 0;
+				padding: 0;
 				box-sizing: border-box;
 
 				@include mobile {
@@ -2538,17 +2538,16 @@ textarea:-ms-textarea-placeholder {
 					float: right;
 					font-size: 12px;
 					color: transparent;
-					margin-top: 5px;
-					margin-right: 35px;
+					margin-top: 6px;
+					margin-left: 84px;
 
 					.bullet {
 						width: 8px;
 						height: 8px;
 						border-radius: 51%;
 						float: left;
-						margin-right: 5px;
-						margin-top: 3px;
-						background-color: transparent;
+						margin-left: -12px;
+						margin-top: -11px;
 					}
 
 					&.positive {
@@ -2681,6 +2680,57 @@ textarea:-ms-textarea-placeholder {
 						margin: 0 auto
 					}
 				}
+			}
+		}
+	}
+
+	.share-story-block {
+		margin-top: 50px;
+
+		p {
+			text-align: center;
+			margin: 0 0 35px 0;
+		}
+	}
+
+	.share-story-author {
+		height: 120px;
+		margin-top: 30px;
+
+			.profile-info {
+			height: 120px;
+			width: 300px;
+			margin: 0 auto;
+			margin-bottom: 20px;
+
+			input {
+				display: none;
+			}
+
+			.avatar {
+				width: 40px;
+				height: 40px;
+				border-radius: 51%;
+				float: left;
+				margin-right: 20px;
+				text-align: center;
+				background-repeat: no-repeat;
+				background-position: center;
+				background-size: 40px;
+			}
+
+			h3 {
+				margin: 0 0 5px 0;
+				font-family: 'Intro-regular';
+				color: #c90119;
+				font-size: 18px;
+				text-transform: uppercase;
+				text-align: left;
+			}
+
+			p {
+				margin: 0 0 14px 0;
+				font-size: 16px;
 			}
 		}
 	}
