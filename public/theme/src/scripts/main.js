@@ -338,7 +338,7 @@ $( document ).ready(function() {
       email: {
         required: true,
         email: true,
-      }
+      },
     },
 
     messages: {
@@ -351,7 +351,7 @@ $( document ).ready(function() {
       email: {
         required: 'Необходимо заполнить поле!',
         email: 'Неверный адрес!',
-      }
+      },
     },   
     submitHandler: function(form) {
       $('form.feedback button').html();
