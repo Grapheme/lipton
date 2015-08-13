@@ -22,11 +22,9 @@ $text = $writing->writing
                     <div class="profile-info">
                       <div style="background-image: url({{ asset(Config::get('site.theme_path').'/images/avatar_default.png') }});" class="avatar"></div>
                       <h3>{{ $user->name }} {{ $user->surname }}</h3>
-                      <p>{{ $user->name }} {{ $user->surname }}br/>
-                        @if($user->age > 0){{ $user->age }} {{ Lang::choice('год|года|лет', (int)$user->age ) }}. {{ $user->location }} <br/>@endif
-                        {{ $user->city }}<br/>
-                        <i class="fa fa-envelope-o"></i> {{ HTML::mailto($user->email, $user->email) }}<br/>
-                        <i class="fa fa-fw fa-mobile-phone"></i>{{ $user->phone }}</p>
+                      <p>{{ $user->name }} {{ $user->surname }}<br/>
+                        @if($user->age > 0){{ $user->age }} {{ Lang::choice('год|года|лет', (int)$user->age ) }}. {{ $user->location }} <br>@endif
+                        г. {{ $user->city }}<br/>
                     </div>
                 </div>
         <!--             @if(!empty($user->photo) && File::exists(public_path($user->photo)))
