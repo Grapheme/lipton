@@ -1,17 +1,17 @@
 <?php
 
-App::before(function($request){
+App::before(function ($request) {
     Xss::globalXssClean();
 });
 
-App::after(function($request, $response){
-	//
+App::after(function ($request, $response) {
+    //
 });
 
-App::error(function(Exception $exception, $code){
+App::error(function (Exception $exception, $code) {
 
-	switch($code):
-		case 403:
+    switch ($code):
+        case 403:
             return 'Access denied!';
         /*
 		case 404:
@@ -21,7 +21,7 @@ App::error(function(Exception $exception, $code){
 			#	return View::make('error404', array('message'=>$exception->getMessage()), 404);
 			#endif;
         */
-	endswitch;
+    endswitch;
 
     if (View::exists(Helper::layout($code)))
         return Response::view(Helper::layout($code), array('message' => $exception->getMessage()), $code);
@@ -39,33 +39,33 @@ App::missing(function ($exception) {
     return Response::view($tpl, array('message' => $exception->getMessage()), 404);
 });
 
-Route::filter('auth', function(){
-	if(Auth::guest()):
-		App::abort(404);
-	endif;
+Route::filter('auth', function () {
+    if (Auth::guest()):
+        App::abort(404);
+    endif;
 });
 
-Route::filter('login', function(){
-	if(Auth::check()):
-		return Redirect::to(AuthAccount::getStartPage());
-	endif;
+Route::filter('login', function () {
+    if (Auth::check()):
+        return Redirect::to(AuthAccount::getStartPage());
+    endif;
 });
 
-Route::filter('auth.basic', function(){
-	return Auth::basic();
+Route::filter('auth.basic', function () {
+    return Auth::basic();
 });
 
-Route::filter('admin.auth', function(){
+Route::filter('admin.auth', function () {
 
-	if(!AuthAccount::isAdminLoggined()):
-		return Redirect::to('/');
-	endif;
+    if (!AuthAccount::isAdminLoggined()):
+        return Redirect::to('/');
+    endif;
 });
 
-Route::filter('user.auth', function(){
-	if(!AuthAccount::isUserLoggined()):
-		return Redirect::to('/');
-	endif;
+Route::filter('user.auth', function () {
+    if (!AuthAccount::isUserLoggined()):
+        return Redirect::to('/');
+    endif;
 });
 
 /*
@@ -73,8 +73,8 @@ Route::filter('user.auth', function(){
 | Permission Filter
 |--------------------------------------------------------------------------
 */
-if(Auth::check()):
-	#Allow::modulesFilters();
+if (Auth::check()):
+    #Allow::modulesFilters();
 endif;
 
 /*
@@ -83,14 +83,14 @@ endif;
 |--------------------------------------------------------------------------
 */
 
-Route::filter('guest', function(){
-	if(Auth::check()):
-		return Redirect::to('/');
-	endif;
+Route::filter('guest', function () {
+    if (Auth::check()):
+        return Redirect::to('/');
+    endif;
 });
 
-Route::filter('auth2login', function(){
-    if(Auth::check()) {
+Route::filter('auth2login', function () {
+    if (Auth::check()) {
         #Helper::dd(Request::path() . ' != ' . AuthAccount::getStartPage());
         if (Request::path() != AuthAccount::getStartPage())
             return Redirect::to(AuthAccount::getStartPage());
@@ -105,10 +105,10 @@ Route::filter('auth2login', function(){
 |--------------------------------------------------------------------------
 */
 
-Route::filter('csrf', function(){
-	if (Session::token() != Input::get('_token')):
-		throw new Illuminate\Session\TokenMismatchException;
-	endif;
+Route::filter('csrf', function () {
+    if (Session::token() != Input::get('_token')):
+        throw new Illuminate\Session\TokenMismatchException;
+    endif;
 });
 
 /*
@@ -121,10 +121,10 @@ Route::filter('csrf', function(){
  * Фильтр используется для переадресации мультиязычных страниц на урл, первым сегментом которого идет указатель на текущий язык, например /ru/{url}.
  * Работает в паре с кодом из /app/start/global.php
  */
-Route::filter('i18n_url', function(){
+Route::filter('i18n_url', function () {
 
     $locales = Config::get('app.locales');
-    if ( @!$locales[Request::segment(1)] ) {
+    if (@!$locales[Request::segment(1)]) {
         if (Request::path() != '/') {
             ## Если не главная страница - подставим дефолтную локаль и сделаем редирект
             #Helper::dd(Config::get('app.locale') . '/' . Request::path());
@@ -134,7 +134,7 @@ Route::filter('i18n_url', function(){
 });
 
 function Redirect($url = '', $code = '301 Moved Permanently') {
-	header("HTTP/1.1 {$code}");
+    header("HTTP/1.1 {$code}");
     header("Location: {$url}");
     die;
 }
