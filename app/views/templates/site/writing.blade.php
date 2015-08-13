@@ -20,12 +20,11 @@ $text = $writing->writing
                 </div>
                  <div class="share-story-author">
                     <div class="profile-info">
-                      <div style="background-image: {{ asset($user->photo) }}" class="avatar"></div>
-                      <h3>{{ $user->name }}</h3>
-                      <p><!-- <strong>{{ $user->name }} {{ $user->surname }}</strong><br/> -->
-                        @if($user->age > 0){{ $user->age }} {{ Lang::choice('год|года|лет', (int)$user->age ) }}. {{ $user->location }}<br/>@endif
-                        <!-- { $user->created_at->format('d.m.Y H:i:s') }}<br/> -->
-                        {{ $user->city }}<br/></p>
+                      <div style="background-image: url({{ asset($user->photo) }})" class="avatar"></div>
+                      <h3>{{ $user->name }} {{ $user->surname }}</h3>
+                      <p>
+                        @if($user->age > 0){{ $user->age }} {{ Lang::choice('год|года|лет', (int)$user->age ) }}. {{ $user->location }}, @endif
+                        {{ $user->city }}</p>
                     </div>
                 </div>
         <!--             @if(!empty($user->photo) && File::exists(public_path($user->photo)))
