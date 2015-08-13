@@ -584,12 +584,18 @@ textarea:-ms-textarea-placeholder {
     margin: 0;
     line-height: 23px;
     margin-top: 50px; }
+    @media (max-width: 320px) {
+      .block h2 {
+        line-height: 33px; } }
   .block .devider {
     width: 100px;
     float: left;
     height: 100%;
     min-height: 1px;
     background-image: url("../images/bg-devider.png"); }
+    @media (max-width: 320px) {
+      .block .devider {
+        display: none; } }
     .block .devider.no-dots {
       background: no-repeat; }
   .block.header {
@@ -1218,6 +1224,9 @@ textarea:-ms-textarea-placeholder {
   .block .participate-block {
     width: 750px;
     margin: 50px auto 0; }
+    @media (max-width: 320px) {
+      .block .participate-block {
+        width: 100%; } }
     .block .participate-block .forms-holder {
       height: 248px;
       width: 100%;
@@ -1226,6 +1235,10 @@ textarea:-ms-textarea-placeholder {
         height: 400px;
         margin-top: 75px;
         padding-bottom: 165px; }
+        @media (max-width: 320px) {
+          .block .participate-block .forms-holder.full-registration-holder {
+            height: auto;
+            padding-bottom: 45px; } }
       .block .participate-block .forms-holder form.registration, .block .participate-block .forms-holder form.profile-edit {
         width: 325px;
         float: left;
@@ -1339,6 +1352,9 @@ textarea:-ms-textarea-placeholder {
         width: 650px;
         margin: 0 auto;
         height: 100%; }
+        @media (max-width: 320px) {
+          .block .participate-block .forms-holder form.full-registration, .block .participate-block .forms-holder form.profile-edit {
+            width: 100%; } }
         .block .participate-block .forms-holder form.full-registration .devider, .block .participate-block .forms-holder form.profile-edit .devider {
           height: 240px; }
         .block .participate-block .forms-holder form.full-registration p.field-title, .block .participate-block .forms-holder form.profile-edit p.field-title {
@@ -1381,14 +1397,25 @@ textarea:-ms-textarea-placeholder {
         .block .participate-block .forms-holder form.full-registration .form-block-left, .block .participate-block .forms-holder form.profile-edit .form-block-left {
           width: 275px;
           float: left; }
+          @media (max-width: 320px) {
+            .block .participate-block .forms-holder form.full-registration .form-block-left, .block .participate-block .forms-holder form.profile-edit .form-block-left {
+              float: none;
+              margin: 0 auto; } }
         .block .participate-block .forms-holder form.full-registration .form-block-right, .block .participate-block .forms-holder form.profile-edit .form-block-right {
           width: 275px;
           float: left;
           clear: right; }
+          @media (max-width: 320px) {
+            .block .participate-block .forms-holder form.full-registration .form-block-right, .block .participate-block .forms-holder form.profile-edit .form-block-right {
+              float: none;
+              margin: 0 auto; } }
         .block .participate-block .forms-holder form.full-registration .accept-block-holder, .block .participate-block .forms-holder form.profile-edit .accept-block-holder {
           width: 100%;
           overflow: hidden;
           clear: both; }
+          @media (max-width: 320px) {
+            .block .participate-block .forms-holder form.full-registration .accept-block-holder, .block .participate-block .forms-holder form.profile-edit .accept-block-holder {
+              margin-bottom: 50px; } }
           .block .participate-block .forms-holder form.full-registration .accept-block-holder p, .block .participate-block .forms-holder form.profile-edit .accept-block-holder p {
             display: block;
             margin: 0;
@@ -1428,12 +1455,23 @@ textarea:-ms-textarea-placeholder {
     height: 430px;
     margin-top: 50px;
     box-shadow: 0px 10px 10px -10px #ffd400, 0px -10px 10px -10px #ffd400; }
+    @media (max-width: 320px) {
+      .block .faq-mask {
+        overflow: inherit;
+        width: 100%;
+        height: auto;
+        box-shadow: none; } }
     .block .faq-mask .faq-block {
       width: 950px;
       height: 430px;
       overflow: auto;
       padding: 20px 0;
       box-sizing: border-box; }
+      @media (max-width: 320px) {
+        .block .faq-mask .faq-block {
+          width: 100%;
+          height: auto;
+          overflow: inherit; } }
       .block .faq-mask .faq-block .faq-columns {
         overflow: hidden; }
       .block .faq-mask .faq-block .column-left {
@@ -2118,6 +2156,11 @@ textarea:-ms-textarea-placeholder {
     background-image: url("../images/bg-glowing-plane.png");
     background-repeat: no-repeat;
     background-position: 200px 120px; }
+    @media (max-width: 320px) {
+      .block .collection {
+        width: 100%;
+        height: auto;
+        background: none; } }
     .block .collection .country {
       width: 180px;
       height: 180px;
@@ -2125,6 +2168,17 @@ textarea:-ms-textarea-placeholder {
       cursor: pointer;
       background-position: bottom center;
       background-repeat: no-repeat; }
+      @media (max-width: 320px) {
+        .block .collection .country {
+          position: relative;
+          top: inherit !important;
+          right: inherit !important;
+          bottom: inherit !important;
+          left: 10px !important;
+          margin: 0 auto;
+          margin-bottom: 50px; }
+          .block .collection .country:first-child {
+            margin-top: 50px; } }
       .block .collection .country:hover .photo {
         box-shadow: 0px 0px 3px 0px inset, 0 0 0px 10px #c90119; }
       .block .collection .country .content {
@@ -2138,6 +2192,10 @@ textarea:-ms-textarea-placeholder {
         margin: 43px 0 0 0;
         position: relative;
         z-index: 20; }
+        @media (max-width: 320px) {
+          .block .collection .country p {
+            padding: 23px 0 0 0;
+            margin: 0; } }
       .block .collection .country .photo {
         width: 180px;
         height: 180px;

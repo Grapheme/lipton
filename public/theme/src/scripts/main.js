@@ -2,12 +2,14 @@ $( document ).ready(function() {
 
 
   $('.ico-burger').click(function (){
-    $('.right-menu-holder').slideToggle( function() {
+    $('.right-menu-holder').slideToggle( function(e) {
+      e.preventDefault();
       $('.ico-burger').toggleClass('close-ico');
     });
   });
 
-  $('.second-code .fields-holder a, a.popup-close-cross').click(function() {
+  $('.second-code .fields-holder a, a.popup-close-cross').click(function(e) {
+      e.preventDefault();
       $('.second-code').fadeOut();
   });
 
@@ -40,11 +42,13 @@ $( document ).ready(function() {
     $('.learn-more-popup-holder').fadeIn();
   });
 
-  $('.story a.popup-close-cross').click(function() {
+  $('.story a.popup-close-cross').click(function(e) {
+    e.preventDefault();
     $('.story').fadeOut();
   });
 
-  $('.learn-more-popup a.popup-close-cross').click(function() {
+  $('.learn-more-popup a.popup-close-cross').click(function(e) {
+    e.preventDefault();
     $('.learn-more-popup-holder').fadeOut();
   });
 
