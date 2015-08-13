@@ -33,6 +33,8 @@ App::missing(function ($exception) {
     #Helper::classInfo('Route');
     #Helper::dd(get_declared_classes());
 
+    return Redirect::to('/', 301);
+
     $tpl = View::exists(Helper::layout('404')) ? Helper::layout('404') : 'error404';
     return Response::view($tpl, array('message' => $exception->getMessage()), 404);
 });
