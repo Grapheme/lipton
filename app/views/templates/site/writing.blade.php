@@ -38,6 +38,7 @@ $text = $writing->writing
             {{ nl2br($text) }}
         </div>
     </div>
+    1
 @stop
 @section('scripts')
 @stop
