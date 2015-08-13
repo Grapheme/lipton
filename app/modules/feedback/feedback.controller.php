@@ -31,7 +31,7 @@ class FeedbackController extends BaseController {
     public function postContactFeedback() {
 
         if (!Request::ajax()) return App::abort(404);
-        $json_request = array('status' => FALSE, 'responseText' => '', 'responseErrorText' => '', 'redirect' => FALSE);
+        $json_request = array('status' => FALSE, 'responseText' => '', 'responseErrorText' => '', 'redirectURL' => FALSE);
         $validation = Validator::make(Input::all(), array('name' => 'required', 'email' => 'required|email',
             'message' => 'required'));
         if ($validation->passes()):
