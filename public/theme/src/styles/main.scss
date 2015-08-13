@@ -71,6 +71,7 @@ textarea:-ms-textarea-placeholder {
 
 	@include mobile {
 		position: relative;
+		min-height: 600px;
 	}
 
 	&.sub-page {
@@ -1140,10 +1141,18 @@ textarea:-ms-textarea-placeholder {
 			width: 100%;
 		}
 
+		@include mobile {
+			width: 100%;
+		}
+
 		.forms-holder {
 			height: 248px;
 			width: 100%;
 			margin-top: 74px;
+
+			@include mobile {
+				height: auto;
+			}
 
 			&.full-registration-holder {
 				height: 400px;
@@ -1162,6 +1171,13 @@ textarea:-ms-textarea-placeholder {
 				height: 100%;
 				position: relative;
 
+				@include mobile {
+					width: 100%;
+					height: auto;
+					padding: 0 20px;
+					box-sizing: border-box;
+				}
+
 				input {
 					width: 253px;
 					height: 50px;
@@ -1174,6 +1190,10 @@ textarea:-ms-textarea-placeholder {
 					font-family: 'PT Sans', 'Open Sans', Arial;
 					font-size: 18px;
 					margin-bottom: 20px;
+
+					@include mobile {
+						width: 100%;
+					}
 				}
 
 				button {
@@ -1195,6 +1215,11 @@ textarea:-ms-textarea-placeholder {
 					line-height: 47px;
 					cursor: pointer;
 
+					@include mobile {
+						display: block;
+						margin: 0 auto
+					}
+
 					&:hover {
 						background-color: #a40000;
 						color: #c90119;
@@ -1213,6 +1238,11 @@ textarea:-ms-textarea-placeholder {
 				width: 325px;
 				float: left;
 
+				@include mobile {
+					margin-top: 50px;
+					width: 100%;
+				}
+
 				h3 {
 					font-family: 'Intro-regular';
 					color: #c90119;
@@ -1221,6 +1251,10 @@ textarea:-ms-textarea-placeholder {
 					text-align: right;
 					margin: 0;
 					line-height: 23px;
+
+					@include mobile {
+						text-align: center;
+					}
 				}
 
 				a.login {
@@ -1244,6 +1278,11 @@ textarea:-ms-textarea-placeholder {
 					cursor: pointer;
 					text-decoration: none;
 
+					@include mobile {
+						margin: 17px auto 45px;
+						float: none;
+					}
+
 					&:hover {
 						background-color: #cfb200;
 						border-width: 3px 0 0 0;
@@ -1257,6 +1296,11 @@ textarea:-ms-textarea-placeholder {
 					width: 133px;
 					height: 31px;
 					float: right;
+
+					@include mobile {
+						margin: 30px auto;
+						float: none;
+					}
 
 					.soc {
 						display: block;
@@ -1586,6 +1630,14 @@ textarea:-ms-textarea-placeholder {
 		height: 430px;
 		margin: 50px auto 146px;
 
+		@include mobile {
+			width: 100%;
+			padding: 0 20px;
+			box-sizing: border-box;
+			height: auto;
+			margin-bottom: 0;
+		}
+
 		form.feedback, form.story {
 
 			.input-row {
@@ -1602,7 +1654,12 @@ textarea:-ms-textarea-placeholder {
 					background-color: rgba(255, 246, 186, 0.5);
 					outline: 0;
 					font-size: 14px;
-					margin-right: 20px
+					margin-right: 20px;
+
+					@include mobile {
+						width: 100%;
+						margin-bottom: 20px;
+					}
 				}
 			}
 
@@ -1618,6 +1675,13 @@ textarea:-ms-textarea-placeholder {
 				font-size: 14px;
 				display: block;
 				margin-bottom: 20px;
+
+				@include mobile {
+					width: 100%;
+					height: auto;
+					min-height: 200px;
+					margin-top: 0px;
+				}
 			}
 
 			button {
@@ -1636,6 +1700,11 @@ textarea:-ms-textarea-placeholder {
 				outline: 0;
 				line-height: 47px;
 				cursor: pointer;
+
+				@include mobile {
+					margin: 0 auto;
+					display: block;
+				}
 
 				&:hover {
 					background-color: #a40000;
@@ -1703,6 +1772,10 @@ textarea:-ms-textarea-placeholder {
 			transition: .1s all;
 			font-family: 'Intro-regular';
 			overflow: hidden;
+
+			@include mobile {
+				width: 315px;
+			}
 
 			&:hover {
 				border-width: 3px 0 0 0;
