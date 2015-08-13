@@ -2047,6 +2047,10 @@ textarea:-ms-textarea-placeholder {
 	&.winners {
 		height: 800px;
 		margin-top: 58px;
+
+		@include mobile {
+			height: auto;
+		}
 		
 		.mosaic-row {
 			width: 100%;
@@ -2069,14 +2073,18 @@ textarea:-ms-textarea-placeholder {
 				height: 150px;
 				margin: -20px 0 0 -20px;
 				background-image: url('../images/bg-winners.jpg');
-			    -webkit-filter: blur(10px);
-			    filter: blur(10px);
+				-webkit-filter: blur(10px);
+				filter: blur(10px);
 			}
 		}
 
 		.content {
 			position: relative;
 			height: 900px;
+
+			@include mobile {
+				height: auto;
+			}
 			
 			h2 {
 				padding-top: 100px;
@@ -2096,12 +2104,26 @@ textarea:-ms-textarea-placeholder {
 				left: -135px;
 				z-index: 0;
 
+				@include mobile {
+					background-image: none;
+					width: 100%;
+					height: auto;
+					position: initial;
+				}
+
 				.illuminators {
 					width: 888px;
 					height: 63px;
 					top: 440px;
 					left: 205px;
 					position: absolute;
+
+					@include mobile {
+						width: 100%;
+						height: auto;
+						position: initial;
+						margin-top: 50px;
+					}
 
 					.illuminator {
 						background-color: #ffde00;
@@ -2116,11 +2138,24 @@ textarea:-ms-textarea-placeholder {
 						cursor: pointer;
 						z-index: 10;
 
+						@include mobile {
+							float: none;
+							width: 266px;
+							height: 150px;
+							margin: 0 auto 30px;
+							background: none;
+							box-shadow: none;
+						}
+
 						.number {
 							margin: 2px 0 0 5px;
 							color: #c90119;
 							font-size: 13px;
 							font-family: 'Intro-regular';
+							
+							@include mobile {
+								display: none;
+							}
 						}
 
 						.avatar {
@@ -2131,6 +2166,10 @@ textarea:-ms-textarea-placeholder {
 							background-size: 37px;
 							background-repeat: no-repeat;
 							background-position: center;
+
+							@include mobile {
+								display: none;
+							}
 						}
 
 						&:after {
@@ -2144,10 +2183,18 @@ textarea:-ms-textarea-placeholder {
 							background-repeat: no-repeat;
 							width: 15px;
 							height: 9px;
+
+							@include mobile {
+								display: none;
+							}
 						}
 
 						&:last-child {
 							margin-right: 0;
+
+							@include mobile {
+								margin: 0 auto 30px;
+							}
 						}
 
 						&:hover {
@@ -2176,6 +2223,11 @@ textarea:-ms-textarea-placeholder {
 							left: -95px;
 							border-radius: 3px;
 							transition: .2s all;
+
+							@include mobile {
+								display: block;
+								position: initial;
+							}
 
 							.number {
 								color: #ffde00;
