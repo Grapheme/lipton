@@ -35,7 +35,7 @@ endif;
                         <div class="step-number">{{ $index + 1 }}</div>
                         <h2>{{ $step['title'] }}</h2>
                         <p>{{ $step['desc'] }}</p>
-                        @if ($index == 1)
+                        @if ($index == 2)
                             @include(Helper::layout('forms.first-promo-code'))
                         @endif
                     </div>
