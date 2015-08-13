@@ -19,6 +19,7 @@ class PromoController extends BaseController {
             Route::post('/third/register', array('before' => 'csrf', 'as' => 'promo.third.register',
                 'uses' => $class . '@thirdRegister'));
         });
+        Route::get('/participant/{url}', array('as' => 'show.participant.writing', 'uses' => $class . '@showWriting'));
     }
 
     public static function returnShortCodes() {
@@ -39,6 +40,22 @@ class PromoController extends BaseController {
 
     }
 
+    /****************************************************************************/
+    public function showWriting($url){
+
+        if($writing = UserWritings::where('id', (int)$url)->with('user.ulogin')->first()):
+            $page_data = array(
+                'page_title' => 'Рассказ от '. @$writing->user->name .' '. @$writing->user->surname,
+                'page_description' => '',
+                'page_keywords' => '',
+                'writing' => $writing,
+            );
+            return View::make(Helper::layout('writing'), $page_data);
+        else:
+            App::abort(404);
+        endif;
+
+    }
     /****************************************************************************/
 
     public function firstRegister() {
