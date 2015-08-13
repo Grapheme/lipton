@@ -41,11 +41,11 @@ class PromoController extends BaseController {
     }
 
     /****************************************************************************/
-    public function showWriting($url){
+    public function showWriting($url) {
 
-        if($writing = UserWritings::where('id', (int)$url)->with('user.ulogin')->first()):
+        if ($writing = UserWritings::where('id', (int)$url)->with('user.ulogin')->first()):
             $page_data = array(
-                'page_title' => 'Рассказ от '. @$writing->user->name .' '. @$writing->user->surname,
+                'page_title' => 'Рассказ от ' . @$writing->user->name . ' ' . @$writing->user->surname,
                 'page_description' => '',
                 'page_keywords' => '',
                 'writing' => $writing,
@@ -56,6 +56,7 @@ class PromoController extends BaseController {
         endif;
 
     }
+
     /****************************************************************************/
 
     public function firstRegister() {
@@ -91,13 +92,13 @@ class PromoController extends BaseController {
         $validator = Validator::make(Input::all(), array('promoCode2' => 'required'));
         if ($validator->passes()):
             $user_codes_count = UserCodes::where('user_id', Auth::user()->id)->count();
-            if($user_codes_count == 0):
+            if ($user_codes_count == 0):
                 $json_request['responseText'] = 'Сначала вводите первый промо-код.';
                 return Response::json($json_request, 200);
-            elseif($user_codes_count == 2):
+            elseif ($user_codes_count == 2):
                 $json_request['responseText'] = 'Вы уже вводили второй промо-код.';
                 return Response::json($json_request, 200);
-            elseif($user_codes_count >= 3):
+            elseif ($user_codes_count >= 3):
                 $json_request['responseText'] = 'Вы не можете больше вводить промо-коды.';
                 return Response::json($json_request, 200);
             endif;
