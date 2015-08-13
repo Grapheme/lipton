@@ -16,13 +16,17 @@
                 <div class="collection">
                     <div class="country cuba">
                         <p>Куба</p>
-
                         <div class="photo"></div>
                         <div class="tea"></div>
                         <div class="content cuba">
                             <div class="column-left">
-                                <div class="logo">111</div>
-                                <div class="text">111</div>
+                                <div class="logo">
+                                    <img src="{{ asset(Config::get('site.theme_path').'/images/countries/resolt.jpg') }}">
+                                </div>
+                                <div class="text">Черный чай с бодрящим ароматом ананаса, <br>
+                                    грейпфрута и нотками рома откроет Вам <br>
+                                    яркие и зажигательные ритмы острова Кубы.
+                                </div>
                             </div>
                             <div class="column-right"><img src="{{ asset(Config::get('site.theme_path')) }}/images/bg-tea-cuba-big.png"></div>
                         </div>
@@ -34,8 +38,12 @@
                         <div class="tea"></div>
                         <div class="content england">
                             <div class="column-left">
-                                <div class="logo"></div>
-                                <div class="text">222</div>
+                                <div class="logo">
+                                    <img src="{{ asset(Config::get('site.theme_path').'/images/countries/earl-grey.jpg') }}">
+                                </div>
+                                <div class="text">Классический черный чай с ароматом<br>
+                                    бергамота познакомит Вас с истинными традициями<br>
+                                    британского чаепития Викторианской эпохи. </div>
                             </div>
                             <div class="column-right"><img src="{{ asset(Config::get('site.theme_path')) }}/images/bg-tea-england-big.png"></div>
                         </div>
@@ -47,8 +55,15 @@
                         <div class="tea"></div>
                         <div class="content china">
                             <div class="column-left">
-                                <div class="logo">333</div>
-                                <div class="text">333</div>
+                                <div class="logo">
+                                    <img src="{{ asset(Config::get('site.theme_path').'/images/countries/temple.jpg') }}">
+                                </div>
+                                <div class="text">
+                                    Классический зеленый чай с легким <br>
+                                    цветочным ароматом откроет загадочный <br>
+                                    мир Азии и подарит мгновенье <br>
+                                    безмятежности и спокойствия!
+                                </div>
                             </div>
                             <div class="column-right"><img src="{{ asset(Config::get('site.theme_path')) }}/images/bg-tea-china-big.png"></div>
                         </div>
@@ -60,8 +75,15 @@
                         <div class="tea"></div>
                         <div class="content shri">
                             <div class="column-left">
-                                <div class="logo">444</div>
-                                <div class="text">444</div>
+                                <div class="logo">
+                                    <img src="{{ asset(Config::get('site.theme_path').'/images/countries/ceylon.jpg') }}">
+                                </div>
+                                <div class="text">
+                                    Классический черный чай с острова Цейлон<br>
+                                    с нотками сухофруктов и красно-янтарным <br>
+                                    оттенком настоя откроет великолепие <br>
+                                    жемчужины Индийского океана.
+                                </div>
                             </div>
                             <div class="column-right"><img src="{{ asset(Config::get('site.theme_path')) }}/images/bg-tea-shri-big.png"></div>
                         </div>
@@ -73,8 +95,14 @@
                         <div class="tea"></div>
                         <div class="content turkey">
                             <div class="column-left">
-                                <div class="logo">555</div>
-                                <div class="text">555</div>
+                                <div class="logo">
+                                    <img src="{{ asset(Config::get('site.theme_path').'/images/countries/delight.jpg') }}">
+                                </div>
+                                <div class="text">Слегка терпкий зеленый чай с медовым <br>
+                                    послевкусием и легким ароматом зеленого <br>
+                                    яблока и инжира откроет Вам утонченный <br>
+                                    и загадочный мир Востока.
+                                </div>
                             </div>
                             <div class="column-right"><img src="{{ asset(Config::get('site.theme_path')) }}/images/bg-tea-turkey-big.png"></div>
                         </div>
@@ -86,7 +114,9 @@
                         <div class="tea"></div>
                         <div class="content marokko">
                             <div class="column-left">
-                                <div class="logo"></div>
+                                <div class="logo">
+                                    <img src="{{ asset(Config::get('site.theme_path').'/images/countries/marrakesh.jpg') }}">
+                                </div>
                                 <div class="text">Пряный чёрный чай со вкусом мяты и мандарина<br>и слегка горьковатым
                                     послевкусием имбиря<br>откроет вам пленительный мир Марокко,<br>полный контрастов и
                                     разных культур.
