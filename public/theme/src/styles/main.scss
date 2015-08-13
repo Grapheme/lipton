@@ -603,6 +603,10 @@ textarea:-ms-textarea-placeholder {
 						margin-right: 67px;
 						height: 160px;
 
+						form.promo-code {
+							margin: 25px 0px 0px 0px;
+						}
+
 						@include mobile {
 							width: auto;
 							height: 366px;
@@ -3009,3 +3013,4 @@ form.registration {
 		margin-right: 10px;
 	}
 }
+
