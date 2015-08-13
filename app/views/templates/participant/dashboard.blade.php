@@ -75,14 +75,14 @@ $now = Carbon::now();
                             <div class="ico ngt"></div>
                             <p>Путешествие с national geographic traveler</p>
                         @if(count($profile->codes) == 2)
-                            @if(count($profile->writing) == 0)
-                            <a href="{{ URL::route('profile.tell-story') }}">Написать</a>
-                            @elseif(isset($profile->writing->status) && $profile->writing->status == 1)
+                            @if(isset($profile->writing->status) && $profile->writing->status == 1)
                             <a class="disabled-button">Одобрен</a>
                             @elseif(isset($profile->writing->status) && $profile->writing->status == 2)
                             <a class="disabled-button">Модерация</a>
                             @elseif(isset($profile->writing->status) && $profile->writing->status == 3)
                             <a href="{{ URL::route('profile.tell-story') }}">Изменить</a>
+                            @else
+                            <a href="{{ URL::route('profile.tell-story') }}">Написать</a>
                             @endif
                         @endif
                         </div>
