@@ -23,7 +23,15 @@ class ApplicationController extends BaseController {
 
     public static function returnMenu() {
 
-        return NULL;
+        $menu[] = array(
+            'title' => 'Участники',
+            'link' => 'participants',
+            'class' => 'fa-user',
+            'system' => 1,
+            'menu_child' => NULL,
+            'permit' => 'view'
+        );
+        return $menu;
     }
 
     public static function returnActions() {
