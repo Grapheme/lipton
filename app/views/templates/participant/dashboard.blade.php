@@ -47,7 +47,7 @@ $now = Carbon::now();
                             <div class="note"></div>
                             @if(count($profile->codes) == 2 && isset($profile->writing->writing) && !empty($profile->writing->writing))
                                 <a href="javascript:void(0);">Конкурс рассказов</a>
-                                @if($profile->writing->status == 2):
+                                @if($profile->writing->status == 2)
                                 <div class="moderation">На модерации<div class="bullet"></div></div>
                                 @endif
                                 @if($profile->writing->status == 1)
