@@ -50,7 +50,7 @@ $now = Carbon::now();
                             @else
                                 <a class="disabled-button" href="javascript:void(0);">Конкурс рассказов</a>
                             @endif
-                            <div class="moderation">На модерации<div class="bullet"></div></div>
+                            <div class="moderation neutral">Ваш рассказ на модерации<div class="bullet"></div></div>
                         </div>
                     </div>
                     <div class="profile-border"></div>
