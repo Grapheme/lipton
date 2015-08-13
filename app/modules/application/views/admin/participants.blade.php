@@ -1,11 +1,5 @@
 @extends(Helper::acclayout())
 @section('style')
-    <style type="text/css">
-        .popover{
-            width: 1024px !important;
-            max-width: 1024px !important;
-        }
-    </style>
 @stop
 @section('content')
     @include($module['tpl'].'/menu')
@@ -41,7 +35,7 @@
                         @endif
                             <div style="margin-top: 50px">
                                 @if(count($user->writing) && !empty($user->writing->writing))
-                                    <p><a data-content="{{{ nl2br($user->writing->writing) }}}" data-html="true" data-original-title="Рассказ участника" data-placement="right" rel="popover" class="btn btn-link" href="javascript:void(0);">Смотреть рассказ</a></p>
+                                    <p><a target="_blank" href="{{ URL::route('show.participant.writing', $user->writing->id.'-'.BaseController::stringTranslite($user->name.'-'.$user->surname)) }}">Смотреть рассказ</a></p>
                                 @else
                                     <p>Рассказ отсутсвует</p>
                                 @endif
@@ -55,14 +49,6 @@
                                 {{ $user->city }}<br/>
                                 <i class="fa fa-envelope-o"></i> {{ HTML::mailto($user->email, $user->email) }}<br/>
                                 <i class="fa fa-fw fa-mobile-phone"></i>{{ $user->phone }}
-                                @if(!empty($user->social))
-                                    @foreach(json_decode($user->social) as $social)
-                                        @if(!empty($social))
-                                        <br/><i class="fa fa-fw fa-angle-double-right "></i>
-                                <a href="{{ $social }}" target="_blank">{{ str_limit(trim($social), $limit = 25, $end = ' ...') }}</a>
-                                        @endif
-                                    @endforeach
-                                @endif
                             </p>
                         @if(count($user->writing) && !empty($user->writing->writing))
                             <hr style="margin-bottom: 5px; margin-top: 5px;">
