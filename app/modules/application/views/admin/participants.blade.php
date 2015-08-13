@@ -36,7 +36,7 @@
                             <img src="{{ $user->photo }}" alt="{{ $user->name }}"
                                  class="{{ $user->name }}">
                         @else
-                            <img src="{{ asset(Config::get('theme_path').'/images/avatar_default.png') }}" alt="{{ $user->name }}"
+                            <img src="{{ asset(Config::get('site.theme_path').'/images/avatar_default.png') }}" alt="{{ $user->name }}"
                                  class="{{ $user->name }}">
                         @endif
                             <div style="margin-top: 50px">
