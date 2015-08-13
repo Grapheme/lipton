@@ -2368,12 +2368,15 @@ textarea:-ms-textarea-placeholder {
     .block .share-story-block p {
       text-align: center;
       margin: 0 0 35px 0; }
+  .block .sharing-script {
+    margin: 0 auto;
+    width: 80px; }
   .block .share-story-author {
-    height: 120px;
+    height: 100px;
     margin-top: 30px; }
     .block .share-story-author .profile-info {
-      height: 120px;
-      width: 300px;
+      height: 100px;
+      width: 240px;
       margin: 0 auto;
       margin-bottom: 20px; }
       .block .share-story-author .profile-info input {
