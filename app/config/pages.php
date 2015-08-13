@@ -44,6 +44,20 @@ return array(
                     ],
                 ],
             ],
+
+            'faq' => [
+                'title' => 'FAQ',
+                'fields' => [
+                    'question' => [
+                        'title' => 'Вопрос',
+                        'type' => 'text',
+                    ],
+                    'answer' => [
+                        'title' => 'Ответ',
+                        'type' => 'textarea',
+                    ],
+                ],
+            ],
         ];
 
         return $block_tpls;
