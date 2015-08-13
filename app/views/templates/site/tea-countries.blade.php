@@ -21,7 +21,7 @@
                         <div class="content cuba">
                             <div class="column-left">
                                 <div class="logo">
-                                    <img src="{{ asset(Config::get('site.theme_path').'/images/countries/resolt.jpg') }}">
+                                    <img src="{{ asset(Config::get('site.theme_path').'/images/countries/resolt.png') }}">
                                 </div>
                                 <div class="text">Черный чай с бодрящим ароматом ананаса, <br>
                                     грейпфрута и нотками рома откроет Вам <br>
@@ -39,7 +39,7 @@
                         <div class="content england">
                             <div class="column-left">
                                 <div class="logo">
-                                    <img src="{{ asset(Config::get('site.theme_path').'/images/countries/earl-grey.jpg') }}">
+                                    <img src="{{ asset(Config::get('site.theme_path').'/images/countries/earl-grey.png') }}">
                                 </div>
                                 <div class="text">Классический черный чай с ароматом<br>
                                     бергамота познакомит Вас с истинными традициями<br>
@@ -56,7 +56,7 @@
                         <div class="content china">
                             <div class="column-left">
                                 <div class="logo">
-                                    <img src="{{ asset(Config::get('site.theme_path').'/images/countries/temple.jpg') }}">
+                                    <img src="{{ asset(Config::get('site.theme_path').'/images/countries/temple.png') }}">
                                 </div>
                                 <div class="text">
                                     Классический зеленый чай с легким <br>
@@ -76,7 +76,7 @@
                         <div class="content shri">
                             <div class="column-left">
                                 <div class="logo">
-                                    <img src="{{ asset(Config::get('site.theme_path').'/images/countries/ceylon.jpg') }}">
+                                    <img src="{{ asset(Config::get('site.theme_path').'/images/countries/ceylon.png') }}">
                                 </div>
                                 <div class="text">
                                     Классический черный чай с острова Цейлон<br>
@@ -96,7 +96,7 @@
                         <div class="content turkey">
                             <div class="column-left">
                                 <div class="logo">
-                                    <img src="{{ asset(Config::get('site.theme_path').'/images/countries/delight.jpg') }}">
+                                    <img src="{{ asset(Config::get('site.theme_path').'/images/countries/delight.png') }}">
                                 </div>
                                 <div class="text">Слегка терпкий зеленый чай с медовым <br>
                                     послевкусием и легким ароматом зеленого <br>
@@ -115,7 +115,7 @@
                         <div class="content marokko">
                             <div class="column-left">
                                 <div class="logo">
-                                    <img src="{{ asset(Config::get('site.theme_path').'/images/countries/marrakesh.jpg') }}">
+                                    <img src="{{ asset(Config::get('site.theme_path').'/images/countries/marrakesh.png') }}">
                                 </div>
                                 <div class="text">Пряный чёрный чай со вкусом мяты и мандарина<br>и слегка горьковатым
                                     послевкусием имбиря<br>откроет вам пленительный мир Марокко,<br>полный контрастов и
