@@ -30,7 +30,6 @@ endif;
         <div class="block">
             <div class="content">
                 <h2>{{ $page->seo->h1 }}</h2>
-
                 <div class="faq-mask">
                     <div class="faq-block">
                         <div class="js-scroll-cont faq-columns">
