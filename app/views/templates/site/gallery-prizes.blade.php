@@ -16,24 +16,15 @@
                 <div class="prize-gallery">
                     <div class="prize-block third-place">
                         <div class="big-ico"></div>
-                        <h3>Спецкурс: английский для туристов</h3>
-
-                        <p>Введите один промо-код с упаковки чая Lipton Discovery и получите курс английского языка для
-                            туристов от Lingualeo</p>
+                        {{ $page->block('first_prize') }}
                     </div>
                     <div class="prize-block second-place">
                         <div class="big-ico"></div>
-                        <h3>Спецкурс<br>на выбор</h3>
-
-                        <p>Введите сразу два промо-кода с упаковки чая Lipton Discovery и получите один из спецкурсов
-                            Lingualeo на выбор.</p>
+                        {{ $page->block('secon_prize') }}
                     </div>
                     <div class="prize-block first-place">
                         <div class="big-ico"></div>
-                        <h3>Путешествие с National Geographic Traveller</h3>
-
-                        <p>Главный приз — увлекательное путешествия в одну из шести стран, представленных вкусами Lipton
-                            Discovery с National Geographic Traveller</p>
+                        {{ $page->block('third_prize') }}
                     </div>
                     <a href="{{ pageurl('countries') }}" class="prize-link">Lipton Discovery Collection</a>
                 </div>
