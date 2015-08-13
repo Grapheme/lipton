@@ -359,11 +359,9 @@ $( document ).ready(function() {
       $('form.feedback button').html('<i class="fa fa-cog fa-spin"></i>')
       var options = { 
         success: function(data){
-          if(data.redirectURL) {
-            function goToCabinet () {
-              window.location.href = data.redirectURL;
-            };
-            setTimeout(goToCabinet, 3000);
+          if(data.status) {
+            $('form.feedback').html('');
+            $('form.feedback').append('<div class="erros-message-block">' + data.responseText + '</div>');
           } else {
             $('form.feedback').append('<div class="erros-message-block">' + data.responseText + '</div>');
           }
