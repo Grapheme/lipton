@@ -20,7 +20,7 @@
                     </div>
                     <div class="prize-block second-place">
                         <div class="big-ico"></div>
-                        {{ $page->block('secon_prize') }}
+                        {{ $page->block('second_prize') }}
                     </div>
                     <div class="prize-block first-place">
                         <div class="big-ico"></div>
