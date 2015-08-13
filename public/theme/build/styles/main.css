@@ -430,7 +430,8 @@ textarea:-ms-textarea-placeholder {
   min-height: 940px; }
   @media (max-width: 320px) {
     .main-content {
-      position: relative; } }
+      position: relative;
+      min-height: 600px; } }
   .main-content.sub-page {
     margin-top: 0; }
 
@@ -1227,10 +1228,16 @@ textarea:-ms-textarea-placeholder {
     @media (max-width: 320px) {
       .block .participate-block {
         width: 100%; } }
+    @media (max-width: 320px) {
+      .block .participate-block {
+        width: 100%; } }
     .block .participate-block .forms-holder {
       height: 248px;
       width: 100%;
       margin-top: 74px; }
+      @media (max-width: 320px) {
+        .block .participate-block .forms-holder {
+          height: auto; } }
       .block .participate-block .forms-holder.full-registration-holder {
         height: 400px;
         margin-top: 75px;
@@ -1244,6 +1251,12 @@ textarea:-ms-textarea-placeholder {
         float: left;
         height: 100%;
         position: relative; }
+        @media (max-width: 320px) {
+          .block .participate-block .forms-holder form.registration, .block .participate-block .forms-holder form.profile-edit {
+            width: 100%;
+            height: auto;
+            padding: 0 20px;
+            box-sizing: border-box; } }
         .block .participate-block .forms-holder form.registration input, .block .participate-block .forms-holder form.profile-edit input {
           width: 253px;
           height: 50px;
@@ -1256,6 +1269,9 @@ textarea:-ms-textarea-placeholder {
           font-family: 'PT Sans', 'Open Sans', Arial;
           font-size: 18px;
           margin-bottom: 20px; }
+          @media (max-width: 320px) {
+            .block .participate-block .forms-holder form.registration input, .block .participate-block .forms-holder form.profile-edit input {
+              width: 100%; } }
         .block .participate-block .forms-holder form.registration button, .block .participate-block .forms-holder form.profile-edit button {
           display: block;
           width: 136px;
@@ -1275,6 +1291,10 @@ textarea:-ms-textarea-placeholder {
           font-family: 'Intro';
           line-height: 47px;
           cursor: pointer; }
+          @media (max-width: 320px) {
+            .block .participate-block .forms-holder form.registration button, .block .participate-block .forms-holder form.profile-edit button {
+              display: block;
+              margin: 0 auto; } }
           .block .participate-block .forms-holder form.registration button:hover, .block .participate-block .forms-holder form.profile-edit button:hover {
             background-color: #a40000;
             color: #c90119;
@@ -1286,6 +1306,10 @@ textarea:-ms-textarea-placeholder {
       .block .participate-block .forms-holder .login-block {
         width: 325px;
         float: left; }
+        @media (max-width: 320px) {
+          .block .participate-block .forms-holder .login-block {
+            margin-top: 50px;
+            width: 100%; } }
         .block .participate-block .forms-holder .login-block h3 {
           font-family: 'Intro-regular';
           color: #c90119;
@@ -1294,6 +1318,9 @@ textarea:-ms-textarea-placeholder {
           text-align: right;
           margin: 0;
           line-height: 23px; }
+          @media (max-width: 320px) {
+            .block .participate-block .forms-holder .login-block h3 {
+              text-align: center; } }
         .block .participate-block .forms-holder .login-block a.login {
           display: block;
           background-color: #ffde00;
@@ -1315,6 +1342,10 @@ textarea:-ms-textarea-placeholder {
           text-transform: uppercase;
           cursor: pointer;
           text-decoration: none; }
+          @media (max-width: 320px) {
+            .block .participate-block .forms-holder .login-block a.login {
+              margin: 17px auto 45px;
+              float: none; } }
           .block .participate-block .forms-holder .login-block a.login:hover {
             background-color: #cfb200;
             border-width: 3px 0 0 0;
@@ -1325,6 +1356,10 @@ textarea:-ms-textarea-placeholder {
           width: 133px;
           height: 31px;
           float: right; }
+          @media (max-width: 320px) {
+            .block .participate-block .forms-holder .login-block .soc-holder {
+              margin: 30px auto;
+              float: none; } }
           .block .participate-block .forms-holder .login-block .soc-holder .soc {
             display: block;
             width: 31px;
@@ -1553,6 +1588,13 @@ textarea:-ms-textarea-placeholder {
     width: 910px;
     height: 430px;
     margin: 50px auto 146px; }
+    @media (max-width: 320px) {
+      .block .feedback-form-holder {
+        width: 100%;
+        padding: 0 20px;
+        box-sizing: border-box;
+        height: auto;
+        margin-bottom: 0; } }
     .block .feedback-form-holder form.feedback .input-row, .block .feedback-form-holder form.story .input-row {
       margin-bottom: 20px;
       overflow: hidden; }
@@ -1567,6 +1609,10 @@ textarea:-ms-textarea-placeholder {
         outline: 0;
         font-size: 14px;
         margin-right: 20px; }
+        @media (max-width: 320px) {
+          .block .feedback-form-holder form.feedback .input-row input, .block .feedback-form-holder form.story .input-row input {
+            width: 100%;
+            margin-bottom: 20px; } }
     .block .feedback-form-holder form.feedback textarea, .block .feedback-form-holder form.story textarea {
       width: 904px;
       height: 282px;
@@ -1579,6 +1625,12 @@ textarea:-ms-textarea-placeholder {
       font-size: 14px;
       display: block;
       margin-bottom: 20px; }
+      @media (max-width: 320px) {
+        .block .feedback-form-holder form.feedback textarea, .block .feedback-form-holder form.story textarea {
+          width: 100%;
+          height: auto;
+          min-height: 200px;
+          margin-top: 0px; } }
     .block .feedback-form-holder form.feedback button, .block .feedback-form-holder form.story button {
       width: 206px;
       height: 50px;
@@ -1596,6 +1648,10 @@ textarea:-ms-textarea-placeholder {
       outline: 0;
       line-height: 47px;
       cursor: pointer; }
+      @media (max-width: 320px) {
+        .block .feedback-form-holder form.feedback button, .block .feedback-form-holder form.story button {
+          margin: 0 auto;
+          display: block; } }
       .block .feedback-form-holder form.feedback button:hover, .block .feedback-form-holder form.story button:hover {
         background-color: #a40000;
         color: #c90119;
@@ -1649,6 +1705,9 @@ textarea:-ms-textarea-placeholder {
               transition: .1s all;
       font-family: 'Intro-regular';
       overflow: hidden; }
+      @media (max-width: 320px) {
+        .block .prize-gallery a.prize-link {
+          width: 315px; } }
       .block .prize-gallery a.prize-link:hover {
         border-width: 3px 0 0 0;
         border-color: #e7d97a;
