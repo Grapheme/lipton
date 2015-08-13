@@ -228,6 +228,7 @@ textarea:-ms-textarea-placeholder {
 					margin: -3px 0 0 10px;
 					float: right;
 					transition: .1s all;
+					background-size: 18px;
 
 					@include mobile {
 						height: 38px;

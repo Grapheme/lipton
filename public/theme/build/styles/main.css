@@ -546,7 +546,8 @@ textarea:-ms-textarea-placeholder {
         margin: -3px 0 0 10px;
         float: right;
         -webkit-transition: .1s all;
-                transition: .1s all; }
+                transition: .1s all;
+        background-size: 18px; }
         @media (max-width: 320px) {
           .sub-footer .sharing-links a.soc {
             height: 38px;
