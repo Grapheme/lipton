@@ -50,7 +50,7 @@ class ModeratorController extends BaseController {
     public function participantsList() {
 
         if (Input::has('search')):
-            $users = Accounts::where('group_id', 4)->where('name', 'like', '%'.Input::get('search').'%')->orderBy('created_at', 'DESC')->with('ulogin', 'writing')->paginate(20);
+            $users = Accounts::where('group_id', 4)->where('name', 'like', '%' . Input::get('search') . '%')->orderBy('created_at', 'DESC')->with('ulogin', 'writing')->paginate(20);
         else:
             $users = Accounts::where('group_id', 4)->orderBy('created_at', 'DESC')->with('ulogin', 'writing')->paginate(20);
         endif;
