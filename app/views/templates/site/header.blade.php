@@ -5,8 +5,8 @@
 ?>
 <div class="block header">
     <div class="partners-block">
-        <div class="partner-traveller"></div>
         <div class="partner-lingualeo"></div>
+        <div class="partner-traveller"></div>
     </div>
     <div class="content">
     @if (Request::is('/'))
