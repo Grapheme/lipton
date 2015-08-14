@@ -2689,6 +2689,8 @@ textarea:-ms-textarea-placeholder {
             text-align: center;
             font-size: 16px;
             margin-bottom: 30px; }
+            .block .learn-more-popup-holder .learn-more-popup .content .column-left .text.translate {
+              font-size: 11px; }
         .block .learn-more-popup-holder .learn-more-popup .content .column-right {
           width: 455px;
           height: 100%;
