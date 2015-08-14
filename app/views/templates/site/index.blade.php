@@ -26,7 +26,19 @@ endif;
 @section('style')
 @stop
 @section('content')
+    <div class="preloader">
+        <div class="preloader-hack"></div>
+        <div class="preloader-plain"></div>
+    </div>
     <div class="main-content">
+        <div class="slider">
+            <div style="background-image: url('../images/main-slider/1.jpg')" class="slide">&nbsp</div>
+            <div style="background-image: url('../images/main-slider/2.jpg')" class="slide">&nbsp</div>
+            <div style="background-image: url('../images/main-slider/3.jpg')" class="slide">&nbsp</div>
+            <div style="background-image: url('../images/main-slider/4.jpg')" class="slide">&nbsp</div>
+            <div style="background-image: url('../images/main-slider/5.jpg')" class="slide">&nbsp</div>
+            <div style="background-image: url('../images/main-slider/6.jpg')" class="slide">&nbsp</div>
+        </div>
         <div class="block promo-code">
             <div class="content">
                 <div class="promo-steps">
