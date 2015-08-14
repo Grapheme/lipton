@@ -2057,7 +2057,7 @@ $( document ).ready(function() {
     $('*').filter(function() { return $(this).css('background-image') != 'none' && !$(this).attr('style') }).each(
       function loading() {
         var imgHack = $(this).css('background-image');
-        $('body').append('<img src="' + imgHack + '">')
+        $('body').append('<img style="display: none;" src="' + imgHack + '">')
       });
 
     loading().setTimeout(10000);
