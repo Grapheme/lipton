@@ -682,11 +682,14 @@ textarea:-ms-textarea-placeholder {
         float: left;
         background: url("../images/logo-traveller.png"); }
     .block.header .icons-block {
-      width: 116px;
+      width: 300px;
       height: 48px;
       position: absolute;
       top: 26px;
       right: 50px; }
+      @media (max-width: 320px) {
+        .block.header .icons-block {
+          width: 116px; } }
       .block.header .icons-block .partner-lingualeo {
         width: 152px;
         height: 28px;
