@@ -411,18 +411,6 @@ textarea:-ms-textarea-placeholder {
 				float: left;
 				background: url('../images/logo-traveller.png');
 			}
-
-			.partner-lingualeo {
-				width: 152px;
-				height: 28px;
-				float: left;
-				margin-top: 9px;
-				background: url('../images/logo-lingualeo.png');
-				background-repeat: no-repeat;
-				border-right: 1px solid #c29226;
-				margin-right: 23px;
-				padding-right: 24px;
-			}
 		}
 
 		.icons-block {
@@ -431,6 +419,21 @@ textarea:-ms-textarea-placeholder {
 			position: absolute;
 			top: 26px;
 			right: 50px;
+
+			.partner-lingualeo {
+				width: 152px;
+				height: 28px;
+				float: left;
+				margin-top: 9px;
+				background: url('../images/logo-lingualeo.png');
+				background-repeat: no-repeat;
+				margin-right: 23px;
+				padding-right: 24px;
+
+				@include mobile {
+					display: none;
+				}
+			}
 
 			@include mobile {
 				top: 16px;

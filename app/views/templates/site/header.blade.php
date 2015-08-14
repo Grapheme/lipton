@@ -5,7 +5,6 @@
 ?>
 <div class="block header">
     <div class="partners-block">
-        <div class="partner-lingualeo"></div>
         <div class="partner-traveller"></div>
     </div>
     <div class="content">
@@ -16,6 +15,7 @@
     @endif
     </div>
     <div class="icons-block">
+        <div class="partner-lingualeo"></div>
         @if(Auth::check())
         <a href="{{ URL::route('dashboard') }}" class="ico-account"></a>
         @endif
