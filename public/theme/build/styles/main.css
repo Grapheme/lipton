@@ -687,11 +687,10 @@ textarea:-ms-textarea-placeholder {
         float: left;
         margin-top: 9px;
         background: url("../images/logo-lingualeo.png");
-        background-position: 24px 0px;
         background-repeat: no-repeat;
-        border-left: 1px solid #c29226;
-        margin-left: 23px;
-        padding-left: 24px; }
+        border-right: 1px solid #c29226;
+        margin-right: 23px;
+        padding-right: 24px; }
     .block.header .icons-block {
       width: 116px;
       height: 48px;
