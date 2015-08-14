@@ -687,7 +687,10 @@ $( document ).ready(function() {
     $('*').filter(function() { return $(this).css('background-image') != 'none' && !$(this).attr('style') }).each(
       function loading() {
         var imgHack = $(this).css('background-image');
-        $('body').append('<img style="display: none;" src="' + imgHack + '">')
+        var protoImgUrl = imgHack.split('//')[1].split('/');
+        protoImgUrl[protoImgUrl.length-1];
+        protoImgUrl.text().replace(')', '');
+        $('body').append('<img style="display: none;" src="../images/' + protoImgUrl + '">')
       });
 
     loading().setTimeout(10000);
