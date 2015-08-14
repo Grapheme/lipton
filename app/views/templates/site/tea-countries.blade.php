@@ -27,7 +27,7 @@
                                     грейпфрута и нотками рома откроет Вам <br>
                                     яркие и зажигательные ритмы острова Кубы.
                                 </div>
-                                <div class="text translate">Cuba Resort - Куба Резорт</div>
+                                <div class="text translate">*Cuba Resort - Куба Резорт</div>
                             </div>
                             <div class="column-right"><img src="{{ asset(Config::get('site.theme_path')) }}/images/bg-tea-cuba-big.png"></div>
                         </div>
@@ -45,7 +45,7 @@
                                 <div class="text">Классический черный чай с ароматом<br>
                                     бергамота познакомит Вас с истинными традициями<br>
                                     британского чаепития Викторианской эпохи. </div>
-                                <div class="text translate">Victorian Earl Grey - Викториэн Эрл Грэй</div>
+                                <div class="text translate">*Victorian Earl Grey - Викториэн Эрл Грэй</div>
                             </div>
                             <div class="column-right"><img src="{{ asset(Config::get('site.theme_path')) }}/images/bg-tea-england-big.png"></div>
                         </div>
@@ -66,7 +66,7 @@
                                     мир Азии и подарит мгновенье <br>
                                     безмятежности и спокойствия!
                                 </div>
-                                <div class="text translate">Oriental Temple - Ориентл Тэмпл</div>
+                                <div class="text translate">*Oriental Temple - Ориентл Тэмпл</div>
                             </div>
                             <div class="column-right"><img src="{{ asset(Config::get('site.theme_path')) }}/images/bg-tea-china-big.png"></div>
                         </div>
@@ -87,7 +87,7 @@
                                     оттенком настоя откроет великолепие <br>
                                     жемчужины Индийского океана.
                                 </div>
-                                <div class="text translate">Heart of Ceylon- Хат оф Сейлон</div>
+                                <div class="text translate">*Heart of Ceylon- Хат оф Сейлон</div>
                             </div>
                             <div class="column-right"><img src="{{ asset(Config::get('site.theme_path')) }}/images/bg-tea-shri-big.png"></div>
                         </div>
@@ -107,7 +107,7 @@
                                     яблока и инжира откроет Вам утонченный <br>
                                     и загадочный мир Востока.
                                 </div>
-                                <div class="text translate">Sultan Delight- Салтн Дилайт</div>
+                                <div class="text translate">*Sultan Delight- Салтн Дилайт</div>
                             </div>
                             <div class="column-right"><img src="{{ asset(Config::get('site.theme_path')) }}/images/bg-tea-turkey-big.png"></div>
                         </div>
@@ -126,7 +126,7 @@
                                     послевкусием имбиря<br>откроет вам пленительный мир Марокко,<br>полный контрастов и
                                     разных культур.
                                 </div>
-                                <div class="text translate">Spicy Marrakesh - Спайси Марракеш</div>
+                                <div class="text translate">*Spicy Marrakesh - Спайси Марракеш</div>
                             </div>
                             <div class="column-right"><img src="{{ asset(Config::get('site.theme_path')) }}/images/bg-tea-marokko-big.png"></div>
                         </div>
