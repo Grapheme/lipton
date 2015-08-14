@@ -2687,7 +2687,8 @@ textarea:-ms-textarea-placeholder {
               margin-left: -50px; }
           .block .learn-more-popup-holder .learn-more-popup .content .column-left .text {
             text-align: center;
-            font-size: 16px; }
+            font-size: 16px;
+            margin-bottom: 30px; }
         .block .learn-more-popup-holder .learn-more-popup .content .column-right {
           width: 455px;
           height: 100%;
