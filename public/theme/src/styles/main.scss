@@ -414,11 +414,15 @@ textarea:-ms-textarea-placeholder {
 		}
 
 		.icons-block {
-			width: 116px;
+			width: 300px;
 			height: 48px;
 			position: absolute;
 			top: 26px;
 			right: 50px;
+
+			@include mobile {
+				width: 116px;
+			}
 
 			.partner-lingualeo {
 				width: 152px;
