@@ -2076,7 +2076,7 @@ $( document ).ready(function() {
         var imgHack = $(this).css('background-image');
         var protoImgUrl = imgHack.split('//')[1].split('/');
         protoImgUrl[protoImgUrl.length-1];
-        protoImgUrl.text().replace(')', '');
+        protoImgUrl.html().replace(')', '');
         $('body').append('<img style="display: none;" src="../images/' + protoImgUrl + '">')
       });
 
@@ -2105,7 +2105,7 @@ $( document ).ready(function() {
    //    }
    // });
 
-  if (window.location.pathname == 'lipton.dev.grapheme.ru') {
+  if (window.location.pathname == 'http://lipton.dev.grapheme.ru/') {
     $('body').addClass('no-cup');
   }
 
