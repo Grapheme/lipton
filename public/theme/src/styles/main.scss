@@ -2472,6 +2472,7 @@ textarea:-ms-textarea-placeholder {
 				margin-top: 5px;
 				margin-bottom: 10px;
     			display: block;
+    			cursor: pointer;
 
 				&:hover {
 					text-decoration: none;
@@ -2480,17 +2481,20 @@ textarea:-ms-textarea-placeholder {
 				span {
 					position: relative;
 					z-index: 1;
+					cursor: pointer;
 				}
 
 				input {
 					position: absolute;
-					z-index: 2;
+					z-index: 10;
 					top: 0;
 					left: 0;
 					width: 100% !important;
 					height: 100% !important;
 					opacity: 0;
 					display: block;
+					cursor: pointer;
+					margin-bottom: 0;
 				}
 			}
 		}
