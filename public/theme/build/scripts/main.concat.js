@@ -1423,7 +1423,7 @@ $( document ).ready(function() {
 
   // CLOSE BUTTONS ETC //
 
-  if (window.location.pathname == 'http://lipton.dev.grapheme.ru/') {
+  if (window.location.pathname == '/') {
     $('body').addClass('no-cup');
   }
 
@@ -2070,6 +2070,7 @@ $( document ).ready(function() {
 
   $('.cropper-wrapper .save').click(function() {
     $('.avatar-hack .hidden-avatar-input').val($('.cropper > img').cropper('getCroppedCanvas').toDataURL());
+    $('.profile-info .avatar').css('background-image: url(' + $('.avatar-hack .hidden-avatar-input').val($('.cropper > img').cropper('getCroppedCanvas').toDataURL()) + ');');
     $('.cropper-wrapper').fadeOut();
   });
 
