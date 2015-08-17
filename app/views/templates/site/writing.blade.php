@@ -35,7 +35,6 @@ $text = $writing->writing
                              class="avatar"></div>
                     @endif
                         <h3>{{ $user->name }} {{ $user->surname }}</h3>
-
                         <p>@if($user->age > 0){{ $user->age }} {{ Lang::choice('год|года|лет', (int)$user->age ) }}
                             . {{ $user->location }} <br>@endif
                             {{ $user->city }}
