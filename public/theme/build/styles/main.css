@@ -1964,7 +1964,6 @@ textarea:-ms-textarea-placeholder {
     height: 100%;
     top: 78px;
     overflow: hidden;
-    background-image: url("../images/bg-winners.jpg");
     background-repeat: no-repeat; }
   .block .mosaic-fuckup {
     width: 110%;
@@ -2008,7 +2007,7 @@ textarea:-ms-textarea-placeholder {
         background-image: url("../images/bg-plain.png");
         background-repeat: no-repeat;
         width: 1155px;
-        height: 850px;
+        height: 900px;
         position: absolute;
         margin-top: -130px;
         left: -135px;
@@ -2880,3 +2879,6 @@ form label.error {
   float: right;
   margin-top: -3px;
   margin-right: 25px; }
+
+.fotorama__nav-wrap {
+  display: none; }

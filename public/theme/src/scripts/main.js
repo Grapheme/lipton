@@ -35,11 +35,13 @@ $('.preloaded__img').each(function(){
   });
 });
 
+$(window).ready(function(){
+  $('.preloader').fadeOut();
+});
+
 
 
 $( document ).ready(function() {
-
-  $('.preloader').fadeOut();
 
   // CLOSE BUTTONS ETC //
 
