@@ -493,6 +493,17 @@ textarea:-ms-textarea-placeholder {
         .main-content .slider .slide {
           display: none; } }
 
+.mosaic-holder .slide {
+  width: 100%;
+  height: 475px;
+  background-size: cover;
+  background-position: center;
+  z-index: 0;
+  position: relative; }
+  @media (max-width: 320px) {
+    .mosaic-holder .slide {
+      display: none; } }
+
 .sub-footer {
   z-index: 1;
   height: 50px;
@@ -1962,7 +1973,7 @@ textarea:-ms-textarea-placeholder {
     position: absolute;
     width: 100%;
     height: 100%;
-    top: 78px;
+    top: 60px;
     overflow: hidden;
     background-repeat: no-repeat; }
   .block .mosaic-fuckup {
