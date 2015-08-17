@@ -385,7 +385,7 @@ class ApiController extends BaseController {
 
         Helper::tad($result);
 
-        if ($this->validCode($result, 201)):
+        if ($this->validCode($result, 200)):
             $user = array();
             $user['id'] = $this->getXmlValue($result['curl_result'], '', 'id');
             $user['sessionKey'] = $this->getXmlValue($result['curl_result'], '', 'sessionKey');
@@ -446,17 +446,7 @@ class ApiController extends BaseController {
         $uri_request = $this->config['server_url'] . "/v2/customers/current/logon/via-password?operation=" . $operation . "&credential=" . $params['login'] . "&password=" . $params['password'] . "&mode=session";
         $result = $this->postCurl($uri_request);
         if ($this->validCode($result, 200)):
-            $user = array();
-            $user['id'] = $this->getXmlValue($result['curl_result'], '', 'id');
-            $user['sessionKey'] = $this->getXmlValue($result['curl_result'], '', 'sessionKey');
-            if (empty($user['id']) && empty($user['sessionKey'])):
-                if ($message = $this->getErrorMessage($result)):
-                    Config::set('api.message', $message);
-                endif;
-                return FALSE;
-            else:
-                return $user;
-            endif;
+            return TRUE;
         else:
             Config::set('api.message', 'Возникла ошибка на сервере регистрации.');
             if ($message = $this->getErrorMessage($result)):
