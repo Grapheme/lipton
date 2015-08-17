@@ -4,6 +4,17 @@
  */
 ?>
 {{ Form::model($profile,array('route'=>'profile.save','name'=>'profile-edit','class'=>'profile-edit')) }}
+    <div class="block cropper-holder">
+        <div class="second-code-hack"></div>
+        <div class="cropper-holder">
+            <div class="cropper"></div>
+            <div class="cropper-tools">
+                <a class="close" href="#">Отмена</a>
+                <a class="save" href="#">Сохранить</a>
+            </div>
+        </div>
+    </div>
+
     <div class="accept-block-holder avatar-hack">
         <div class="profile-info">
         @if(!empty($profile->photo) && File::exists(public_path($profile->photo)))

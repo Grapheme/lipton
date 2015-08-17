@@ -1179,6 +1179,28 @@ textarea:-ms-textarea-placeholder {
       bottom: 0;
       display: inline-block;
       vertical-align: middle; }
+    .block.second-code .cropper-holder, .block.send-instructions .cropper-holder, .block.story .cropper-holder, .block.select-gain .cropper-holder {
+      position: relative;
+      background-image: url("../images/bg-main.jpg");
+      display: inline-block;
+      vertical-align: middle;
+      left: 50%;
+      margin-left: -266px;
+      width: 600px;
+      height: 600px;
+      border-radius: 10px; }
+      .block.second-code .cropper-holder .cropper, .block.send-instructions .cropper-holder .cropper, .block.story .cropper-holder .cropper, .block.select-gain .cropper-holder .cropper {
+        width: 400px;
+        height: 400;
+        margin: 0 auto; }
+      .block.second-code .cropper-holder a.popup-close-cross, .block.send-instructions .cropper-holder a.popup-close-cross, .block.story .cropper-holder a.popup-close-cross, .block.select-gain .cropper-holder a.popup-close-cross {
+        display: block;
+        position: absolute;
+        background-image: url("../images/ico-close-popup.png");
+        width: 39px;
+        height: 38px;
+        right: 30px;
+        top: 30px; }
     .block.second-code .story-popup, .block.send-instructions .story-popup, .block.story .story-popup, .block.select-gain .story-popup {
       position: relative;
       background-image: url("../images/bg-story.jpg");
@@ -2230,7 +2252,9 @@ textarea:-ms-textarea-placeholder {
           margin: 0 0 14px 0;
           font-size: 16px; }
         .block .profile .profile-head .profile-info a {
-          text-decoration: underline; }
+          text-decoration: underline;
+          float: right;
+          margin-right: 15px; }
           .block .profile .profile-head .profile-info a:hover {
             text-decoration: none; }
       .block .profile .profile-head .profile-promo-code {
