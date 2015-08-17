@@ -314,7 +314,7 @@ class ApiController extends BaseController {
         endif;
     }
 
-    public function get_register(array $params = [], $operation = 'Unilever.EditSlimProfile') {
+    public function get_register(array $params = [], $operation = 'Unilever.EditLightProfile') {
 
         if (empty($params)):
             App::abort(404);
@@ -350,7 +350,7 @@ class ApiController extends BaseController {
         endif;
     }
 
-    public function update_register(array $params = [], $operation = 'Unilever.EditSlimProfile') {
+    public function update_register(array $params = [], $operation = 'Unilever.EditLightProfile') {
 
         if (empty($params)):
             App::abort(404);
