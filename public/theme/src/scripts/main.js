@@ -689,7 +689,7 @@ $( document ).ready(function() {
   });
 
   $('.cropper-wrapper .save').click(function() {
-    $('.avatar-hack .hidden-avatar-input').val($('.cropper > img').cropper('getCroppedCanvas'));
+    $('.avatar-hack .hidden-avatar-input').val($('.cropper > img').cropper('getCroppedCanvas').toDataURL());
     $('.cropper-wrapper').fadeOut();
   });
 
