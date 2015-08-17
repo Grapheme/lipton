@@ -1549,6 +1549,8 @@ textarea:-ms-textarea-placeholder {
           clear: both; }
           .block .participate-block .forms-holder form.full-registration .accept-block-holder.avatar-hack, .block .participate-block .forms-holder form.profile-edit .accept-block-holder.avatar-hack {
             margin-top: -35px; }
+            .block .participate-block .forms-holder form.full-registration .accept-block-holder.avatar-hack .profile-info, .block .participate-block .forms-holder form.profile-edit .accept-block-holder.avatar-hack .profile-info {
+              cursor: pointer; }
           @media (max-width: 320px) {
             .block .participate-block .forms-holder form.full-registration .accept-block-holder, .block .participate-block .forms-holder form.profile-edit .accept-block-holder {
               margin-bottom: 50px;
