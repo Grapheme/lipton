@@ -32,7 +32,7 @@
                 <span>Сменить аватар</span>
                 <input accept="image/*" type="file" class="js-cropper-image" name="profile_image">
             </div>
-            <input class="hidden-avatar-input" name="avatar">
+            <input type="text" class="hidden-avatar-input" name="avatar">
         </div>
     </div>
     <div class="form-block-left">
