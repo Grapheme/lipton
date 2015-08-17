@@ -1423,7 +1423,7 @@ $( document ).ready(function() {
 
   // CLOSE BUTTONS ETC //
 
-  if (window.location.pathname == 'http://lipton.dev.grapheme.ru/') {
+  if (window.location.pathname == '/') {
     $('body').addClass('no-cup');
   }
 
