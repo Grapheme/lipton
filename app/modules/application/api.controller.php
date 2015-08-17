@@ -375,8 +375,7 @@ class ApiController extends BaseController {
         <sex><?= @$sex[$params['sex']]; ?></sex>
         <email><?= $params['email']; ?></email>
         <mobilePhone><?= $params['phone'] ?></mobilePhone>
-        <birthdate year="<?= (int)$params['yyyy']; ?>" month="<?= (int)$params['mm']; ?>"
-                   day="<?= (int)$params['dd']; ?>"/>
+        <birthdate year="<?= (int)$params['yyyy']; ?>" month="<?= (int)$params['mm']; ?>" day="<?= (int)$params['dd']; ?>"/>
         <subscription isActiveForCurrentBrand="true"/>
         </customer><?php
         $xml = ob_get_clean();
