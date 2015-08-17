@@ -380,9 +380,6 @@ class ApiController extends BaseController {
         $xml = ob_get_clean();
         $this->strlen_xml = strlen($xml);
         $result = $this->putCurl($uri_request, $xml);
-
-        Helper::tad($result);
-
         if ($this->validCode($result, 201)):
             $user = array();
             $user['id'] = $this->getXmlValue($result['curl_result'], '', 'id');
