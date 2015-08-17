@@ -3474,7 +3474,7 @@ form {
 		display: inline-block;
 		vertical-align: middle;
 		left: 50%;
-		margin-left: -266px;
+		margin-left: -300px;
 		width: 600px;
 		height: 600px;
 		border-radius: 10px;
@@ -3484,6 +3484,7 @@ form {
 			height: 400px;
 			margin: 0 auto;
 			margin-top: 80px;
+			background-color: #666;
 		}
 
 		.cropper-tools {

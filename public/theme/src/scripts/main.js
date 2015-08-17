@@ -687,4 +687,19 @@ $( document ).ready(function() {
   $('.cropper-wrapper .popup-close-cross, .cropper-wrapper .save').click(function() {
     $('.cropper-wrapper').fadeOut();
   });
+
+  $('.cropper-wrapper .save').click(function() {
+    $('.cropper-wrapper').fadeOut();
+  });
+
+  $('.cropper > img').cropper({
+    aspectRatio: 1 / 1,
+    autoCropArea: 0.65,
+    strict: false,
+    guides: false,
+    highlight: false,
+    dragCrop: false,
+    cropBoxMovable: false,
+    cropBoxResizable: false
+  });
 });

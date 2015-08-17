@@ -2940,7 +2940,7 @@ form label.error {
     display: inline-block;
     vertical-align: middle;
     left: 50%;
-    margin-left: -266px;
+    margin-left: -300px;
     width: 600px;
     height: 600px;
     border-radius: 10px; }
@@ -2948,7 +2948,8 @@ form label.error {
       width: 400px;
       height: 400px;
       margin: 0 auto;
-      margin-top: 80px; }
+      margin-top: 80px;
+      background-color: #666; }
     .cropper-wrapper .cropper-holder .cropper-tools {
       width: 400px;
       margin: 0 auto;
