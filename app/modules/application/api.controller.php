@@ -84,6 +84,7 @@ class ApiController extends BaseController {
 
     /****************************************************************************/
     public function config() {
+
         Helper::ta($this->headers);
     }
 
@@ -373,6 +374,7 @@ class ApiController extends BaseController {
         <version><?= $params['version']; ?></version>
         <sex><?= @$sex[$params['sex']]; ?></sex>
         <email><?= $params['email']; ?></email>
+        <mobilePhone><?= $params['phone'] ?></mobilePhone>
         <birthdate year="<?= (int)$params['yyyy']; ?>" month="<?= (int)$params['mm']; ?>"
                    day="<?= (int)$params['dd']; ?>"/>
         <subscription isActiveForCurrentBrand="true"/>

@@ -48,15 +48,13 @@ $now = Carbon::now();
                             @if(count($profile->codes) == 2 && isset($profile->writing->writing) && !empty($profile->writing->writing))
                                 <a href="javascript:void(0);">Конкурс рассказов</a>
                                 @if($profile->writing->status == 2)
-                                <div class="moderation">На модерации<div class="bullet"></div></div>
-                                @endif
+                                <div class="moderation neutral">Ваш рассказ на модерации<div class="bullet"></div></div>
                                 @if($profile->writing->status == 1)
                                 <a class="watch" target="_blank" href="{{ URL::route('show.participant.writing', $profile->writing->id.'-'.BaseController::stringTranslite(Auth::user()->name.'-'.Auth::user()->surname)) }}">Смотреть</a>
                                 @endif
                             @else
                                 <a class="disabled-button" href="javascript:void(0);">Конкурс рассказов</a>
                             @endif
-                            <div class="moderation neutral">Ваш рассказ на модерации<div class="bullet"></div></div>
                         </div>
                     </div>
                     <div class="profile-border"></div>
