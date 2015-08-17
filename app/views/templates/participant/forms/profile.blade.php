@@ -8,7 +8,7 @@
         <div class="second-code-hack"></div>
         <div class="block cropper-holder">
             <a href="#" class="popup-close-cross"></a>
-            <div class="cropper"></div>
+            <div class="cropper"><img src="http://placehold.it/400x400"></div>
             <div class="cropper-tools">
                 <a class="close" href="#">Отмена</a>
                 <a class="save" href="#">Сохранить</a>
