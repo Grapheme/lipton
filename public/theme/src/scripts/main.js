@@ -35,7 +35,7 @@ $('.preloaded__img').each(function(){
   });
 });
 
-$(document).onload(function(){
+$(window).onload(function(){
   $('.preloader').fadeOut();
 });
 
@@ -771,10 +771,10 @@ $( document ).ready(function() {
 
   // CROPPER //
   $('.accept-block-holder.avatar-hack').click(function() {
-    $('.block.cropper-holder').fadeIn();
+    $('.cropper-wrapper').fadeIn();
   });
 
   $('cropper-holder .popup-close-cross').click(function() {
-    $('.block.cropper-holder').fadeOut();
+    $('.cropper-wrapper').fadeOut();
   });
 });
