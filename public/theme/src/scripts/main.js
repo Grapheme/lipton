@@ -1,14 +1,45 @@
+// PRELOADER //
+
+// preloading sourse
+
+var bgCounter = 0;
+
 $('*').filter(function() { return $(this).css('background-image') != 'none' && !$(this).attr('style') }).each(
-      function loading() {
-        var imgHack = $(this).css('background-image');
-        var protoImgUrl = imgHack.split('//')[1].split('/');
-        protoImgUrl[protoImgUrl.length-1];
-        protoImgUrl.html();
-        protoImgUrl.replace(')', '');
-        $('body').append('<img style="display: none;" src="../images/' + protoImgUrl + '">')
-      });
+  function loading() {
+    var imgHack = $(this).css('background-image');
+
+    $.each(imgHack.split(','), function(i, v){
+      var protoImgUrl = v.split('//')[1].split('/');
+      var imgName = protoImgUrl[protoImgUrl.length-1].replace(')', '');
+      $('body').prepend('<img class="preloaded__img" style="display: none;" src="../images/' + imgName + '">');
+      bgCounter++;
+    });
+});
+
+var oneImgPercent = 100 / bgCounter;
+var loadedPercents = 0;
+var oneAnimStage = 100 / 6;
+var activeStage = 0;
+
+$('.preloaded__img').each(function(){
+  $(this).on('load', function(){
+    loadedPercents = loadedPercents + oneImgPercent;
+    var thisStage = Math.round(loadedPercents/oneAnimStage);
+    if(activeStage != thisStage || activeStage == 0) {
+      activeStage = thisStage;
+      console.log(thisStage);
+      var preloaderBgPosition = -25;
+      $('.preloader-plain').css('background-position', ((190+50)*(-thisStage)) + 'px 0px');
+      console.log($('.preloader-plain').css('background-position'));
+    }
+  });
+});
+
+
 
 $( document ).ready(function() {
+
+  $('.preloader').fadeOut();
 
   // CLOSE BUTTONS ETC //
 
@@ -705,11 +736,6 @@ $( document ).ready(function() {
     //       }
     //       console.log(bg);
     //     }
-
-    var backgroundImages = $('*').filter(function() { return $(this).css('background-image') != 'none' && !$(this).attr('style') });
-    var bgCounter = backgroundImages.length;
-    var oneImgPersent = Math.round(100 / bgCounter);
-    console.log(oneImgPersent);
 
    // // get a collection of new images, assigning the sources from the original collection
    // }).map(function() {
