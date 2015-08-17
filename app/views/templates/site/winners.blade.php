@@ -10,7 +10,7 @@
 @section('content')
     <div class="main-content">
         <div class="block winners">
-            <div class="mosaic-holder">
+            <div class="mosaic-holder data-autoplay="true"">
                 <div style="background-image: url('../images/winners-slider/1.jpg')" class="slide">&nbsp</div>
                 <div style="background-image: url('../images/winners-slider/2.jpg')" class="slide">&nbsp</div>
                 <div style="background-image: url('../images/winners-slider/3.jpg')" class="slide">&nbsp</div>
