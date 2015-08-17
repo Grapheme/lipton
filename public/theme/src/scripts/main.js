@@ -684,7 +684,7 @@ $( document ).ready(function() {
     $('.cropper-wrapper').fadeIn();
   });
 
-  $('.cropper-wrapper .popup-close-cross').click(function() {
+  $('.cropper-wrapper .popup-close-cross, .cropper-wrapper .save').click(function() {
     $('.cropper-wrapper').fadeOut();
   });
 });

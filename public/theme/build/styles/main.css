@@ -2971,8 +2971,11 @@ form label.error {
         text-align: center;
         line-height: 50px;
         font-family: 'Intro';
-        cursor: pointer;
-        float: right; }
+        cursor: pointer; }
+        .cropper-wrapper .cropper-holder .cropper-tools a.close {
+          float: left; }
+        .cropper-wrapper .cropper-holder .cropper-tools a.save {
+          float: right; }
         .cropper-wrapper .cropper-holder .cropper-tools a:hover {
           background-color: #a40000;
           color: #c90119;
