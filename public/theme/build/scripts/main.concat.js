@@ -1415,11 +1415,9 @@ $('.preloaded__img').each(function(){
   });
 });
 
-$(document).onload(function(){
+$(window).on('load', function(){
   $('.preloader').fadeOut();
 });
-
-
 
 $( document ).ready(function() {
 
@@ -2151,6 +2149,10 @@ $( document ).ready(function() {
 
   // CROPPER //
   $('.accept-block-holder.avatar-hack').click(function() {
-    $('.block.cropper-holder').fadeIn();
-  })
+    $('.cropper-wrapper').fadeIn();
+  });
+
+  $('cropper-holder .popup-close-cross').click(function() {
+    $('.cropper-wrapper').fadeOut();
+  });
 });

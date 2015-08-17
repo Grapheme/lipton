@@ -39,8 +39,6 @@ $(window).on('load', function(){
   $('.preloader').fadeOut();
 });
 
-
-
 $( document ).ready(function() {
 
   // CLOSE BUTTONS ETC //

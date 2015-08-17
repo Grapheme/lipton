@@ -8,7 +8,7 @@
         <div class="second-code-hack"></div>
         <div class="block cropper-holder">
             <a href="#" class="popup-close-cross"></a>
-            <div class="cropper">1</div>
+            <div class="cropper"></div>
             <div class="cropper-tools">
                 <a class="close" href="#">Отмена</a>
                 <a class="save" href="#">Сохранить</a>
