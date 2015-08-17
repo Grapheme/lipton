@@ -1588,6 +1588,10 @@ textarea:-ms-textarea-placeholder {
 
 					&.avatar-hack {
 						margin-top: -35px;
+
+						.profile-info {
+							cursor: pointer;
+						}
 					}
 
 					@include mobile {
@@ -2423,6 +2427,7 @@ textarea:-ms-textarea-placeholder {
 			margin: 0 auto;
 			margin-bottom: 20px;
 
+
 			input {
 				display: none;
 			}
@@ -2865,10 +2870,10 @@ textarea:-ms-textarea-placeholder {
 		margin-top: 30px;
 
 			.profile-info {
-			height: 100px;
-			width: 240px;
-			margin: 0 auto;
-			margin-bottom: 20px;
+				height: 100px;
+				width: 240px;
+				margin: 0 auto;
+				margin-bottom: 20px;
 
 			input {
 				display: none;
