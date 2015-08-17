@@ -768,4 +768,13 @@ $( document ).ready(function() {
   if (window.location.pathname == 'http://lipton.dev.grapheme.ru/') {
     $('body').addClass('no-cup');
   }
+
+  // CROPPER //
+  $('.accept-block-holder.avatar-hack a').click(function(event) {
+    even.preventDefault();
+    $('.promo-code.promo-code-2').html('');
+    $('.promo-code.promo-code-2').append('111');
+    $('.block.second-code').fadeIn();
+
+  })
 });
