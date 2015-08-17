@@ -662,6 +662,7 @@ $( document ).ready(function() {
       transition: 'crossfade',
       width: '100%',
       height: 475,
+      autoplay: true,
     });
   });
 
@@ -670,6 +671,7 @@ $( document ).ready(function() {
       transition: 'crossfade',
       width: '100%',
       height: '100%',
+      autoplay: true,
     });
   });
 
