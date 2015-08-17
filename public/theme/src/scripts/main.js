@@ -35,7 +35,7 @@ $('.preloaded__img').each(function(){
   });
 });
 
-$(window).onload(function(){
+$(window).on('load', function(){
   $('.preloader').fadeOut();
 });
 
