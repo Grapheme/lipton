@@ -2150,8 +2150,7 @@ $( document ).ready(function() {
   }
 
   // CROPPER //
-  $('.accept-block-holder.avatar-hack a').click(function(event) {
-    even.preventDefault();
+  $('.accept-block-holder.avatar-hack').click(function() {
     $('.promo-code.promo-code-2').html('');
     $('.promo-code.promo-code-2').append('111');
     $('.block.second-code').fadeIn();
