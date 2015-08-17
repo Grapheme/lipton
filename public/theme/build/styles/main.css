@@ -372,7 +372,7 @@ body {
   margin: 0;
   padding: 0;
   background-color: #ffe26a;
-  background-image: url(../images/bg-cup.png), url(../images/bg-main.jpg);
+  background-image: url("../images/bg-cup.png"), url("../images/bg-main.jpg");
   background-position: calc(100% - 80px) 114px, center 90px;
   background-repeat: no-repeat;
   background-size: initial, cover;
@@ -430,7 +430,6 @@ textarea:-ms-textarea-placeholder {
 
 .preloader {
   position: fixed;
-  display: none;
   background-image: url("../images/bg-main.jpg");
   width: 100%;
   height: 100%;
