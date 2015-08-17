@@ -60,5 +60,6 @@
             <input name="yyyy" value="{{ (new myDateTime())->setDateString($profile->bdate)->format('Y') }}" placeholder="ГГГГ" for="full-registration-form" autocomplete="off" class="yyyy">
         </div>
     </div>
+    <div style="width: 100%; height: 30px;"></div>
 {{ Form::button('Отправить',array('type'=>'submit')) }}
 {{ Form::close() }}

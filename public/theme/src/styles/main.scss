@@ -379,17 +379,17 @@ textarea:-ms-textarea-placeholder {
 
 	h2 {
 		font-family: 'Intro-regular';
-	    color: #c90119;
-	    font-size: 28px;
-	    text-transform: uppercase;
-	    text-align: center;
-	    margin: 0;
-	    line-height: 23px;
-	    margin-top: 50px;
+	color: #c90119;
+	font-size: 28px;
+	text-transform: uppercase;
+	text-align: center;
+	margin: 0;
+	line-height: 23px;
+	margin-top: 50px;
 
-	    @include mobile {
-	    	line-height: 33px;
-	    }
+	@include mobile {
+		line-height: 33px;
+	}
 	}
 
 	.devider {
@@ -472,7 +472,7 @@ textarea:-ms-textarea-placeholder {
 
 			@include mobile {
 				top: 16px;
-    			right: 30px;
+			right: 30px;
 			}
 
 			.ico-account {
@@ -1160,7 +1160,7 @@ textarea:-ms-textarea-placeholder {
 				margin: 0 auto;
 				height: 440px;
 				overflow: hidden;
-				    width: 765px;
+				width: 765px;
 
 				.story-text {
 					overflow: scroll;
@@ -1597,6 +1597,7 @@ textarea:-ms-textarea-placeholder {
 
 					&.avatar-hack {
 						margin-top: -35px;
+						margin-bottom: 30px;
 
 						.profile-info {
 							cursor: pointer;
@@ -2602,7 +2603,7 @@ textarea:-ms-textarea-placeholder {
 
 				form.promo-code {
 					display: block;
-					width: 357px;
+					width: 367px;
 					height: 50px;
 					margin: 0;
 
@@ -3500,6 +3501,44 @@ form {
 		width: 600px;
 		height: 600px;
 		border-radius: 10px;
+
+		@include mobile {
+			.second-code-hack {
+				display: none;
+			}
+
+			.cropper-holder {
+				position: relative;
+				background-image: url("../images/bg-main.jpg");
+				width: 100%;
+				height: 600px;
+				border-radius: 10px;
+			}
+
+			a.popup-close-cross {
+				position: relative;
+				background-image: url("../images/bg-main.jpg");
+				display: block;
+				vertical-align: inherit;
+				left: 0;
+				margin-left: 0;
+				width: 100%;
+				height: 600px;
+				border-radius: 10px;
+			}
+
+			.cropper {
+				width: 320px;
+				height: auto;
+			}
+
+			.cropper-tools {
+				width: auto;
+				margin: 0 auto;
+				margin-top: 30px;
+				padding: 0 20px;
+			}
+		}
 
 		.cropper {
 			width: 400px;
