@@ -621,7 +621,6 @@ $( document ).ready(function() {
       transition: 'crossfade',
       width: '100%',
       height: 475,
-      autoplay: true,
     });
   });
 
@@ -630,7 +629,6 @@ $( document ).ready(function() {
       transition: 'crossfade',
       width: '100%',
       height: '100%',
-      autoplay: 'true',
     });
   });
 
@@ -737,7 +735,7 @@ $( document ).ready(function() {
    //    }
    // });
 
-  if(window.location.pathname == 'http://lipton.dev.grapheme.ru/') {
+  if (window.location.pathname == 'lipton.dev.grapheme.ru') {
     $('body').addClass('no-cup');
   }
 

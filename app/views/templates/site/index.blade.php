@@ -31,7 +31,7 @@ endif;
         <div class="preloader-plain"></div>
     </div>
     <div class="main-content">
-        <div class="slider">
+        <div class="slider data-autoplay="true"">
             <div style="background-image: url('../theme/build/images/main-slider/1.jpg')" class="slide">&nbsp</div>
             <div style="background-image: url('../theme/build/images/main-slider/2.jpg')" class="slide">&nbsp</div>
             <div style="background-image: url('../theme/build/images/main-slider/3.jpg')" class="slide">&nbsp</div>
