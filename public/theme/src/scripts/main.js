@@ -772,5 +772,9 @@ $( document ).ready(function() {
   // CROPPER //
   $('.accept-block-holder.avatar-hack').click(function() {
     $('.block.cropper-holder').fadeIn();
-  })
+  });
+
+  $('cropper-holder .popup-close-cross').click(function() {
+    $('.block.cropper-holder').fadeOut();
+  });
 });
