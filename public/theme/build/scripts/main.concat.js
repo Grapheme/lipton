@@ -2071,15 +2071,16 @@ $( document ).ready(function() {
   $('.cropper-wrapper .save').click(function() {
     $('.cropper-wrapper').fadeOut();
   });
-
-  $('.cropper > img').cropper({
-    aspectRatio: 1 / 1,
-    autoCropArea: 0.65,
-    strict: false,
-    guides: false,
-    highlight: false,
-    dragCrop: false,
-    cropBoxMovable: false,
-    cropBoxResizable: false
+  $('.cropper > img').on('load', function(){
+    $('.cropper > img').cropper({
+      aspectRatio: 1 / 1,
+      autoCropArea: 0.65,
+      strict: false,
+      guides: false,
+      highlight: false,
+      dragCrop: false,
+      cropBoxMovable: false,
+      cropBoxResizable: false
+    });
   });
 });
