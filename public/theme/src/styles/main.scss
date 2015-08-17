@@ -3508,7 +3508,14 @@ form {
 				line-height: 50px;
 				font-family: 'Intro';
 				cursor: pointer;
-				float: right;
+				
+				&.close {
+					float: left;
+				}
+
+				&.save {
+					float: right;
+				}
 
 				&:hover {
 					background-color: #a40000;
