@@ -30,7 +30,7 @@
         @endif
             <div class="hidden-input">
                 <span>Сменить аватар</span>
-                <input type="text" class="js-cropper-image" name="profile_image">
+                <input accept="image/*" type="file" class="js-cropper-image" name="profile_image">
             </div>
             <input class="hidden-avatar-input" name="avatar">
         </div>
