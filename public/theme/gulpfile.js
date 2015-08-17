@@ -43,6 +43,7 @@ gulp.task('scripts', function() {
   		'bower_components/jquery-cookie/jquery.cookie.js',
   		'bower_components/jquery-form/jquery.form.js',
   		'bower_components/fotorama/fotorama.js',
+  		'bower_components/cropper/dist/cropper.min.js',
   		app_path + '/scripts/main.js'])
     .pipe(concat('main.concat.js'))
     .pipe(gulp.dest(build_path + '/scripts/'))
@@ -53,7 +54,8 @@ gulp.task('wiredep', function () {
 	return gulp.src([
 				'bower_components/fancybox/source/jquery.fancybox.css',
 				'bower_components/jquery-ui/themes/smoothness/jquery-ui.min.css',
-				'bower_components/fotorama/fotorama.css'
+				'bower_components/fotorama/fotorama.css',
+				'bower_components/cropper/dist/cropper.min.css',
 			])
 	  .pipe(concat('vendor.css'))
 	  .pipe(gulp.dest(build_path + '/styles/'))
