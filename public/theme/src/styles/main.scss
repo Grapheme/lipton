@@ -1060,7 +1060,7 @@ textarea:-ms-textarea-placeholder {
 
 		button {
 			float: right;
-			width: 136px;
+			width: 150px;
 			height: 50px;
 			background-color: #c90119;
 			color: #ffde00;
@@ -1223,7 +1223,7 @@ textarea:-ms-textarea-placeholder {
 
 			button {
 				float: right;
-				width: 136px;
+				width: 150px;
 				height: 50px;
 				background-color: #c90119;
 				color: #ffde00;
@@ -1369,7 +1369,7 @@ textarea:-ms-textarea-placeholder {
 
 				button {
 					display: block;
-					width: 136px;
+					width: 150px;
 					height: 50px;
 					background-color: #c90119;
 					color: #ffde00;
@@ -1622,7 +1622,7 @@ textarea:-ms-textarea-placeholder {
 
 				button {
 					display: block;
-					width: 136px;
+					width: 150px;
 					height: 50px;
 					background-color: #c90119;
 					color: #ffde00;
@@ -2632,7 +2632,7 @@ textarea:-ms-textarea-placeholder {
 
 					button {
 						float: right;
-						width: 136px;
+						width: 150px;
 						height: 50px;
 						background-color: #c90119;
 						color: #ffde00;
@@ -3550,4 +3550,8 @@ form {
 			}
 		}
 	}
+}
+
+.fa {
+	margin-right: 10px;
 }

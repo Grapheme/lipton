@@ -1134,7 +1134,7 @@ textarea:-ms-textarea-placeholder {
           margin-bottom: 20px; } }
     .block form.promo-code button {
       float: right;
-      width: 136px;
+      width: 150px;
       height: 50px;
       background-color: #c90119;
       color: #ffde00;
@@ -1266,7 +1266,7 @@ textarea:-ms-textarea-placeholder {
         text-transform: uppercase; }
       .block.second-code form.promo-code-2 button, .block.second-code form.send-instructions button, .block.second-code form.select-gain button, .block.send-instructions form.promo-code-2 button, .block.send-instructions form.send-instructions button, .block.send-instructions form.select-gain button, .block.story form.promo-code-2 button, .block.story form.send-instructions button, .block.story form.select-gain button, .block.select-gain form.promo-code-2 button, .block.select-gain form.send-instructions button, .block.select-gain form.select-gain button {
         float: right;
-        width: 136px;
+        width: 150px;
         height: 50px;
         background-color: #c90119;
         color: #ffde00;
@@ -1383,7 +1383,7 @@ textarea:-ms-textarea-placeholder {
               width: 100%; } }
         .block .participate-block .forms-holder form.registration button, .block .participate-block .forms-holder form.profile-edit button {
           display: block;
-          width: 136px;
+          width: 150px;
           height: 50px;
           background-color: #c90119;
           color: #ffde00;
@@ -1570,7 +1570,7 @@ textarea:-ms-textarea-placeholder {
             font-size: 14px; }
         .block .participate-block .forms-holder form.full-registration button, .block .participate-block .forms-holder form.profile-edit button {
           display: block;
-          width: 136px;
+          width: 150px;
           height: 50px;
           background-color: #c90119;
           color: #ffde00;
@@ -2311,7 +2311,7 @@ textarea:-ms-textarea-placeholder {
                 margin: 0 auto 20px; } }
           .block .profile .profile-head .profile-promo-code form.promo-code button {
             float: right;
-            width: 136px;
+            width: 150px;
             height: 50px;
             background-color: #c90119;
             color: #ffde00;
@@ -3001,3 +3001,6 @@ form label.error {
           border-width: 3px 0 0 0;
           border-style: solid;
           border-color: #c90119; }
+
+.fa {
+  margin-right: 10px; }
