@@ -2466,13 +2466,14 @@ textarea:-ms-textarea-placeholder {
 				font-size: 16px;
 			}
 
-			a {
+			div.hidden-input {
 				position: relative;
 				text-decoration: underline;
 				margin-top: 5px;
 				margin-bottom: 10px;
     			display: block;
     			cursor: pointer;
+    			color: #c90119;
 
 				&:hover {
 					text-decoration: none;

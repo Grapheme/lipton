@@ -28,10 +28,10 @@
             <img src="{{ asset(Config::get('site.theme_path').'/images/avatar_default.png') }}" alt="{{ $user->name }}"
                  class="{{ $user->name }}">
         @endif
-            <a>
+            <div class="hidden-input">
                 <span>Сменить аватар</span>
                 <input type="text" class="js-cropper-image" name="profile_image">
-            </a>
+            </div>
             <input class="hidden-avatar-input" name="avatar">
         </div>
     </div>

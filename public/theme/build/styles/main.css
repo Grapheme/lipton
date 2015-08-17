@@ -2183,20 +2183,21 @@ textarea:-ms-textarea-placeholder {
     .block .accept-block-holder .profile-info p {
       margin: 0 0 14px 0;
       font-size: 16px; }
-    .block .accept-block-holder .profile-info a {
+    .block .accept-block-holder .profile-info div.hidden-input {
       position: relative;
       text-decoration: underline;
       margin-top: 5px;
       margin-bottom: 10px;
       display: block;
-      cursor: pointer; }
-      .block .accept-block-holder .profile-info a:hover {
+      cursor: pointer;
+      color: #c90119; }
+      .block .accept-block-holder .profile-info div.hidden-input:hover {
         text-decoration: none; }
-      .block .accept-block-holder .profile-info a span {
+      .block .accept-block-holder .profile-info div.hidden-input span {
         position: relative;
         z-index: 1;
         cursor: pointer; }
-      .block .accept-block-holder .profile-info a input {
+      .block .accept-block-holder .profile-info div.hidden-input input {
         position: absolute;
         z-index: 10;
         top: 0;
