@@ -44,11 +44,11 @@ class ApiController extends BaseController {
 
         if (method_exists(__CLASS__, $method)):
             $result = self::$method(Input::all());
-            if(is_array($result)):
+            if (is_array($result)):
                 Helper::ta($result);
-            elseif(is_json($result)):
+            elseif (is_json($result)):
                 Helper::ta(json_decode($result, TRUE));
-            elseif(is_string($result)):
+            elseif (is_string($result)):
                 echo $result;
             endif;
         else:
@@ -84,7 +84,6 @@ class ApiController extends BaseController {
 
     /****************************************************************************/
     public function config() {
-
         Helper::ta($this->headers);
     }
 
@@ -262,7 +261,7 @@ class ApiController extends BaseController {
         return Response::xml([], 200, [], $result);
     }
 
-    public function send_register(array $params = [], $operation = 'Unilever.FillSlimProfile') {
+    public function send_register(array $params = [], $operation = 'Unilever.FillLightProfile') {
 
         if ($this->validAvailableOperation($operation) === FALSE):
             Config::set('api.message', 'Операция добавление новых пользователей недоступна.');
@@ -279,6 +278,7 @@ class ApiController extends BaseController {
         <name last="<?= $params['surname']; ?>" first="<?= $params['name']; ?>" middle=""/>
         <sex><?= @$sex[$params['sex']]; ?></sex>
         <email><?= $params['email']; ?></email>
+        <mobilePhone><?= $params['phone'] ?></mobilePhone>
         <birthdate year="<?= (int)$params['yyyy']; ?>" month="<?= (int)$params['mm']; ?>"
                    day="<?= (int)$params['dd']; ?>"/>
         <password value="<?= $params['password']; ?>" value2="<?= $params['password']; ?>"/>
@@ -296,7 +296,7 @@ class ApiController extends BaseController {
             $user = array();
             $user['id'] = $this->getXmlValue($result['curl_result'], '', 'id');
             $user['sessionKey'] = $this->getXmlValue($result['curl_result'], '', 'sessionKey');
-            if(empty($user['id']) && empty($user['sessionKey'])):
+            if (empty($user['id']) && empty($user['sessionKey'])):
                 if ($message = $this->getErrorMessage($result)):
                     Config::set('api.message', $message);
                 endif;
@@ -313,7 +313,7 @@ class ApiController extends BaseController {
         endif;
     }
 
-    public function get_register(array $params = [], $operation = 'Unilever.EditSlimProfile'){
+    public function get_register(array $params = [], $operation = 'Unilever.EditSlimProfile') {
 
         if (empty($params)):
             App::abort(404);
@@ -349,7 +349,7 @@ class ApiController extends BaseController {
         endif;
     }
 
-    public function update_register(array $params = [], $operation = 'Unilever.EditSlimProfile'){
+    public function update_register(array $params = [], $operation = 'Unilever.EditSlimProfile') {
 
         if (empty($params)):
             App::abort(404);
@@ -367,13 +367,15 @@ class ApiController extends BaseController {
         $uri_request = $this->config['server_url'] . "/v2/customers/current?operation=$operation";
         $sex = array('female', 'male');
         ob_start();
-        ?><customer>
+        ?>
+        <customer>
         <name last="<?= $params['surname']; ?>" first="<?= $params['name']; ?>" middle=""/>
         <version><?= $params['version']; ?></version>
         <sex><?= @$sex[$params['sex']]; ?></sex>
         <email><?= $params['email']; ?></email>
-        <birthdate year="<?= (int)$params['yyyy']; ?>" month="<?= (int)$params['mm']; ?>" day="<?= (int)$params['dd']; ?>"/>
-        <subscription isActiveForCurrentBrand="true" />
+        <birthdate year="<?= (int)$params['yyyy']; ?>" month="<?= (int)$params['mm']; ?>"
+                   day="<?= (int)$params['dd']; ?>"/>
+        <subscription isActiveForCurrentBrand="true"/>
         </customer><?php
         $xml = ob_get_clean();
         $this->strlen_xml = strlen($xml);
@@ -410,7 +412,7 @@ class ApiController extends BaseController {
             $user = array();
             $user['id'] = $this->getXmlValue($result['curl_result'], '', 'id');
             $user['sessionKey'] = $this->getXmlValue($result['curl_result'], '', 'sessionKey');
-            if(empty($user['id']) && empty($user['sessionKey'])):
+            if (empty($user['id']) && empty($user['sessionKey'])):
                 if ($message = $this->getErrorMessage($result)):
                     Config::set('api.message', $message);
                 endif;
@@ -427,7 +429,7 @@ class ApiController extends BaseController {
         endif;
     }
 
-    public function logon(array $params = [], $operation = 'DirectCrm.LogOn'){
+    public function logon(array $params = [], $operation = 'DirectCrm.LogOn') {
 
         if ($this->validAvailableOperation($operation) === FALSE):
             Config::set('api.message', 'Операция авторизаици пользователей недоступна.');
@@ -436,13 +438,13 @@ class ApiController extends BaseController {
         if (empty($params)):
             App::abort(404);
         endif;
-        $uri_request = $this->config['server_url'] . "/v2/customers/current/logon/via-password?operation=".$operation."&credential=".$params['login']."&password=".$params['password']."&mode=session";
+        $uri_request = $this->config['server_url'] . "/v2/customers/current/logon/via-password?operation=" . $operation . "&credential=" . $params['login'] . "&password=" . $params['password'] . "&mode=session";
         $result = $this->postCurl($uri_request);
         if ($this->validCode($result, 200)):
             $user = array();
             $user['id'] = $this->getXmlValue($result['curl_result'], '', 'id');
             $user['sessionKey'] = $this->getXmlValue($result['curl_result'], '', 'sessionKey');
-            if(empty($user['id']) && empty($user['sessionKey'])):
+            if (empty($user['id']) && empty($user['sessionKey'])):
                 if ($message = $this->getErrorMessage($result)):
                     Config::set('api.message', $message);
                 endif;
@@ -459,7 +461,7 @@ class ApiController extends BaseController {
         endif;
     }
 
-    public function social_logon(array $params = [], $operation = 'DirectCrm.ExternalLogOn'){
+    public function social_logon(array $params = [], $operation = 'DirectCrm.ExternalLogOn') {
 
         if ($this->validAvailableOperation($operation) === FALSE):
             Config::set('api.message', 'Операция авторизаици пользователей недоступна.');
@@ -472,8 +474,8 @@ class ApiController extends BaseController {
         ob_start();
         ?>
         <credentials mode="session">
-            <provider><?=$params['provider'];?></provider>
-            <identity><?=$params['identity'];?></identity>
+        <provider><?= $params['provider']; ?></provider>
+        <identity><?= $params['identity']; ?></identity>
         </credentials><?php
         $xml = ob_get_clean();
         $this->strlen_xml = strlen($xml);
@@ -482,7 +484,7 @@ class ApiController extends BaseController {
             $user = array();
             $user['id'] = $this->getXmlValue($result['curl_result'], '', 'id');
             $user['sessionKey'] = $this->getXmlValue($result['curl_result'], '', 'sessionKey');
-            if(empty($user['id']) && empty($user['sessionKey'])):
+            if (empty($user['id']) && empty($user['sessionKey'])):
                 if ($message = $this->getErrorMessage($result)):
                     Config::set('api.message', $message);
                 endif;
@@ -502,7 +504,7 @@ class ApiController extends BaseController {
     /******************************* PROMO **************************************/
     /****************************************************************************/
 
-    public function activate_promo_code(array $params = [], $operation = 'LiptonArkenstone2015PolzovatelAktivirovalPromoCode'){
+    public function activate_promo_code(array $params = [], $operation = 'LiptonArkenstone2015PolzovatelAktivirovalPromoCode') {
 
         if (empty($params)):
             App::abort(404);
