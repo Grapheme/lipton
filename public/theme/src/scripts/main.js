@@ -1,11 +1,17 @@
 $( document ).ready(function() {
 
+  // CLOSE BUTTONS ETC //
 
   $('.ico-burger').click(function (){
     $('.right-menu-holder').slideToggle( function() {
       $('.ico-burger').toggleClass('close-ico');
       return false;
     });
+  });
+
+  $('.error-block a').click(function() {
+    $('.second-code').fadeOut();
+    $('form.promo-code').html('Отправить');
   });
 
   $('.second-code .fields-holder a, a.popup-close-cross').click(function() {
@@ -619,6 +625,15 @@ $( document ).ready(function() {
     });
   });
 
+  $(function () {
+    $('.mosaic-holder').fotorama({
+      transition: 'crossfade',
+      width: '100%',
+      height: '100%',
+      autoplay: 'true',
+    });
+  });
+
   // PRELOADER //
 
   // var preloaderAnimation = function() {
@@ -722,7 +737,7 @@ $( document ).ready(function() {
    //    }
    // });
 
-  if(window.location.pathname == 'http://localhost:8080/') {
+  if(window.location.pathname == 'http://lipton.dev.grapheme.ru/') {
     $('body').addClass('no-cup');
   }
 
