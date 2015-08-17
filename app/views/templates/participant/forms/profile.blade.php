@@ -3,7 +3,7 @@
  * TEMPLATE_IS_NOT_SETTABLE
  */
 ?>
-{{ Form::model($profile,array('route'=>'profile.save','name'=>'profile-edit','class'=>'profile-edit')) }}
+
     <div class="cropper-wrapper">
         <div class="second-code-hack"></div>
         <div class="block cropper-holder">
@@ -15,6 +15,8 @@
             </div>
         </div>
     </div>
+
+{{ Form::model($profile,array('route'=>'profile.save','name'=>'profile-edit','class'=>'profile-edit')) }}
 
     <div class="accept-block-holder avatar-hack">
         <div class="profile-info">
