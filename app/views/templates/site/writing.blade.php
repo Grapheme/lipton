@@ -40,7 +40,6 @@ $text = $writing->writing
                             . {{ $user->location }} <br>@endif
                             {{ $user->city }}
                         </p>
-
                     </div>
                 </div>
                 <div class="sharing-script">
