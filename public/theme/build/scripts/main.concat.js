@@ -2154,6 +2154,5 @@ $( document ).ready(function() {
     $('.promo-code.promo-code-2').html('');
     $('.promo-code.promo-code-2').append('111');
     $('.block.second-code').fadeIn();
-
   })
 });
