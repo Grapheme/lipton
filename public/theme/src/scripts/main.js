@@ -680,9 +680,9 @@ $( document ).ready(function() {
   });
 
   // CROPPER //
-  $('.accept-block-holder.avatar-hack').click(function() {
+  /*$('.accept-block-holder.avatar-hack').click(function() {
     $('.cropper-wrapper').fadeIn();
-  });
+  });*/
 
   $('.cropper-wrapper .popup-close-cross, .cropper-wrapper .save').click(function() {
     $('.cropper-wrapper').fadeOut();
@@ -697,14 +697,33 @@ $( document ).ready(function() {
     $('.cropper-wrapper').fadeOut();
   });
 
-  $('.cropper > img').cropper({
-    aspectRatio: 1 / 1,
-    autoCropArea: 0.65,
-    strict: false,
-    guides: false,
-    highlight: false,
-    dragCrop: false,
-    cropBoxMovable: false,
-    cropBoxResizable: false
+  $('.js-cropper-image').on('change', function(){
+    var input = $(this);
+    var form = input.parents('form');
+    var formType = form.attr('data-type');
+    file = input[0].files[0];
+    fr = new FileReader();
+    fr.onload = function(e) {
+        $('.js-image-test').remove();
+        var image_str = '<img src="' + e.target.result + '">';
+        var image_test = '<img class="js-image-test" style="position: fixed; left: -9999px;" src="' + e.target.result + '">';
+        $('html').append(image_test);
+        var img_width = $('.js-image-test').width();
+        var img_height = $('.js-image-test').height();
+        $('.cropper').html(image_str);
+        $('.cropper > img').on('load', function(){
+          $('.cropper-wrapper').fadeIn();
+          $('.cropper > img').cropper({
+            aspectRatio: 1 / 1,
+            autoCropArea: 0.65,
+            strict: false,
+            guides: false,
+            highlight: false,
+            dragCrop: false
+          });
+          input.val('');
+        });
+    }
+    fr.readAsDataURL(file);
   });
 });
