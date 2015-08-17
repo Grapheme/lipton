@@ -21,6 +21,7 @@
     "jquery.maskedinput": "~1.4.1",
     "jquery-cookie": "~1.4.1",
     "jquery-form": "~3.46.0",
-    "fotorama": "~4.6.4"
+    "fotorama": "~4.6.4",
+    "cropper": "~0.11.0"
   }
 }
