@@ -2188,21 +2188,25 @@ textarea:-ms-textarea-placeholder {
       text-decoration: underline;
       margin-top: 5px;
       margin-bottom: 10px;
-      display: block; }
+      display: block;
+      cursor: pointer; }
       .block .accept-block-holder .profile-info a:hover {
         text-decoration: none; }
       .block .accept-block-holder .profile-info a span {
         position: relative;
-        z-index: 1; }
+        z-index: 1;
+        cursor: pointer; }
       .block .accept-block-holder .profile-info a input {
         position: absolute;
-        z-index: 2;
+        z-index: 10;
         top: 0;
         left: 0;
         width: 100% !important;
         height: 100% !important;
         opacity: 0;
-        display: block; }
+        display: block;
+        cursor: pointer;
+        margin-bottom: 0; }
   .block .profile {
     width: 910px;
     height: 510px;
