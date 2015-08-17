@@ -368,6 +368,14 @@ td,
 th {
   padding: 0; }
 
+.first-preloader-image {
+  width: 1px;
+  height: 1px;
+  opacity: 0.1;
+  display: block;
+  position: absolute;
+  top: -1000; }
+
 body {
   margin: 0;
   padding: 0;
