@@ -262,7 +262,7 @@ class ApiController extends BaseController {
         return Response::xml([], 200, [], $result);
     }
 
-    public function send_register(array $params = [], $operation = 'Unilever.FillSlimProfile') {
+    public function send_register(array $params = [], $operation = 'Unilever.FillLightProfile') {
 
         if ($this->validAvailableOperation($operation) === FALSE):
             Config::set('api.message', 'Операция добавление новых пользователей недоступна.');
@@ -279,6 +279,7 @@ class ApiController extends BaseController {
         <name last="<?= $params['surname']; ?>" first="<?= $params['name']; ?>" middle=""/>
         <sex><?= @$sex[$params['sex']]; ?></sex>
         <email><?= $params['email']; ?></email>
+        <mobilePhone><?= $params['phone'] ?></mobilePhone>
         <birthdate year="<?= (int)$params['yyyy']; ?>" month="<?= (int)$params['mm']; ?>"
                    day="<?= (int)$params['dd']; ?>"/>
         <password value="<?= $params['password']; ?>" value2="<?= $params['password']; ?>"/>
