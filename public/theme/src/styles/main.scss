@@ -3439,6 +3439,16 @@ form {
 	display: none;
 	z-index: 1000;
 
+	.second-code-hack {
+		position: relative;
+		width: 1px;
+		height: 100%;
+		top: 0;
+		bottom: 0;
+		display: inline-block;
+		vertical-align: middle;
+	}
+
 	a.popup-close-cross {
 		display: block;
 		position: absolute;
@@ -3462,13 +3472,43 @@ form {
 
 		.cropper {
 			width: 400px;
-			height: 400;
+			height: 400px;
 			margin: 0 auto;
-
+			margin-top: 80px;
 		}
 
 		.cropper-tools {
-			
+			width: 400px;
+			margin: 0 auto;
+			margin-top: 30px;
+			a {
+				display: block;
+				width: 136px;
+				height: 47px;
+				background-color: #c90119;
+				color: #ffde00;
+				font-size: 18px;
+				border-width: 0 0 3px 0;
+				border-color: #a40000;
+				border-style: solid;
+				border-radius: 3px;
+				text-transform: uppercase;
+				transition: .1s all;
+				text-decoration: none;
+				text-align: center;
+				line-height: 50px;
+				font-family: 'Intro';
+				cursor: pointer;
+				float: right;
+
+				&:hover {
+					background-color: #a40000;
+					color: #c90119;
+					border-width: 3px 0 0 0;
+					border-style: solid;
+					border-color: #c90119;
+				}
+			}
 		}
 	}
 }
