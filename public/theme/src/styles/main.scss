@@ -109,6 +109,7 @@ textarea:-ms-textarea-placeholder {
 	overflow: hidden;
 	margin-top: -106px;
 	min-height: 940px;
+	position: relative;
 
 	@include mobile {
 		position: relative;
