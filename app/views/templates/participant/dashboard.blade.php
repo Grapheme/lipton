@@ -49,7 +49,7 @@ $now = Carbon::now();
                                 <a href="javascript:void(0);">Конкурс рассказов</a>
                                 @if($profile->writing->status == 2)
                                 <div class="moderation neutral">Ваш рассказ на модерации<div class="bullet"></div></div>
-                                @if($profile->writing->status == 1)
+                                @elseif($profile->writing->status == 1)
                                 <a class="watch" target="_blank" href="{{ URL::route('show.participant.writing', $profile->writing->id.'-'.BaseController::stringTranslite(Auth::user()->name.'-'.Auth::user()->surname)) }}">Смотреть</a>
                                 @endif
                             @else
