@@ -1,3 +1,13 @@
+$('*').filter(function() { return $(this).css('background-image') != 'none' && !$(this).attr('style') }).each(
+      function loading() {
+        var imgHack = $(this).css('background-image');
+        var protoImgUrl = imgHack.split('//')[1].split('/');
+        protoImgUrl[protoImgUrl.length-1];
+        protoImgUrl.html();
+        protoImgUrl.replace(')', '');
+        $('body').append('<img style="display: none;" src="../images/' + protoImgUrl + '">')
+      });
+
 $( document ).ready(function() {
 
   // CLOSE BUTTONS ETC //
@@ -701,16 +711,6 @@ $( document ).ready(function() {
     var oneImgPersent = Math.round(100 / bgCounter);
     console.log(oneImgPersent);
 
-    $('*').filter(function() { return $(this).css('background-image') != 'none' && !$(this).attr('style') }).each(
-      function loading() {
-        var imgHack = $(this).css('background-image');
-        var protoImgUrl = imgHack.split('//')[1].split('/');
-        protoImgUrl[protoImgUrl.length-1];
-        protoImgUrl.html().replace(')', '');
-        $('body').append('<img style="display: none;" src="../images/' + protoImgUrl + '">')
-      });
-
-    loading().setTimeout(10000);
    // // get a collection of new images, assigning the sources from the original collection
    // }).map(function() {
    //     return $("<img />").attr("src", $(this).css('background-image').slice(5, -2));
@@ -738,5 +738,4 @@ $( document ).ready(function() {
   if (window.location.pathname == 'http://lipton.dev.grapheme.ru/') {
     $('body').addClass('no-cup');
   }
-
 });

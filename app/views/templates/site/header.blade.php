@@ -15,11 +15,11 @@
     @endif
     </div>
     <div class="icons-block">
-        <div class="partner-lingualeo"></div>
         <div href="#" class="ico-burger"></div>
         @if(Auth::check())
         <a href="{{ URL::route('dashboard') }}" class="ico-account"></a>
         @endif
+        <div class="partner-lingualeo"></div>
     </div>
     <div class="right-menu-holder">
         {{ Menu::placement('main_menu') }}
