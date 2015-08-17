@@ -5,7 +5,10 @@
 ?>
 <?php
 $user = $writing->user;
-$text = $writing->writing
+$text = $writing->writing;
+
+$bdate = new Carbon($user->bdate);
+$now = Carbon::now();
 ?>
 @extends(Helper::layout())
 @section('style')
@@ -34,8 +37,10 @@ $text = $writing->writing
                              class="avatar"></div>
                     @endif
                         <h3>{{ $user->name }} {{ $user->surname }}</h3>
-                        <p>@if($user->age > 0){{ $user->age }} {{ Lang::choice('год|года|лет', (int)$user->age ) }}
-                            . {{ $user->location }} <br>@endif
+                        <p>
+                        @if($bdate->diffInYears($now) > 0)
+                            {{ $bdate->diffInYears($now).' '.Lang::choice('год|года|лет', $bdate->diffInYears($now)) }}.
+                        @endif
                             {{ $user->city }}
                         </p>
                     </div>
