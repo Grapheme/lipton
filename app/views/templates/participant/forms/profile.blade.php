@@ -4,7 +4,7 @@
  */
 ?>
 {{ Form::model($profile,array('route'=>'profile.save','name'=>'profile-edit','class'=>'profile-edit')) }}
-    <div class="accept-block-holder">
+    <div class="accept-block-holder avatar-hack">
         <div class="profile-info">
         @if(!empty($profile->photo) && File::exists(public_path($profile->photo)))
             <div style="background-image: url({{ asset($profile->photo) }});" class="avatar"></div>

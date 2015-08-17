@@ -17,7 +17,7 @@ $now = Carbon::now();
         <div class="block">
             <div class="content">
                 <h2>Личный кабинет</h2>
-                <a href="{{ URL::route('logout') }}">Выйти</a>
+                <a class="exit-cabinet" href="{{ URL::route('logout') }}">Выйти</a>
                 @if(Session::has('message'))
                     <div>{{ Session::get('message') }}</div>
                 @endif
@@ -51,12 +51,12 @@ $now = Carbon::now();
                                 <div class="moderation">На модерации<div class="bullet"></div></div>
                                 @endif
                                 @if($profile->writing->status == 1)
-                                <a target="_blank" href="{{ URL::route('show.participant.writing', $profile->writing->id.'-'.BaseController::stringTranslite(Auth::user()->name.'-'.Auth::user()->surname)) }}">Смотреть</a>
+                                <a class="watch" target="_blank" href="{{ URL::route('show.participant.writing', $profile->writing->id.'-'.BaseController::stringTranslite(Auth::user()->name.'-'.Auth::user()->surname)) }}">Смотреть</a>
                                 @endif
                             @else
                                 <a class="disabled-button" href="javascript:void(0);">Конкурс рассказов</a>
                             @endif
-
+                            <div class="moderation neutral">Ваш рассказ на модерации<div class="bullet"></div></div>
                         </div>
                     </div>
                     <div class="profile-border"></div>

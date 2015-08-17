@@ -26,7 +26,19 @@ endif;
 @section('style')
 @stop
 @section('content')
+    <div class="preloader">
+        <div class="preloader-hack"></div>
+        <div class="preloader-plain"></div>
+    </div>
     <div class="main-content">
+        <div class="slider data-autoplay="true"">
+            <div style="background-image: url('../theme/build/images/main-slider/1.jpg')" class="slide">&nbsp</div>
+            <div style="background-image: url('../theme/build/images/main-slider/2.jpg')" class="slide">&nbsp</div>
+            <div style="background-image: url('../theme/build/images/main-slider/3.jpg')" class="slide">&nbsp</div>
+            <div style="background-image: url('../theme/build/images/main-slider/4.jpg')" class="slide">&nbsp</div>
+            <div style="background-image: url('../theme/build/images/main-slider/5.jpg')" class="slide">&nbsp</div>
+            <div style="background-image: url('../theme/build/images/main-slider/6.jpg')" class="slide">&nbsp</div>
+        </div>
         <div class="block promo-code">
             <div class="content">
                 <div class="promo-steps">
@@ -35,7 +47,7 @@ endif;
                         <div class="step-number">{{ $index + 1 }}</div>
                         <h2>{{ $step['title'] }}</h2>
                         <p>{{ $step['desc'] }}</p>
-                        @if ($index == 2)
+                        @if ($index == 1)
                             @include(Helper::layout('forms.first-promo-code'))
                         @endif
                     </div>

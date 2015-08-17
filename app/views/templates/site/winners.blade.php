@@ -10,8 +10,14 @@
 @section('content')
     <div class="main-content">
         <div class="block winners">
-            <div class="mosaic-holder">
-                <div class="mosaic-fuckup"></div>
+            <div class="mosaic-holder data-autoplay="true"">
+                <div style="background-image: url('../images/winners-slider/1.jpg')" class="slide">&nbsp</div>
+                <div style="background-image: url('../images/winners-slider/2.jpg')" class="slide">&nbsp</div>
+                <div style="background-image: url('../images/winners-slider/3.jpg')" class="slide">&nbsp</div>
+                <div style="background-image: url('../images/winners-slider/4.jpg')" class="slide">&nbsp</div>
+                <div style="background-image: url('../images/winners-slider/5.jpg')" class="slide">&nbsp</div>
+                <div style="background-image: url('../images/winners-slider/6.jpg')" class="slide">&nbsp</div>
+                <!-- <div class="mosaic-fuckup"></div> -->
             </div>
             <div class="content">
                 <h2>{{ $page->seo->h1 }}</h2>

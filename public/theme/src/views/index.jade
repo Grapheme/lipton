@@ -1,6 +1,9 @@
 extends templates/layout
 
 block content
+	.preloader
+		.preloader-hack
+		.preloader-plain
 	.block.second-code
 		.second-code-hack
 		form(class="promo-code-2" name="promo-code-2")
@@ -14,14 +17,14 @@ block content
 	.block.header
 		.partners-block
 			.partner-traveller
-			.partner-lingualeo
 
 		.content
 			a.logo-main(href="/")
 
 		.icons-block
-			a.ico-account(href="#").unauthorized
 			.ico-burger(href="#")
+			a.ico-account(href="#").unauthorized
+			.partner-lingualeo
 		.right-menu-holder
 			ul.right-menu
 				li
@@ -43,6 +46,13 @@ block content
 				li
 					a(href="#") Goodstarter
 	.main-content
+		.slider
+			.slide(style="background-image: url('../images/main-slider/1.jpg')") &nbsp
+			.slide(style="background-image: url('../images/main-slider/2.jpg')") &nbsp
+			.slide(style="background-image: url('../images/main-slider/3.jpg')") &nbsp
+			.slide(style="background-image: url('../images/main-slider/4.jpg')") &nbsp
+			.slide(style="background-image: url('../images/main-slider/5.jpg')") &nbsp
+			.slide(style="background-image: url('../images/main-slider/6.jpg')") &nbsp
 		.block.promo-code
 			.content
 				.promo-steps

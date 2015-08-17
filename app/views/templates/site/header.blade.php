@@ -6,7 +6,6 @@
 <div class="block header">
     <div class="partners-block">
         <div class="partner-traveller"></div>
-        <div class="partner-lingualeo"></div>
     </div>
     <div class="content">
     @if (Request::is('/'))
@@ -16,10 +15,11 @@
     @endif
     </div>
     <div class="icons-block">
+        <div href="#" class="ico-burger"></div>
         @if(Auth::check())
         <a href="{{ URL::route('dashboard') }}" class="ico-account"></a>
         @endif
-        <div href="#" class="ico-burger"></div>
+        <div class="partner-lingualeo"></div>
     </div>
     <div class="right-menu-holder">
         {{ Menu::placement('main_menu') }}
