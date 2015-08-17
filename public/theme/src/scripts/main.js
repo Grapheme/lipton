@@ -119,9 +119,9 @@ $( document ).ready(function() {
 
   submitHandler: function(form) {
       if(auth == 'authorized') {
-        $('#promo-code-form button').html();
+        // $('#promo-code-form button').html();
         $('#promo-code-form button').addClass('loading');
-        $('#promo-code-form button').html('<i class="fa fa-cog fa-spin"></i>');
+        $('#promo-code-form button').prepend('<i class="fa fa-circle-o-notch fa-spin"></i>');
         var options = {
           success: function(data){
             $('#promo-code-form button').removeClass('loading');
@@ -129,8 +129,8 @@ $( document ).ready(function() {
                 $('.second-code').fadeIn();
 
                 } else { // PROMOCODE OLLREADY REGISTERED
-                  $('form.promo-code-2').html('');
-                  $('.second-code').html('<div class="error-block"><h3>Ошибка</h3><p>' + data.responseText + '</p> <a href="#">Закрыть</a></div>');
+                  // $('form.promo-code-2').html('');
+                  $('.second-code').html('<div class="second-code-hack"></div><div class="error-block"><h3>Ошибка</h3><p>' + data.responseText + '</p> <a href="#">Закрыть</a></div>');
                   $('.second-code').fadeIn();
                 };
           },
@@ -143,8 +143,8 @@ $( document ).ready(function() {
         $(form).ajaxSubmit(options);
 
       } else { // UNAUTORIZED USER
-        $('#promo-code-form button').addClass('loading');
-        $('#promo-code-form button').html('<i class="fa fa-cog fa-spin"></i>')
+        // $('#promo-code-form button').addClass('loading');
+        $('#promo-code-form button').prepend('<i class="fa fa-circle-o-notch fa-spin"></i>')
         var firstCodeCookie = $(".promo-code .promoCode1").val();
         $.cookie('firstCodeCookie', firstCodeCookie);
         // var cookiePromo = $.cookie('firstCodeCookie'); // wright cookie cookie into var
@@ -175,9 +175,9 @@ $( document ).ready(function() {
     },
 
     submitHandler: function(form) {
-      $('.promo-code-2 button').html();
+      // $('.promo-code-2 button').html('');
       $('.promo-code-2 button').addClass('loading');
-      $('.promo-code-2 button').html('<i class="fa fa-cog fa-spin"></i>')
+      $('.promo-code-2 button').html('<i class="fa fa-circle-o-notch fa-spin"></i>')
       var options = {
         success: function(data){
           $('form.promo-code-2').html('');
@@ -216,9 +216,9 @@ $( document ).ready(function() {
     },
 
     submitHandler: function(form) {
-      $('form.profile-promo-code button').html();
+      // $('form.profile-promo-code button').html('');
       $('form.profile-promo-code button').addClass('loading');
-      $('form.profile-promo-code button').html('<i class="fa fa-cog fa-spin"></i>')
+      $('form.profile-promo-code button').html('<i class="fa fa-circle-o-notch fa-spin"></i>')
       var options = {
         success: function(data){
           console.log(data.responseTextSuccsess);
@@ -262,9 +262,9 @@ $( document ).ready(function() {
       }
     },   
     submitHandler: function(form) {
-      $('form.registration button').html();
+      // $('form.registration button').html('');
       $('form.registration button').addClass('loading');
-      $('form.registration button').html('<i class="fa fa-cog fa-spin"></i>');
+      $('form.registration button').html('<i class="fa fa-circle-o-notch fa-spin"></i>');
       var options = { 
         success: function(data){
           if(data.redirectURL) {
@@ -273,6 +273,8 @@ $( document ).ready(function() {
             };
             setTimeout(goToCabinet, 3000);
           } else {
+            $('form.registration button').removeClass('loading');
+            $('form.registration button').html('Отправить');
             $('form.registration').append('<div class="erros-message-block">' + data.responseText + '</div>');
           }
         },
@@ -301,9 +303,9 @@ $( document ).ready(function() {
       },
     },   
     submitHandler: function(form) {
-      $('form.story button').html();
+      // $('form.story button').html('');
       $('form.story button').addClass('loading');
-      $('form.story button').html('<i class="fa fa-cog fa-spin"></i>')
+      $('form.story button').html('<i class="fa fa-circle-o-notch fa-spin"></i>')
       var options = { 
         success: function(data){
           if(data.redirectURL) {
@@ -354,9 +356,9 @@ $( document ).ready(function() {
       },
     },   
     submitHandler: function(form) {
-      $('form.feedback button').html();
+      // $('form.feedback button').html('');
       $('form.feedback button').addClass('loading');
-      $('form.feedback button').html('<i class="fa fa-cog fa-spin"></i>')
+      $('form.feedback button').html('<i class="fa fa-circle-o-notch fa-spin"></i>')
       var options = { 
         success: function(data){
           if(data.status) {
@@ -393,9 +395,9 @@ $( document ).ready(function() {
       },
     },   
     submitHandler: function(form) {
-      $('form.send-instructions button').html();
+      // $('form.send-instructions button').html('');
       $('form.send-instructions button').addClass('loading');
-      $('form.send-instructions button').html('<i class="fa fa-cog fa-spin"></i>')
+      $('form.send-instructions button').html('<i class="fa fa-circle-o-notch fa-spin"></i>')
       var options = { 
         success: function(data){
           if(data.redirectURL) {
@@ -457,9 +459,9 @@ $( document ).ready(function() {
     },
 
     submitHandler: function(form) {
-      $('form.full-registration button').html();
+      //$('form.full-registration button').html('');
       $('form.full-registration button').addClass('loading');
-      $('form.full-registration button').html('<i class="fa fa-cog fa-spin"></i>')
+      $('form.full-registration button').html('<i class="fa fa-circle-o-notch fa-spin"></i>')
       var options = {
         success: function(data){
           if(data.redirectURL) {
@@ -469,6 +471,8 @@ $( document ).ready(function() {
             setTimeout(goToCabinet, 3000);
           } else {
             $('form.full-registration').append('<div class="erros-message-block">' + data.responseText + '</div>');
+            $('form.full-registration button').html('Отправить');
+            $('form.full-registration button').removeClass('loading');
           }
         },
         error: function(data) {
@@ -523,9 +527,9 @@ $( document ).ready(function() {
     },
 
     submitHandler: function(form) {
-      $('form.profile-edit button').html();
+      // $('form.profile-edit button').html('');
       $('form.profile-edit button').addClass('loading');
-      $('form.profile-edit button').html('<i class="fa fa-cog fa-spin"></i>')
+      $('form.profile-edit button').html('<i class="fa fa-circle-o-notch fa-spin"></i>')
       var options = {
         success: function(data){
           if(data.redirectURL) {
@@ -585,15 +589,15 @@ $( document ).ready(function() {
     }
     while (mosaicRows <= mosaicVertical);
 
-    mosaicBlink();
+    // mosaicBlink();
   }
 
   $(window).resize(function(){
     $('.mosaic-fuckup').html('');
-    mosaicBuild();
+    // mosaicBuild();
   });
 
-  mosaicBuild();
+  // mosaicBuild();
 /////////
   function parseHash(){
     var hash = window.location.hash;
@@ -717,5 +721,9 @@ $( document ).ready(function() {
    //      console.log(bgImages + map);
    //    }
    // });
+
+  if(window.location.pathname == 'http://localhost:8080/') {
+    $('body').addClass('no-cup');
+  }
 
 });

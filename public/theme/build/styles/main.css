@@ -376,8 +376,11 @@ body {
   background-position: calc(100% - 80px) 114px, center 90px;
   background-repeat: no-repeat;
   background-size: initial, cover;
-  min-height: 1024px;
-  overflow: hidden; }
+  min-height: 1024px; }
+  body.no-cup {
+    background-image: url(../images/bg-main.jpg);
+    background-position: center 90px;
+    background-size: cover; }
 
 p, a, span, li {
   font-family: 'PT Sans', 'Open Sans', Arial; }
@@ -693,12 +696,11 @@ textarea:-ms-textarea-placeholder {
       .block.header .icons-block .partner-lingualeo {
         width: 152px;
         height: 28px;
-        float: left;
+        float: right;
         margin-top: 9px;
         background: url("../images/logo-lingualeo.png");
         background-repeat: no-repeat;
-        margin-right: 23px;
-        padding-right: 24px; }
+        margin-right: 30px; }
         @media (max-width: 320px) {
           .block.header .icons-block .partner-lingualeo {
             display: none; } }
@@ -715,9 +717,10 @@ textarea:-ms-textarea-placeholder {
         background-image: url("../images/ico-account.png");
         background-repeat: no-repeat;
         background-position: center;
-        float: left;
+        float: right;
         -webkit-transition: .2s all;
-                transition: .2s all; }
+                transition: .2s all;
+        margin-right: 30px; }
         @media (max-width: 320px) {
           .block.header .icons-block .ico-account {
             position: absolute;
@@ -748,7 +751,7 @@ textarea:-ms-textarea-placeholder {
       top: 0;
       z-index: 100;
       width: 345px;
-      height: 210px;
+      height: auto;
       background-color: #c90119;
       display: none; }
       .block.header .right-menu-holder:after {
@@ -1388,8 +1391,6 @@ textarea:-ms-textarea-placeholder {
             border-width: 3px 0 0 0;
             border-style: solid;
             border-color: #c90119; }
-          .block .participate-block .forms-holder form.registration button.loading, .block .participate-block .forms-holder form.profile-edit button.loading {
-            background: #666 !important; }
       .block .participate-block .forms-holder .login-block {
         width: 325px;
         float: left; }
@@ -1535,6 +1536,8 @@ textarea:-ms-textarea-placeholder {
           width: 100%;
           overflow: hidden;
           clear: both; }
+          .block .participate-block .forms-holder form.full-registration .accept-block-holder.avatar-hack, .block .participate-block .forms-holder form.profile-edit .accept-block-holder.avatar-hack {
+            margin-top: -35px; }
           @media (max-width: 320px) {
             .block .participate-block .forms-holder form.full-registration .accept-block-holder, .block .participate-block .forms-holder form.profile-edit .accept-block-holder {
               margin-bottom: 50px;
@@ -1571,8 +1574,6 @@ textarea:-ms-textarea-placeholder {
             border-width: 3px 0 0 0;
             border-style: solid;
             border-color: #c90119; }
-          .block .participate-block .forms-holder form.full-registration button.loading, .block .participate-block .forms-holder form.profile-edit button.loading {
-            background: #666 !important; }
   .block .faq-mask {
     overflow: hidden;
     width: 910px;
@@ -1875,12 +1876,12 @@ textarea:-ms-textarea-placeholder {
           display: none; }
       .block .rules-row .rule-item:before {
         content: '';
-        width: 51px;
-        height: 20px;
+        width: 30px;
+        height: 52px;
         position: absolute;
-        background-image: url("../images/bg-step-arrows.png");
-        top: 58px;
-        right: -80px; }
+        background-image: url("../images/ico-step-arrow.png");
+        top: 50px;
+        right: -70px; }
         @media (max-width: 320px) {
           .block .rules-row .rule-item:before {
             display: none; } }
@@ -1898,9 +1899,6 @@ textarea:-ms-textarea-placeholder {
         background-image: url("../images/bg-rule-2.png"); }
         .block .rules-row .rule-item.rule-2 .rule-img {
           background-image: url("../images/ico-step-2.png"); }
-        .block .rules-row .rule-item.rule-2:before {
-          top: 73px;
-          background-position: 0 20px; }
       .block .rules-row .rule-item.rule-3 {
         background-image: url("../images/bg-rule-3.png"); }
         .block .rules-row .rule-item.rule-3 .rule-img {
@@ -1934,7 +1932,8 @@ textarea:-ms-textarea-placeholder {
       height: 50px;
       right: 0;
       bottom: 22px;
-      cursor: pointer; }
+      cursor: pointer;
+      text-decoration: none; }
       @media (max-width: 320px) {
         .block .rules-text-block a.download-block {
           position: relative;
@@ -1942,7 +1941,7 @@ textarea:-ms-textarea-placeholder {
           bottom: inherit;
           margin: 0 auto 30px; } }
       .block .rules-text-block a.download-block:hover h3 {
-        text-decoration: underline; }
+        text-decoration: underline !important; }
       .block .rules-text-block a.download-block .ico {
         width: 40px;
         height: 48px;
@@ -1958,8 +1957,7 @@ textarea:-ms-textarea-placeholder {
         color: #000;
         font-size: 12px;
         font-family: 'PT Sans', 'Open Sans', Arial;
-        text-transform: capitalize;
-        text-decoration: none !important; }
+        text-transform: capitalize; }
   .block .mosaic-holder {
     position: absolute;
     width: 100%;
@@ -2012,7 +2010,7 @@ textarea:-ms-textarea-placeholder {
         width: 1155px;
         height: 850px;
         position: absolute;
-        margin-top: 20px;
+        margin-top: -130px;
         left: -135px;
         z-index: 0; }
         @media (max-width: 320px) {
@@ -2313,7 +2311,8 @@ textarea:-ms-textarea-placeholder {
         height: 80px;
         overflow: hidden;
         padding: 0;
-        box-sizing: border-box; }
+        box-sizing: border-box;
+        position: relative; }
         @media (max-width: 320px) {
           .block .profile .profile-head .request {
             width: 100%;
@@ -2354,8 +2353,9 @@ textarea:-ms-textarea-placeholder {
           font-size: 12px;
           color: transparent;
           width: 167px;
-          margin-left: 20px;
-          margin-top: -3px; }
+          position: absolute;
+          left: 20px;
+          bottom: 0; }
           .block .profile .profile-head .request .moderation .bullet {
             width: 8px;
             height: 8px;
@@ -2852,13 +2852,13 @@ input.error {
       border-style: solid;
       border-color: #c90119; }
 
-form.registration label {
+form label.error {
   position: relative;
   display: block;
-  margin-bottom: -14px;
+  margin-bottom: -12px;
   top: -20px;
   color: #c90119;
-  font-size: 14px; }
+  font-size: 12px; }
 
 .erros-message-block {
   width: 100%;
@@ -2875,3 +2875,8 @@ form.registration label {
     background-image: url("../images/ico-error.png");
     float: left;
     margin-right: 10px; }
+
+.exit-cabinet {
+  float: right;
+  margin-top: -3px;
+  margin-right: 25px; }
