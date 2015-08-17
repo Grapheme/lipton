@@ -15,7 +15,6 @@ $text = $writing->writing
         <div class="block">
             <div class="content">
                 <h2>Конкурс рассказов</h2>
-
                 <div class="share-story-block">
                     {{ nl2br($text) }}
                 </div>
