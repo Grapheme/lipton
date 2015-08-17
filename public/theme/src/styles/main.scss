@@ -17,7 +17,13 @@ body {
 	background-repeat: no-repeat;
 	background-size: initial, cover;
 	min-height: 1024px;
-	overflow: hidden;
+
+	&.no-cup {
+		background-image: url(../images/bg-main.jpg);
+		background-position: center 90px;
+		background-size: cover;
+
+	}
 }
 
 p, a, span, li {
@@ -427,12 +433,11 @@ textarea:-ms-textarea-placeholder {
 			.partner-lingualeo {
 				width: 152px;
 				height: 28px;
-				float: left;
+				float: right;
 				margin-top: 9px;
 				background: url('../images/logo-lingualeo.png');
 				background-repeat: no-repeat;
-				margin-right: 23px;
-				padding-right: 24px;
+				margin-right: 30px;
 
 				@include mobile {
 					display: none;
@@ -453,8 +458,9 @@ textarea:-ms-textarea-placeholder {
 				background-image: url('../images/ico-account.png');
 				background-repeat: no-repeat;
 				background-position: center;
-				float: left;
+				float: right;
 				transition: .2s all;
+				margin-right: 30px;
 
 				@include mobile {
 					position: absolute;
@@ -497,7 +503,7 @@ textarea:-ms-textarea-placeholder {
 			top: 0;
 			z-index: 100;
 			width: 345px;
-			height: 210px;
+			height: auto;
 			background-color: #c90119;
 			display: none;
 
@@ -1366,10 +1372,6 @@ textarea:-ms-textarea-placeholder {
 						border-style: solid;
 						border-color: #c90119;
 					}
-
-					&.loading {
-						background: #666 !important;
-					}
 				}
 			}
 
@@ -1567,6 +1569,10 @@ textarea:-ms-textarea-placeholder {
 					overflow: hidden;
 					clear: both;
 
+					&.avatar-hack {
+						margin-top: -35px;
+					}
+
 					@include mobile {
 						margin-bottom: 50px;
 						padding: 0 20px;
@@ -1611,10 +1617,6 @@ textarea:-ms-textarea-placeholder {
 						border-width: 3px 0 0 0;
 						border-style: solid;
 						border-color: #c90119;
-					}
-
-					&.loading {
-						background: #666 !important;
 					}
 				}
 			}
@@ -2031,12 +2033,12 @@ textarea:-ms-textarea-placeholder {
 
 			&:before {
 				content: '';
-				width: 51px;
-				height: 20px;
+				width: 30px;
+				height: 52px;
 				position: absolute;
-				background-image: url('../images/bg-step-arrows.png');
-				top: 58px;
-				right: -80px;
+				background-image: url('../images/ico-step-arrow.png');
+				top: 50px;
+				right: -70px;
 
 				@include mobile {
 					display: none;
@@ -2064,11 +2066,6 @@ textarea:-ms-textarea-placeholder {
 
 				.rule-img {
 					background-image: url('../images/ico-step-2.png');
-				}
-
-				&:before {
-					top: 73px;
-					background-position: 0 20px;
 				}
 			}
 
@@ -2122,6 +2119,7 @@ textarea:-ms-textarea-placeholder {
 			right: 0;
 			bottom: 22px;
 			cursor: pointer;
+			text-decoration: none;
 
 			@include mobile {
 				position: relative;
@@ -2133,7 +2131,7 @@ textarea:-ms-textarea-placeholder {
 
 			&:hover {
 				h3 {
-					text-decoration: underline;
+					text-decoration: underline !important;
 				}
 			}
 
@@ -2157,7 +2155,6 @@ textarea:-ms-textarea-placeholder {
 				font-size: 12px;
 				font-family: 'PT Sans', 'Open Sans', Arial;
 				text-transform: capitalize;
-				text-decoration: none !important;
 			}
 		}
 	}
@@ -2234,7 +2231,7 @@ textarea:-ms-textarea-placeholder {
 				width: 1155px;
 				height: 850px;
 				position: absolute;
-				margin-top: 20px;
+				margin-top: -130px;
 				left: -135px;
 				z-index: 0;
 
@@ -2629,6 +2626,7 @@ textarea:-ms-textarea-placeholder {
 				overflow: hidden;
 				padding: 0;
 				box-sizing: border-box;
+				position: relative;
 
 				@include mobile {
 					width: 100%;
@@ -2684,8 +2682,9 @@ textarea:-ms-textarea-placeholder {
 					font-size: 12px;
 					color: transparent;
 					width: 167px;
-					margin-left: 20px;
-					margin-top: -3px;
+					position: absolute;
+					left: 20px;
+					bottom: 0;
 
 					.bullet {
 						width: 8px;
@@ -3362,14 +3361,14 @@ input.error {
 	}
 }
 
-form.registration {
-	label {
+form {
+	label.error {
 		position: relative;
 		display: block;
-		margin-bottom: -14px;
+		margin-bottom: -12px;
 		top: -20px;
 		color: #c90119;
-		font-size: 14px;
+		font-size: 12px;
 	}
 }
 
@@ -3392,3 +3391,8 @@ form.registration {
 	}
 }
 
+.exit-cabinet {
+	float: right;
+	margin-top: -3px;
+	margin-right: 25px;
+}

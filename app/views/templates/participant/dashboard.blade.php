@@ -17,7 +17,7 @@ $now = Carbon::now();
         <div class="block">
             <div class="content">
                 <h2>Личный кабинет</h2>
-                <a href="{{ URL::route('logout') }}">Выйти</a>
+                <a class="exit-cabinet" href="{{ URL::route('logout') }}">Выйти</a>
                 @if(Session::has('message'))
                     <div>{{ Session::get('message') }}</div>
                 @endif
