@@ -314,7 +314,7 @@ class ApiController extends BaseController {
         endif;
     }
 
-    public function get_register(array $params = [], $operation = 'Unilever.EditLightProfile') {
+    public function get_register(array $params = [], $operation = 'Unilever.EditSlimProfile') {
 
         if (empty($params)):
             App::abort(404);
@@ -350,7 +350,7 @@ class ApiController extends BaseController {
         endif;
     }
 
-    public function update_register(array $params = [], $operation = 'Unilever.EditLightProfile') {
+    public function update_register(array $params = [], $operation = 'Unilever.EditSlimProfile') {
 
         if (empty($params)):
             App::abort(404);
@@ -374,13 +374,15 @@ class ApiController extends BaseController {
         <version><?= $params['version']; ?></version>
         <sex><?= @$sex[$params['sex']]; ?></sex>
         <email><?= $params['email']; ?></email>
-        <mobilePhone><?= $params['phone'] ?></mobilePhone>
         <birthdate year="<?= (int)$params['yyyy']; ?>" month="<?= (int)$params['mm']; ?>" day="<?= (int)$params['dd']; ?>"/>
         <subscription isActiveForCurrentBrand="true"/>
         </customer><?php
         $xml = ob_get_clean();
         $this->strlen_xml = strlen($xml);
         $result = $this->putCurl($uri_request, $xml);
+
+        Helper::tad($result);
+
         if ($this->validCode($result, 201)):
             $user = array();
             $user['id'] = $this->getXmlValue($result['curl_result'], '', 'id');
