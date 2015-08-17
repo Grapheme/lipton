@@ -29,7 +29,7 @@
                  class="{{ $user->name }}">
         @endif
             <a href="#">Сменить аватар</a>
-            <input name="avatar">
+            <input class="hidden-avatar-input" name="avatar">
         </div>
     </div>
     <div class="form-block-left">
