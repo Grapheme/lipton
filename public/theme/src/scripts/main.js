@@ -689,18 +689,22 @@ $( document ).ready(function() {
   });
 
   $('.cropper-wrapper .save').click(function() {
+    $('.avatar-hack .hidden-avatar-input').val($('.cropper > img').cropper('getCroppedCanvas'));
     $('.cropper-wrapper').fadeOut();
   });
-  $('.cropper > img').on('load', function(){
-    $('.cropper > img').cropper({
-      aspectRatio: 1 / 1,
-      autoCropArea: 0.65,
-      strict: false,
-      guides: false,
-      highlight: false,
-      dragCrop: false,
-      cropBoxMovable: false,
-      cropBoxResizable: false
-    });
+
+  $('.cropper-wrapper .close').click(function() {
+    $('.cropper-wrapper').fadeOut();
+  });
+
+  $('.cropper > img').cropper({
+    aspectRatio: 1 / 1,
+    autoCropArea: 0.65,
+    strict: false,
+    guides: false,
+    highlight: false,
+    dragCrop: false,
+    cropBoxMovable: false,
+    cropBoxResizable: false
   });
 });
