@@ -1415,7 +1415,7 @@ $('.preloaded__img').each(function(){
   });
 });
 
-$(window).ready(function(){
+$(document).onload(function(){
   $('.preloader').fadeOut();
 });
 
@@ -1446,9 +1446,9 @@ $( document ).ready(function() {
       $('.send-instructions').fadeIn();
   });
 
-  $('.profile-head .request a').click(function(){
-    $('.story').fadeIn();
-  });
+  // $('.profile-head .request a').click(function(){
+  //   $('.story').fadeIn();
+  // });
 
   $('.send-instructions .fields-holder a').click(function() {
       $('.send-instructions').fadeOut();
@@ -2151,8 +2151,6 @@ $( document ).ready(function() {
 
   // CROPPER //
   $('.accept-block-holder.avatar-hack').click(function() {
-    $('.promo-code.promo-code-2').html('');
-    $('.promo-code.promo-code-2').append('111');
-    $('.block.second-code').fadeIn();
+    $('.block.cropper-holder').fadeIn();
   })
 });
