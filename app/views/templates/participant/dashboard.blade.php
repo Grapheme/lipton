@@ -17,19 +17,6 @@ $prizes = (new ApiController())->get_prizes($post);
 @stop
 @section('page_class')  @stop
 @section('content')
-    <div class="cropper-wrapper">
-        <div class="second-code-hack">
-            <div class="cropper-holder">
-                <a href="#" class="popup-close-cross"></a>
-                <h3>Введите код из sms</h3>
-                <p>На указанный при регистрации номер мобильного телефона<br>был отправлен код для подтверждения регистрации</p>
-                <form name="sms-check" class="sms-chesk">
-                    <input for="sms-chesk" name="sms-chesk-input" class="sms-chesk-input">
-                    <button>Отправить</button>
-                </form>
-            </div>
-        </div>
-    </div>
     <div class="main-content sub-page">
         <div class="block">
             <div class="content">
