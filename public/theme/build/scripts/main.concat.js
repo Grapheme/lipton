@@ -1904,7 +1904,8 @@ $( document ).ready(function() {
     submitHandler: function(form) {
       //$('form.full-registration button').html('');
       $('form.full-registration button').addClass('loading');
-      $('form.full-registration button').html('<i class="fa fa-circle-o-notch fa-spin"></i>')
+      $('form.full-registration button').prepend('<i class="fa fa-circle-o-notch fa-spin"></i>')
+      $('.erros-message-block').remove();
       var options = {
         success: function(data){
           if(data.redirectURL) {
