@@ -8,6 +8,15 @@
 	}
 }
 
+.first-preloader-image {
+	width: 1px;
+	height: 1px;
+	opacity: 0.1;
+	display: block;
+	position: absolute;
+	top: -1000;
+}
+
 body {
 	margin: 0;
 	padding: 0;
@@ -370,17 +379,17 @@ textarea:-ms-textarea-placeholder {
 
 	h2 {
 		font-family: 'Intro-regular';
-	    color: #c90119;
-	    font-size: 28px;
-	    text-transform: uppercase;
-	    text-align: center;
-	    margin: 0;
-	    line-height: 23px;
-	    margin-top: 50px;
+	color: #c90119;
+	font-size: 28px;
+	text-transform: uppercase;
+	text-align: center;
+	margin: 0;
+	line-height: 23px;
+	margin-top: 50px;
 
-	    @include mobile {
-	    	line-height: 33px;
-	    }
+	@include mobile {
+		line-height: 33px;
+	}
 	}
 
 	.devider {
@@ -429,7 +438,7 @@ textarea:-ms-textarea-placeholder {
 			}
 
 			.partner-traveller {
-				width: 120px;
+				width: 116px;
 				height: 37px;
 				float: left;
 				background: url('../images/logo-traveller.png');
@@ -463,7 +472,7 @@ textarea:-ms-textarea-placeholder {
 
 			@include mobile {
 				top: 16px;
-    			right: 30px;
+			right: 30px;
 			}
 
 			.ico-account {
@@ -1051,7 +1060,7 @@ textarea:-ms-textarea-placeholder {
 
 		button {
 			float: right;
-			width: 136px;
+			width: 150px;
 			height: 50px;
 			background-color: #c90119;
 			color: #ffde00;
@@ -1151,7 +1160,7 @@ textarea:-ms-textarea-placeholder {
 				margin: 0 auto;
 				height: 440px;
 				overflow: hidden;
-				    width: 765px;
+				width: 765px;
 
 				.story-text {
 					overflow: scroll;
@@ -1214,7 +1223,7 @@ textarea:-ms-textarea-placeholder {
 
 			button {
 				float: right;
-				width: 136px;
+				width: 150px;
 				height: 50px;
 				background-color: #c90119;
 				color: #ffde00;
@@ -1360,7 +1369,7 @@ textarea:-ms-textarea-placeholder {
 
 				button {
 					display: block;
-					width: 136px;
+					width: 150px;
 					height: 50px;
 					background-color: #c90119;
 					color: #ffde00;
@@ -1588,6 +1597,7 @@ textarea:-ms-textarea-placeholder {
 
 					&.avatar-hack {
 						margin-top: -35px;
+						margin-bottom: 30px;
 
 						.profile-info {
 							cursor: pointer;
@@ -1613,7 +1623,7 @@ textarea:-ms-textarea-placeholder {
 
 				button {
 					display: block;
-					width: 136px;
+					width: 150px;
 					height: 50px;
 					background-color: #c90119;
 					color: #ffde00;
@@ -2457,14 +2467,36 @@ textarea:-ms-textarea-placeholder {
 				font-size: 16px;
 			}
 
-			a {
+			div.hidden-input {
+				position: relative;
 				text-decoration: underline;
 				margin-top: 5px;
 				margin-bottom: 10px;
     			display: block;
+    			cursor: pointer;
+    			color: #c90119;
 
 				&:hover {
 					text-decoration: none;
+				}
+
+				span {
+					position: relative;
+					z-index: 1;
+					cursor: pointer;
+				}
+
+				input {
+					position: absolute;
+					z-index: 10;
+					top: 0;
+					left: 0;
+					width: 100% !important;
+					height: 100% !important;
+					opacity: 0;
+					display: block;
+					cursor: pointer;
+					margin-bottom: 0;
 				}
 			}
 		}
@@ -2571,7 +2603,7 @@ textarea:-ms-textarea-placeholder {
 
 				form.promo-code {
 					display: block;
-					width: 357px;
+					width: 367px;
 					height: 50px;
 					margin: 0;
 
@@ -2601,7 +2633,7 @@ textarea:-ms-textarea-placeholder {
 
 					button {
 						float: right;
-						width: 136px;
+						width: 150px;
 						height: 50px;
 						background-color: #c90119;
 						color: #ffde00;
@@ -3439,6 +3471,16 @@ form {
 	display: none;
 	z-index: 1000;
 
+	.second-code-hack {
+		position: relative;
+		width: 1px;
+		height: 100%;
+		top: 0;
+		bottom: 0;
+		display: inline-block;
+		vertical-align: middle;
+	}
+
 	a.popup-close-cross {
 		display: block;
 		position: absolute;
@@ -3455,20 +3497,100 @@ form {
 		display: inline-block;
 		vertical-align: middle;
 		left: 50%;
-		margin-left: -266px;
+		margin-left: -300px;
 		width: 600px;
 		height: 600px;
 		border-radius: 10px;
 
+		@include mobile {
+			.second-code-hack {
+				display: none;
+			}
+
+			.cropper-holder {
+				position: relative;
+				background-image: url("../images/bg-main.jpg");
+				width: 100%;
+				height: 600px;
+				border-radius: 10px;
+			}
+
+			a.popup-close-cross {
+				position: relative;
+				background-image: url("../images/bg-main.jpg");
+				display: block;
+				vertical-align: inherit;
+				left: 0;
+				margin-left: 0;
+				width: 100%;
+				height: 600px;
+				border-radius: 10px;
+			}
+
+			.cropper {
+				width: 320px;
+				height: auto;
+			}
+
+			.cropper-tools {
+				width: auto;
+				margin: 0 auto;
+				margin-top: 30px;
+				padding: 0 20px;
+			}
+		}
+
 		.cropper {
 			width: 400px;
-			height: 400;
+			height: 400px;
 			margin: 0 auto;
-
+			margin-top: 80px;
+			background-color: #666;
 		}
 
 		.cropper-tools {
-			
+			width: 400px;
+			margin: 0 auto;
+			margin-top: 30px;
+			a {
+				display: block;
+				width: 136px;
+				height: 47px;
+				background-color: #c90119;
+				color: #ffde00;
+				font-size: 18px;
+				border-width: 0 0 3px 0;
+				border-color: #a40000;
+				border-style: solid;
+				border-radius: 3px;
+				text-transform: uppercase;
+				transition: .1s all;
+				text-decoration: none;
+				text-align: center;
+				line-height: 50px;
+				font-family: 'Intro';
+				cursor: pointer;
+				
+				&.close {
+					float: left;
+				}
+
+				&.save {
+					float: right;
+				}
+
+				&:hover {
+					background-color: #a40000;
+					color: #c90119;
+					border-width: 3px 0 0 0;
+					border-style: solid;
+					border-color: #c90119;
+				}
+			}
 		}
 	}
+}
+
+.fa {
+	margin-right: 10px;
 }

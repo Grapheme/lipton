@@ -26,6 +26,7 @@ endif;
 @section('style')
 @stop
 @section('content')
+<img src="../theme/build/images/main-slider/1.jpg" class="first-preloader-image">
     <div class="preloader">
         <div class="preloader-hack"></div>
         <div class="preloader-plain"></div>

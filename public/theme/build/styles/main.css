@@ -368,6 +368,14 @@ td,
 th {
   padding: 0; }
 
+.first-preloader-image {
+  width: 1px;
+  height: 1px;
+  opacity: 0.1;
+  display: block;
+  position: absolute;
+  top: -1000; }
+
 body {
   margin: 0;
   padding: 0;
@@ -691,7 +699,7 @@ textarea:-ms-textarea-placeholder {
         .block.header .partners-block {
           display: none; } }
       .block.header .partners-block .partner-traveller {
-        width: 120px;
+        width: 116px;
         height: 37px;
         float: left;
         background: url("../images/logo-traveller.png"); }
@@ -1126,7 +1134,7 @@ textarea:-ms-textarea-placeholder {
           margin-bottom: 20px; } }
     .block form.promo-code button {
       float: right;
-      width: 136px;
+      width: 150px;
       height: 50px;
       background-color: #c90119;
       color: #ffde00;
@@ -1179,28 +1187,6 @@ textarea:-ms-textarea-placeholder {
       bottom: 0;
       display: inline-block;
       vertical-align: middle; }
-    .block.second-code .cropper-holder, .block.send-instructions .cropper-holder, .block.story .cropper-holder, .block.select-gain .cropper-holder {
-      position: relative;
-      background-image: url("../images/bg-main.jpg");
-      display: inline-block;
-      vertical-align: middle;
-      left: 50%;
-      margin-left: -266px;
-      width: 600px;
-      height: 600px;
-      border-radius: 10px; }
-      .block.second-code .cropper-holder .cropper, .block.send-instructions .cropper-holder .cropper, .block.story .cropper-holder .cropper, .block.select-gain .cropper-holder .cropper {
-        width: 400px;
-        height: 400;
-        margin: 0 auto; }
-      .block.second-code .cropper-holder a.popup-close-cross, .block.send-instructions .cropper-holder a.popup-close-cross, .block.story .cropper-holder a.popup-close-cross, .block.select-gain .cropper-holder a.popup-close-cross {
-        display: block;
-        position: absolute;
-        background-image: url("../images/ico-close-popup.png");
-        width: 39px;
-        height: 38px;
-        right: 30px;
-        top: 30px; }
     .block.second-code .story-popup, .block.send-instructions .story-popup, .block.story .story-popup, .block.select-gain .story-popup {
       position: relative;
       background-image: url("../images/bg-story.jpg");
@@ -1280,7 +1266,7 @@ textarea:-ms-textarea-placeholder {
         text-transform: uppercase; }
       .block.second-code form.promo-code-2 button, .block.second-code form.send-instructions button, .block.second-code form.select-gain button, .block.send-instructions form.promo-code-2 button, .block.send-instructions form.send-instructions button, .block.send-instructions form.select-gain button, .block.story form.promo-code-2 button, .block.story form.send-instructions button, .block.story form.select-gain button, .block.select-gain form.promo-code-2 button, .block.select-gain form.send-instructions button, .block.select-gain form.select-gain button {
         float: right;
-        width: 136px;
+        width: 150px;
         height: 50px;
         background-color: #c90119;
         color: #ffde00;
@@ -1397,7 +1383,7 @@ textarea:-ms-textarea-placeholder {
               width: 100%; } }
         .block .participate-block .forms-holder form.registration button, .block .participate-block .forms-holder form.profile-edit button {
           display: block;
-          width: 136px;
+          width: 150px;
           height: 50px;
           background-color: #c90119;
           color: #ffde00;
@@ -1570,7 +1556,8 @@ textarea:-ms-textarea-placeholder {
           overflow: hidden;
           clear: both; }
           .block .participate-block .forms-holder form.full-registration .accept-block-holder.avatar-hack, .block .participate-block .forms-holder form.profile-edit .accept-block-holder.avatar-hack {
-            margin-top: -35px; }
+            margin-top: -35px;
+            margin-bottom: 30px; }
             .block .participate-block .forms-holder form.full-registration .accept-block-holder.avatar-hack .profile-info, .block .participate-block .forms-holder form.profile-edit .accept-block-holder.avatar-hack .profile-info {
               cursor: pointer; }
           @media (max-width: 320px) {
@@ -1584,7 +1571,7 @@ textarea:-ms-textarea-placeholder {
             font-size: 14px; }
         .block .participate-block .forms-holder form.full-registration button, .block .participate-block .forms-holder form.profile-edit button {
           display: block;
-          width: 136px;
+          width: 150px;
           height: 50px;
           background-color: #c90119;
           color: #ffde00;
@@ -2197,13 +2184,31 @@ textarea:-ms-textarea-placeholder {
     .block .accept-block-holder .profile-info p {
       margin: 0 0 14px 0;
       font-size: 16px; }
-    .block .accept-block-holder .profile-info a {
+    .block .accept-block-holder .profile-info div.hidden-input {
+      position: relative;
       text-decoration: underline;
       margin-top: 5px;
       margin-bottom: 10px;
-      display: block; }
-      .block .accept-block-holder .profile-info a:hover {
+      display: block;
+      cursor: pointer;
+      color: #c90119; }
+      .block .accept-block-holder .profile-info div.hidden-input:hover {
         text-decoration: none; }
+      .block .accept-block-holder .profile-info div.hidden-input span {
+        position: relative;
+        z-index: 1;
+        cursor: pointer; }
+      .block .accept-block-holder .profile-info div.hidden-input input {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        left: 0;
+        width: 100% !important;
+        height: 100% !important;
+        opacity: 0;
+        display: block;
+        cursor: pointer;
+        margin-bottom: 0; }
   .block .profile {
     width: 910px;
     height: 510px;
@@ -2282,7 +2287,7 @@ textarea:-ms-textarea-placeholder {
               text-align: center; } }
         .block .profile .profile-head .profile-promo-code form.promo-code {
           display: block;
-          width: 357px;
+          width: 367px;
           height: 50px;
           margin: 0; }
           @media (max-width: 320px) {
@@ -2307,7 +2312,7 @@ textarea:-ms-textarea-placeholder {
                 margin: 0 auto 20px; } }
           .block .profile .profile-head .profile-promo-code form.promo-code button {
             float: right;
-            width: 136px;
+            width: 150px;
             height: 50px;
             background-color: #c90119;
             color: #ffde00;
@@ -2919,3 +2924,111 @@ form label.error {
 
 .fotorama__nav-wrap {
   display: none; }
+
+/* CROPPER */
+.cropper-wrapper {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  display: none;
+  z-index: 1000; }
+  .cropper-wrapper .second-code-hack {
+    position: relative;
+    width: 1px;
+    height: 100%;
+    top: 0;
+    bottom: 0;
+    display: inline-block;
+    vertical-align: middle; }
+  .cropper-wrapper a.popup-close-cross {
+    display: block;
+    position: absolute;
+    background-image: url("../images/ico-close-popup.png");
+    width: 39px;
+    height: 38px;
+    right: 30px;
+    top: 30px; }
+  .cropper-wrapper .cropper-holder {
+    position: relative;
+    background-image: url("../images/bg-main.jpg");
+    display: inline-block;
+    vertical-align: middle;
+    left: 50%;
+    margin-left: -300px;
+    width: 600px;
+    height: 600px;
+    border-radius: 10px; }
+    @media (max-width: 320px) {
+      .cropper-wrapper .cropper-holder .second-code-hack {
+        display: none; }
+      .cropper-wrapper .cropper-holder .cropper-holder {
+        position: relative;
+        background-image: url("../images/bg-main.jpg");
+        width: 100%;
+        height: 600px;
+        border-radius: 10px; }
+      .cropper-wrapper .cropper-holder a.popup-close-cross {
+        position: relative;
+        background-image: url("../images/bg-main.jpg");
+        display: block;
+        vertical-align: inherit;
+        left: 0;
+        margin-left: 0;
+        width: 100%;
+        height: 600px;
+        border-radius: 10px; }
+      .cropper-wrapper .cropper-holder .cropper {
+        width: 320px;
+        height: auto; }
+      .cropper-wrapper .cropper-holder .cropper-tools {
+        width: auto;
+        margin: 0 auto;
+        margin-top: 30px;
+        padding: 0 20px; } }
+    .cropper-wrapper .cropper-holder .cropper {
+      width: 400px;
+      height: 400px;
+      margin: 0 auto;
+      margin-top: 80px;
+      background-color: #666; }
+    .cropper-wrapper .cropper-holder .cropper-tools {
+      width: 400px;
+      margin: 0 auto;
+      margin-top: 30px; }
+      .cropper-wrapper .cropper-holder .cropper-tools a {
+        display: block;
+        width: 136px;
+        height: 47px;
+        background-color: #c90119;
+        color: #ffde00;
+        font-size: 18px;
+        border-width: 0 0 3px 0;
+        border-color: #a40000;
+        border-style: solid;
+        border-radius: 3px;
+        text-transform: uppercase;
+        -webkit-transition: .1s all;
+                transition: .1s all;
+        text-decoration: none;
+        text-align: center;
+        line-height: 50px;
+        font-family: 'Intro';
+        cursor: pointer; }
+        .cropper-wrapper .cropper-holder .cropper-tools a.close {
+          float: left; }
+        .cropper-wrapper .cropper-holder .cropper-tools a.save {
+          float: right; }
+        .cropper-wrapper .cropper-holder .cropper-tools a:hover {
+          background-color: #a40000;
+          color: #c90119;
+          border-width: 3px 0 0 0;
+          border-style: solid;
+          border-color: #c90119; }
+
+.fa {
+  margin-right: 10px; }

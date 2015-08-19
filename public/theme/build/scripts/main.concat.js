@@ -1391,7 +1391,7 @@ $('*').filter(function() { return $(this).css('background-image') != 'none' && !
     $.each(imgHack.split(','), function(i, v){
       var protoImgUrl = v.split('//')[1].split('/');
       var imgName = protoImgUrl[protoImgUrl.length-1].replace(')', '');
-      $('body').prepend('<img class="preloaded__img" style="display: none;" src="../images/' + imgName + '">');
+      $('body').prepend('<img class="preloaded__img" style="display: none;" src="../theme/build/images/' + imgName + '">');
       bgCounter++;
     });
 });
@@ -1415,15 +1415,17 @@ $('.preloaded__img').each(function(){
   });
 });
 
-$(document).onload(function(){
+$(window).on('load', function(){
   $('.preloader').fadeOut();
 });
-
-
 
 $( document ).ready(function() {
 
   // CLOSE BUTTONS ETC //
+
+  if (window.location.pathname == '/') {
+    $('body').addClass('no-cup');
+  }
 
   $('.ico-burger').click(function (){
     $('.right-menu-holder').slideToggle( function() {
@@ -2057,100 +2059,52 @@ $( document ).ready(function() {
     });
   });
 
-  // PRELOADER //
-
-  // var preloaderAnimation = function() {
-  //   var anim_time = 150;
-  //   var anim_timeout = [];
-  //   var options = {
-  //     "preloader .preloader-plain": {
-  //       steps: 7
-  //     }
-  //   };
-  //   var Animation = function(step, elem, direction) {
-  //     var this_steps = options[elem].steps;
-  //     var this_elem = $(elem);
-  //     if(direction == 'hover') {
-  //       step++;
-  //     } else {
-  //       step--;
-  //     }
-  //     var new_pos = step * this_elem.width() * (-1);
-  //     this_elem
-  //       .css('background-position',  new_pos + 'px 0')
-  //       .attr('data-active-step', step);
-  //     anim_timeout[elem] = setTimeout(function(){
-  //       if(step < this_steps - 1 && step > 0) {
-  //         Animation(step, elem, direction);
-  //       }
-  //     }, anim_time/this_steps);
-  //   }
-  //   $.each(options, function(index, value){
-  //     if(!$(index).hasClass('active')) {
-  //       $(index).css('background-size', 100*value.steps + '% 100%');
-  //       $(index).on('mouseenter', function(){
-  //         clearTimeout(anim_timeout[index]);
-  //         var start_step = 0;
-  //         if($(this).attr('data-active-step')) {
-  //           start_step = $(this).attr('data-active-step');
-  //         }
-  //         Animation(start_step, index, 'hover');
-  //       }).on('mouseleave', function(){
-  //         clearTimeout(anim_timeout[index]);
-  //         Animation($(this).attr('data-active-step'), index, 'hoverout');
-  //       });
-  //     }
-  //   });
-  // }
-
-  // preloaderAnimation();
-
-   // get a collection of all elements with a BG image
-    // var bgImages = $('*').filter(function() {
-    //   console.log(13)
-    //   return ($(this).css('background-image') !== '');
-    //   console.log(100);
-    // });
-    // var bg = 0
-    //     // var bgImages = $('*').length;
-
-    //     var Bg = function() {
-    //       if ('*').css('background-image' !== '') {
-    //         bg++
-    //       }
-    //       console.log(bg);
-    //     }
-
-   // // get a collection of new images, assigning the sources from the original collection
-   // }).map(function() {
-   //     return $("<img />").attr("src", $(this).css('background-image').slice(5, -2));
-   // });
-
-   // var len = bgImages.length;
-   // var loadCounter = 0;
-
-   // // use an onload counter to keep track of which ones have loaded
-   // bgImages.load(function() {
-   //    loadCounter++;
-   //    if(loadCounter == len) {
-
-   //       // we have all loaded
-   //       // fade out curtain
-   //    }
-   // }).each(function() {
-
-   //    // if we have been pulled up from cache, manually trigger onload
-   //    if (this.complete) {
-   //      console.log(bgImages + map);
-   //    }
-   // });
-
-  if (window.location.pathname == 'http://lipton.dev.grapheme.ru/') {
-    $('body').addClass('no-cup');
-  }
-
   // CROPPER //
-  $('.accept-block-holder.avatar-hack').click(function() {
-    $('.block.cropper-holder').fadeIn();
-  })
+  /*$('.accept-block-holder.avatar-hack').click(function() {
+    $('.cropper-wrapper').fadeIn();
+  });*/
+
+  $('.cropper-wrapper .popup-close-cross, .cropper-wrapper .save').click(function() {
+    $('.cropper-wrapper').fadeOut();
+  });
+
+  $('.cropper-wrapper .save').click(function() {
+    $('.avatar-hack .hidden-avatar-input').val($('.cropper > img').cropper('getCroppedCanvas').toDataURL());
+    $('.profile-info .avatar').css('background-image: url(' + $('.avatar-hack .hidden-avatar-input').val($('.cropper > img').cropper('getCroppedCanvas').toDataURL()) + ');');
+    $('.cropper-wrapper').fadeOut();
+  });
+
+  $('.cropper-wrapper .close').click(function() {
+    $('.cropper-wrapper').fadeOut();
+  });
+
+  $('.js-cropper-image').on('change', function(){
+    var input = $(this);
+    var form = input.parents('form');
+    var formType = form.attr('data-type');
+    file = input[0].files[0];
+    fr = new FileReader();
+    fr.onload = function(e) {
+        $('.js-image-test').remove();
+        var image_str = '<img src="' + e.target.result + '">';
+        var image_test = '<img class="js-image-test" style="position: fixed; left: -9999px;" src="' + e.target.result + '">';
+        $('html').append(image_test);
+        var img_width = $('.js-image-test').width();
+        var img_height = $('.js-image-test').height();
+        $('.cropper').html(image_str);
+        $('.cropper > img').on('load', function(){
+          $('.cropper-wrapper').fadeIn();
+          $('.cropper > img').cropper({
+            aspectRatio: 1 / 1,
+            autoCropArea: 0.65,
+            strict: false,
+            guides: false,
+            highlight: false,
+            dragCrop: false
+          });
+          input.val('');
+        });
+    }
+    fr.readAsDataURL(file);
+  });
 });

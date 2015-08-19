@@ -28,8 +28,11 @@
             <img src="{{ asset(Config::get('site.theme_path').'/images/avatar_default.png') }}" alt="{{ $user->name }}"
                  class="{{ $user->name }}">
         @endif
-            <a href="#">Сменить аватар</a>
-            <input name="avatar">
+            <div class="hidden-input">
+                <span>Сменить аватар</span>
+                <input accept="image/*" type="file" class="js-cropper-image" name="profile_image">
+            </div>
+            <input type="text" class="hidden-avatar-input" name="avatar">
         </div>
     </div>
     <div class="form-block-left">
@@ -57,5 +60,6 @@
             <input name="yyyy" value="{{ (new myDateTime())->setDateString($profile->bdate)->format('Y') }}" placeholder="ГГГГ" for="full-registration-form" autocomplete="off" class="yyyy">
         </div>
     </div>
+    <div style="width: 100%; height: 30px;"></div>
 {{ Form::button('Отправить',array('type'=>'submit')) }}
 {{ Form::close() }}
