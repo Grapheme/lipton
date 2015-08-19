@@ -1550,25 +1550,35 @@ $( document ).ready(function() {
 
   submitHandler: function(form) {
       if(auth == 'authorized') {
-        // $('#promo-code-form button').html();
         $('#promo-code-form button').addClass('loading');
         $('#promo-code-form button').prepend('<i class="fa fa-circle-o-notch fa-spin"></i>');
         var options = {
           success: function(data){
             $('#promo-code-form button').removeClass('loading');
+
+            if (data.status) {
               if(data.next_code) {
                 $('.second-code').fadeIn();
 
                 } else { // PROMOCODE OLLREADY REGISTERED
-                  // $('form.promo-code-2').html('');
                   $('.second-code').html('<div class="second-code-hack"></div><div class="error-block"><h3>Ошибка</h3><p>' + data.responseText + '</p> <a href="#">Закрыть</a></div>');
                   $('.second-code').fadeIn();
                 };
+            } else {
+              $('.second-code').html('<div class="second-code-hack"></div><div class="error-block"><h3>Ошибка</h3><p>' + data.responseText + '</p> <a href="#">Закрыть</a></div>');
+              $('.second-code').fadeIn();
+            }
+
+            if(data.redirectURL) {
+              function goToCabinet () {
+                window.location.href = data.redirectURL;
+              };
+              setTimeout(goToCabinet, 3000);
+            }
           },
           error: function(data) {
             $('#promo-code-form button').removeClass('loading');
             $('#promo-code-form button').html('Отправить');
-            // ERROR
           }
         };
         $(form).ajaxSubmit(options);
@@ -1578,11 +1588,9 @@ $( document ).ready(function() {
         $('#promo-code-form button').prepend('<i class="fa fa-circle-o-notch fa-spin"></i>')
         var firstCodeCookie = $(".promo-code .promoCode1").val();
         $.cookie('firstCodeCookie', firstCodeCookie);
-        // var cookiePromo = $.cookie('firstCodeCookie'); // wright cookie cookie into var
-        // console.log('Кука: ' + cookiePromo);
-        if(redirectURL) {
+        if(data.redirectURL) {
           function goToAuthorization () {
-            window.location.href = redirectURL;
+            window.location.href = data.redirectURL;
           };
           setTimeout(goToAuthorization, 3000);
         }
@@ -1633,42 +1641,42 @@ $( document ).ready(function() {
 
 // PROFILE-FORM CODE VALIDATION //
 
-  $('form.profile-promo-code').validate({
-    rules: {
-      promoCode2: {
-        required: true,
-      }
-    },
+  // $('form.profile-promo-code').validate({
+  //   rules: {
+  //     promoCode2: {
+  //       required: true,
+  //     }
+  //   },
 
-    messages: {
-      promoCode2: {
-        required: "Необходимо заполнить поле",
-      }
-    },
+  //   messages: {
+  //     promoCode2: {
+  //       required: "Необходимо заполнить поле",
+  //     }
+  //   },
 
-    submitHandler: function(form) {
-      // $('form.profile-promo-code button').html('');
-      $('form.profile-promo-code button').addClass('loading');
-      $('form.profile-promo-code button').html('<i class="fa fa-circle-o-notch fa-spin"></i>')
-      var options = {
-        success: function(data){
-          console.log(data.responseTextSuccsess);
-            if(data.redirectURL) {
-              function goToCabinet () {
-                window.location.href = data.redirectURL;
-              };
-              setTimeout(goToCabinet, 3000);
-            }
-        },
-        error: function(data) {
-          $('form.profile-promo-code button').html('Отправить');
-          $('form.profile-promo-code button').removeClass('loading');
-          // ERROR
-        }
-      };
-      $(form).ajaxSubmit(options);
-    }
-  });
+  //   submitHandler: function(form) {
+  //     // $('form.profile-promo-code button').html('');
+  //     $('form.profile-promo-code button').addClass('loading');
+  //     $('form.profile-promo-code button').html('<i class="fa fa-circle-o-notch fa-spin"></i>')
+  //     var options = {
+  //       success: function(data){
+
+  //           if(data.redirectURL) {
+  //             function goToCabinet () {
+  //               window.location.href = data.redirectURL;
+  //             };
+  //             setTimeout(goToCabinet, 3000);
+  //           }
+  //       },
+  //       error: function(data) {
+  //         $('form.profile-promo-code button').html('Отправить');
+  //         $('form.profile-promo-code button').removeClass('loading');
+  //         // ERROR
+  //       }
+  //     };
+  //     $(form).ajaxSubmit(options);
+  //   }
+  // });
 
 // LOGIN FORM VALIDATION //
 
