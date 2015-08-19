@@ -497,8 +497,9 @@ textarea:-ms-textarea-placeholder {
 					background-color: #ffd400
 				}
 
-				&.unauthorized {
-					background-color: #666;
+				&.logout {
+					background-image: url('../images/ico-logout.png');
+					background-position: 10px center;
 				}
 			}
 
@@ -2541,6 +2542,7 @@ textarea:-ms-textarea-placeholder {
 					height: 80px;
 					border-radius: 51%;
 					margin-right: 20px;
+					margin-bottom: 20px;
 					float: left;
 					background-repeat: no-repeat;
 					background-position: center;
@@ -2563,8 +2565,7 @@ textarea:-ms-textarea-placeholder {
 
 				a {
 					text-decoration: underline;
-					float: right;
-					margin-right: 15px;
+					float: left;
 
 					&:hover {
 						text-decoration: none;
@@ -3593,4 +3594,9 @@ form {
 
 .fa {
 	margin-right: 10px;
+}
+
+.footnote {
+	font-size: 12px;
+	margin-top: 30px;
 }

@@ -16,7 +16,7 @@
                 <div class="rules-row">
                     <div class="rule-item rule-1">
                         <div class="rule-img"></div>
-                        <h3>Купи новинку чая <a href="#">Lipton Discovery</a></h3>
+                        <h3>Купи новинку чая в промо упаковке <a href="#">Lipton Discovery</a><sup>*</sup></h3>
                     </div>
                     <div class="rule-item rule-2">
                         <div class="rule-img"></div>
@@ -33,6 +33,9 @@
                 </div>
                 <div class="rules-text-block">
                     {{ $page->block('content') }}
+                    <div class="footnote">
+                        <p><sup>*</sup>Дискавери</p>
+                    </div>
                 </div>
             </div>
         </div>

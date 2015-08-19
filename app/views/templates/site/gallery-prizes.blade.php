@@ -27,6 +27,9 @@
                         {{ $page->block('third_prize') }}
                     </div>
                     <a href="{{ pageurl('countries') }}" class="prize-link">Lipton Discovery Collection</a>
+                    <div class="footnote">
+                        <p><sup>*</sup>Дискавери</p>
+                    </div>
                 </div>
             </div>
         </div>
