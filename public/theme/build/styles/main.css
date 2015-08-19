@@ -3033,7 +3033,7 @@ form label.error {
   bottom: 0;
   left: 0;
   background-color: rgba(0, 0, 0, 0.3);
-  display: block;
+  display: none;
   z-index: 1000; }
   .sms-wrapper .second-code-hack {
     position: relative;

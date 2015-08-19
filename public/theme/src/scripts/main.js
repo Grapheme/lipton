@@ -555,7 +555,7 @@ $( document ).ready(function() {
 
 // PROFILE EDITING FORM VALIDATION //
 
-  // var usersPhone = $('.users-phone').val();
+  var userPhone = $('input[name="phone"]').val();
 
   $('form.profile-edit').validate({
     rules: {
