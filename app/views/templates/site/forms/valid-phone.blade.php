@@ -21,7 +21,11 @@
 
 <div class="devider no-dots"></div>
 <div class="accept-block-holder">
+<<<<<<< HEAD
     <p></p>
+=======
+    <p><a id="js-sms-again" href="{{ URL::route('signup.resend-mobile-phone-confirmation') }}">Выслать код повторно</a></p>
+>>>>>>> origin/master
 </div>
 {{ Form::button('Отправить',array('type'=>'submit')) }} -->
 {{ Form::close() }}

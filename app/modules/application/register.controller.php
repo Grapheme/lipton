@@ -20,6 +20,8 @@ class RegisterController extends BaseController {
                 'uses' => $class . '@validEmail'));
             Route::post('registration/valid/phone', array('as' => 'signup.valid-phone',
                 'uses' => $class . '@validPhone'));
+            Route::any('registration/valid/phone/resend', array('as' => 'signup.resend-mobile-phone-confirmation',
+                'uses' => $class . '@resendMobilePhoneConfirmation'));
 
         });
     }
@@ -165,23 +167,61 @@ class RegisterController extends BaseController {
         endif;
     }
 
-    public function validPhone(){
+    public function validPhone() {
 
         $json_request = array('status' => FALSE, 'responseText' => '', 'redirectURL' => FALSE);
-//        if (Request::ajax()):
+        if (Request::ajax()):
             $validator = Validator::make(Input::all(), array('code' => 'required'));
             if ($validator->passes()):
-                if(Auth::check()):
+                if (Auth::check()):
                     $post['code'] = Input::get('code');
                     $post['customerId'] = Auth::user()->remote_id;
                     $post['sessionKey'] = Auth::user()->sessionKey;
                     $api = (new ApiController())->activatePhone($post);
-                    Helper::tad($api);
+                    if ($api === -1):
+                        Auth::logout();
+                        $json_request['redirectURL'] = pageurl('auth');
+                        return Response::json($json_request, 200);
+                    elseif ($api === FALSE):
+                        $json_request['status'] = FALSE;
+                    else:
+                        $json_request['status'] = TRUE;
+                        Session::flash('message', Config::get('api.message'));
+                        $json_request['redirectURL'] = URL::route('dashboard');
+                    endif;
+                    $json_request['responseText'] = Config::get('api.message');
                 endif;
             else:
                 $json_request['responseText'] = 'Неверно заполнены поля';
                 $json_request['responseErrorText'] = $validator->messages()->all();
             endif;
+        else:
+            return App::abort(404);
+        endif;
+        return Response::json($json_request, 200);
+    }
+
+    public function resendMobilePhoneConfirmation() {
+
+        $json_request = array('status' => FALSE, 'responseText' => '', 'redirectURL' => FALSE);
+//        if (Request::ajax()):
+        if (Auth::check()):
+            $post['customerId'] = Auth::user()->remote_id;
+            $post['sessionKey'] = Auth::user()->sessionKey;
+            $api = (new ApiController())->activatePhone($post);
+            if ($api === -1):
+                Auth::logout();
+                $json_request['redirectURL'] = pageurl('auth');
+                return Response::json($json_request, 200);
+            elseif ($api === FALSE):
+                $json_request['status'] = FALSE;
+            else:
+                $json_request['status'] = TRUE;
+                Session::flash('message', Config::get('api.message'));
+                $json_request['redirectURL'] = URL::route('dashboard');
+            endif;
+            $json_request['responseText'] = Config::get('api.message');
+        endif;
 //        else:
 //            return App::abort(404);
 //        endif;
