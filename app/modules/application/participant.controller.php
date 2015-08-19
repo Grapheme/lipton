@@ -66,7 +66,13 @@ class ParticipantController extends BaseController {
         if ($validator->passes()):
             $post = Input::all();
             if (self::accountUpdate($post)):
-                self::crmAccountUpdate($post);
+                $result = self::crmAccountUpdate($post);
+                if($result === -1):
+                    Auth::logout();
+                    $json_request['responseText'] = Config::get('api.message');
+                    $json_request['redirectURL'] = pageurl('auth');
+                    return Response::json($json_request, 200);
+                endif;
                 $json_request['redirectURL'] = URL::route('dashboard');
                 $json_request['responseText'] = Lang::get('interface.DEFAULT.success_save');
                 $json_request['status'] = TRUE;
@@ -118,23 +124,19 @@ class ParticipantController extends BaseController {
         $post['sessionKey'] = Auth::user()->sessionKey;
         $api = (new ApiController())->get_register($post);
         if($api === -1):
-            #Auth::logout();
-            $json_request['responseText'] = Config::get('api.message');
-            $json_request['redirectURL'] = pageurl('auth');
-            return Response::json($json_request, 200);
+            return -1;
         elseif(isset($api['version'])):
             $post['version'] = $api['version'];
             $post['email'] = Auth::user()->email;
             $api = (new ApiController())->update_register($post);
             if($api === -1):
-                #Auth::logout();
-                $json_request['responseText'] = Config::get('api.message');
-                $json_request['redirectURL'] = pageurl('auth');
-                return Response::json($json_request, 200);
+                return -1;
             elseif (is_array($api)):
                 Auth::user()->remote_id = @$api['id'];
                 Auth::user()->sessionKey = @$api['sessionKey'];
                 Auth::user()->save();
+            else:
+                return TRUE;
             endif;
         endif;
     }

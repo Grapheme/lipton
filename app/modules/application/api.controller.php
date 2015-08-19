@@ -382,10 +382,7 @@ class ApiController extends BaseController {
         $xml = ob_get_clean();
         $this->strlen_xml = strlen($xml);
         $result = $this->putCurl($uri_request, $xml);
-
-        Helper::tad($result);
-
-        if ($this->validCode($result, 201)):
+        if ($this->validCode($result, 200)):
             $user = array();
             $user['id'] = $this->getXmlValue($result['curl_result'], '', 'id');
             $user['sessionKey'] = $this->getXmlValue($result['curl_result'], '', 'sessionKey');
@@ -542,6 +539,8 @@ class ApiController extends BaseController {
                 return TRUE;
             endif;
         elseif ($this->validCode($result, 401)):
+            return -1;
+        elseif ($this->validCode($result, 400)):
             return -1;
         else:
             Config::set('api.message', 'Возникла ошибка на сервере регистрации.');

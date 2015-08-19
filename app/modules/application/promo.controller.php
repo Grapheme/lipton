@@ -43,7 +43,7 @@ class PromoController extends BaseController {
     /****************************************************************************/
     public function showWriting($url) {
 
-        if ($writing = UserWritings::where('id', (int)$url)->where('status','>', 0)->with('user.ulogin')->first()):
+        if ($writing = UserWritings::where('id', (int)$url)->where('status', '>', 0)->with('user.ulogin')->first()):
             $page_data = array(
                 'page_title' => 'Рассказ от ' . @$writing->user->name . ' ' . @$writing->user->surname,
                 'page_description' => '',
@@ -67,6 +67,7 @@ class PromoController extends BaseController {
             $result = self::registerPromoCode(Input::get('promoCode1'));
             if ($result === -1):
                 Auth::logout();
+                $json_request['responseText'] = Config::get('api.message');
                 $json_request['redirectURL'] = pageurl('auth');
                 return Response::json($json_request, 200);
             elseif ($result === FALSE):
