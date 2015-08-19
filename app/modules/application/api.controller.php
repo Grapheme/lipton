@@ -443,7 +443,17 @@ class ApiController extends BaseController {
         $uri_request = $this->config['server_url'] . "/v2/customers/current/logon/via-password?operation=" . $operation . "&credential=" . $params['login'] . "&password=" . $params['password'] . "&mode=session";
         $result = $this->postCurl($uri_request);
         if ($this->validCode($result, 200)):
-            return TRUE;
+            $user = array();
+            $user['id'] = $this->getXmlValue($result['curl_result'], '', 'id');
+            $user['sessionKey'] = $this->getXmlValue($result['curl_result'], '', 'sessionKey');
+            if (empty($user['id']) && empty($user['sessionKey'])):
+                if ($message = $this->getErrorMessage($result)):
+                    Config::set('api.message', $message);
+                endif;
+                return FALSE;
+            else:
+                return $user;
+            endif;
         else:
             Config::set('api.message', 'Возникла ошибка на сервере регистрации.');
             if ($message = $this->getErrorMessage($result)):
@@ -529,6 +539,8 @@ class ApiController extends BaseController {
                 return TRUE;
             endif;
         elseif ($this->validCode($result, 401)):
+            return -1;
+        elseif ($this->validCode($result, 400)):
             return -1;
         else:
             Config::set('api.message', 'Возникла ошибка на сервере регистрации.');

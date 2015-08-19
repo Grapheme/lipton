@@ -117,7 +117,7 @@ class RegisterController extends BaseController {
                         Auth::user()->remote_id = @$api['id'];
                         Auth::user()->sessionKey = @$api['sessionKey'];
                         Auth::user()->save();
-                        $json_request['redirectURL'] = AuthAccount::getGroupStartUrl();
+                        $json_request['redirectURL'] = URL::to(AuthAccount::getGroupStartUrl());
                         $json_request['status'] = TRUE;
                         if (isset($post['code']) && !empty($post['code'])):
                             $result = PromoController::registerPromoCode($post['code']);
