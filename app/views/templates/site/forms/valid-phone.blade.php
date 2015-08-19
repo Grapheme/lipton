@@ -10,7 +10,7 @@
 </div>
 <div class="devider no-dots"></div>
 <div class="accept-block-holder">
-    <p><a id="js-sms-again" href="javascript:void(0);">Выслать код повторно</a></p>
+    <p><a id="js-sms-again" href="{{ URL::route('signup.resend-mobile-phone-confirmation') }}">Выслать код повторно</a></p>
 </div>
 {{ Form::button('Отправить',array('type'=>'submit')) }}
 {{ Form::close() }}

@@ -449,22 +449,30 @@ class ApiController extends BaseController {
         if (empty($params)):
             App::abort(404);
         endif;
-
         $this->headers['authorization']['customerId'] = $params['customerId'];
         $this->headers['authorization']['sessionKey'] = $params['sessionKey'];
         $valid = $this->validAvailableOperation($operation);
         if ($valid === -1):
             Config::set('api.message', 'Авторизуйтесь для выполнения операции.');
-            return $valid;
+            return -1;
         elseif ($valid === FALSE):
             Config::set('api.message', 'Операция подтвержения номера телефона недоступна.');
             return FALSE;
         endif;
-
         $uri_request = $this->config['server_url'] . "/v2/customers/current/confirm-mobile-phone?operation=$operation&code=".$params['code'];
-        print_r($uri_request);
-        exit;
-        return true;
+        $result = $this->postCurl($uri_request);
+        if ($this->validCode($result, 200)):
+            if ($message = $this->getErrorMessage($result)):
+                Config::set('api.message', $message);
+            endif;
+            return FALSE;
+        else:
+            Config::set('api.message', 'Возникла ошибка на сервере регистрации.');
+            if ($message = $this->getErrorMessage($result)):
+                Config::set('api.message', $message);
+            endif;
+            return FALSE;
+        endif;
     }
 
     public function logon(array $params = [], $operation = 'DirectCrm.LogOn') {
