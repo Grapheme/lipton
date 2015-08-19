@@ -3627,90 +3627,62 @@ form {
 		height: 372px;
 		border-radius: 10px;
 
-		@include mobile {
-			.second-code-hack {
-				display: none;
-			}
-
-			.cropper-holder {
-				position: relative;
-				background-image: url("../images/bg-main.jpg");
-				width: 100%;
-				height: 600px;
-				border-radius: 10px;
-			}
-
-			a.popup-close-cross {
-				position: relative;
-				background-image: url("../images/bg-main.jpg");
-				display: block;
-				vertical-align: inherit;
-				left: 0;
-				margin-left: 0;
-				width: 100%;
-				height: 600px;
-				border-radius: 10px;
-			}
-
-			.cropper {
-				width: 320px;
-				height: auto;
-			}
-
-			.cropper-tools {
-				width: auto;
-				margin: 0 auto;
-				margin-top: 30px;
-				padding: 0 20px;
-			}
+		h3 {
+			text-transform: uppercase;
+		    font-size: 21px;
+		    color: #c90119;
+		    font-family: 'Intro-regular';
+		    margin: 55px 0 30px 0;
+		    text-align: center;
 		}
 
-		.cropper {
-			width: 400px;
-			height: 400px;
-			margin: 0 auto;
-			margin-top: 80px;
-			background-color: #666;
+		input {
+			width: 285px;
+			height: 50px;
+			border-radius: 3px;
+			border: 3px solid #ca0619;
+			padding: 14px 20px;
+			box-sizing: border-box;
+			background-color: rgba(255, 246, 186, 0.5);
+			outline: 0;
+			font-family: 'Intro-regular';
+			font-size: 24px;
+			text-transform: uppercase;
 		}
 
-		.cropper-tools {
-			width: 400px;
-			margin: 0 auto;
-			margin-top: 30px;
-			a {
-				display: block;
-				width: 136px;
-				height: 47px;
-				background-color: #c90119;
-				color: #ffde00;
-				font-size: 18px;
-				border-width: 0 0 3px 0;
-				border-color: #a40000;
+		button {
+			float: right;
+			width: 150px;
+			height: 50px;
+			background-color: #c90119;
+			color: #ffde00;
+			box-shadow: none;
+			font-size: 18px;
+			border-width: 0 0 3px 0;
+			border-color: #a40000;
+			border-style: solid;
+			border-radius: 3px;
+			text-transform: uppercase;
+			transition: .1s all;
+			outline: 0;
+			font-family: 'Intro';
+			line-height: 47px;
+			cursor: pointer;
+
+			&:hover {
+				background-color: #a40000;
+				color: #c90119;
+				border-width: 3px 0 0 0;
 				border-style: solid;
-				border-radius: 3px;
-				text-transform: uppercase;
-				transition: .1s all;
-				text-decoration: none;
-				text-align: center;
-				line-height: 50px;
-				font-family: 'Intro';
-				cursor: pointer;
-				
-				&.close {
-					float: left;
-				}
+				border-color: #c90119;
+			}
 
-				&.save {
-					float: right;
-				}
-
-				&:hover {
-					background-color: #a40000;
-					color: #c90119;
-					border-width: 3px 0 0 0;
-					border-style: solid;
-					border-color: #c90119;
-				}
+			&.loading {
+				background-color: #a40000 !important;
+				color: #c90119 !important;
+				border-width: 3px 0 0 0 !important;
+				border-style: solid !important;
+				border-color: #c90119 !important;
 			}
 		}
 	}
