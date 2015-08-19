@@ -3102,7 +3102,8 @@ form label.error {
       font-family: 'Intro';
       line-height: 47px;
       cursor: pointer;
-      margin: 0 auto; }
+      margin: 0 auto;
+      display: block; }
       .sms-wrapper .cropper-holder button:hover {
         background-color: #a40000;
         color: #c90119;

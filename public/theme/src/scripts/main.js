@@ -69,6 +69,10 @@ $( document ).ready(function() {
       $('.send-instructions').fadeIn();
   });
 
+  $('.sms-wrapper a.popup-close-cross').click(function() {
+      $('.sms-wrapper').fadeOut();
+  });
+
   // $('.profile-head .request a').click(function(){
   //   $('.story').fadeIn();
   // });
