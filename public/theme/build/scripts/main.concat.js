@@ -1977,23 +1977,69 @@ $( document ).ready(function() {
     },
 
     submitHandler: function(form) {
-      // $('form.profile-edit button').html('');
-      $('form.profile-edit button').addClass('loading');
-      $('form.profile-edit button').html('<i class="fa fa-circle-o-notch fa-spin"></i>')
-      var options = {
+      var userPhoneNew = $('input[name="phone"]').val();
+
+      if(userPhone != userPhoneNew) {
+        $('.sms-wrapper').fadeIn();
+        return false;
+      } else {
+
+        $('form.profile-edit button').addClass('loading');
+        $('form.profile-edit button').html('<i class="fa fa-circle-o-notch fa-spin"></i>')
+        var options = {
+          success: function(data){
+            if(data.redirectURL) {
+              function goToCabinet () {
+                window.location.href = data.redirectURL;
+              };
+              setTimeout(goToCabinet, 3000);
+            } else {
+              $('form.profile-edit').append('<div class="erros-message-block">' + data.responseText + '</div>');
+            }
+          },
+          error: function(data) {
+            $('form.profile-edit button').html('Отправить');
+            $('form.profile-edit button').removeClass('loading');
+            // ERROR
+          }
+        };
+        $(form).ajaxSubmit(options);
+      }
+    }
+  });
+
+// PHONE FORM VALIDATION //
+
+  $('form.sms-chesk').validate({
+    rules: {
+      code: {
+        required: true,
+      },
+    },
+
+    messages: {
+      code: {
+        required: 'Необходимо заполнить поле!',
+      },
+    },   
+    submitHandler: function(form) {
+      // $('form.send-instructions button').html('');
+      $('form.sms-chesk button').addClass('loading');
+      $('form.sms-chesk button').html('<i class="fa fa-circle-o-notch fa-spin"></i>')
+      var options = { 
         success: function(data){
-          if(data.redirectURL) {
-            function goToCabinet () {
-              window.location.href = data.redirectURL;
-            };
-            setTimeout(goToCabinet, 3000);
-          } else {
-            $('form.profile-edit').append('<div class="erros-message-block">' + data.responseText + '</div>');
+          if(data.status) {
+            if(data.redirectURL) {
+              function instructionsSended () {
+                window.location.href = data.redirectURL;
+              };
+              setTimeout(goToCabinet, 3000);
+            }
           }
         },
         error: function(data) {
-          $('form.profile-edit button').html('Отправить');
-          $('form.profile-edit button').removeClass('loading');
+          $('form.sms-chesk button').html('Отправить');
+          $('form.sms-chesk button').removeClass('loading');
           // ERROR
         }
       };
