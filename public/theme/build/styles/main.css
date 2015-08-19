@@ -746,8 +746,9 @@ textarea:-ms-textarea-placeholder {
             left: -143px; } }
         .block.header .icons-block .ico-account:hover {
           background-color: #ffd400; }
-        .block.header .icons-block .ico-account.unauthorized {
-          background-color: #666; }
+        .block.header .icons-block .ico-account.logout {
+          background-image: url("../images/ico-logout.png");
+          background-position: 10px center; }
       .block.header .icons-block .ico-burger {
         display: block;
         width: 38px;
@@ -2242,6 +2243,7 @@ textarea:-ms-textarea-placeholder {
           height: 80px;
           border-radius: 51%;
           margin-right: 20px;
+          margin-bottom: 20px;
           float: left;
           background-repeat: no-repeat;
           background-position: center;
@@ -2258,8 +2260,7 @@ textarea:-ms-textarea-placeholder {
           font-size: 16px; }
         .block .profile .profile-head .profile-info a {
           text-decoration: underline;
-          float: right;
-          margin-right: 15px; }
+          float: left; }
           .block .profile .profile-head .profile-info a:hover {
             text-decoration: none; }
       .block .profile .profile-head .profile-promo-code {
@@ -3032,3 +3033,7 @@ form label.error {
 
 .fa {
   margin-right: 10px; }
+
+.footnote {
+  font-size: 12px;
+  margin-top: 30px; }
