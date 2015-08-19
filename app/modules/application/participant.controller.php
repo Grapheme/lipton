@@ -91,7 +91,7 @@ class ParticipantController extends BaseController {
 
     private function accountUpdate($post) {
 
-//        try {
+        try {
             $user = Auth::user();
             if ($uploaded = AdminUploadsController::createImageInBase64String('avatar')):
                 if (!empty($user->photo) && File::exists(Config::get('site.uploads_photo_dir') . '/' . $user->photo)):
@@ -112,9 +112,9 @@ class ParticipantController extends BaseController {
             $user->bdate = $bdate;
             $user->save();
             $user->touch();
-//        } catch (Exception $e) {
-//            return FALSE;
-//        }
+        } catch (Exception $e) {
+            return FALSE;
+        }
         return TRUE;
     }
 
