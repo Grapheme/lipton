@@ -19,6 +19,9 @@ $profile = Accounts::where('id', Auth::user()->id)->with('ulogin')->first();
                     <div class="forms-holder full-registration-holder">
                         @include(Helper::acclayout('forms.profile'))
                     </div>
+                    <div class="forms-holder full-registration-holder">
+                        {{--@include(Helper::layout('forms.valid-phone'))--}}
+                    </div>
                 </div>
             </div>
         </div>
