@@ -12,9 +12,9 @@ class PromoController extends BaseController {
         $class = __CLASS__;
 
         Route::group(array('before' => 'user.auth', 'prefix' => 'promo'), function () use ($class) {
-            Route::post('/first/register', array('before' => 'csrf', 'as' => 'promo.first.register',
+            Route::post('/first/register', array('as' => 'promo.first.register',
                 'uses' => $class . '@firstRegister'));
-            Route::post('/second/register', array('before' => 'csrf', 'as' => 'promo.second.register',
+            Route::post('/second/register', array('as' => 'promo.second.register',
                 'uses' => $class . '@secondRegister'));
             Route::post('/third/register', array('before' => 'csrf', 'as' => 'promo.third.register',
                 'uses' => $class . '@thirdRegister'));
@@ -71,12 +71,13 @@ class PromoController extends BaseController {
                 $json_request['redirectURL'] = pageurl('auth');
                 return Response::json($json_request, 200);
             elseif ($result === FALSE):
+                $json_request['responseText'] = Config::get('api.message');
                 $json_request['status'] = FALSE;
             else:
+                $json_request['responseText'] = Config::get('api.message');
                 $json_request['status'] = TRUE;
                 $json_request['next_code'] = TRUE;
             endif;
-            $json_request['responseText'] = Config::get('api.message');
         else:
             $json_request['responseText'] = $validator->messages()->all();
         endif;
@@ -92,17 +93,6 @@ class PromoController extends BaseController {
         $json_request = array('status' => FALSE, 'responseText' => '', 'next_code' => FALSE, 'redirectURL' => FALSE);
         $validator = Validator::make(Input::all(), array('promoCode2' => 'required'));
         if ($validator->passes()):
-            $user_codes_count = UserCodes::where('user_id', Auth::user()->id)->count();
-            if ($user_codes_count == 0):
-                $json_request['responseText'] = 'Сначала вводите первый промо-код.';
-                return Response::json($json_request, 200);
-            elseif ($user_codes_count == 2):
-                $json_request['responseText'] = 'Вы уже вводили второй промо-код.';
-                return Response::json($json_request, 200);
-            elseif ($user_codes_count >= 3):
-                $json_request['responseText'] = 'Вы не можете больше вводить промо-коды.';
-                return Response::json($json_request, 200);
-            endif;
             $result = self::registerPromoCode(Input::get('promoCode2'));
             if ($result === -1):
                 Auth::logout();
