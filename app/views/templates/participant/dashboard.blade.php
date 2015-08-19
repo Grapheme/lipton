@@ -7,6 +7,10 @@
 $profile = Accounts::where('id', Auth::user()->id)->with('ulogin', 'codes', 'prizes', 'writing')->first();
 $bdate = new Carbon($profile->bdate);
 $now = Carbon::now();
+
+$post['customerId'] = Auth::user()->remote_id;
+$post['sessionKey'] = Auth::user()->sessionKey;
+$prizes = (new ApiController())->get_prizes($post);
 ?>
 @extends(Helper::layout())
 @section('style')
@@ -36,7 +40,7 @@ $now = Carbon::now();
                                   class="{{ $user->name }}">
                         @endif
                             <h3>{{ $profile->name }} {{ $profile->surname }}</h3>
-                            <p>{{ $bdate->diffInYears($now).' '.Lang::choice('год|года|лет', $bdate->diffInYears($now)) }} {{ !empty($profile->city) ? ', '.$profile->city : '' }}</p>
+                            <p>{{ $bdate->diffInYears($now).' '.Lang::choice('год|года|лет', $bdate->diffInYears($now)) }}{{ !empty($profile->city) ? ', '.$profile->city : '' }}</p>
                             <a href="{{ URL::route('profile.edit') }}">редактировать профиль</a>
                         </div>
                         <div class="profile-promo-code">
@@ -97,4 +101,10 @@ $now = Carbon::now();
     </div>
 @stop
 @section('scripts')
+@if($prizes === -1)
+    <?php Auth::logout(); ?>
+    <script type="application/javascript">
+        window.location.href = '{{ pageurl('auth') }}';
+    </script>
+@endif
 @stop

@@ -17,7 +17,10 @@ class RegisterController extends BaseController {
         });
         Route::group(array('before' => '', 'prefix' => ''), function () use ($class) {
             Route::get('registration/activation/{activate_code}', array('as' => 'signup-activation',
-                'uses' => $class . '@activation'));
+                'uses' => $class . '@validEmail'));
+            Route::post('registration/valid/phone', array('as' => 'signup.valid-phone',
+                'uses' => $class . '@validPhone'));
+
         });
     }
 
@@ -143,7 +146,7 @@ class RegisterController extends BaseController {
         return Response::json($json_request, 200);
     }
 
-    public function activation($ticket) {
+    public function validEmail($ticket) {
 
         $api = (new ApiController())->activateEmail($ticket);
         if ($api === FALSE):
@@ -160,6 +163,30 @@ class RegisterController extends BaseController {
         else:
             return Redirect::to('/');
         endif;
+    }
+
+    public function validPhone(){
+
+        $json_request = array('status' => FALSE, 'responseText' => '', 'redirectURL' => FALSE);
+//        if (Request::ajax()):
+            $validator = Validator::make(Input::all(), array('code' => 'required'));
+            if ($validator->passes()):
+                if(Auth::check()):
+                    $post['code'] = Input::get('code');
+                    $post['customerId'] = Auth::user()->remote_id;
+                    $post['sessionKey'] = Auth::user()->sessionKey;
+                    Helper::tad($post);
+                    $api = (new ApiController())->activatePhone($post);
+                    Helper::tad($api);
+                endif;
+            else:
+                $json_request['responseText'] = 'Неверно заполнены поля';
+                $json_request['responseErrorText'] = $validator->messages()->all();
+            endif;
+//        else:
+//            return App::abort(404);
+//        endif;
+        return Response::json($json_request, 200);
     }
 
     /**************************************************************************/

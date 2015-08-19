@@ -90,7 +90,7 @@ class ApiController extends BaseController {
 
     private function getErrorMessage($result) {
 
-        if (isset($result['curl_result'])):
+        if (isset($result['curl_result']) && !empty($result['curl_result'])):
             $xml_object = new SimpleXMLElement($result['curl_result']);
             $message = array();
             foreach ($xml_object->validationError as $messages):
@@ -147,14 +147,24 @@ class ApiController extends BaseController {
         return FALSE;
     }
 
-    private function getXmlValue($xml, $items, $value) {
+    private function getXmlValue($xml, $items, $value, $tag = NULL) {
 
         if (isset($xml)):
             $xml_object = new SimpleXMLElement($xml);
-            if (empty($items)):
-                return (string)$xml_object->$value;
+            if (empty($items) && empty($value) && !is_null($tag)):
+                return (string) $xml_object->attributes()->$tag;
+            elseif (empty($items)):
+                if (!is_null($tag)):
+                    return (string)$xml_object->$value[$tag];
+                else:
+                    return (string)$xml_object->$value;
+                endif;
             elseif (is_string($items)):
-                return (string)$xml_object->$items->$value;
+                if (!is_null($tag)):
+                    return (string)$xml_object->$items->$value[$tag];
+                else:
+                    return (string)$xml_object->$items->$value;
+                endif;
             endif;
         endif;
         return FALSE;
@@ -197,6 +207,7 @@ class ApiController extends BaseController {
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
         $data['curl_result'] = curl_exec($ch);
         $data['curl_info'] = curl_getinfo($ch);
+        $data['curl_headers'] = self::curlHandle();
         curl_close($ch);
         return $data;
     }
@@ -216,6 +227,7 @@ class ApiController extends BaseController {
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
         $data['curl_result'] = curl_exec($ch);
         $data['curl_info'] = curl_getinfo($ch);
+        $data['curl_headers'] = self::curlHandle();
         curl_close($ch);
         return $data;
     }
@@ -233,6 +245,7 @@ class ApiController extends BaseController {
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
         $data['curl_result'] = curl_exec($ch);
         $data['curl_info'] = curl_getinfo($ch);
+        $data['curl_headers'] = self::curlHandle();
         curl_close($ch);
         return $data;
     }
@@ -403,7 +416,7 @@ class ApiController extends BaseController {
         endif;
     }
 
-    public function activateEmail($params) {
+    public function activateEmail(array $params = []) {
 
         if (empty($params)):
             App::abort(404);
@@ -429,6 +442,15 @@ class ApiController extends BaseController {
             endif;
             return FALSE;
         endif;
+    }
+
+    public function activatePhone(array $params = []){
+
+        if (empty($params)):
+            App::abort(404);
+        endif;
+        $uri_request = $this->config['server_url'] . "/v2/customers/current/ticket?ticket=$params";
+        return true;
     }
 
     public function logon(array $params = [], $operation = 'DirectCrm.LogOn') {
@@ -515,6 +537,7 @@ class ApiController extends BaseController {
         $this->headers['authorization']['sessionKey'] = $params['sessionKey'];
         $valid = $this->validAvailableOperation($operation);
         if ($valid === -1):
+            Config::set('api.message', 'Авторизуйтесь для выполнения операции.');
             return $valid;
         elseif ($valid === FALSE):
             Config::set('api.message', 'Операция регистрации промо кодов недоступна.');
@@ -538,6 +561,42 @@ class ApiController extends BaseController {
                 Config::set('api.message', $message);
                 return TRUE;
             endif;
+        elseif ($this->validCode($result, 401)):
+            return -1;
+        elseif ($this->validCode($result, 400)):
+            return -1;
+        else:
+            Config::set('api.message', 'Возникла ошибка на сервере регистрации.');
+            if ($message = $this->getErrorMessage($result)):
+                Config::set('api.message', $message);
+            endif;
+            return FALSE;
+        endif;
+    }
+
+    public function get_prizes(array $params = [], $operation = 'DirectCrm.GetCustomersPrizesGeneralData'){
+
+        if (empty($params)):
+            App::abort(404);
+        endif;
+        $this->headers['authorization']['customerId'] = $params['customerId'];
+        $this->headers['authorization']['sessionKey'] = $params['sessionKey'];
+        $valid = $this->validAvailableOperation($operation);
+        if ($valid === -1):
+            Config::set('api.message', 'Авторизуйтесь для выполнения операции.');
+            return $valid;
+        elseif ($valid === FALSE):
+            Config::set('api.message', 'Операция получения призов недоступна.');
+            return FALSE;
+        endif;
+        $this->strlen_xml = 0;
+        $uri_request = $this->config['server_url'] . "/v2/customers/current/prizes.xml?operation=$operation&countToReturn=10";
+        $result = self::getCurl($uri_request);
+        if ($this->validCode($result, 200)):
+            $totalCount = $this->getXmlValue($result['curl_result'], '', '', 'totalCount');
+            return array(
+                'totalCount' => $totalCount
+            );
         elseif ($this->validCode($result, 401)):
             return -1;
         elseif ($this->validCode($result, 400)):
