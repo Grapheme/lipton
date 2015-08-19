@@ -8,24 +8,8 @@
 	<h3>Введите код из sms</h3>
 	<p>На указанный при регистрации номер мобильного телефона<br>был отправлен код для подтверждения регистрации</p>
 	<form name="sms-check" class="sms-chesk">
-	<!-- <input for="sms-chesk" name="sms-chesk-input" class="sms-chesk-input"> -->
 		{{ Form::text('code', NULL, array('for'=>'full-registration-form','autocomplete'=>'off')) }}
 		<a id="js-sms-again" href="javascript:void(0);">Выслать код повторно</a>
-	<!-- <button>Отправить</button> -->
 		{{ Form::button('Отправить',array('type'=>'submit')) }}
 	</form>
-{{ Form::close() }}
-
-
-<!--     {{ Form::text('code', NULL, array('for'=>'full-registration-form','autocomplete'=>'off')) }}
-
-<div class="devider no-dots"></div>
-<div class="accept-block-holder">
-<<<<<<< HEAD
-    <p></p>
-=======
-    <p><a id="js-sms-again" href="{{ URL::route('signup.resend-mobile-phone-confirmation') }}">Выслать код повторно</a></p>
->>>>>>> origin/master
-</div>
-{{ Form::button('Отправить',array('type'=>'submit')) }} -->
 {{ Form::close() }}
