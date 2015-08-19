@@ -21,6 +21,12 @@ $prizes = (new ApiController())->get_prizes($post);
         <div class="second-code-hack">
             <div class="cropper-holder">
                 <a href="#" class="popup-close-cross"></a>
+                <h3>Введите код из sms</h3>
+                <p>На указанный при регистрации номер мобильного телефона<br>был отправлен код для подтверждения регистрации</p>
+                <form name="sms-check" class="sms-chesk">
+                    <input for="sms-chesk" name="sms-chesk-input" class="sms-chesk-input">
+                    <button>Отправить</button>
+                </form>
             </div>
         </div>
     </div>
