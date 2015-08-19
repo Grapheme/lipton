@@ -3118,6 +3118,10 @@ form label.error {
     .sms-wrapper .cropper-holder p {
       text-align: center;
       font-size: 14px; }
+    .sms-wrapper .cropper-holder a {
+      text-align: center;
+      display: block;
+      margin-bottom: 20px; }
 
 .fa {
   margin-right: 10px; }
