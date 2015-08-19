@@ -77,6 +77,8 @@ class ApiController extends BaseController {
         if (is_array($operations)):
             if (in_array($operation, $operations)):
                 return TRUE;
+            else:
+                return FALSE;
             endif;
         endif;
         return $operations;
@@ -152,7 +154,7 @@ class ApiController extends BaseController {
         if (isset($xml)):
             $xml_object = new SimpleXMLElement($xml);
             if (empty($items) && empty($value) && !is_null($tag)):
-                return (string) $xml_object->attributes()->$tag;
+                return (string)$xml_object->attributes()->$tag;
             elseif (empty($items)):
                 if (!is_null($tag)):
                     return (string)$xml_object->$value[$tag];
@@ -388,8 +390,9 @@ class ApiController extends BaseController {
         <sex><?= @$sex[$params['sex']]; ?></sex>
         <email><?= $params['email']; ?></email>
         <mobilePhone><?= $params['phone'] ?></mobilePhone>
-        <password value="" value2="" />
-        <birthdate year="<?= (int)$params['yyyy']; ?>" month="<?= (int)$params['mm']; ?>" day="<?= (int)$params['dd']; ?>"/>
+        <password value="" value2=""/>
+        <birthdate year="<?= (int)$params['yyyy']; ?>" month="<?= (int)$params['mm']; ?>"
+                   day="<?= (int)$params['dd']; ?>"/>
         <subscription isActiveForCurrentBrand="true"/>
         </customer><?php
         $xml = ob_get_clean();
@@ -444,7 +447,7 @@ class ApiController extends BaseController {
         endif;
     }
 
-    public function activatePhone(array $params = [], $operation = 'DirectCrm.MobilePhoneConfirmation'){
+    public function activatePhone(array $params = [], $operation = 'DirectCrm.MobilePhoneConfirmation') {
 
         if (empty($params)):
             App::abort(404);
@@ -459,13 +462,44 @@ class ApiController extends BaseController {
             Config::set('api.message', 'Операция подтвержения номера телефона недоступна.');
             return FALSE;
         endif;
-        $uri_request = $this->config['server_url'] . "/v2/customers/current/confirm-mobile-phone?operation=$operation&code=".$params['code'];
+        $uri_request = $this->config['server_url'] . "/v2/customers/current/confirm-mobile-phone?operation=$operation&code=" . $params['code'];
         $result = $this->postCurl($uri_request);
+        Helper::tad($result);
         if ($this->validCode($result, 200)):
             if ($message = $this->getErrorMessage($result)):
                 Config::set('api.message', $message);
             endif;
             return FALSE;
+        else:
+            Config::set('api.message', 'Возникла ошибка на сервере регистрации.');
+            if ($message = $this->getErrorMessage($result)):
+                Config::set('api.message', $message);
+            endif;
+            return FALSE;
+        endif;
+    }
+
+    public function resendMobilePhoneConfirmation(array $params = [], $operation = 'DirectCrm.MobilePhoneConfirmationResend') {
+
+        if (empty($params)):
+            App::abort(404);
+        endif;
+        $this->headers['authorization']['customerId'] = $params['customerId'];
+        $this->headers['authorization']['sessionKey'] = $params['sessionKey'];
+        $valid = $this->validAvailableOperation($operation);
+        if ($valid === -1):
+            Config::set('api.message', 'Авторизуйтесь для выполнения операции.');
+            return -1;
+        elseif ($valid === FALSE):
+            Config::set('api.message', 'Операция повторной отправки SMS для подтверждения номера мобильного телефона недоступна.');
+            return FALSE;
+        endif;
+        $uri_request = $this->config['server_url'] . "/v2/customers/current/resend-mobile-phone-confirmation?operation=$operation";
+        $result = $this->postCurl($uri_request);
+        if ($this->validCode($result, 200)):
+            $message = $this->getXmlValue($result['curl_result'], 'messages', 'message');
+            Config::set('api.message', $message);
+            return TRUE;
         else:
             Config::set('api.message', 'Возникла ошибка на сервере регистрации.');
             if ($message = $this->getErrorMessage($result)):
@@ -596,7 +630,7 @@ class ApiController extends BaseController {
         endif;
     }
 
-    public function get_prizes(array $params = [], $operation = 'DirectCrm.GetCustomersPrizesGeneralData'){
+    public function get_prizes(array $params = [], $operation = 'DirectCrm.GetCustomersPrizesGeneralData') {
 
         if (empty($params)):
             App::abort(404);

@@ -204,27 +204,27 @@ class RegisterController extends BaseController {
     public function resendMobilePhoneConfirmation() {
 
         $json_request = array('status' => FALSE, 'responseText' => '', 'redirectURL' => FALSE);
-//        if (Request::ajax()):
-        if (Auth::check()):
-            $post['customerId'] = Auth::user()->remote_id;
-            $post['sessionKey'] = Auth::user()->sessionKey;
-            $api = (new ApiController())->activatePhone($post);
-            if ($api === -1):
-                Auth::logout();
-                $json_request['redirectURL'] = pageurl('auth');
-                return Response::json($json_request, 200);
-            elseif ($api === FALSE):
-                $json_request['status'] = FALSE;
-            else:
-                $json_request['status'] = TRUE;
-                Session::flash('message', Config::get('api.message'));
-                $json_request['redirectURL'] = URL::route('dashboard');
+        if (Request::ajax()):
+            if (Auth::check()):
+                $post['customerId'] = Auth::user()->remote_id;
+                $post['sessionKey'] = Auth::user()->sessionKey;
+                $api = (new ApiController())->resendMobilePhoneConfirmation($post);
+                if ($api === -1):
+                    Auth::logout();
+                    $json_request['redirectURL'] = pageurl('auth');
+                    return Response::json($json_request, 200);
+                elseif ($api === FALSE):
+                    $json_request['status'] = FALSE;
+                else:
+                    $json_request['status'] = TRUE;
+                    Session::flash('message', Config::get('api.message'));
+                    $json_request['redirectURL'] = URL::route('dashboard');
+                endif;
+                $json_request['responseText'] = Config::get('api.message');
             endif;
-            $json_request['responseText'] = Config::get('api.message');
+        else:
+            return App::abort(404);
         endif;
-//        else:
-//            return App::abort(404);
-//        endif;
         return Response::json($json_request, 200);
     }
 
