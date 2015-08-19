@@ -12,8 +12,8 @@
         @elseif(!empty($profile->ulogin) && !empty($profile->ulogin->photo_big))
             <div style="background-image: url({{ asset($profile->ulogin->photo_big) }});" class="avatar"></div>
         @else
-            <img src="{{ asset(Config::get('site.theme_path').'/images/avatar_default.png') }}" alt="{{ $user->name }}"
-                 class="{{ $user->name }}">
+                <div style="background-image: url({{ asset(Config::get('site.theme_path').'/images/avatar_default.png') }});"
+                     class="avatar"></div>
         @endif
             <div class="hidden-input">
                 <span>Сменить аватар</span>
