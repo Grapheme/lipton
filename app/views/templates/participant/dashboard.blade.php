@@ -47,8 +47,9 @@ $prizes = (new ApiController())->get_prizes($post);
                                   class="{{ $user->name }}">
                         @endif
                             <h3>{{ $profile->name }} {{ $profile->surname }}</h3>
+
                             <p>{{ $bdate->diffInYears($now).' '.Lang::choice('год|года|лет', $bdate->diffInYears($now)) }}{{ !empty($profile->city) ? ', '.$profile->city : '' }}</p>
-                            <a href="{{ URL::route('profile.edit') }}">редактировать профиль</a>
+                            <a href="{{ URL::route('profile.edit') }}">Редактировать профиль</a>
                         </div>
                         <div class="profile-promo-code">
                             <h3>Введите промо код</h3>
