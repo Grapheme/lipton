@@ -154,7 +154,7 @@ class ApiController extends BaseController {
         if (isset($xml)):
             $xml_object = new SimpleXMLElement($xml);
             if (empty($items) && empty($value) && !is_null($tag)):
-                return (string) $xml_object->attributes()->$tag;
+                return (string)$xml_object->attributes()->$tag;
             elseif (empty($items)):
                 if (!is_null($tag)):
                     return (string)$xml_object->$value[$tag];
@@ -390,8 +390,9 @@ class ApiController extends BaseController {
         <sex><?= @$sex[$params['sex']]; ?></sex>
         <email><?= $params['email']; ?></email>
         <mobilePhone><?= $params['phone'] ?></mobilePhone>
-        <password value="" value2="" />
-        <birthdate year="<?= (int)$params['yyyy']; ?>" month="<?= (int)$params['mm']; ?>" day="<?= (int)$params['dd']; ?>"/>
+        <password value="" value2=""/>
+        <birthdate year="<?= (int)$params['yyyy']; ?>" month="<?= (int)$params['mm']; ?>"
+                   day="<?= (int)$params['dd']; ?>"/>
         <subscription isActiveForCurrentBrand="true"/>
         </customer><?php
         $xml = ob_get_clean();
@@ -446,7 +447,7 @@ class ApiController extends BaseController {
         endif;
     }
 
-    public function activatePhone(array $params = [], $operation = 'DirectCrm.MobilePhoneConfirmation'){
+    public function activatePhone(array $params = [], $operation = 'DirectCrm.MobilePhoneConfirmation') {
 
         if (empty($params)):
             App::abort(404);
@@ -461,7 +462,7 @@ class ApiController extends BaseController {
             Config::set('api.message', 'Операция подтвержения номера телефона недоступна.');
             return FALSE;
         endif;
-        $uri_request = $this->config['server_url'] . "/v2/customers/current/confirm-mobile-phone?operation=$operation&code=".$params['code'];
+        $uri_request = $this->config['server_url'] . "/v2/customers/current/confirm-mobile-phone?operation=$operation&code=" . $params['code'];
         $result = $this->postCurl($uri_request);
         Helper::tad($result);
         if ($this->validCode($result, 200)):
@@ -478,7 +479,7 @@ class ApiController extends BaseController {
         endif;
     }
 
-    public function resendMobilePhoneConfirmation(array $params = [], $operation = 'DirectCrm.MobilePhoneConfirmationResend'){
+    public function resendMobilePhoneConfirmation(array $params = [], $operation = 'DirectCrm.MobilePhoneConfirmationResend') {
 
         if (empty($params)):
             App::abort(404);
@@ -629,7 +630,7 @@ class ApiController extends BaseController {
         endif;
     }
 
-    public function get_prizes(array $params = [], $operation = 'DirectCrm.GetCustomersPrizesGeneralData'){
+    public function get_prizes(array $params = [], $operation = 'DirectCrm.GetCustomersPrizesGeneralData') {
 
         if (empty($params)):
             App::abort(404);
