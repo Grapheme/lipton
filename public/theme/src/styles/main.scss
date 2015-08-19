@@ -3627,6 +3627,11 @@ form {
 		height: 372px;
 		border-radius: 10px;
 
+		form {
+			width: 285px;
+			margin: 0 auto;
+		}
+
 		h3 {
 			text-transform: uppercase;
 		    font-size: 21px;
@@ -3648,10 +3653,10 @@ form {
 			font-family: 'Intro-regular';
 			font-size: 24px;
 			text-transform: uppercase;
+			margin-bottom: 20px;
 		}
 
 		button {
-			float: right;
 			width: 150px;
 			height: 50px;
 			background-color: #c90119;
@@ -3668,6 +3673,7 @@ form {
 			font-family: 'Intro';
 			line-height: 47px;
 			cursor: pointer;
+			margin: 0 auto;
 
 			&:hover {
 				background-color: #a40000;
@@ -3684,6 +3690,11 @@ form {
 				border-style: solid !important;
 				border-color: #c90119 !important;
 			}
+		}
+
+		p {
+			text-align: center;
+			font-size: 14px;
 		}
 	}
 }

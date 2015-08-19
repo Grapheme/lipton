@@ -3061,6 +3061,9 @@ form label.error {
     width: 532px;
     height: 372px;
     border-radius: 10px; }
+    .sms-wrapper .cropper-holder form {
+      width: 285px;
+      margin: 0 auto; }
     .sms-wrapper .cropper-holder h3 {
       text-transform: uppercase;
       font-size: 21px;
@@ -3079,9 +3082,9 @@ form label.error {
       outline: 0;
       font-family: 'Intro-regular';
       font-size: 24px;
-      text-transform: uppercase; }
+      text-transform: uppercase;
+      margin-bottom: 20px; }
     .sms-wrapper .cropper-holder button {
-      float: right;
       width: 150px;
       height: 50px;
       background-color: #c90119;
@@ -3098,7 +3101,8 @@ form label.error {
       outline: 0;
       font-family: 'Intro';
       line-height: 47px;
-      cursor: pointer; }
+      cursor: pointer;
+      margin: 0 auto; }
       .sms-wrapper .cropper-holder button:hover {
         background-color: #a40000;
         color: #c90119;
@@ -3111,6 +3115,9 @@ form label.error {
         border-width: 3px 0 0 0 !important;
         border-style: solid !important;
         border-color: #c90119 !important; }
+    .sms-wrapper .cropper-holder p {
+      text-align: center;
+      font-size: 14px; }
 
 .fa {
   margin-right: 10px; }
