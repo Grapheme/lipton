@@ -13,6 +13,13 @@ $now = Carbon::now();
 @stop
 @section('page_class')  @stop
 @section('content')
+    <div class="cropper-wrapper">
+        <div class="second-code-hack">
+            <div class="cropper-holder">
+                <a href="#" class="popup-close-cross"></a>
+            </div>
+        </div>
+    </div>
     <div class="main-content sub-page">
         <div class="block">
             <div class="content">

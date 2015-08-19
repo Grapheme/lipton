@@ -17,6 +17,7 @@
                 <div style="background-image: url('../theme/build/images/winners-slider/4.jpg')" class="slide">&nbsp</div>
                 <div style="background-image: url('../theme/build/images/winners-slider/5.jpg')" class="slide">&nbsp</div>
                 <div style="background-image: url('../theme/build/images/winners-slider/6.jpg')" class="slide">&nbsp</div>
+                <div style="background-image: url('../theme/build/images/winners-slider/7.jpg')" class="slide">&nbsp</div>
                 <!-- <div class="mosaic-fuckup"></div> -->
             </div>
             <div class="content">
