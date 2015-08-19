@@ -21,4 +21,23 @@
     ga('create', 'UA-61873602-2', 'auto');
     ga('send', 'pageview');
 
+    var serviceDomain = 'tracker.directcrm.ru';
+    (function (window, document, script, url, objectName) {
+        window[objectName] = window[objectName] || function () {
+                    (window[objectName].Queue = window[objectName].Queue || []).push(arguments);
+                },
+                a = document.createElement(script),
+                m = document.getElementsByTagName(script)[0];
+        a.async = 1;
+        a.src = url + '?v=' + Math.random();
+        m.parentNode.insertBefore(a, m);
+    })(window, document, 'script', '//' + serviceDomain + '/scripts/v1/tracker.js', 'directCrm');
+    directCrm('create', {
+        projectSystemName: 'Unilever',
+        brandSystemName: 'Lipton',
+        pointOfContactSystemName: 'LiptonDiscovery2015',
+        projectDomain: 'unilever-services.directcrm.ru',
+        serviceDomain: serviceDomain
+    });
 </script>
+
