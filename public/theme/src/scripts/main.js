@@ -55,8 +55,9 @@ $( document ).ready(function() {
   });
 
   $(document).on('click', 'div.error-block a', function() {
-    $('.block .second-code').fadeOut();
+    $('.block.second-code').fadeOut();
     $('form.promo-code').html('Отправить');
+    $('form.promo-code .promoCode1').val('');
   });
 
   $('.second-code .fields-holder a, a.popup-close-cross').click(function() {
@@ -176,7 +177,6 @@ $( document ).ready(function() {
           success: function(data){
             $('#promo-code-form button').removeClass('loading');
             $('#promo-code-form button').html('Отправить');
-            $('promoCode1').val('');
 
             if (data.status) {
               if(data.next_code) {
@@ -186,13 +186,11 @@ $( document ).ready(function() {
                   $('.second-code').html('<div class="second-code-hack"></div><div class="error-block"><h3>Ошибка</h3><p>' + data.responseText + '</p> <a href="#">Закрыть</a></div>');
                   $('.second-code').fadeIn();
                   $('#promo-code-form button').html('Отправить');
-                  $('promoCode1').val('');
                 };
             } else {
               $('.second-code').html('<div class="second-code-hack"></div><div class="error-block"><h3>Ошибка</h3><p>' + data.responseText + '</p> <a href="#">Закрыть</a></div>');
               $('.second-code').fadeIn();
               $('#promo-code-form button').html('Отправить');
-              $('promoCode1').val('');
             }
 
             if(data.redirectURL) {
