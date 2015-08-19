@@ -325,9 +325,9 @@ $( document ).ready(function() {
       }
     },   
     submitHandler: function(form) {
-      $('form.registration button').addClass('loading');
       $('form.registration button').prepend('<i class="fa fa-circle-o-notch fa-spin"></i>');
-      $('erros-message-block').remove();
+      $('form.registration button').addClass('loading');
+      $('.erros-message-block').remove();
       var options = { 
         success: function(data){
           if(data.redirectURL) {

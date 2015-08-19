@@ -1162,13 +1162,6 @@ textarea:-ms-textarea-placeholder {
         border-width: 3px 0 0 0;
         border-style: solid;
         border-color: #c90119; }
-      .block form.promo-code button.loading {
-        background-color: #a40000 !important;
-        color: #c90119 !important;
-        border-width: 3px 0 0 0 !important;
-        border-style: solid !important;
-        border-color: #c90119 !important;
-        opacity: 0.8; }
   .block.second-code, .block.send-instructions, .block.story, .block.select-gain {
     position: fixed;
     width: 100%;
@@ -3037,3 +3030,11 @@ form label.error {
 .footnote {
   font-size: 12px;
   margin-top: 30px; }
+
+button.loading {
+  background-color: #a40000 !important;
+  color: #c90119 !important;
+  border-width: 3px 0 0 0 !important;
+  border-style: solid !important;
+  border-color: #c90119 !important;
+  opacity: 0.8; }

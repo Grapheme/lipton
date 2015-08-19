@@ -1090,15 +1090,6 @@ textarea:-ms-textarea-placeholder {
 				border-style: solid;
 				border-color: #c90119;
 			}
-
-			&.loading {
-				background-color: #a40000!important;
-				color: #c90119!important;
-				border-width: 3px 0 0 0!important;
-				border-style: solid!important;
-				border-color: #c90119!important;
-				opacity: 0.8;
-			}
 		}
 	}
 
@@ -3599,4 +3590,15 @@ form {
 .footnote {
 	font-size: 12px;
 	margin-top: 30px;
+}
+
+button {
+	&.loading {
+		background-color: #a40000!important;
+		color: #c90119!important;
+		border-width: 3px 0 0 0!important;
+		border-style: solid!important;
+		border-color: #c90119!important;
+		opacity: 0.8;
+	}
 }
