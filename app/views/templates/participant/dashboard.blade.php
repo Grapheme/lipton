@@ -44,7 +44,7 @@ $prizes = (new ApiController())->get_prizes($post);
                             <div style="background-image: url({{ asset($profile->ulogin->photo_big) }});" class="avatar"></div>
                         @else
                             <img src="{{ asset(Config::get('site.theme_path').'/images/avatar_default.png') }}" alt="{{ $profile->name }}"
-                                  class="{{ $profile->name }}">
+                                  class="avatar">
                         @endif
                             <h3>{{ $profile->name }} {{ $profile->surname }}</h3>
                             <p>{{ $bdate->diffInYears($now).' '.Lang::choice('год|года|лет', $bdate->diffInYears($now)) }}{{ !empty($profile->city) ? ', '.$profile->city : '' }}</p>
