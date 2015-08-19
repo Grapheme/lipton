@@ -1955,6 +1955,9 @@ $( document ).ready(function() {
       acceptСheckbox: {
         required: true,
       },
+      city: {
+        required: true,
+      },
     },
 
     messages: {
@@ -1974,10 +1977,14 @@ $( document ).ready(function() {
       acceptСheckbox: {
         required: 'Необходимо заполнить это поле!',
       },
+      city: {
+        required: 'Необходимо заполнить это поле!',
+      },
     },
 
     submitHandler: function(form) {
       var userPhoneNew = $('input[name="phone"]').val();
+      $('.erros-message-block').remove();
 
       if(userPhone != userPhoneNew) {
         $('.sms-wrapper').fadeIn();
@@ -1985,7 +1992,7 @@ $( document ).ready(function() {
       } else {
 
         $('form.profile-edit button').addClass('loading');
-        $('form.profile-edit button').html('<i class="fa fa-circle-o-notch fa-spin"></i>')
+        $('form.profile-edit button').append('<i class="fa fa-circle-o-notch fa-spin"></i>')
         var options = {
           success: function(data){
             if(data.redirectURL) {
