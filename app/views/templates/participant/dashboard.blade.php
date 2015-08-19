@@ -47,7 +47,6 @@ $prizes = (new ApiController())->get_prizes($post);
                                   class="{{ $profile->name }}">
                         @endif
                             <h3>{{ $profile->name }} {{ $profile->surname }}</h3>
-
                             <p>{{ $bdate->diffInYears($now).' '.Lang::choice('год|года|лет', $bdate->diffInYears($now)) }}{{ !empty($profile->city) ? ', '.$profile->city : '' }}</p>
                             <a href="{{ URL::route('profile.edit') }}">Редактировать профиль</a>
                         </div>
