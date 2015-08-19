@@ -1436,9 +1436,8 @@ $( document ).ready(function() {
 
   $(document).on('click', 'div.error-block a', function() {
     $('.block.second-code').fadeOut();
-    $('form.promo-code').html('Отправить');
+    $('form.promo-code button').html('Отправить');
     $('form.promo-code input').val('');
-    
   });
 
   $('.second-code .fields-holder a, a.popup-close-cross').click(function() {
