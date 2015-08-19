@@ -20,7 +20,7 @@ $profile = Accounts::where('id', Auth::user()->id)->with('ulogin')->first();
                         @include(Helper::acclayout('forms.profile'))
                     </div>
                     <div class="forms-holder full-registration-holder">
-                        {{--@include(Helper::layout('forms.valid-phone'))--}}
+                        @include(Helper::layout('forms.valid-phone'))
                     </div>
                 </div>
             </div>

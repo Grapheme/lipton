@@ -175,7 +175,6 @@ class RegisterController extends BaseController {
                     $post['code'] = Input::get('code');
                     $post['customerId'] = Auth::user()->remote_id;
                     $post['sessionKey'] = Auth::user()->sessionKey;
-                    Helper::tad($post);
                     $api = (new ApiController())->activatePhone($post);
                     Helper::tad($api);
                 endif;

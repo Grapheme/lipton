@@ -416,7 +416,7 @@ class ApiController extends BaseController {
         endif;
     }
 
-    public function activateEmail(array $params = []) {
+    public function activateEmail($params) {
 
         if (empty($params)):
             App::abort(404);
@@ -444,12 +444,26 @@ class ApiController extends BaseController {
         endif;
     }
 
-    public function activatePhone(array $params = []){
+    public function activatePhone(array $params = [], $operation = 'DirectCrm.MobilePhoneConfirmation'){
 
         if (empty($params)):
             App::abort(404);
         endif;
-        $uri_request = $this->config['server_url'] . "/v2/customers/current/ticket?ticket=$params";
+
+        $this->headers['authorization']['customerId'] = $params['customerId'];
+        $this->headers['authorization']['sessionKey'] = $params['sessionKey'];
+        $valid = $this->validAvailableOperation($operation);
+        if ($valid === -1):
+            Config::set('api.message', 'Авторизуйтесь для выполнения операции.');
+            return $valid;
+        elseif ($valid === FALSE):
+            Config::set('api.message', 'Операция подтвержения номера телефона недоступна.');
+            return FALSE;
+        endif;
+
+        $uri_request = $this->config['server_url'] . "/v2/customers/current/confirm-mobile-phone?operation=$operation&code=".$params['code'];
+        print_r($uri_request);
+        exit;
         return true;
     }
 
