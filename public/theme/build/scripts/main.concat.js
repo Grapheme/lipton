@@ -1438,6 +1438,7 @@ $( document ).ready(function() {
     $('.block.second-code').fadeOut();
     $('form.promo-code').html('Отправить');
     $('form.promo-code input').val('');
+    
   });
 
   $('.second-code .fields-holder a, a.popup-close-cross').click(function() {
