@@ -77,6 +77,8 @@ class ApiController extends BaseController {
         if (is_array($operations)):
             if (in_array($operation, $operations)):
                 return TRUE;
+            else:
+                return FALSE;
             endif;
         endif;
         return $operations;
@@ -461,11 +463,42 @@ class ApiController extends BaseController {
         endif;
         $uri_request = $this->config['server_url'] . "/v2/customers/current/confirm-mobile-phone?operation=$operation&code=".$params['code'];
         $result = $this->postCurl($uri_request);
+        Helper::tad($result);
         if ($this->validCode($result, 200)):
             if ($message = $this->getErrorMessage($result)):
                 Config::set('api.message', $message);
             endif;
             return FALSE;
+        else:
+            Config::set('api.message', 'Возникла ошибка на сервере регистрации.');
+            if ($message = $this->getErrorMessage($result)):
+                Config::set('api.message', $message);
+            endif;
+            return FALSE;
+        endif;
+    }
+
+    public function resendMobilePhoneConfirmation(array $params = [], $operation = 'DirectCrm.MobilePhoneConfirmationResend'){
+
+        if (empty($params)):
+            App::abort(404);
+        endif;
+        $this->headers['authorization']['customerId'] = $params['customerId'];
+        $this->headers['authorization']['sessionKey'] = $params['sessionKey'];
+        $valid = $this->validAvailableOperation($operation);
+        if ($valid === -1):
+            Config::set('api.message', 'Авторизуйтесь для выполнения операции.');
+            return -1;
+        elseif ($valid === FALSE):
+            Config::set('api.message', 'Операция повторной отправки SMS для подтверждения номера мобильного телефона недоступна.');
+            return FALSE;
+        endif;
+        $uri_request = $this->config['server_url'] . "/v2/customers/current/resend-mobile-phone-confirmation?operation=$operation";
+        $result = $this->postCurl($uri_request);
+        if ($this->validCode($result, 200)):
+            $message = $this->getXmlValue($result['curl_result'], 'messages', 'message');
+            Config::set('api.message', $message);
+            return TRUE;
         else:
             Config::set('api.message', 'Возникла ошибка на сервере регистрации.');
             if ($message = $this->getErrorMessage($result)):
