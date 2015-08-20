@@ -125,8 +125,8 @@ $( document ).ready(function() {
     e.preventDefault();
     var smsAjaxAdress = $(this).attr('href');
     $.post(smsAjaxAdress, function(data) {
-      if (data.status !== true) {
-        console.log('error accured');
+      if (data.status) {
+        $("#msg-sms-response").html(data.responseText);
       }
     });
   })
@@ -617,23 +617,24 @@ $( document ).ready(function() {
     submitHandler: function(form) {
       var userPhoneNew = $('input[name="phone"]').val();
       $('.erros-message-block').remove();
-
-      if(userPhone != userPhoneNew) {
-        $('#js-sms-again').click();
-        $('.sms-wrapper').fadeIn();
-        return false;
-      } else {
-
         $('form.profile-edit button').addClass('loading');
         $('form.profile-edit button').prepend('<i class="fa fa-circle-o-notch fa-spin"></i>')
         var options = {
           success: function(data){
-            if(data.redirectURL) {
-              function goToCabinet () {
-                window.location.href = data.redirectURL;
-              };
-              setTimeout(goToCabinet, 3000);
-            } else {
+            if(data.status){
+              if(userPhone != userPhoneNew) {
+                $('#js-sms-again').click();
+                $("#msg-sms-response").html('');
+                $('.sms-wrapper').fadeIn();
+              } else {
+                if(data.redirectURL) {
+                  function goToCabinet () {
+                    window.location.href = data.redirectURL;
+                  };
+                  setTimeout(goToCabinet, 3000);
+                }
+              }
+            }else{
               $('form.profile-edit').append('<div class="erros-message-block">' + data.responseText + '</div>');
             }
           },
@@ -644,7 +645,7 @@ $( document ).ready(function() {
           }
         };
         $(form).ajaxSubmit(options);
-      }
+      
     }
   });
 
