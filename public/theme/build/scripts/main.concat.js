@@ -1538,7 +1538,7 @@ $( document ).ready(function() {
 // PROMO-CODE FORM VALIDATION //
 
   var auth = $('#promo-code-form').attr('data-user-auth');
-  var redirectURL = $('#promo-code-form button').attr('data-redirect-authorization');
+  var unauthorisedRedirectURL = $('#promo-code-form button').attr('data-redirect-authorization');
     
   $('form#promo-code-form').validate({
     rules: {
@@ -1598,7 +1598,7 @@ $( document ).ready(function() {
         $.cookie('firstCodeCookie', firstCodeCookie);
         if(data.redirectURL) {
           function goToAuthorization () {
-            window.location.href = data.redirectURL;
+            window.location.href = unauthorisedRedirectURL;
           };
           setTimeout(goToAuthorization, 3000);
         }
