@@ -114,8 +114,16 @@ $( document ).ready(function() {
     $('.learn-more-popup-holder').fadeOut();
   });
 
-  var smsAjaxAdress = $('form.sms-chesk .js-sms-again').attr('href');
-  $('form.sms-chesk').ajaxSend(smsAjaxAdress);
+
+  $('.js-sms-again').click(function(e){
+    e.preventDefault();
+    var smsAjaxAdress = $('form.sms-chesk .js-sms-again').attr('href');
+    $.post( "smsAjaxAdress", function(data) {
+      if (true !== data.status) {
+        alert('error accured');
+      }
+    });
+  })
 
 // WONDERFULL MASKS //
 
@@ -605,8 +613,10 @@ $( document ).ready(function() {
 
       if(userPhone != userPhoneNew) {
         var smsAjaxAdress = $('form.sms-chesk .js-sms-again').attr('href');
-        $.post( "smsAjaxAdress", function() {
-          alert( "success" );
+        $.post( "smsAjaxAdress", function(data) {
+          if (true !== data.status) {
+            alert('error accured');
+          }
         });
         $('.sms-wrapper').fadeIn();
         return false;
