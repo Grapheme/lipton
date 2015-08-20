@@ -1471,6 +1471,11 @@ $( document ).ready(function() {
     checkScroll();
   });
 
+  $('.error-block a').click(function(e){
+    e.preventDefault();
+    $('.profile-error-wrapper').fadeOut();
+  })
+
   if($(window).width() > 320) {
       $('.country').click(function(){
       var popupContent = $(this).find('.content').clone();
