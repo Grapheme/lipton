@@ -1566,12 +1566,12 @@ $( document ).ready(function() {
                 $('.second-code').fadeIn();
 
                 } else { // PROMOCODE OLLREADY REGISTERED
-                  $('.second-code').html('<div class="second-code-hack"></div><div class="error-block"><h3>Ошибка</h3><p>' + data.responseText + '</p> <a href="#">Закрыть</a></div>');
-                  $('.second-code').fadeIn();
+                  $('.profile-error-wrapper p').text(data.responseText);
+                  $('.profile-error-wrapper').fadeIn();
                   $('#promo-code-form button').html('Отправить');
                 };
             } else {
-              $('.second-code').html('<div class="second-code-hack"></div><div class="error-block"><h3>Ошибка</h3><p>' + data.responseText + '</p> <a href="#">Закрыть</a></div>');
+              $('.second-code').html('<div class="second-code-hack"></div><div class="error-block"><h3>Внимание</h3><p>' + data.responseText + '</p> <a href="#">Закрыть</a></div>');
               $('.second-code').fadeIn();
               $('#promo-code-form button').html('Отправить');
             }
@@ -2102,7 +2102,14 @@ $( document ).ready(function() {
       $('.second-code').fadeIn();
     }
   }
+  parseHash();
 
+    function parseHash(){
+    var hash = window.location.hash;
+    if (hash == '#message') {
+      $('.profile-error-wrapper').fadeIn();
+    }
+  }
   parseHash();
 
   // AAANIMATION! //
