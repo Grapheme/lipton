@@ -214,13 +214,8 @@ $( document ).ready(function() {
         $('#promo-code-form button').prepend('<i class="fa fa-circle-o-notch fa-spin"></i>')
         var firstCodeCookie = $(".promo-code .promoCode1").val();
         $.cookie('firstCodeCookie', firstCodeCookie);
-        // if(data.redirectURL) {
-          function goToAuthorization () {
-            var unauthorisedRedirectURL = $('.block form#promo-code-form button').attr('data-redirect-authorization');
-            window.location.href = unauthorisedRedirectURL;
-        // };
-          setTimeout(goToAuthorization, 3000);
-        }
+        var unauthorisedRedirectURL = $(form).find('button').data('redirect-authorization');
+        window.location.href = unauthorisedRedirectURL;
       }
     }
   });
