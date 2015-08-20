@@ -39,7 +39,6 @@ endif;
             <div style="background-image: url({{ asset(Config::get('site.theme_path').'/images/main-slider/3.jpg') }})" class="slide">&nbsp</div>
             <div style="background-image: url({{ asset(Config::get('site.theme_path').'/images/main-slider/5.jpg') }})" class="slide">&nbsp</div>
             <div style="background-image: url({{ asset(Config::get('site.theme_path').'/images/main-slider/6.jpg') }})" class="slide">&nbsp</div>
-            <div style="background-image: url({{ asset(Config::get('site.theme_path').'/images/main-slider/7.jpg') }})" class="slide">&nbsp</div>
         </div>
         <div class="block promo-code">
             <div class="content">
