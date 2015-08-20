@@ -79,12 +79,8 @@ class RegisterController extends BaseController {
                         $json_request['redirectURL'] = URL::to(AuthAccount::getGroupStartUrl());
                         if (isset($post['code']) && !empty($post['code'])):
                             $result = PromoController::registerPromoCode($post['code']);
-                            if ($result === FALSE):
-                                Session::flash('message', Config::get('api.message'));
-                                Session::flash('promo', $post['code']);
-                            else:
-                                Session::flash('message', Config::get('api.message'));
-                            endif;
+                            Session::flash('message', Config::get('api.message'));
+                            $json_request['redirectURL'] = URL::to(AuthAccount::getGroupStartUrl().'#message');
                             setcookie("firstCodeCookie", "", time() - 3600, '/');
                         endif;
                     endif;
@@ -126,12 +122,8 @@ class RegisterController extends BaseController {
                         $json_request['status'] = TRUE;
                         if (isset($post['code']) && !empty($post['code'])):
                             $result = PromoController::registerPromoCode($post['code']);
-                            if ($result === FALSE):
-                                Session::flash('message', Config::get('api.message'));
-                                Session::flash('promo', $post['code']);
-                            else:
-                                Session::flash('message', Config::get('api.message'));
-                            endif;
+                            Session::flash('message', Config::get('api.message'));
+                            $json_request['redirectURL'] = URL::to(AuthAccount::getGroupStartUrl().'#message');
                             setcookie("firstCodeCookie", "", time() - 3600, '/');
                         endif;
                     endif;

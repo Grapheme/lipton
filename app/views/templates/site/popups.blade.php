@@ -24,7 +24,7 @@
         <div class="second-code-hack"></div>
         <div class="error-block">
             <h3>Внимание</h3>
-            <p></p>
+            <p>@if(Session::has('message')){{ Session::get('message') }}@endif</p>
             <a href="#">Закрыть</a>
         </div>
     </div>
