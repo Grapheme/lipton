@@ -126,7 +126,7 @@ $( document ).ready(function() {
     var smsAjaxAdress = $(this).attr('href');
     $.post(smsAjaxAdress, function(data) {
       if (data.status !== true) {
-        alert('error accured');
+        console.log('error accured');
       }
     });
   })
