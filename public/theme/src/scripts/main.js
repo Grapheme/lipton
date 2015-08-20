@@ -212,14 +212,13 @@ $( document ).ready(function() {
         $(form).ajaxSubmit(options);
 
       } else { // UNAUTORIZED USER
-        // $('#promo-code-form button').addClass('loading');
         $('#promo-code-form button').prepend('<i class="fa fa-circle-o-notch fa-spin"></i>')
         var firstCodeCookie = $(".promo-code .promoCode1").val();
         $.cookie('firstCodeCookie', firstCodeCookie);
-        if(data.redirectURL) {
+        // if(data.redirectURL) {
           function goToAuthorization () {
             window.location.href = unauthorisedRedirectURL;
-          };
+        // };
           setTimeout(goToAuthorization, 3000);
         }
       }
