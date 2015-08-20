@@ -158,7 +158,6 @@ $( document ).ready(function() {
 // PROMO-CODE FORM VALIDATION //
 
   var auth = $('#promo-code-form').attr('data-user-auth');
-  var unauthorisedRedirectURL = $('#promo-code-form button').attr('data-redirect-authorization');
     
   $('form#promo-code-form').validate({
     rules: {
@@ -217,6 +216,7 @@ $( document ).ready(function() {
         $.cookie('firstCodeCookie', firstCodeCookie);
         // if(data.redirectURL) {
           function goToAuthorization () {
+            var unauthorisedRedirectURL = $('.block form#promo-code-form button').attr('data-redirect-authorization');
             window.location.href = unauthorisedRedirectURL;
         // };
           setTimeout(goToAuthorization, 3000);
