@@ -20,6 +20,14 @@
             </div>
         </div>
     </div>
+    <div class="profile-error-wrapper">
+        <div class="second-code-hack"></div>
+        <div class="error-block">
+            <h3>Внимание</h3>
+            <p></p>
+            <a href="#">Закрыть</a>
+        </div>
+    </div>
     @if(isset($profile->writing->writing) && !empty($profile->writing->writing))
         <div class="block story">
             <div class="second-code-hack"></div>
