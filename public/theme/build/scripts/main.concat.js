@@ -2107,7 +2107,7 @@ $( document ).ready(function() {
     function parseHash(){
     var hash = window.location.hash;
     if (hash == '#message') {
-      $('.second-code').fadeIn();
+      $('.profile-error-wrapper').fadeIn();
     }
   }
   parseHash();
