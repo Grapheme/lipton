@@ -114,6 +114,9 @@ $( document ).ready(function() {
     $('.learn-more-popup-holder').fadeOut();
   });
 
+  var smsAjaxAdress = $('form.sms-chesk .js-sms-again').attr('href');
+  $('form.sms-chesk').ajaxSend(smsAjaxAdress);
+
 // WONDERFULL MASKS //
 
   $.mask.definitions['c'] = "[A-Za-z0-9]";
@@ -601,6 +604,8 @@ $( document ).ready(function() {
       $('.erros-message-block').remove();
 
       if(userPhone != userPhoneNew) {
+        var smsAjaxAdress = $('form.sms-chesk .js-sms-again').attr('href');
+        $(form).ajaxSend(smsAjaxAdress);
         $('.sms-wrapper').fadeIn();
         return false;
       } else {
@@ -670,49 +675,49 @@ $( document ).ready(function() {
 
 // MOSAIC //
 
-  function mosaicBlink() {
-    $('.mosaic .mosaic-blured').fadeIn();
-    var mosaicTotal = $('.mosaic').length;
+  // function mosaicBlink() {
+  //   $('.mosaic .mosaic-blured').fadeIn();
+  //   var mosaicTotal = $('.mosaic').length;
 
-      //в условие цикла цисло активных блоков
+  //     //в условие цикла цисло активных блоков
 
-    for (randomArray = 0; randomArray < 10; randomArray++ ) {
-      var randomMosaic = Math.floor(Math.random() * (mosaicTotal - 0 + 1)) + 0;
-      $('.mosaic .mosaic-blured').eq(randomMosaic).fadeOut();
-    }
-      setTimeout(mosaicBlink, 5000);
-  }
+  //   for (randomArray = 0; randomArray < 10; randomArray++ ) {
+  //     var randomMosaic = Math.floor(Math.random() * (mosaicTotal - 0 + 1)) + 0;
+  //     $('.mosaic .mosaic-blured').eq(randomMosaic).fadeOut();
+  //   }
+  //     setTimeout(mosaicBlink, 5000);
+  // }
 
-  function mosaicBuild() {
+  // function mosaicBuild() {
 
-    var winnersWidth = $('.mosaic-holder').outerWidth();
-    var winnersHeight = $('.mosaic-holder').outerHeight();
-    var mosaicHorisontal = Math.ceil(winnersWidth / 100);
-    var mosaicVertical = Math.ceil(winnersHeight / 100);
-    var curentMosaic = 0;
-    var mosaicRows = 0;
+  //   var winnersWidth = $('.mosaic-holder').outerWidth();
+  //   var winnersHeight = $('.mosaic-holder').outerHeight();
+  //   var mosaicHorisontal = Math.ceil(winnersWidth / 100);
+  //   var mosaicVertical = Math.ceil(winnersHeight / 100);
+  //   var curentMosaic = 0;
+  //   var mosaicRows = 0;
 
-    do {
-    var $row = $('<div class="mosaic-row"></div>').appendTo($('.mosaic-fuckup'));
-    mosaicRows++;
-    curentMosaic = 1;
+  //   do {
+  //   var $row = $('<div class="mosaic-row"></div>').appendTo($('.mosaic-fuckup'));
+  //   mosaicRows++;
+  //   curentMosaic = 1;
 
-      do {
-        $row.append('<div class="mosaic"><div class="mosaic-blured" style="background-position: -'+ (curentMosaic) * 75 + 'px -' + (mosaicRows-1) * 75 +'px"></div></div>');
-        curentMosaic++;
-      }
-      while (curentMosaic <= mosaicHorisontal);
+  //     do {
+  //       $row.append('<div class="mosaic"><div class="mosaic-blured" style="background-position: -'+ (curentMosaic) * 75 + 'px -' + (mosaicRows-1) * 75 +'px"></div></div>');
+  //       curentMosaic++;
+  //     }
+  //     while (curentMosaic <= mosaicHorisontal);
 
-    }
-    while (mosaicRows <= mosaicVertical);
+  //   }
+  //   while (mosaicRows <= mosaicVertical);
 
-    // mosaicBlink();
-  }
+  //   // mosaicBlink();
+  // }
 
-  $(window).resize(function(){
-    $('.mosaic-fuckup').html('');
-    // mosaicBuild();
-  });
+  // $(window).resize(function(){
+  //   $('.mosaic-fuckup').html('');
+  //   // mosaicBuild();
+  // });
 
   // mosaicBuild();
 /////////
