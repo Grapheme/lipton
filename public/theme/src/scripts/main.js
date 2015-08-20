@@ -605,7 +605,9 @@ $( document ).ready(function() {
 
       if(userPhone != userPhoneNew) {
         var smsAjaxAdress = $('form.sms-chesk .js-sms-again').attr('href');
-        $(form).ajaxSend(smsAjaxAdress);
+        $.post( "smsAjaxAdress", function() {
+          alert( "success" );
+        });
         $('.sms-wrapper').fadeIn();
         return false;
       } else {
