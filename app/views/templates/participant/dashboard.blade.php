@@ -22,12 +22,6 @@ $prizes = (new ApiController())->get_prizes($post);
             <div class="content">
                 <h2>Личный кабинет</h2>
                 <a class="exit-cabinet" href="{{ URL::route('logout') }}">Выйти</a>
-                @if(Session::has('message'))
-                    <div>{{ Session::get('message') }}</div>
-                @endif
-                @if(Session::has('promo'))
-                    <div>{{ Session::get('promo') }}</div>
-                @endif
                 <div class="profile">
                     <div class="profile-head">
                         <div class="profile-info">

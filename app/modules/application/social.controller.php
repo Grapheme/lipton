@@ -48,13 +48,9 @@ class SocialController extends BaseController {
             endif;
             if (isset($_COOKIE['firstCodeCookie']) && !empty($_COOKIE['firstCodeCookie'])):
                 $result = PromoController::registerPromoCode($_COOKIE['firstCodeCookie']);
-                if ($result === FALSE):
-                    Session::flash('message', Config::get('api.message'));
-                    Session::flash('promo', $post['code']);
-                else:
-                    Session::flash('message', Config::get('api.message'));
-                endif;
+                Session::flash('message', Config::get('api.message'));
                 setcookie("firstCodeCookie", "", time() - 3600, '/');
+                return Redirect::to(AuthAccount::getGroupStartUrl().'#message');
             endif;
             return Redirect::to(AuthAccount::getGroupStartUrl());
         elseif (isset($_user['email']) && User::where('email', $_user['email'])->exists()):
