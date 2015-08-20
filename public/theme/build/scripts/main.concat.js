@@ -1474,6 +1474,7 @@ $( document ).ready(function() {
   $('.error-block a').click(function(e){
     e.preventDefault();
     $('.profile-error-wrapper').fadeOut();
+
   })
 
   if($(window).width() > 320) {
@@ -1500,11 +1501,11 @@ $( document ).ready(function() {
   });
 
 
-  $('.js-sms-again').click(function(e){
+  $('#js-sms-again').click(function(e){
     e.preventDefault();
-    var smsAjaxAdress = $('form.sms-chesk .js-sms-again').attr('href');
+    var smsAjaxAdress = $(this).attr('href');
     $.post(smsAjaxAdress, function(data) {
-      if (true !== data.status) {
+      if (data.status !== true) {
         alert('error accured');
       }
     });
@@ -1998,12 +1999,7 @@ $( document ).ready(function() {
       $('.erros-message-block').remove();
 
       if(userPhone != userPhoneNew) {
-        var smsAjaxAdress = $('form.sms-chesk .js-sms-again').attr('href');
-        $.post( "smsAjaxAdress", function(data) {
-          if (true !== data.status) {
-            alert('error accured');
-          }
-        });
+        $('#js-sms-again').click();
         $('.sms-wrapper').fadeIn();
         return false;
       } else {
