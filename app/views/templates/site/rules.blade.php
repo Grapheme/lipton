@@ -28,7 +28,7 @@
                     </div>
                     <div class="rule-item rule-4">
                         <div class="rule-img"></div>
-                        <h3>Возможность отправиться в&nbsp;путешествие</h3>
+                        <h3>Получи озможность отправиться в&nbsp;путешествие</h3>
                     </div>
                 </div>
                 <div class="rules-text-block">
