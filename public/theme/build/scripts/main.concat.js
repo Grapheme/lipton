@@ -1474,7 +1474,7 @@ $( document ).ready(function() {
   $('.error-block a').click(function(e){
     e.preventDefault();
     $('.profile-error-wrapper').fadeOut();
-
+    window.location.hash = '';
   })
 
   if($(window).width() > 320) {
