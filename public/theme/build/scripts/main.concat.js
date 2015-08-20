@@ -1503,7 +1503,7 @@ $( document ).ready(function() {
   $('.js-sms-again').click(function(e){
     e.preventDefault();
     var smsAjaxAdress = $('form.sms-chesk .js-sms-again').attr('href');
-    $.post( "smsAjaxAdress", function(data) {
+    $.post(smsAjaxAdress, function(data) {
       if (true !== data.status) {
         alert('error accured');
       }
@@ -1521,6 +1521,7 @@ $( document ).ready(function() {
   $('form.profile-edit input[name="phone"]').mask('+7 (999) 999 99 99');
   $('form.profile-edit input.dd, form.profile-edit input.mm').mask('99');
   $('form.profile-edit input.yyyy').mask('9999');
+  $('form.sms-chesk input[name="sms-check"]').mask('99999999');
 
 // SCROLL BLOCK //
 
@@ -1634,7 +1635,7 @@ $( document ).ready(function() {
     submitHandler: function(form) {
       // $('.promo-code-2 button').html('');
       $('.promo-code-2 button').addClass('loading');
-      $('.promo-code-2 button').html('<i class="fa fa-circle-o-notch fa-spin"></i>')
+      $('.promo-code-2 button').prepend('<i class="fa fa-circle-o-notch fa-spin"></i>')
       var options = {
         success: function(data){
           $('form.promo-code-2').html('');
@@ -2008,7 +2009,7 @@ $( document ).ready(function() {
       } else {
 
         $('form.profile-edit button').addClass('loading');
-        $('form.profile-edit button').append('<i class="fa fa-circle-o-notch fa-spin"></i>')
+        $('form.profile-edit button').prepend('<i class="fa fa-circle-o-notch fa-spin"></i>')
         var options = {
           success: function(data){
             if(data.redirectURL) {
@@ -2048,7 +2049,7 @@ $( document ).ready(function() {
     submitHandler: function(form) {
       // $('form.send-instructions button').html('');
       $('form.sms-chesk button').addClass('loading');
-      $('form.sms-chesk button').html('<i class="fa fa-circle-o-notch fa-spin"></i>')
+      $('form.sms-chesk button').append('<i class="fa fa-circle-o-notch fa-spin"></i>')
       var options = { 
         success: function(data){
           if(data.status) {
