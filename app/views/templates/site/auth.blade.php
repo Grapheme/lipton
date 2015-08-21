@@ -36,6 +36,16 @@
             </div>
         </div>
     </div>
+    <div class="password-recovery-holder">
+        <div class="second-code-hack"></div>
+        <div class="error-block">
+            <h3>Введите свой E-mail</h3>
+            <form class="password-recovery-form" name="password-recovery-form">
+                <input for="password-recovery-form" name="email-recovery">
+                <button type="submit">Отправить</button>
+                <a href="#">Закрыть</a>
+        </div>
+    </div>
 @stop
 @section('scripts')
 @if(Auth::check()):
