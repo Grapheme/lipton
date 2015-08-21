@@ -90,6 +90,8 @@ class PromoController extends BaseController {
 
     public function secondRegister() {
 
+        Helper::tad(Input::all());
+
         $json_request = array('status' => FALSE, 'responseText' => '', 'select_certificates' => FALSE,
             'redirectURL' => FALSE);
         $validator = Validator::make(Input::all(), array('promoCode2' => 'required'));
