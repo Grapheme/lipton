@@ -2132,6 +2132,8 @@ $('form.password-recovery-form').validate({
             $('.password-recovery-holder .error-block .recovery-message-text').append(data.responseText);
             $('.password-recovery-holder .error-block .recovery-message-text').fadeIn();
           }
+          $('form.password-recovery-form').html('Отправить');
+          $('form.password-recovery-form').removeClass('loading');
         },
 
         error: function (data) {
