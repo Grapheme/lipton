@@ -280,9 +280,9 @@ $(document).ready(function () {
                     if (true === data.status) {
                         if (data.select_certificates) {
                             //показать поп-ап с выбором сертификатов
-                            // console.log(date.sertificates);
+                            // console.log(date.certificates);
                             // заполнить селект с сертификатами
-                            // <option value="sertificates[code]">sertificates[title]</options>
+                            // <option value="certificates[code]">certificates[title]</options>
                         }
                     } else if (undefined != data.responseText && data.responseText.length > 0) {
                         $('#js-profile-error').html(data.responseText);
