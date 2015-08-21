@@ -17,6 +17,7 @@
                     <div class="forms-holder full-registration-holder">
                         @include(Helper::layout('forms.signup'))
                     </div>
+                    @include(Helper::layout('forms.valid-phone'))
                     @endif
                 </div>
             </div>

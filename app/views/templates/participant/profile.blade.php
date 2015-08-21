@@ -19,14 +19,7 @@ $profile = Accounts::where('id', Auth::user()->id)->with('ulogin')->first();
                     <div class="forms-holder full-registration-holder">
                         @include(Helper::acclayout('forms.profile'))
                     </div>
-                    <div class="sms-wrapper">
-                        <div class="second-code-hack"></div>
-                        
-                        <div class="cropper-holder">
-                            @include(Helper::layout('forms.valid-phone'))
-                        </div>
-                    </div>
-                    </div>
+                    @include(Helper::layout('forms.valid-phone'))
                 </div>
             </div>
         </div>
