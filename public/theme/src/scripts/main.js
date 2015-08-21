@@ -722,7 +722,7 @@ $('form.password-recovery-form').validate({
     },   
     submitHandler: function(form) {
       $('form.password-recovery-form').addClass('loading');
-      $('form.password-recovery-form').prepend('<i class="fa fa-circle-o-notch fa-spin"></i>')
+      $('form.password-recovery-form button').prepend('<i class="fa fa-circle-o-notch fa-spin"></i>');
       var options = { 
         success: function(data){
           if(data.status) {
