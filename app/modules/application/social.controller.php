@@ -32,7 +32,9 @@ class SocialController extends BaseController {
     /****************************************************************************/
     public function postUlogin() {
 
-        $_user = json_decode(file_get_contents('http://ulogin.ru/token.php?token=' . Input::get('token') . '&host=' . $_SERVER['HTTP_HOST']), true);
+        $url_request = 'http://ulogin.ru/token.php?token=' . Input::get('token') . '&host=' . $_SERVER['HTTP_HOST'];
+        $result = (new ApiController())->getCurl($url_request, FALSE);
+        $_user = json_decode($result['curl_result'], true);
         $validate = Validator::make([], []);
         if (isset($_user['error'])):
             return Redirect::to(URL::route('page', 'registering'));

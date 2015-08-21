@@ -172,13 +172,14 @@ class RegisterController extends BaseController {
                     $api = (new ApiController())->activatePhone($post);
                     if ($api === -1):
                         Auth::logout();
+                        $json_request['status'] = TRUE;
                         $json_request['redirectURL'] = pageurl('auth');
                         return Response::json($json_request, 200);
                     elseif ($api === FALSE):
                         $json_request['status'] = FALSE;
                     else:
                         $json_request['status'] = TRUE;
-                        Session::flash('message', Config::get('api.message'));
+                        $json_request['responseText'] = Config::get('api.message');
                         $json_request['redirectURL'] = URL::route('dashboard');
                     endif;
                     $json_request['responseText'] = Config::get('api.message');
@@ -209,7 +210,7 @@ class RegisterController extends BaseController {
                     $json_request['status'] = FALSE;
                 else:
                     $json_request['status'] = TRUE;
-                    Session::flash('message', Config::get('api.message'));
+                    $json_request['responseText'] = Config::get('api.message');
                     $json_request['redirectURL'] = URL::route('dashboard');
                 endif;
                 $json_request['responseText'] = Config::get('api.message');
