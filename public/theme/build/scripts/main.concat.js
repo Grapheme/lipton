@@ -1948,15 +1948,22 @@ $(document).ready(function () {
             $('.erros-message-block').remove();
             var options = {
                 success: function (data) {
+                  $('form.full-registration button').html('Отправить');
+                  $('form.full-registration button').removeClass('loading');
+                    if (data.status) {
+                        if(data.valid_phone) {
+                          $('.sms-wrapper').fadeIn();
+                        }
+
+                    } else {
+                        $('form.full-registration').append('<div class="erros-message-block">' + data.responseText + '</div>');
+                    }
+
                     if (data.redirectURL) {
                         function goToCabinet() {
                             window.location.href = data.redirectURL;
                         };
                         setTimeout(goToCabinet, 3000);
-                    } else {
-                        $('form.full-registration').append('<div class="erros-message-block">' + data.responseText + '</div>');
-                        $('form.full-registration button').html('Отправить');
-                        $('form.full-registration button').removeClass('loading');
                     }
                 },
                 error: function (data) {
