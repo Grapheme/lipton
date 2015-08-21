@@ -2851,7 +2851,8 @@ input.error {
   margin-left: -266px;
   width: 532px;
   height: 287px;
-  border-radius: 10px; }
+  border-radius: 10px;
+  z-index: 1001; }
   .error-block h3 {
     text-transform: uppercase;
     font-size: 21px;
@@ -3249,6 +3250,9 @@ button.loading {
     width: 532px;
     height: 287px;
     border-radius: 10px; }
+    .second-code-holder .second-code input #promoCode2-error {
+      margin-bottom: 0;
+      top: inherit; }
   .second-code-holder .fields-holder {
     width: 292px;
     height: 130px;

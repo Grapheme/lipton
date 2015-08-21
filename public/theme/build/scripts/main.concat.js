@@ -1657,8 +1657,8 @@ $(document).ready(function () {
             var options = {
                 success: function (data) {
                     $('form.promo-code-2').html('');
-                    $('.second-code').html('<div class="error-block"><h3>' + data.responseText + '</h3>');
-                    $('.second-code').fadeIn();
+                    // $('.error-block #js-profile-error').html(data.responseText);
+                    // $('.error-block').fadeIn();
                     if (data.redirectURL) {
                         function goToCabinet() {
                             window.location.href = data.redirectURL;
@@ -1669,7 +1669,8 @@ $(document).ready(function () {
                 error: function (data) {
                     $('.promo-code-2 button').html('Отправить');
                     $('.promo-code-2 button').removeClass('loading');
-                    // ERROR
+                    $('.error-block #js-profile-error').html(data.responseText);
+                    $('.error-block').fadeIn();
                 }
             };
             $(form).ajaxSubmit(options);
