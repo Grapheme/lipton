@@ -41,11 +41,15 @@ $prizes = (new ApiController())->get_prizes($post);
                         </div>
                         <div class="profile-promo-code">
                             <h3>Введите промо код</h3>
-                            @include(Helper::layout('forms.first-promo-code'))
+                            @if(count($prizes) == 0)
+                                @include(Helper::layout('forms.first-promo-code'))
+                            @elseif(count($prizes) >= 1 && isset($prizes[0]))
+                                @include(Helper::layout('forms.second-promo-code'))
+                            @endif
                         </div>
                         <div class="request">
                             <div class="note"></div>
-                            @if(count($profile->codes) == 2 && isset($profile->writing->writing) && !empty($profile->writing->writing))
+                            @if(isset($profile->writing->writing) && !empty($profile->writing->writing))
                                 <a href="javascript:void(0);">Конкурс рассказов</a>
                                 @if($profile->writing->status == 2)
                                     <div class="moderation neutral">Ваш рассказ на модерации
@@ -66,31 +70,33 @@ $prizes = (new ApiController())->get_prizes($post);
                     <div class="gained-prizes">
                         <div class="prize">
                             <div class="ico leo"></div>
-                            <p>Курс английского для путешественников</p>
-                            @if(count($profile->codes) >= 1)
+                            @if(count($prizes) > 0 && isset($prizes[0]))
+                                <p>{{ @$prizes[0]['displayName'] }}</p>
                                 <a class="disabled-button">Получен</a>
+                            @else
+                            <p>Курс английского для путешественников</p>
                             @endif
                         </div>
                         <div class="prize">
                             <div class="ico spec"></div>
-                            <p>Cпецкурс<br>на выбор</p>
-                            @if(count($profile->codes) == 2)
+                            @if(count($prizes) > 1 && isset($prizes[1]))
+                                <p>{{ @$prizes[1]['displayName'] }}</p>
                                 <a class="disabled-button">Получен</a>
+                            @else
+                                <p>Cпецкурс<br>на выбор</p>
                             @endif
                         </div>
                         <div class="prize">
                             <div class="ico ngt"></div>
                             <p>Путешествие с national geographic traveler</p>
-                            @if(count($profile->codes) == 2)
-                                @if(isset($profile->writing->status) && $profile->writing->status == 1)
-                                    <a class="disabled-button">Одобрен</a>
-                                @elseif(isset($profile->writing->status) && $profile->writing->status == 2)
-                                    <a class="disabled-button">Модерация</a>
-                                @elseif(isset($profile->writing->status) && $profile->writing->status == 3)
-                                    <a href="{{ URL::route('profile.tell-story') }}">Изменить</a>
-                                @else
-                                    <a href="{{ URL::route('profile.tell-story') }}">Написать</a>
-                                @endif
+                            @if(isset($profile->writing->status) && $profile->writing->status == 1)
+                                <a class="disabled-button">Одобрен</a>
+                            @elseif(isset($profile->writing->status) && $profile->writing->status == 2)
+                                <a class="disabled-button">Модерация</a>
+                            @elseif(isset($profile->writing->status) && $profile->writing->status == 3)
+                                <a href="{{ URL::route('profile.tell-story') }}">Изменить</a>
+                            @else
+                                <a href="{{ URL::route('profile.tell-story') }}">Написать</a>
                             @endif
                         </div>
                     </div>
