@@ -749,7 +749,8 @@ $('form.password-recovery-form').validate({
       $(".recovery-message-text").html('');
       var options = {
         success: function(data){
-          if(data.status) {
+          if(data.status) {}
+          if(data.responseText != ''){
             $('.password-recovery-holder .error-block .recovery-message-text').append(data.responseText);
             $('.password-recovery-holder .error-block .recovery-message-text').fadeIn();
           }
