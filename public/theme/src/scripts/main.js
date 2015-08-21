@@ -744,7 +744,7 @@ $('form.password-recovery-form').validate({
       },
     },   
     submitHandler: function(form) {
-      $('form.password-recovery-form').addClass('loading');
+      $('form.password-recovery-form button').addClass('loading');
       $('form.password-recovery-form button').prepend('<i class="fa fa-circle-o-notch fa-spin"></i>');
       var options = { 
         success: function(data){
@@ -752,13 +752,13 @@ $('form.password-recovery-form').validate({
             $('.password-recovery-holder .error-block .recovery-message-text').append(data.responseText);
             $('.password-recovery-holder .error-block .recovery-message-text').fadeIn();
           }
-          $('form.password-recovery-form').html('Отправить');
-          $('form.password-recovery-form').removeClass('loading');
+          $('form.password-recovery-form button').html('Отправить');
+          $('form.password-recovery-form button').removeClass('loading');
         },
 
         error: function (data) {
-          $('form.password-recovery-form').html('Отправить');
-          $('form.password-recovery-form').removeClass('loading');
+          $('form.password-recovery-form button').html('Отправить');
+          $('form.password-recovery-form button').removeClass('loading');
         }
       };
       $(form).ajaxSubmit(options);
