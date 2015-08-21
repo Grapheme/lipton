@@ -31,8 +31,10 @@ $('.preloaded__img').each(function () {
             activeStage = thisStage;
             console.log(thisStage);
             var preloaderBgPosition = -25;
-            $('.preloader-plain').css('background-position', ((190 + 50) * (-thisStage)) + 'px 0px');
-            console.log($('.preloader-plain').css('background-position'));
+            function plainSteps() {
+                $('.preloader-plain').css('background-position', ((190 + 50) * (-thisStage)) + 'px 0px');
+            };
+            setTimeout(plainSteps, 500);
         }
     });
 });
