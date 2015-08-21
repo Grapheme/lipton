@@ -636,6 +636,9 @@ class ApiController extends BaseController {
         $xml = ob_get_clean();
         $this->strlen_xml = strlen($xml);
         $result = $this->postCurl($uri_request, $xml);
+
+        Helper::tad($result);
+
         if ($this->validCode($result, 200)):
             if ($message = $this->getErrorMessage($result)):
                 Config::set('api.message', $message);
