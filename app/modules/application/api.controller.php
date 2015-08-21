@@ -682,8 +682,8 @@ class ApiController extends BaseController {
         if ($this->validCode($result, 200)):
             $totalCount = $this->getXmlValue($result['curl_result'], '', '', 'totalCount');
             $prizes = array();
-            if($totalCount > 0):
-                $prizes[0] =  array(
+            if ($totalCount > 0):
+                $prizes[0] = array(
                     'totalCount' => $totalCount,
                     'customerPrize_id' => $this->getXmlValue($result['curl_result'], '', 'customerPrize', 'id'),
                     'wonDateTime' => array(
