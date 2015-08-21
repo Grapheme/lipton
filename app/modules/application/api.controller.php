@@ -204,7 +204,7 @@ class ApiController extends BaseController {
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
         curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 30);
-        if($headers):
+        if ($headers):
             curl_setopt($ch, CURLOPT_HTTPHEADER, self::curlHandle());
         endif;
         curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
