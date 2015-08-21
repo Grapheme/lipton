@@ -3062,7 +3062,9 @@ a.popup-close-cross {
     width: 39px;
     height: 38px;
     right: 30px;
-    top: 30px; }
+    top: 30px;
+    background-color: transparent !important;
+    box-shadow: none !important; }
   .sms-wrapper .cropper-holder, .password-recovery-holder .cropper-holder {
     position: relative;
     background-image: url("../images/bg-main.jpg");
