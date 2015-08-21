@@ -5,8 +5,8 @@
 ?>
 @if(Auth::check())
     <div class="second-code-holder">
+        <div class="second-code-hack"></div>
         <div class="block second-code">
-            <div class="second-code-hack"></div>
             <a href="javascript:void(0);" class="popup-close-cross"></a>
             <h3>Есть еще один промо-код?</h3>
             @include(Helper::layout('forms.second-promo-code'))
