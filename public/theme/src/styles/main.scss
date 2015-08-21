@@ -1391,6 +1391,11 @@ textarea:-ms-textarea-placeholder {
 						border-color: #c90119;
 					}
 				}
+
+				.password-recovery {
+					display: inline-block;
+					margin-bottom: 20px;
+				}
 			}
 
 			.login-block {
@@ -3583,7 +3588,7 @@ form {
 	}
 }
 
-.sms-wrapper {
+.sms-wrapper, .password-recovery-holder {
 	position: fixed;
 	width: 100%;
 	height: 100%;

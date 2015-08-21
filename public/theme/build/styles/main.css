@@ -1404,6 +1404,9 @@ textarea:-ms-textarea-placeholder {
             border-width: 3px 0 0 0;
             border-style: solid;
             border-color: #c90119; }
+        .block .participate-block .forms-holder form.registration .password-recovery, .block .participate-block .forms-holder form.profile-edit .password-recovery {
+          display: inline-block;
+          margin-bottom: 20px; }
       .block .participate-block .forms-holder .login-block {
         width: 325px;
         float: left; }
@@ -3024,7 +3027,7 @@ form label.error {
           border-style: solid;
           border-color: #c90119; }
 
-.sms-wrapper {
+.sms-wrapper, .password-recovery-holder {
   position: fixed;
   width: 100%;
   height: 100%;
@@ -3035,7 +3038,7 @@ form label.error {
   background-color: rgba(0, 0, 0, 0.3);
   display: none;
   z-index: 1000; }
-  .sms-wrapper .second-code-hack {
+  .sms-wrapper .second-code-hack, .password-recovery-holder .second-code-hack {
     position: relative;
     width: 1px;
     height: 100%;
@@ -3043,7 +3046,7 @@ form label.error {
     bottom: 0;
     display: inline-block;
     vertical-align: middle; }
-  .sms-wrapper a.popup-close-cross {
+  .sms-wrapper a.popup-close-cross, .password-recovery-holder a.popup-close-cross {
     display: block;
     position: absolute;
     background-image: url("../images/ico-close-popup.png");
@@ -3051,7 +3054,7 @@ form label.error {
     height: 38px;
     right: 30px;
     top: 30px; }
-  .sms-wrapper .cropper-holder {
+  .sms-wrapper .cropper-holder, .password-recovery-holder .cropper-holder {
     position: relative;
     background-image: url("../images/bg-main.jpg");
     display: inline-block;
@@ -3061,17 +3064,17 @@ form label.error {
     width: 532px;
     height: 372px;
     border-radius: 10px; }
-    .sms-wrapper .cropper-holder form {
+    .sms-wrapper .cropper-holder form, .password-recovery-holder .cropper-holder form {
       width: 285px;
       margin: 0 auto; }
-    .sms-wrapper .cropper-holder h3 {
+    .sms-wrapper .cropper-holder h3, .password-recovery-holder .cropper-holder h3 {
       text-transform: uppercase;
       font-size: 21px;
       color: #c90119;
       font-family: 'Intro-regular';
       margin: 55px 0 30px 0;
       text-align: center; }
-    .sms-wrapper .cropper-holder input {
+    .sms-wrapper .cropper-holder input, .password-recovery-holder .cropper-holder input {
       width: 285px;
       height: 50px;
       border-radius: 3px;
@@ -3084,7 +3087,7 @@ form label.error {
       font-size: 24px;
       text-transform: uppercase;
       margin-bottom: 20px; }
-    .sms-wrapper .cropper-holder button {
+    .sms-wrapper .cropper-holder button, .password-recovery-holder .cropper-holder button {
       width: 150px;
       height: 50px;
       background-color: #c90119;
@@ -3104,22 +3107,22 @@ form label.error {
       cursor: pointer;
       margin: 0 auto;
       display: block; }
-      .sms-wrapper .cropper-holder button:hover {
+      .sms-wrapper .cropper-holder button:hover, .password-recovery-holder .cropper-holder button:hover {
         background-color: #a40000;
         color: #c90119;
         border-width: 3px 0 0 0;
         border-style: solid;
         border-color: #c90119; }
-      .sms-wrapper .cropper-holder button.loading {
+      .sms-wrapper .cropper-holder button.loading, .password-recovery-holder .cropper-holder button.loading {
         background-color: #a40000 !important;
         color: #c90119 !important;
         border-width: 3px 0 0 0 !important;
         border-style: solid !important;
         border-color: #c90119 !important; }
-    .sms-wrapper .cropper-holder p {
+    .sms-wrapper .cropper-holder p, .password-recovery-holder .cropper-holder p {
       text-align: center;
       font-size: 14px; }
-    .sms-wrapper .cropper-holder a {
+    .sms-wrapper .cropper-holder a, .password-recovery-holder .cropper-holder a {
       text-align: center;
       display: block;
       margin-bottom: 20px; }
