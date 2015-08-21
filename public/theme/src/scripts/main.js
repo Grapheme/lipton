@@ -44,14 +44,14 @@ $( document ).ready(function() {
   // CLOSE BUTTONS ETC //
 
   $('.password-recovery').click(function(e){
-    e.preventDefault;
+    e.preventDefault();
     $.('password-recovery-holder').fadeIn();
   });
 
   $('password-recovery-holder a.popup-close-cross').click(function(e){
-    e.preventDefault;
+    e.preventDefault();
     $.('password-recovery-holder').fadeOut();
-  })
+  });
 
   if (window.location.pathname == '/') {
     $('body').addClass('no-cup');
