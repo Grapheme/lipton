@@ -3870,4 +3870,15 @@ button {
 		display: inline-block;
 		vertical-align: middle;
 	}
+
+	form.promo-code {
+		width: auto;
+		margin: 0;
+
+		button {
+			margin: 20px auto;
+			float: none;
+			display: block;
+		}
+	}
 }

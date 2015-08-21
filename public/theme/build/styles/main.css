@@ -3261,3 +3261,10 @@ button.loading {
     bottom: 0;
     display: inline-block;
     vertical-align: middle; }
+  .second-code-holder form.promo-code {
+    width: auto;
+    margin: 0; }
+    .second-code-holder form.promo-code button {
+      margin: 20px auto;
+      float: none;
+      display: block; }
