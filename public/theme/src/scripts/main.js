@@ -278,7 +278,7 @@ $(document).ready(function () {
                     $('.promo-code-2 button').html('Отправить');
                     $('.promo-code-2 button').removeClass('loading');
                     if (true === data.status) {
-                        if (data.select_sertificates) {
+                        if (data.select_certificates) {
                             //показать поп-ап с выбором сертификатов
                             // console.log(date.sertificates);
                             // заполнить селект с сертификатами
