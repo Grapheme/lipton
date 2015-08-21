@@ -50,7 +50,7 @@ $(document).ready(function () {
         $('.password-recovery-holder').fadeIn();
     });
 
-    $('.password-recovery-holder a.popup-close-cross').click(function (e) {
+    $('.password-recovery-holder a').click(function (e) {
         e.preventDefault();
         $('.password-recovery-holder').fadeOut();
     });
@@ -137,11 +137,11 @@ $(document).ready(function () {
         e.preventDefault();
         var smsAjaxAdress = $(this).attr('href');
         $.post(smsAjaxAdress, function (data) {
-            if (data.status === false) {
-                //ТУТ вставить восстановление кнопки
+            if (data.status) {
+                // Тут восстановление кнопки
             }
             if(data.responseText != ''){
-                $("#msg-sms-response").html(data.responseText);
+                $("#msg-sms-response").append(data.responseText);
             }
             if (data.redirectURL) {
                 function goToCabinet() {
