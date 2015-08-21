@@ -152,7 +152,7 @@ $( document ).ready(function() {
   $('form.profile-edit input[name="phone"]').mask('+7 (999) 999 99 99');
   $('form.profile-edit input.dd, form.profile-edit input.mm').mask('99');
   $('form.profile-edit input.yyyy').mask('9999');
-  $('form.sms-chesk input[name="sms-check"]').mask('99999999');
+  $('form.sms-chesk input[name="code"]').mask('99999999');
 
 // SCROLL BLOCK //
 
