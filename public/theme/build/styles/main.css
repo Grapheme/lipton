@@ -3127,10 +3127,10 @@ form label.error {
       display: block;
       margin-bottom: 20px; }
 
-.password-recovery-holder {
+.password-recovery-holder .buttons-holder {
   width: 340px;
   overflow: hidden; }
-  .password-recovery-holder input {
+  .password-recovery-holder .buttons-holder input {
     width: 340px;
     height: 50px;
     border-radius: 3px;
@@ -3142,8 +3142,9 @@ form label.error {
     font-family: 'Intro-regular';
     font-size: 24px;
     text-transform: uppercase;
+    margin: 0 auto;
     margin-bottom: 20px; }
-  .password-recovery-holder button {
+  .password-recovery-holder .buttons-holder button {
     float: left;
     width: 150px;
     height: 50px;
@@ -3164,19 +3165,19 @@ form label.error {
     cursor: pointer;
     margin: 0 auto;
     display: block; }
-    .password-recovery-holder button:hover {
+    .password-recovery-holder .buttons-holder button:hover {
       background-color: #a40000;
       color: #c90119;
       border-width: 3px 0 0 0;
       border-style: solid;
       border-color: #c90119; }
-    .password-recovery-holder button.loading {
+    .password-recovery-holder .buttons-holder button.loading {
       background-color: #a40000 !important;
       color: #c90119 !important;
       border-width: 3px 0 0 0 !important;
       border-style: solid !important;
       border-color: #c90119 !important; }
-  .password-recovery-holder a {
+  .password-recovery-holder .buttons-holder a {
     float: right; }
 
 .fa {
