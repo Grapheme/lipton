@@ -24,7 +24,7 @@
         <div class="second-code-hack"></div>
         <div class="error-block">
             <h3>Внимание</h3>
-            <p>@if(Session::has('message')){{ Session::get('message') }}@endif</p>
+            <p id="js-profile-error">@if(Session::has('message')){{ Session::get('message') }}@endif</p>
             <a href="javascript:void(0);">Закрыть</a>
         </div>
     </div>

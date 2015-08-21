@@ -228,15 +228,15 @@ $(document).ready(function () {
                             if (data.next_code) {
                                 $('.second-code').fadeIn();
 
-                            } else { // PROMOCODE OLLREADY REGISTERED
-                                $('.profile-error-wrapper p').text(data.responseText);
+                            } else { // PROMOCODE ALLREADY REGISTERED
+                                $('#js-profile-error').text(data.responseText);
                                 $('.profile-error-wrapper').fadeIn();
                                 $('#promo-code-form button').html('Отправить');
                             }
                             ;
                         } else {
-                            $('.second-code').html('<div class="second-code-hack"></div><div class="error-block"><h3>Внимание</h3><p>' + data.responseText + '</p> <a href="#">Закрыть</a></div>');
-                            $('.second-code').fadeIn();
+                            $('#js-profile-error').append(data.responseText);
+                            $('.profile-error-wrapper').fadeIn();
                             $('#promo-code-form button').html('Отправить');
                         }
 
