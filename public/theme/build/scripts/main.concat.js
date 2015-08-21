@@ -2126,12 +2126,13 @@ $('form.password-recovery-form').validate({
     submitHandler: function(form) {
       $('form.password-recovery-form button').addClass('loading');
       $('form.password-recovery-form button').prepend('<i class="fa fa-circle-o-notch fa-spin"></i>');
-      var options = { 
+      var options = {
         success: function(data){
           if(data.status) {
             $('.password-recovery-holder .error-block .recovery-message-text').append(data.responseText);
             $('.password-recovery-holder .error-block .recovery-message-text').fadeIn();
           }
+          $(".recovery-message-text").html('');
           $('form.password-recovery-form button').html('Отправить');
           $('form.password-recovery-form button').removeClass('loading');
         },
