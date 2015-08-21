@@ -3712,25 +3712,26 @@ form {
 
 .password-recovery-holder {
 
+	input {
+		width: 340px;
+		height: 50px;
+		border-radius: 3px;
+		border: 3px solid #ca0619;
+		padding: 14px 20px;
+		box-sizing: border-box;
+		background-color: rgba(255, 246, 186, 0.5);
+		outline: 0;
+		font-family: 'Intro-regular';
+		font-size: 24px;
+		text-transform: uppercase;
+		margin: 0 auto;
+		margin-bottom: 20px;
+	}
+
 	.buttons-holder{
 	    width: 340px;
 	    overflow: hidden;
-
-	    input {
-			width: 340px;
-			height: 50px;
-			border-radius: 3px;
-			border: 3px solid #ca0619;
-			padding: 14px 20px;
-			box-sizing: border-box;
-			background-color: rgba(255, 246, 186, 0.5);
-			outline: 0;
-			font-family: 'Intro-regular';
-			font-size: 24px;
-			text-transform: uppercase;
-			margin: 0 auto;
-			margin-bottom: 20px;
-		}
+	    margin: 0 auto;
 
 		button {
 			float: left;
