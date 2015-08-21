@@ -198,13 +198,15 @@ class ApiController extends BaseController {
         return $headers;
     }
 
-    private function getCurl($url) {
+    public function getCurl($url, $headers = TRUE) {
 
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
         curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 30);
-        curl_setopt($ch, CURLOPT_HTTPHEADER, self::curlHandle());
+        if ($headers):
+            curl_setopt($ch, CURLOPT_HTTPHEADER, self::curlHandle());
+        endif;
         curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
         $data['curl_result'] = curl_exec($ch);
@@ -214,7 +216,7 @@ class ApiController extends BaseController {
         return $data;
     }
 
-    private function postCurl($url, $post_data = NULL) {
+    public function postCurl($url, $post_data = NULL) {
 
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $url);
@@ -234,7 +236,7 @@ class ApiController extends BaseController {
         return $data;
     }
 
-    private function putCurl($url, $post_data = NULL) {
+    public function putCurl($url, $post_data = NULL) {
 
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $url);
@@ -329,14 +331,13 @@ class ApiController extends BaseController {
         endif;
     }
 
-    public function get_register(array $params = [], $operation = 'Unilever.EditSlimProfile') {
+    public function get_register(array $params = [], $operation = 'Unilever.EditLightProfile') {
 
         if (empty($params)):
             App::abort(404);
         endif;
         $this->headers['authorization']['customerId'] = $params['customerId'];
         $this->headers['authorization']['sessionKey'] = $params['sessionKey'];
-
         $valid = $this->validAvailableOperation($operation);
         if ($valid === -1):
             return $valid;
@@ -464,12 +465,12 @@ class ApiController extends BaseController {
         endif;
         $uri_request = $this->config['server_url'] . "/v2/customers/current/confirm-mobile-phone?operation=$operation&code=" . $params['code'];
         $result = $this->postCurl($uri_request);
-        Helper::tad($result);
         if ($this->validCode($result, 200)):
             if ($message = $this->getErrorMessage($result)):
                 Config::set('api.message', $message);
+                return FALSE;
             endif;
-            return FALSE;
+            return TRUE;
         else:
             Config::set('api.message', 'Возникла ошибка на сервере регистрации.');
             if ($message = $this->getErrorMessage($result)):

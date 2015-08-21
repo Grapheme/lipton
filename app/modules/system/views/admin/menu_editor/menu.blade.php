@@ -1,4 +1,4 @@
-<?
+<?php
     $menus = array();
 
     $menus[] = array(
