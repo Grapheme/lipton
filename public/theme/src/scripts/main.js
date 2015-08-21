@@ -676,7 +676,7 @@ $( document ).ready(function() {
     submitHandler: function(form) {
       // $('form.send-instructions button').html('');
       $('form.sms-chesk button').addClass('loading');
-      $('form.sms-chesk button').append('<i class="fa fa-circle-o-notch fa-spin"></i>')
+      $('form.sms-chesk button').prepend('<i class="fa fa-circle-o-notch fa-spin"></i>')
       var options = { 
         success: function(data){
           if(data.status) {
