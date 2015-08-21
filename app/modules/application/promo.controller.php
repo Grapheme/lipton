@@ -90,9 +90,16 @@ class PromoController extends BaseController {
 
     public function secondRegister() {
 
-        $json_request = array('status' => FALSE, 'responseText' => '', 'next_code' => FALSE, 'redirectURL' => FALSE);
+        $json_request = array('status' => FALSE, 'responseText' => '', 'select_certificates' => FALSE,
+            'redirectURL' => FALSE);
         $validator = Validator::make(Input::all(), array('promoCode2' => 'required'));
         if ($validator->passes()):
+
+            $json_request['status'] = FALSE;
+            $json_request['select_certificates'] = FALSE;
+            $json_request['responseText'] = 'Lorem Ipsum - это текст-"рыба", часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной "рыбой" для текстов на латинице с начала XVI века. В то время некий безымянный печатник создал большую коллекцию размеров и форм шрифтов, используя Lorem Ipsum для распечатки образцов. Lorem Ipsum не только успешно пережил без заметных изменений пять веков, но и перешагнул в электронный дизайн.';
+            return Response::json($json_request, 200);
+
             $result = self::registerPromoCode(Input::get('promoCode2'));
             if ($result === -1):
                 Auth::logout();
@@ -102,9 +109,8 @@ class PromoController extends BaseController {
                 $json_request['status'] = FALSE;
             else:
                 $json_request['status'] = TRUE;
-                $json_request['next_code'] = FALSE;
-                Session::flash('message', Config::get('api.message'));
-                $json_request['redirectURL'] = URL::route('dashboard');
+                $json_request['select_certificates'] = TRUE;
+                $json_request['responseText'] = Config::get('api.message');
             endif;
             $json_request['responseText'] = Config::get('api.message');
         else:
