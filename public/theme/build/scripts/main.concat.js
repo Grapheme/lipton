@@ -1659,7 +1659,14 @@ $(document).ready(function () {
                     $('.promo-code-2 button').removeClass('loading');
                     if (true === data.status) {
                         if (data.select_certificates) {
-                            //показать поп-ап с выбором сертификатов
+
+                            var courseList = $('#gain-list');
+                            $.each(data.select_certificates, function(index, value) {
+                            var courseForList = $('<option value="certificates['+index+']">'+value+'<option>');
+                            courseList.append(courseForList);
+                            });
+
+                            $('.select-gain').fadeIn();
                             // console.log(date.certificates);
                             // заполнить селект с сертификатами
                             // <option value="certificates[code]">certificates[title]</options>
@@ -1706,7 +1713,14 @@ $(document).ready(function () {
                     $('.promo-code-2 button').removeClass('loading');
                     if (true === data.status) {
                         if (data.select_certificates) {
-                            //показать поп-ап с выбором сертификатов
+
+                            var courseList = $('#gain-list');
+                            $.each(data.select_certificates, function(index, value) {
+                            var courseForList = $('<option value="certificates['+index+']">'+value+'<option>');
+                            courseList.append(courseForList);
+                            });
+
+                            $('.select-gain').fadeIn();
                             // console.log(date.certificates);
                             // заполнить селект с сертификатами
                             // <option value="certificates[code]">certificates[title]</options>
