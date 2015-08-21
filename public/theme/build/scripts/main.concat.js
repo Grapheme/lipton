@@ -1425,12 +1425,12 @@ $( document ).ready(function() {
 
   $('.password-recovery').click(function(e){
     e.preventDefault();
-    $.('.password-recovery-holder').fadeIn();
+    $('.password-recovery-holder').fadeIn();
   });
 
   $('.password-recovery-holder a.popup-close-cross').click(function(e){
     e.preventDefault();
-    $.('.password-recovery-holder').fadeOut();
+    $('.password-recovery-holder').fadeOut();
   });
 
   if (window.location.pathname == '/') {
