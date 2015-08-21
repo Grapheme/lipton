@@ -10,9 +10,6 @@
         <h3>Выберите желаемый курс</h3>
         <div class="fields-holder"> 
           <select id="gain-list">
-            <option value="0">Не выбран</option>
-            <option value="1">Курс 1</option>
-            <option value="2">Курс 2</option>
           </select>
           <button disabled="disabled">Отправить</button><a href="#">Отмена  </a>
         </div>

@@ -1427,6 +1427,10 @@ $(document).ready(function () {
 
     // CLOSE BUTTONS ETC //
 
+    $('form.select-gain button').click(function) {
+        $('block.select-gain').fadeOut();
+    }
+
     $('.password-recovery').click(function (e) {
         e.preventDefault();
         $('.password-recovery-holder').fadeIn();
