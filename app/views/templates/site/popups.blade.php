@@ -44,3 +44,11 @@
         </div>
     @endif
 @endif
+<div class="password-recovery-holder">
+    <div class="second-code-hack"></div>
+    <div class="error-block">
+        <a class="popup-close-cross" href=""></a>
+        <h3>Введите E-mail указанный<br>при регистрации</h3>
+        @include(Helper::layout('forms.restore-password'))
+    </div>
+</div>

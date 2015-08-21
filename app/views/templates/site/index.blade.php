@@ -26,8 +26,7 @@ endif;
 @section('style')
 @stop
 @section('content')
-<img class="first-preloader-image preloaded__img" style="display: none;" src="{{ asset(Config::get('site.theme_path')./images/bg-plane-block.png ) }}">
-<!-- <img src="../theme/build/images/main-slider/1.jpg" class="first-preloader-image"> -->
+<img class="first-preloader-image preloaded__img" style="display: none;" src="{{ asset(Config::get('site.theme_path').'/images/bg-plane-block.png') }}">
     <div class="preloader">
         <div class="preloader-hack"></div>
         <div class="preloader-plain"></div>
