@@ -3136,6 +3136,9 @@ a.popup-close-cross {
       display: block;
       margin-bottom: 20px; }
 
+#msg-sms-response {
+  margin-top: 0; }
+
 .password-recovery-holder a.close-cross {
   background-color: transparent !important;
   box-shadow: transparent !important; }
