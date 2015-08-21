@@ -1455,8 +1455,7 @@ $(document).ready(function () {
     });
 
     $('.second-code .fields-holder a, a.popup-close-cross').click(function () {
-        $('.second-code').fadeOut();
-        return false;
+        window.location.reload();
     });
 
     $('.gained-prizes .prize a').click(function () {
