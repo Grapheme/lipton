@@ -692,14 +692,19 @@ $(document).ready(function () {
             $('form.sms-chesk button').prepend('<i class="fa fa-circle-o-notch fa-spin"></i>')
             var options = {
                 success: function (data) {
-                    if (data.status) {
-                        if (data.redirectURL) {
-                            function instructionsSended() {
-                                window.location.href = data.redirectURL;
-                            };
-                            setTimeout(goToCabinet, 3000);
-                        }
-                    }
+                  if (data.status === false) {
+                      $('form.sms-chesk button').removeClass('loading');
+                      $('form.sms-chesk button').html('Отправить');
+                  }
+                  if(data.responseText != ''){
+                      $("#msg-sms-response").append(data.responseText);
+                  }
+                  if (data.redirectURL) {
+                      function goToCabinet() {
+                          window.location.href = data.redirectURL;
+                      };
+                      setTimeout(goToCabinet, 3000);
+                  }
                 },
                 error: function (data) {
                     $('form.sms-chesk button').html('Отправить');
