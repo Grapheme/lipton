@@ -229,15 +229,14 @@ $(document).ready(function () {
                                 $('.second-code').fadeIn();
 
                             } else { // PROMOCODE ALLREADY REGISTERED
-                                $('#js-profile-error').text(data.responseText);
+                                $('#js-profile-error').html(data.responseText);
                                 $('.profile-error-wrapper').fadeIn();
                                 $('#promo-code-form button').html('Отправить');
                             }
                             ;
-                        } else {
-                            $('#js-profile-error').append(data.responseText);
+                        } else if(data.responseText != '') {
+                            $('#js-profile-error').html(data.responseText);
                             $('.profile-error-wrapper').fadeIn();
-                            $('#promo-code-form button').html('Отправить');
                         }
 
                         if (data.redirectURL) {
