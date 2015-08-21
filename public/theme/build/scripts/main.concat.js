@@ -1601,25 +1601,30 @@ $(document).ready(function () {
                 $('#promo-code-form button').prepend('<i class="fa fa-circle-o-notch fa-spin"></i>');
                 var options = {
                     success: function (data) {
-                        // $('#promo-code-form button').removeClass('loading');
-                        // $('#promo-code-form button').html('Отправить');
+                        console.log(data);
+                        $('#promo-code-form button').removeClass('loading');
+                        $('#promo-code-form button').html('Отправить');
 
-                        // if (data.status) {
-                        //     if (data.next_code) {
-                        //         $('.second-code').fadeIn();
+                        console.log(1);
 
-                        //     }
-                        // } else if(data.responseText != '') {
-                        //     $('#js-profile-error').html(data.responseText);
-                        //     $('.profile-error-wrapper').fadeIn();
-                        // }
+                        if (true === data.status) {
+                            console.log(2);
+                            if (data.next_code) {
+                                console.log(3);
+                                $('.second-code').fadeIn();
 
-                        // if (data.redirectURL) {
-                        //     function goToCabinet() {
-                        //         window.location.href = data.redirectURL;
-                        //     };
-                        //     setTimeout(goToCabinet, 3000);
-                        // }
+                            }
+                        } else if (data.responseText != '') {
+                            console.log(4);
+                            $('#js-profile-error').html(data.responseText);
+                            $('.profile-error-wrapper').fadeIn();
+                        }
+                        console.log(5);
+
+                        if (data.redirectURL) {
+                            console.log(6);
+                            setTimeout(function() { window.location.href = data.redirectURL; }, 3000);
+                        }
                     },
                     error: function (data) {
                         $('#promo-code-form button').removeClass('loading');
