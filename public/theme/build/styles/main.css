@@ -3249,3 +3249,15 @@ button.loading {
     width: 532px;
     height: 287px;
     border-radius: 10px; }
+  .second-code-holder .fields-holder {
+    width: 292px;
+    height: 130px;
+    margin: 0 auto; }
+  .second-code-holder .second-code-hack {
+    position: relative;
+    width: 1px;
+    height: 100%;
+    top: 0;
+    bottom: 0;
+    display: inline-block;
+    vertical-align: middle; }
