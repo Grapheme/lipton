@@ -3155,7 +3155,7 @@ a.popup-close-cross {
   box-sizing: border-box;
   background-color: rgba(255, 246, 186, 0.5);
   outline: 0;
-  font-family: 'Intro-regular';
+  font-family: 'PT Sans', 'Open Sans', Arial;
   font-size: 18px;
   text-transform: lowercase;
   margin: 0 auto;
