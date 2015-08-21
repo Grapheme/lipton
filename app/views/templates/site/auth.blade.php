@@ -40,13 +40,10 @@
         <div class="second-code-hack"></div>
         <div class="error-block">
             <a class="popup-close-cross" href=""></a>
-            <h3>Введите свой E-mail</h3>
+            <h3>Введите E-mail указанный<br>при регистрации</h3>
             <form class="password-recovery-form" name="password-recovery-form">
                 <input for="password-recovery-form" name="emailRecovery">
-                <div class="buttons-holder">
-                    <button type="submit">Отправить</button>
-                    <a href="#">Закрыть</a>
-                </div>
+                <button type="submit">Отправить</button>
             </form>
             <p class="recovery-message-text"></p>
         </div>
