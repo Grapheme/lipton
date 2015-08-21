@@ -3832,4 +3832,16 @@ button {
 	    margin: 55px 0 30px 0;
 	    text-align: center;
 	}
+
+	.second-code {
+		position: relative;
+		background-image: url('../images/bg-promo-popup.png');
+		display: inline-block;
+		vertical-align: middle;
+		left: 50%;
+		margin-left: -266px;
+		width: 532px;
+		height: 287px;
+		border-radius: 10px;
+	}
 }
