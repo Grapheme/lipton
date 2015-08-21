@@ -1774,7 +1774,7 @@ $( document ).ready(function() {
     submitHandler: function(form) {
       // $('form.story button').html('');
       $('form.story button').addClass('loading');
-      $('form.story button').html('<i class="fa fa-circle-o-notch fa-spin"></i>')
+      $('form.story button').prepend('<i class="fa fa-circle-o-notch fa-spin"></i>')
       var options = { 
         success: function(data){
           if(data.redirectURL) {
@@ -1827,7 +1827,7 @@ $( document ).ready(function() {
     submitHandler: function(form) {
       // $('form.feedback button').html('');
       $('form.feedback button').addClass('loading');
-      $('form.feedback button').html('<i class="fa fa-circle-o-notch fa-spin"></i>')
+      $('form.feedback button').prepend('<i class="fa fa-circle-o-notch fa-spin"></i>')
       var options = { 
         success: function(data){
           if(data.status) {
@@ -1866,7 +1866,7 @@ $( document ).ready(function() {
     submitHandler: function(form) {
       // $('form.send-instructions button').html('');
       $('form.send-instructions button').addClass('loading');
-      $('form.send-instructions button').html('<i class="fa fa-circle-o-notch fa-spin"></i>')
+      $('form.send-instructions button').prepend('<i class="fa fa-circle-o-notch fa-spin"></i>')
       var options = { 
         success: function(data){
           if(data.redirectURL) {
@@ -2072,6 +2072,42 @@ $( document ).ready(function() {
           $('form.sms-chesk button').html('Отправить');
           $('form.sms-chesk button').removeClass('loading');
           // ERROR
+        }
+      };
+      $(form).ajaxSubmit(options);
+    }
+  });
+
+// PASSWORD RECOWERY FORM //
+
+$('form.password-recovery-form').validate({
+    rules: {
+      emailRecovery: {
+        required: true,
+        email: true,
+      },
+    },
+
+    messages: {
+      emailRecovery: {
+        required: 'Необходимо заполнить поле!',
+        email: 'Введите корректный E-mail',
+      },
+    },   
+    submitHandler: function(form) {
+      $('form.password-recovery-form').addClass('loading');
+      $('form.password-recovery-form').prepend('<i class="fa fa-circle-o-notch fa-spin"></i>')
+      var options = { 
+        success: function(data){
+          if(data.status) {
+            $('form.password-recovery-form').fadeOut();
+            $('.password-recovery-holder .error-block .recovery-message-text').append(data.responseText);
+            $('.password-recovery-holder .error-block .recovery-message-text').fadeIn();
+          }
+        },
+        error: function(data) {
+          $('form.password-recovery-form').html('Отправить');
+          $('form.password-recovery-form').removeClass('loading');
         }
       };
       $(form).ajaxSubmit(options);

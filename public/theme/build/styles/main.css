@@ -3140,7 +3140,8 @@ form label.error {
   font-size: 24px;
   text-transform: uppercase;
   margin: 0 auto;
-  margin-bottom: 20px; }
+  margin-bottom: 20px;
+  display: block; }
 
 .password-recovery-holder .buttons-holder {
   width: 340px;
@@ -3181,6 +3182,10 @@ form label.error {
       border-color: #c90119 !important; }
   .password-recovery-holder .buttons-holder a {
     float: right; }
+
+.recovery-message-text {
+  text-align: center;
+  font-size: 14px; }
 
 .fa {
   margin-right: 10px; }
