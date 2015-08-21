@@ -2857,7 +2857,7 @@ input.error {
     font-size: 21px;
     color: #c90119;
     font-family: 'Intro-regular';
-    margin: 35px 0 20px 0;
+    margin: 25px 0 20px 0;
     text-align: center; }
   .error-block p {
     font-size: 16px;
@@ -3098,7 +3098,7 @@ a.popup-close-cross {
       font-family: 'Intro-regular';
       font-size: 18px;
       text-transform: lowercase;
-      margin-bottom: 20px; }
+      margin-bottom: 10px; }
     .sms-wrapper .cropper-holder button, .password-recovery-holder .cropper-holder button {
       width: 150px;
       height: 50px;
