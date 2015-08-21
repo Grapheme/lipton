@@ -157,13 +157,13 @@ class ApiController extends BaseController {
                 return (string)$xml_object->attributes()->$tag;
             elseif (empty($items)):
                 if (!is_null($tag)):
-                    return (string)$xml_object->$value[$tag];
+                    return (string)$xml_object->$value->attributes()->$tag;
                 else:
                     return (string)$xml_object->$value;
                 endif;
             elseif (is_string($items)):
                 if (!is_null($tag)):
-                    return (string)$xml_object->$items->$value[$tag];
+                    return (string)$xml_object->$items->$value->attributes()->$tag;
                 else:
                     return (string)$xml_object->$items->$value;
                 endif;
@@ -681,9 +681,26 @@ class ApiController extends BaseController {
         $result = self::getCurl($uri_request);
         if ($this->validCode($result, 200)):
             $totalCount = $this->getXmlValue($result['curl_result'], '', '', 'totalCount');
-            return array(
-                'totalCount' => $totalCount
-            );
+            $prizes = array();
+            if($totalCount > 0):
+                $prizes[0] =  array(
+                    'totalCount' => $totalCount,
+                    'customerPrize_id' => $this->getXmlValue($result['curl_result'], '', 'customerPrize', 'id'),
+                    'wonDateTime' => array(
+                        'year' => $this->getXmlValue($result['curl_result'], 'customerPrize', 'wonDateTime', 'year'),
+                        'month' => $this->getXmlValue($result['curl_result'], 'customerPrize', 'wonDateTime', 'month'),
+                        'day' => $this->getXmlValue($result['curl_result'], 'customerPrize', 'wonDateTime', 'day'),
+                        'hour' => $this->getXmlValue($result['curl_result'], 'customerPrize', 'wonDateTime', 'hour'),
+                        'minute' => $this->getXmlValue($result['curl_result'], 'customerPrize', 'wonDateTime', 'minute'),
+                        'second' => $this->getXmlValue($result['curl_result'], 'customerPrize', 'wonDateTime', 'second'),
+                    ),
+                    'displayName' => $this->getXmlValue($result['curl_result'], 'customerPrize', 'displayName'),
+                    'systemName' => $this->getXmlValue($result['curl_result'], 'customerPrize', 'systemName'),
+                    'activatedCode' => $this->getXmlValue($result['curl_result'], 'customerPrize', 'activatedCode'),
+                    'certificateCode' => $this->getXmlValue($result['curl_result'], 'customerPrize', 'certificateCode'),
+                );
+            endif;
+            return $prizes;
         elseif ($this->validCode($result, 401)):
             return -1;
         elseif ($this->validCode($result, 400)):

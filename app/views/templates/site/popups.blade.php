@@ -6,6 +6,7 @@
 @if(Auth::check())
     <div class="block second-code">
         <div class="second-code-hack"></div>
+        <h3>Есть еще один промо-код?</h3>
         @include(Helper::layout('forms.second-promo-code'))
     </div>
     <div class="cropper-wrapper">
@@ -15,7 +16,7 @@
 
             <div class="cropper"></div>
             <div class="cropper-tools">
-                <a class="close" href="javascript:void(0);">Отмена</a>
+                <a class="close" href="javascript:void(0);">    Отмена</a>
                 <a class="save" href="javascript:void(0);">Сохранить</a>
             </div>
         </div>
