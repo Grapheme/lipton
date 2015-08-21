@@ -226,7 +226,7 @@ $(document).ready(function () {
 
                         if (true === data.status) {
                             if (data.next_code) {
-                                $('.second-code').fadeIn();
+                                $('.second-code-holder').fadeIn();
 
                             }
                         } else if (undefined != data.responseText && data.responseText.length > 0) {
