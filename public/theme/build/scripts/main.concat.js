@@ -1615,7 +1615,7 @@ $(document).ready(function () {
                             }
                             ;
                         } else {
-                            $('.second-code').html('<div class="second-code-hack"></div><div class="error-block"><h3>Внимание</h3><p>' + data.responseText + '</p> <a href="#">Закрыть</a></div>');
+                            $('#js-profile-error').append(data.responseText);
                             $('.second-code').fadeIn();
                             $('#promo-code-form button').html('Отправить');
                         }
