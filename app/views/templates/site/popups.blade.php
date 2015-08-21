@@ -4,7 +4,6 @@
  */
 ?>
 @if(Auth::check())
-    @if(isset($prizes) && count($prizes) >= 1 && isset($prizes[0]))
     <div class="second-code-holder">
         <div class="second-code-hack"></div>
         <div class="block second-code">
@@ -13,7 +12,6 @@
             @include(Helper::layout('forms.second-promo-code'))
         </div>
     </div>
-    @endif
     <div class="cropper-wrapper">
         <div class="second-code-hack"></div>
         <div class="block cropper-holder">
