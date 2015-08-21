@@ -138,6 +138,12 @@ $( document ).ready(function() {
       if (data.status) {
         $("#msg-sms-response").html(data.responseText);
       }
+      if(data.redirectURL) {
+        function goToCabinet () {
+          window.location.href = data.redirectURL;
+        };
+        setTimeout(goToCabinet, 3000);
+      }
     });
   })
 
@@ -633,8 +639,8 @@ $( document ).ready(function() {
           success: function(data){
             if(data.status){
               if(userPhone != userPhoneNew) {
-                $('#js-sms-again').click(false);
-                $("#msg-sms-response").html('');
+                // $('#js-sms-again').click(false);
+                // $("#msg-sms-response").html('');
                 $('.sms-wrapper').fadeIn();
               } else {
                 if(data.redirectURL) {
