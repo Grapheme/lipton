@@ -236,7 +236,7 @@ $(document).ready(function () {
                             ;
                         } else {
                             $('#js-profile-error').append(data.responseText);
-                            $('.second-code').fadeIn();
+                            $('.profile-error-wrapper').fadeIn();
                             $('#promo-code-form button').html('Отправить');
                         }
 
