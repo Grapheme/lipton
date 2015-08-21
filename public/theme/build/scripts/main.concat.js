@@ -2129,7 +2129,6 @@ $('form.password-recovery-form').validate({
       var options = { 
         success: function(data){
           if(data.status) {
-            $('form.password-recovery-form').fadeOut();
             $('.password-recovery-holder .error-block .recovery-message-text').append(data.responseText);
             $('.password-recovery-holder .error-block .recovery-message-text').fadeIn();
           }
