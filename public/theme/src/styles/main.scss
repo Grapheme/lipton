@@ -3711,6 +3711,23 @@ form {
 }
 
 .password-recovery-holder {
+	    width: 340px;
+	    overflow: hidden;
+
+	input {
+		width: 340px;
+		height: 50px;
+		border-radius: 3px;
+		border: 3px solid #ca0619;
+		padding: 14px 20px;
+		box-sizing: border-box;
+		background-color: rgba(255, 246, 186, 0.5);
+		outline: 0;
+		font-family: 'Intro-regular';
+		font-size: 24px;
+		text-transform: uppercase;
+		margin-bottom: 20px;
+	}
 
 	button {
 		float: left;
