@@ -582,7 +582,7 @@ class ApiController extends BaseController {
         endif;
     }
 
-    public function restore_password(array $params = [], $operation = 'DirectCrm.RestorePassword'){
+    public function restore_password(array $params = [], $operation = 'DirectCrm.RestorePassword') {
 
         if (empty($params)):
             App::abort(404);
@@ -594,7 +594,7 @@ class ApiController extends BaseController {
             Config::set('api.message', 'Операция недоступна.');
             return FALSE;
         endif;
-        $uri_request = $this->config['server_url'] . "/v2/customers/current/actions?operation=$operation&contact=".$params['email'];
+        $uri_request = $this->config['server_url'] . "/v2/customers/current/actions?operation=$operation&contact=" . $params['email'];
         $result = $this->postCurl($uri_request);
         if ($this->validCode($result, 201)):
             $message = $this->getXmlValue($result['curl_result'], 'messages', 'message');
