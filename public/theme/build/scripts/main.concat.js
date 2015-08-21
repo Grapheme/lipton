@@ -1423,6 +1423,14 @@ $( document ).ready(function() {
 
   // CLOSE BUTTONS ETC //
 
+  $('.password-recovery').click(function(){
+    $.('password-recovery-holder').fadeIn();
+  });
+
+  $('password-recovery-holder a.popup-close-cross').click(function(){
+    $.('password-recovery-holder').fadeOut();
+  })
+
   if (window.location.pathname == '/') {
     $('body').addClass('no-cup');
   }
@@ -2003,7 +2011,7 @@ $( document ).ready(function() {
           success: function(data){
             if(data.status){
               if(userPhone != userPhoneNew) {
-                $('#js-sms-again').click();
+                $('#js-sms-again').click(false);
                 $("#msg-sms-response").html('');
                 $('.sms-wrapper').fadeIn();
               } else {
