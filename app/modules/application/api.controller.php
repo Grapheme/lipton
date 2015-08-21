@@ -645,9 +645,6 @@ class ApiController extends BaseController {
                 return FALSE;
             else:
                 $message = $this->getXmlValue($result['curl_result'], 'messages', 'message');
-
-                Helper::tad($message);
-
                 Config::set('api.message', $message);
                 return TRUE;
             endif;
