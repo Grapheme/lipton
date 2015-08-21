@@ -47,10 +47,16 @@ class RegisterController extends BaseController {
 
     public function signup() {
 
-        $json_request = array('status' => FALSE, 'responseText' => '', 'redirectURL' => FALSE);
+        $json_request = array('status' => FALSE, 'responseText' => '', 'valid_phone' => FALSE, 'redirectURL' => FALSE);
         if (Request::ajax()):
             $validator = Validator::make(Input::all(), Accounts::$rules);
             if ($validator->passes()):
+
+                $json_request['status'] = TRUE;
+                $json_request['valid_phone'] = TRUE;
+                $json_request['responseText'] = Lang::get('interface.SIGNUP.success');
+                return Response::json($json_request, 200);
+
                 if (User::where('email', Input::get('email'))->exists() == FALSE):
                     $password = Str::random(8);
                     $post = Input::all();
