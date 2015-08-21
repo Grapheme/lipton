@@ -3027,6 +3027,15 @@ form label.error {
           border-style: solid;
           border-color: #c90119; }
 
+a.popup-close-cross {
+  display: block;
+  position: absolute;
+  background-image: url("../images/ico-close-popup.png");
+  width: 39px;
+  height: 38px;
+  right: 30px;
+  top: 30px; }
+
 .sms-wrapper, .password-recovery-holder {
   position: fixed;
   width: 100%;
