@@ -467,7 +467,7 @@ textarea:-ms-textarea-placeholder {
 .main-content {
   overflow: hidden;
   margin-top: -106px;
-  min-height: 940px;
+  min-height: 800px;
   position: relative; }
   @media (max-width: 320px) {
     .main-content {
