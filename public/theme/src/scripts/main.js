@@ -228,8 +228,8 @@ $(document).ready(function () {
                             if (data.next_code) {
                                 $('.second-code').fadeIn();
 
-                            } else { // PROMOCODE OLLREADY REGISTERED
-                                $('.profile-error-wrapper p').text(data.responseText);
+                            } else { // PROMOCODE ALLREADY REGISTERED
+                                $('#js-profile-error').text(data.responseText);
                                 $('.profile-error-wrapper').fadeIn();
                                 $('#promo-code-form button').html('Отправить');
                             }
