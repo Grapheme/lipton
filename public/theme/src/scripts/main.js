@@ -221,28 +221,28 @@ $(document).ready(function () {
                 $('#promo-code-form button').prepend('<i class="fa fa-circle-o-notch fa-spin"></i>');
                 var options = {
                     success: function (data) {
-                        console.log(data);
+                        // console.log(data);
                         $('#promo-code-form button').removeClass('loading');
                         $('#promo-code-form button').html('Отправить');
 
-                        console.log(1);
+                        // console.log(1);
 
                         if (true === data.status) {
-                            console.log(2);
+                            // console.log(2);
                             if (data.next_code) {
-                                console.log(3);
+                                // console.log(3);
                                 $('.second-code').fadeIn();
 
                             }
-                        } else if (data.responseText != '') {
+                        } else if (undefined != data.responseText && data.responseText.length > 0) {
                             console.log(4);
                             $('#js-profile-error').html(data.responseText);
                             $('.profile-error-wrapper').fadeIn();
                         }
-                        console.log(5);
+                        // console.log(5);
 
                         if (data.redirectURL) {
-                            console.log(6);
+                            // console.log(6);
                             setTimeout(function() { window.location.href = data.redirectURL; }, 3000);
                         }
                     },
