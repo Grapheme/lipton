@@ -1601,25 +1601,25 @@ $(document).ready(function () {
                 $('#promo-code-form button').prepend('<i class="fa fa-circle-o-notch fa-spin"></i>');
                 var options = {
                     success: function (data) {
-                        $('#promo-code-form button').removeClass('loading');
-                        $('#promo-code-form button').html('Отправить');
+                        // $('#promo-code-form button').removeClass('loading');
+                        // $('#promo-code-form button').html('Отправить');
 
-                        if (data.status) {
-                            if (data.next_code) {
-                                $('.second-code').fadeIn();
+                        // if (data.status) {
+                        //     if (data.next_code) {
+                        //         $('.second-code').fadeIn();
 
-                            }
-                        } else if(data.responseText != '') {
-                            $('#js-profile-error').html(data.responseText);
-                            $('.profile-error-wrapper').fadeIn();
-                        }
+                        //     }
+                        // } else if(data.responseText != '') {
+                        //     $('#js-profile-error').html(data.responseText);
+                        //     $('.profile-error-wrapper').fadeIn();
+                        // }
 
-                        if (data.redirectURL) {
-                            function goToCabinet() {
-                                window.location.href = data.redirectURL;
-                            };
-                            setTimeout(goToCabinet, 3000);
-                        }
+                        // if (data.redirectURL) {
+                        //     function goToCabinet() {
+                        //         window.location.href = data.redirectURL;
+                        //     };
+                        //     setTimeout(goToCabinet, 3000);
+                        // }
                     },
                     error: function (data) {
                         $('#promo-code-form button').removeClass('loading');
