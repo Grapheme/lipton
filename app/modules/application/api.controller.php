@@ -581,6 +581,33 @@ class ApiController extends BaseController {
             return FALSE;
         endif;
     }
+
+    public function restore_password(array $params = [], $operation = 'DirectCrm.RestorePassword') {
+
+        if (empty($params)):
+            App::abort(404);
+        endif;
+        $valid = $this->validAvailableOperation($operation);
+        if ($valid === -1):
+            return $valid;
+        elseif ($valid === FALSE):
+            Config::set('api.message', 'Операция недоступна.');
+            return FALSE;
+        endif;
+        $uri_request = $this->config['server_url'] . "/v2/customers/current/actions?operation=$operation&contact=" . $params['email'];
+        $result = $this->postCurl($uri_request);
+        if ($this->validCode($result, 201)):
+            $message = $this->getXmlValue($result['curl_result'], 'messages', 'message');
+            Config::set('api.message', $message);
+            return TRUE;
+        else:
+            Config::set('api.message', 'Возникла ошибка на сервере регистрации.');
+            if ($message = $this->getErrorMessage($result)):
+                Config::set('api.message', $message);
+            endif;
+            return FALSE;
+        endif;
+    }
     /****************************************************************************/
     /******************************* PROMO **************************************/
     /****************************************************************************/

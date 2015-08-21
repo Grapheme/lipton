@@ -14,15 +14,16 @@ class RegisterController extends BaseController {
                 'uses' => $class . '@signup'));
             Route::post('auth', array('before' => 'csrf', 'as' => 'auth.participant',
                 'uses' => $class . '@signin'));
+            Route::post('auth/restore', array('before' => 'csrf', 'as' => 'auth.participant.restore',
+                'uses' => $class . '@restorePassword'));
         });
         Route::group(array('before' => '', 'prefix' => ''), function () use ($class) {
             Route::get('registration/activation/{activate_code}', array('as' => 'signup-activation',
                 'uses' => $class . '@validEmail'));
             Route::post('registration/valid/phone', array('as' => 'signup.valid-phone',
                 'uses' => $class . '@validPhone'));
-            Route::any('registration/valid/phone/resend', array('as' => 'signup.resend-mobile-phone-confirmation',
+            Route::post('registration/valid/phone/resend', array('as' => 'signup.resend-mobile-phone-confirmation',
                 'uses' => $class . '@resendMobilePhoneConfirmation'));
-
         });
     }
 
@@ -44,6 +45,77 @@ class RegisterController extends BaseController {
     }
 
     /****************************************************************************/
+    public function signin() {
+
+        $json_request = array('status' => FALSE, 'responseText' => '', 'redirectURL' => FALSE);
+        if (Request::ajax()):
+            $rules = array('login' => 'required', 'password' => 'required|alpha_num|between:4,50');
+            $validator = Validator::make(Input::all(), $rules);
+            if ($validator->passes()):
+                $post['login'] = Input::get('login');
+                $post['password'] = Input::get('password');
+                $post['code'] = Input::get('promo-code');
+                $api = (new ApiController())->logon($post);
+                if ($api === FALSE):
+                    $json_request['responseText'] = Config::get('api.message');
+                    return Response::json($json_request, 200);
+                elseif(is_array($api)):
+                    if ($user = User::where('email', Input::get('login'))->where('active', 1)->first()):
+                        Auth::login($user);
+                        if (Auth::check()):
+                            Auth::user()->remote_id = @$api['id'];
+                            Auth::user()->sessionKey = @$api['sessionKey'];
+                            Auth::user()->password = Hash::make(Input::get('password'));
+                            Auth::user()->save();
+                            $json_request['redirectURL'] = URL::to(AuthAccount::getGroupStartUrl());
+                            $json_request['status'] = TRUE;
+                            if (isset($post['code']) && !empty($post['code'])):
+                                $result = PromoController::registerPromoCode($post['code']);
+                                Session::flash('message', Config::get('api.message'));
+                                $json_request['redirectURL'] = URL::to(AuthAccount::getGroupStartUrl().'#message');
+                                setcookie("firstCodeCookie", "", time() - 3600, '/');
+                            endif;
+                        endif;
+                    else:
+                        $json_request['responseText'] = 'Неверное имя пользователя или пароль';
+                    endif;
+                else:
+                    $json_request['responseText'] = 'Неверное имя пользователя или пароль';
+                endif;
+            else:
+                $json_request['responseText'] = 'Неверно заполнены поля';
+                $json_request['responseErrorText'] = $validator->messages()->all();
+            endif;
+        else:
+            return App::abort(404);
+        endif;
+        return Response::json($json_request, 200);
+    }
+
+    public function restorePassword(){
+
+        $json_request = array('status' => FALSE, 'responseText' => '', 'redirectURL' => FALSE);
+        if (Request::ajax()):
+            $rules = array('login' => 'required', 'password' => 'required|alpha_num|between:4,50');
+            $validator = Validator::make(Input::all(), array('emailRecovery' => 'required|email'));
+            if ($validator->passes()):
+                $post['email'] = Input::get('emailRecovery');
+                $api = (new ApiController())->restore_password($post);
+                $json_request['responseText'] = Config::get('api.message');
+                if ($api === FALSE):
+                    return Response::json($json_request, 200);
+                endif;
+                $json_request['status'] = TRUE;
+            else:
+                $json_request['responseText'] = 'Неверно заполнены поля';
+                $json_request['responseErrorText'] = $validator->messages()->all();
+            endif;
+        else:
+            return App::abort(404);
+        endif;
+        return Response::json($json_request, 200);
+    }
+    /****************************************************************************/
 
     public function signup() {
 
@@ -51,12 +123,6 @@ class RegisterController extends BaseController {
         if (Request::ajax()):
             $validator = Validator::make(Input::all(), Accounts::$rules);
             if ($validator->passes()):
-
-                $json_request['status'] = TRUE;
-                $json_request['valid_phone'] = TRUE;
-                $json_request['responseText'] = Lang::get('interface.SIGNUP.success');
-                return Response::json($json_request, 200);
-
                 if (User::where('email', Input::get('email'))->exists() == FALSE):
                     $password = Str::random(8);
                     $post = Input::all();
@@ -81,8 +147,8 @@ class RegisterController extends BaseController {
                         self::createULogin($account->id, $post);
                         Auth::loginUsingId($account->id, FALSE);
                         $json_request['status'] = TRUE;
+                        $json_request['valid_phone'] = TRUE;
                         $json_request['responseText'] = Lang::get('interface.SIGNUP.success');
-                        $json_request['redirectURL'] = URL::to(AuthAccount::getGroupStartUrl());
                         if (isset($post['code']) && !empty($post['code'])):
                             $result = PromoController::registerPromoCode($post['code']);
                             Session::flash('message', Config::get('api.message'));
@@ -95,50 +161,6 @@ class RegisterController extends BaseController {
                 endif;
             else:
                 $json_request['responseText'] = Lang::get('interface.SIGNUP.fail');
-            endif;
-        else:
-            return App::abort(404);
-        endif;
-        return Response::json($json_request, 200);
-    }
-
-    public function signin() {
-
-        $json_request = array('status' => FALSE, 'responseText' => '', 'redirectURL' => FALSE);
-        if (Request::ajax()):
-            $rules = array('login' => 'required', 'password' => 'required|alpha_num|between:4,50');
-            $validator = Validator::make(Input::all(), $rules);
-            if ($validator->passes()):
-                $post['login'] = Input::get('login');
-                $post['password'] = Input::get('password');
-                $post['code'] = Input::get('promo-code');
-                $api = (new ApiController())->logon($post);
-                if ($api === FALSE):
-                    $json_request['responseText'] = Config::get('api.message');
-                    return Response::json($json_request, 200);
-                endif;
-                if (Auth::attempt(array('email' => Input::get('login'), 'password' => Input::get('password'),
-                    'active' => 1), FALSE)
-                ):
-                    if (Auth::check()):
-                        Auth::user()->remote_id = @$api['id'];
-                        Auth::user()->sessionKey = @$api['sessionKey'];
-                        Auth::user()->save();
-                        $json_request['redirectURL'] = URL::to(AuthAccount::getGroupStartUrl());
-                        $json_request['status'] = TRUE;
-                        if (isset($post['code']) && !empty($post['code'])):
-                            $result = PromoController::registerPromoCode($post['code']);
-                            Session::flash('message', Config::get('api.message'));
-                            $json_request['redirectURL'] = URL::to(AuthAccount::getGroupStartUrl().'#message');
-                            setcookie("firstCodeCookie", "", time() - 3600, '/');
-                        endif;
-                    endif;
-                else:
-                    $json_request['responseText'] = 'Неверное имя пользователя или пароль';
-                endif;
-            else:
-                $json_request['responseText'] = 'Неверно заполнены поля';
-                $json_request['responseErrorText'] = $validator->messages()->all();
             endif;
         else:
             return App::abort(404);
@@ -186,7 +208,7 @@ class RegisterController extends BaseController {
                     else:
                         $json_request['status'] = TRUE;
                         $json_request['responseText'] = Config::get('api.message');
-                        $json_request['redirectURL'] = URL::route('dashboard');
+                        $json_request['redirectURL'] = URL::to(AuthAccount::getGroupStartUrl());
                     endif;
                     $json_request['responseText'] = Config::get('api.message');
                 endif;
@@ -217,7 +239,6 @@ class RegisterController extends BaseController {
                 else:
                     $json_request['status'] = TRUE;
                     $json_request['responseText'] = Config::get('api.message');
-                    $json_request['redirectURL'] = URL::route('dashboard');
                 endif;
                 $json_request['responseText'] = Config::get('api.message');
             endif;
