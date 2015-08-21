@@ -255,9 +255,56 @@ $(document).ready(function () {
         }
     });
 
-// PROMO-CODE FORM 2 VALIDATION //
+// PROMO-CODE PROFILE FORM 2 VALIDATION //
 
-    $('form.promo-code-2').validate({
+    $('.profile-promo-code form.promo-code-2').validate({
+        rules: {
+            promoCode2: {
+                required: true,
+            }
+        },
+
+        messages: {
+            promoCode2: {
+                required: "Необходимо заполнить поле",
+            }
+        },
+
+        submitHandler: function (form) {
+            $('.promo-code-2 button').addClass('loading');
+            $('.promo-code-2 button').prepend('<i class="fa fa-circle-o-notch fa-spin"></i>')
+            var options = {
+                success: function (data) {
+                    $('.promo-code-2 button').html('Отправить');
+                    $('.promo-code-2 button').removeClass('loading');
+                    if (true === data.status) {
+                        if (data.select_certificates) {
+                            //показать поп-ап с выбором сертификатов
+                            // console.log(date.certificates);
+                            // заполнить селект с сертификатами
+                            // <option value="certificates[code]">certificates[title]</options>
+                        }
+                    } else if (undefined != data.responseText && data.responseText.length > 0) {
+                        $('#js-profile-error').html(data.responseText);
+                        $('.profile-error-wrapper').fadeIn();
+                    }
+
+                    if (data.redirectURL) {
+                        setTimeout(function() { window.location.href = data.redirectURL; }, 3000);
+                    }
+                },
+                error: function (data) {
+                    $('.promo-code-2 button').html('Отправить');
+                    $('.promo-code-2 button').removeClass('loading');
+                }
+            };
+            $(form).ajaxSubmit(options);
+        }
+    });
+
+// PROMO-CODE PROFILE FORM 2 VALIDATION //
+
+    $('.second-code-holder form.promo-code-2').validate({
         rules: {
             promoCode2: {
                 required: true,
