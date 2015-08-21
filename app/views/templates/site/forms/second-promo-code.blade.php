@@ -8,6 +8,6 @@
 <div class="fields-holder">
     {{ Form::text('promoCode2', NULL, array('for'=>'promo-code2', 'autocomplete'=>'off', 'class'=>'promoCode1')) }}
     {{ Form::button('Отправить',array('type'=>'submit')) }}
-    <a href="#">Отмена</a>
+    <a href="javascript:void(0);">Отмена</a>
 </div>
 {{ Form::close() }}

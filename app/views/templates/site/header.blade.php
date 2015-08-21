@@ -15,7 +15,7 @@
     @endif
     </div>
     <div class="icons-block">
-        <div href="#" class="ico-burger"></div>
+        <div href="javascript:void(0);" class="ico-burger"></div>
         @if(Auth::check())
         <a href="{{ URL::route('dashboard') }}" class="ico-account"></a>
         @else

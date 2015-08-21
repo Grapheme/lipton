@@ -11,12 +11,12 @@
     <div class="cropper-wrapper">
         <div class="second-code-hack"></div>
         <div class="block cropper-holder">
-            <a href="#" class="popup-close-cross"></a>
+            <a href="javascript:void(0);" class="popup-close-cross"></a>
 
             <div class="cropper"></div>
             <div class="cropper-tools">
-                <a class="close" href="#">Отмена</a>
-                <a class="save" href="#">Сохранить</a>
+                <a class="close" href="javascript:void(0);">Отмена</a>
+                <a class="save" href="javascript:void(0);">Сохранить</a>
             </div>
         </div>
     </div>
@@ -25,16 +25,15 @@
         <div class="error-block">
             <h3>Внимание</h3>
             <p>@if(Session::has('message')){{ Session::get('message') }}@endif</p>
-            <a href="#">Закрыть</a>
+            <a href="javascript:void(0);">Закрыть</a>
         </div>
     </div>
     @if(isset($profile->writing->writing) && !empty($profile->writing->writing))
         <div class="block story">
             <div class="second-code-hack"></div>
-            <div class="story-popup"><a href="#" class="popup-close-cross"></a>
-
+            <div class="story-popup">
+                <a href="javascript:void(0);" class="popup-close-cross"></a>
                 <h2>Мой рассказ</h2>
-
                 <div class="story-wrapper">
                     <div class="story-text">
                         {{ nl2br($profile->writing->writing) }}

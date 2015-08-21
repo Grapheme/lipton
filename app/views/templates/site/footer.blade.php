@@ -12,9 +12,9 @@
     </div>
     <div class="sharing-links">
         <span> Рассказать друзьям
-            <a href="#" class="soc ok"></a>
-            <a href="#" class="soc vk"></a>
-            <a href="#" class="soc fb"></a>
+            <a href="javascript:void(0);" class="soc ok"></a>
+            <a href="javascript:void(0);" class="soc vk"></a>
+            <a href="javascript:void(0);" class="soc fb"></a>
         </span>
     </div>
     {{ Menu::placement('footer_menu') }}

@@ -134,7 +134,7 @@
                 </div>
                 <div class="learn-more-popup-holder">
                     <div class="learn-more-popup-hack"></div>
-                    <div class="learn-more-popup"><a href="#" class="popup-close-cross"></a></div>
+                    <div class="learn-more-popup"><a href="javascript:void(0);" class="popup-close-cross"></a></div>
                 </div>
             </div>
         </div>
