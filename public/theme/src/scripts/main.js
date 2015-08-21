@@ -137,8 +137,9 @@ $(document).ready(function () {
         e.preventDefault();
         var smsAjaxAdress = $(this).attr('href');
         $.post(smsAjaxAdress, function (data) {
-            if (data.status) {
-                // Тут восстановление кнопки
+            if (data.status === false) {
+                $('form.sms-chesk button').removeClass('loading');
+                $('form.sms-chesk button').html('Отправить');
             }
             if(data.responseText != ''){
                 $("#msg-sms-response").append(data.responseText);
@@ -712,39 +713,40 @@ $(document).ready(function () {
 
 // PASSWORD RECOWERY FORM //
 
-    $('form.password-recovery-form').validate({
-        rules: {
-            emailRecovery: {
-                required: true,
-                email: true,
-            },
+$('form.password-recovery-form').validate({
+    rules: {
+      emailRecovery: {
+        required: true,
+        email: true,
+      },
+    },
+
+    messages: {
+      emailRecovery: {
+        required: 'Необходимо заполнить поле!',
+        email: 'Введите корректный E-mail',
+      },
+    },   
+    submitHandler: function(form) {
+      $('form.password-recovery-form').addClass('loading');
+      $('form.password-recovery-form button').prepend('<i class="fa fa-circle-o-notch fa-spin"></i>');
+      var options = { 
+        success: function(data){
+          if(data.status) {
+            $('form.password-recovery-form').fadeOut();
+            $('.password-recovery-holder .error-block .recovery-message-text').append(data.responseText);
+            $('.password-recovery-holder .error-block .recovery-message-text').fadeIn();
+          }
         },
 
-        messages: {
-            emailRecovery: {
-                required: 'Необходимо заполнить поле!',
-                email: 'Введите корректный E-mail',
-            },
-        },
-        submitHandler: function (form) {
-            $('form.password-recovery-form').addClass('loading');
-            $('form.password-recovery-form').prepend('<i class="fa fa-circle-o-notch fa-spin"></i>')
-            var options = {
-                success: function (data) {
-                    if (data.status) {
-                        $('form.password-recovery-form').fadeOut();
-                        $('.password-recovery-holder .error-block .recovery-message-text').append(data.responseText);
-                        $('.password-recovery-holder .error-block .recovery-message-text').fadeIn();
-                    }
-                },
-                error: function (data) {
-                    $('form.password-recovery-form').html('Отправить');
-                    $('form.password-recovery-form').removeClass('loading');
-                }
-            };
-            $(form).ajaxSubmit(options);
+        error: function (data) {
+          $('form.password-recovery-form').html('Отправить');
+          $('form.password-recovery-form').removeClass('loading');
         }
-    });
+      };
+      $(form).ajaxSubmit(options);
+    }
+  });
 
 // MOSAIC //
 

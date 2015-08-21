@@ -3722,6 +3722,11 @@ a.popup-close-cross {
 
 .password-recovery-holder {
 
+	a.close-cross {
+		background-color: transparent !important;
+		box-shadow: transparent !important;
+	}
+
 	input {
 		width: 340px;
 		height: 50px;
@@ -3737,6 +3742,10 @@ a.popup-close-cross {
 		margin: 0 auto;
 		margin-bottom: 20px;
 		display: block;
+	}
+
+	label {
+	    	margin-left: 100px;
 	}
 
 	.buttons-holder{
