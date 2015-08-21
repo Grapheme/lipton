@@ -7,7 +7,6 @@
     <div class="second-code-hack"></div>
     
     <div class="cropper-holder">
-        <a href="#" class="popup-close-cross"></a>
 		<h3>Введите код из sms</h3>
 		<p>На указанный при регистрации номер мобильного телефона<br>был отправлен код для подтверждения регистрации</p>
 		{{ Form::open(array('route'=>'signup.valid-phone','name'=>'sms-check','class'=>'sms-chesk')) }}
