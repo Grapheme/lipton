@@ -41,7 +41,8 @@ App::missing(function ($exception) {
 
 Route::filter('auth', function () {
     if (Auth::guest()):
-        App::abort(404);
+        //App::abort(404);
+        return Redirect::to(pageurl('auth'));
     endif;
 });
 
