@@ -135,6 +135,7 @@ $(document).ready(function () {
 
     $('#js-sms-again').click(function (e) {
         e.preventDefault();
+        $('#msg-sms-response').html('');
         var smsAjaxAdress = $(this).attr('href');
         $.post(smsAjaxAdress, function (data) {
             if (data.status === false) {
@@ -690,6 +691,7 @@ $(document).ready(function () {
             // $('form.send-instructions button').html('');
             $('form.sms-chesk button').addClass('loading');
             $('form.sms-chesk button').prepend('<i class="fa fa-circle-o-notch fa-spin"></i>')
+            $("#msg-sms-response").html('');
             var options = {
                 success: function (data) {
                   if (data.status === false) {
