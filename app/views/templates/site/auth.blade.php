@@ -46,6 +46,8 @@
                     <button type="submit">Отправить</button>
                     <a href="#">Закрыть</a>
                 </div>
+            </form>
+            <p class="recovery-message-text"></p>
         </div>
     </div>
 @stop
