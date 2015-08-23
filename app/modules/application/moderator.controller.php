@@ -55,9 +55,9 @@ class ModeratorController extends BaseController {
                     $query->where('name', 'like', '%' . Input::get('search') . '%');
                     $query->orWhere('surname', 'like', '%' . Input::get('search') . '%');
                 })
-                ->orderBy('created_at', 'DESC')->with('ulogin', 'writing')->paginate(10);
+                ->orderBy('created_at', 'DESC')->with('ulogin', 'writing')->paginate(5);
         else:
-            $users = Accounts::where('group_id', 4)->orderBy('created_at', 'DESC')->with('ulogin', 'writing')->paginate(10);
+            $users = Accounts::where('group_id', 4)->orderBy('created_at', 'DESC')->with('ulogin', 'writing')->paginate(5);
         endif;
         return View::make($this->module['tpl'] . 'participants', compact('users'));
     }
