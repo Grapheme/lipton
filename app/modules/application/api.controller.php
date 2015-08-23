@@ -662,7 +662,45 @@ class ApiController extends BaseController {
 
     public function register_certificate(array $params = []){
 
+        if (empty($params)):
+            App::abort(404);
+        endif;
+        $this->headers['authorization']['customerId'] = $params['customerId'];
+        $this->headers['authorization']['sessionKey'] = $params['sessionKey'];
+        $valid = $this->validAvailableOperation('DirectCrm.OrderPrize');
+        if ($valid === -1):
+            return $valid;
+        elseif ($valid === FALSE):
+            Config::set('api.message', 'Операция обновление профиля пользователей недоступна.');
+            return FALSE;
+        endif;
+        $uri_request = $this->config['server_url'] . "/v1/LiptonDiscovery2015/lipton/users/".$params['customerId']."/orderprize.xml?prizesystemname=".$params['prizesystemname'];
+        if(!empty($params['wonLotteryTicketId'])):
+            $uri_request .= "&wonLotteryTicketId=".$params['wonLotteryTicketId'];
+        endif;
+        $result = self::postCurl($uri_request);
+        if ($this->validCode($result, 200)):
+            if ($message = $this->getErrorMessage($result)):
+                Config::set('api.message', $message);
+                return FALSE;
+            else:
+                $message = $this->getXmlValue($result['curl_result'], 'messages', 'message');
+                Config::set('api.message', $message);
+                return TRUE;
+            endif;
+        elseif ($this->validCode($result, 401)):
+            return -1;
+        elseif ($this->validCode($result, 400)):
+            return -1;
+        else:
+            Config::set('api.message', 'Возникла ошибка на сервере регистрации.');
+            if ($message = $this->getErrorMessage($result)):
+                Config::set('api.message', $message);
+            endif;
+            return FALSE;
+        endif;
 
+        Helper::tad($result);
     }
 
     public function get_prizes(array $params = [], $operation = 'DirectCrm.GetCustomersPrizesGeneralData') {
@@ -692,14 +730,6 @@ class ApiController extends BaseController {
                 foreach ($xml_object as $item => $item_value):
                     $prizes_list[] = array(
                         'customerPrize_id' => (string)$item_value->attributes()->id,
-                        'wonDateTime' => array(
-                            'year' => (string)$item_value->activatedCode->attributes()->year,
-                            'month' => (string)$item_value->activatedCode->attributes()->month,
-                            'day' => (string)$item_value->activatedCode->attributes()->day,
-                            'hour' => (string)$item_value->activatedCode->attributes()->hour,
-                            'minute' => (string)$item_value->activatedCode->attributes()->minute,
-                            'second' => (string)$item_value->activatedCode->attributes()->second,
-                        ),
                         'displayName' => (string)$item_value->displayName,
                         'systemName' => (string)$item_value->systemName,
                         'activatedCode' => (string)$item_value->activatedCode,
@@ -708,11 +738,10 @@ class ApiController extends BaseController {
                 endforeach;
                 if(count($prizes_list) > 1):
                     foreach($prizes_list as $index => $prize):
-                        $prizes[$prize['customerPrize_id']] = $prize;
+                        $prizes[$prize['systemName']] = $prize;
                     endforeach;
-                    ksort($prizes);
                 else:
-                    $prizes = $prizes_list;
+                    $prizes['LiptonLinguaLeoForTravellers'] = $prizes_list[0];
                 endif;
             endif;
             return $prizes;

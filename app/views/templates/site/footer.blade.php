@@ -12,9 +12,9 @@
     </div>
     <div class="sharing-links">
         <span> Рассказать друзьям
-            <a href="javascript:void(0);" class="soc ok"></a>
-            <a href="javascript:void(0);" class="soc vk"></a>
-            <a href="javascript:void(0);" class="soc fb"></a>
+            <a href="https://connect.ok.ru/dk?st.cmd=WidgetSharePreview&st.shareUrl={{ URL::to(Request::path()) }}" class="soc ok"></a>
+            <a href="https://vk.com/share.php?url={{ URL::to(Request::path()) }}" class="soc vk"></a>
+            <a href="https://www.facebook.com/sharer/sharer.php?u={{ URL::to(Request::path()) }}" class="soc fb"></a>
         </span>
     </div>
     {{ Menu::placement('footer_menu') }}

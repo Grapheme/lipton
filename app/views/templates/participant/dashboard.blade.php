@@ -11,12 +11,15 @@ $now = Carbon::now();
 $post['customerId'] = Auth::user()->remote_id;
 $post['sessionKey'] = Auth::user()->sessionKey;
 $prizes = (new ApiController())->get_prizes($post);
-$first_prize = $second_prize = array();
-if(count($prizes) == 1):
-    $first_prize = array_shift($prizes);
-elseif(count($prizes) > 1):
-    $first_prize = array_shift($prizes);
-    $second_prize = array_pop($prizes);
+if(count($prizes) > 1):
+    if(isset($prizes['LinguaLeo.LotteryTicket']) && empty($prizes['LinguaLeo.LotteryTicket']['certificateCode'])):
+        Config::set('api.wonLotteryTicketId', $prizes['LinguaLeo.LotteryTicket']['customerPrize_id']);
+    endif;
+    foreach($prizes as $systemName => $prize):
+        if($systemName !== 'LiptonLinguaLeoForTravellers'):
+            $second_prize = $prize;
+        endif;
+    endforeach;
 endif;
 ?>
 @extends(Helper::layout())
@@ -48,7 +51,7 @@ endif;
                         </div>
                         <div class="profile-promo-code">
                             <h3>Введите промо код</h3>
-                            @if(!empty($first_prize))
+                            @if(empty($prizes))
                                 @include(Helper::layout('forms.first-promo-code'))
                             @else
                                 @include(Helper::layout('forms.second-promo-code'))
@@ -77,8 +80,8 @@ endif;
                     <div class="gained-prizes">
                         <div class="prize">
                             <div class="ico leo"></div>
-                            @if(!empty($first_prize) && !empty($first_prize['certificateCode']))
-                                <p>{{ $first_prize['displayName'] }}</p>
+                            @if(!empty($prizes['LiptonLinguaLeoForTravellers']))
+                                <p>{{ $prizes['LiptonLinguaLeoForTravellers']['displayName'] }}</p>
                                 <a class="disabled-button">Получен</a>
                             @else
                             <p>Курс английского для путешественников</p>
@@ -86,12 +89,12 @@ endif;
                         </div>
                         <div class="prize">
                             <div class="ico spec"></div>
-                            @if(!empty($second_prize))
-                                @if(empty($second_prize['certificateCode']))
+                            @if(count($prizes) > 1)
+                                @if(isset($prizes['LinguaLeo.LotteryTicket']) && empty($prizes['LinguaLeo.LotteryTicket']['certificateCode']))
                                 <p>Cпецкурс<br>на выбор</p>
                                 <a href="javascript:void(0);" class="js-select-certificates">Получить</a>
-                                @else
-                                <p>{{ $second_prize['displayName'] }}</p>
+                                @elseif(isset($second_prize))
+                                <p>{{ $second_prize['displayName']; }}</p>
                                 <a class="disabled-button">Получен</a>
                                 @endif
                             @else
