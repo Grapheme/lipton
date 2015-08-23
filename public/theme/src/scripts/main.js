@@ -376,7 +376,7 @@ $(document).ready(function () {
                     $($form).find('button').html('Отправить');
                     $($form).find('button').removeClass('loading');
                     if (true === data.status) {
-                        window.location.reload();
+                        $('.select-gain').hide();
                     } else if (undefined != data.responseText && data.responseText.length > 0) {
                         $('#js-profile-error').html(data.responseText);
                         $('.profile-error-wrapper').fadeIn();
