@@ -429,6 +429,8 @@ class ApiController extends BaseController {
         $result = $this->postCurl($uri_request);
         if ($this->validCode($result, 200)):
             $user = array();
+            $message = $this->getXmlValue($result['curl_result'], 'messages', 'message');
+            Config::set('api.message', $message);
             $user['id'] = $this->getXmlValue($result['curl_result'], '', 'id');
             $user['sessionKey'] = $this->getXmlValue($result['curl_result'], '', 'sessionKey');
             if (empty($user['id']) && empty($user['sessionKey'])):

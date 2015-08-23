@@ -90,8 +90,6 @@ class PromoController extends BaseController {
 
     public function secondRegister() {
 
-        Helper::tad(Input::all());
-
         $json_request = array('status' => FALSE, 'responseText' => '', 'select_certificates' => FALSE,
             'redirectURL' => FALSE);
         $validator = Validator::make(Input::all(), array('promoCode2' => 'required'));
@@ -99,7 +97,7 @@ class PromoController extends BaseController {
 
             $json_request['status'] = true;
             $json_request['select_certificates'] = true;
-            $json_request['responseText'] = 'Lorem Ipsum - это текст-"рыба", часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной "рыбой" для текстов на латинице с начала XVI века. В то время некий безымянный печатник создал большую коллекцию размеров и форм шрифтов, используя Lorem Ipsum для распечатки образцов. Lorem Ipsum не только успешно пережил без заметных изменений пять веков, но и перешагнул в электронный дизайн.';
+            $json_request['responseText'] = 'Lorem Ipsum - это текст-"рыба", часто используемый в печати и вэб-дизайне.';
             return Response::json($json_request, 200);
 
             $result = self::registerPromoCode(Input::get('promoCode2'));
