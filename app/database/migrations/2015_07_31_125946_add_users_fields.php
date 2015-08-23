@@ -15,6 +15,7 @@ class AddUsersFields extends Migration {
 			$table->integer('remote_id')->after('id')->unsigned()->default(0)->nullable();
 			$table->text('sessionKey')->nullable();
 			$table->integer('winner')->unsigned()->default(0)->nullable();
+			$table->integer('number_week')->unsigned()->default(0)->nullable();
 		});
 	}
 
@@ -26,6 +27,7 @@ class AddUsersFields extends Migration {
 			$table->dropColumn('remote_id');
 			$table->dropColumn('sessionKey');
 			$table->dropColumn('winner');
+			$table->dropColumn('number_week');
 		});
 	}
 }

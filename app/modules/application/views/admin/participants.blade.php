@@ -10,8 +10,9 @@
                 <thead>
                 <tr>
                     <th class="col-lg-1 text-center">ID</th>
-                    <th class="col-lg-1 text-center">Фото и видео</th>
-                    <th class="col-lg-10 text-center" style="white-space:nowrap;">Данные пользователя</th>
+                    <th class="col-lg-2 text-center">Фото и видео</th>
+                    <th class="col-lg-6 text-center">Данные пользователя</th>
+                    <th class="col-lg-3 text-center"></th>
                 </tr>
                 </thead>
                 <tbody>
@@ -64,9 +65,11 @@
                             <a href="{{ URL::route('moderator.participants.status', array($user->id, $user->writing->id, 1)) }}" class="btn btn-success btn-xs js-confirm">Одобрить рассказ</a>
                             @endif
                         @endif
-                            <hr style="margin-bottom: 5px; margin-top: 5px;">
+                        </td>
+                        <td>
                             {{ Form::model($user,array('route'=>array('moderator.participants.save',$user->id),'method'=>'post')) }}
                             {{ Form::checkbox('winner') }} Победитель <br>
+                            {{ Form::text('number_week') }} Номер недели <br>
 
                             {{ Form::button('Сохранить',array('class'=>'btn btn-success btn-sm','type'=>'submit','style'=>'margin-top:10px;')) }}
                             {{ Form::close() }}

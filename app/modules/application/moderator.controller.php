@@ -66,6 +66,7 @@ class ModeratorController extends BaseController {
 
         if ($user = User::where('id', $user_id)->first()):
             $user->winner = Input::has('winner') ? 1 : 0;
+            $user->number_week = Input::get('number_week');
             $user->save();
         endif;
         return Redirect::back();
