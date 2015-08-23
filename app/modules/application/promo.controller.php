@@ -16,6 +16,10 @@ class PromoController extends BaseController {
                 'uses' => $class . '@firstRegister'));
             Route::post('/second/register', array('as' => 'promo.second.register',
                 'uses' => $class . '@secondRegister'));
+
+            Route::post('/second/register/certificates', array('as' => 'promo.second.register.certificates',
+                'uses' => $class . '@secondRegisterCertificates'));
+
             Route::post('/third/register', array('before' => 'csrf', 'as' => 'promo.third.register',
                 'uses' => $class . '@thirdRegister'));
         });
@@ -95,8 +99,8 @@ class PromoController extends BaseController {
         $validator = Validator::make(Input::all(), array('promoCode2' => 'required'));
         if ($validator->passes()):
 
-            $json_request['status'] = true;
-            $json_request['select_certificates'] = true;
+            $json_request['status'] = TRUE;
+            $json_request['select_certificates'] = TRUE;
             $json_request['responseText'] = 'Lorem Ipsum - это текст-"рыба", часто используемый в печати и вэб-дизайне.';
             return Response::json($json_request, 200);
 
@@ -122,6 +126,11 @@ class PromoController extends BaseController {
             return Redirect::route('mainpage');
         endif;
 
+    }
+
+    public function secondRegisterCertificates(){
+
+        Helper::tad(Input::all());
     }
 
     public function thirdRegister() {

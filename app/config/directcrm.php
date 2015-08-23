@@ -17,5 +17,18 @@ return array(
     'server_url' => 'https://unilever-services.directcrm.ru',
     'host' => 'unilever-services.directcrm.ru',
 
-    'send_local_messages' => FALSE
+    'send_local_messages' => FALSE,
+
+    'certificates' => array(
+        'LiptonLinguaLeoForTravellers' => 'Курс английского для путешественников',
+        'LiptonLinguaLeoGrammarBeginners' => 'Курс грамматики для начинающих',
+        'LiptonLinguaEGE' => 'Курс ЕГЭ',
+        'LiptonLinguaLeoEnglishBeginners' => 'Курс английского для начинающих',
+        'LiptonLinguaLeoBusinessEnglish' => 'Курс бизнес английского',
+        'LiptonLinguaLeoMarketing' => 'Курс маркетинг',
+        'LiptonLinguaLeoStartup' => 'Курс стартап',
+        'LiptonLinguaIELTSGeneral' => 'Курс IELTS General',
+        'LiptonLinguaIELTSAcademic' => 'Курс IELTS Academic',
+        'LiptonLinguaGIA' => 'Курс ГИА',
+    )
 );
