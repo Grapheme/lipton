@@ -4,6 +4,9 @@
 * AVAILABLE_ONLY_IN_ADVANCED_MODE
 */
 ?>
+<?php
+$now = Carbon::now();
+?>
 @extends(Helper::layout())
 @section('style')
 @stop
@@ -25,18 +28,37 @@
 
                 <div class="block-plain">
                     <div class="illuminators">
-                    @for($i = 1; $i <= 10; $i++)
+                    @foreach(Accounts::where('winner', 1)->orderBy('number_week')->with('ulogin')->get() as $index => $user)
+                        <?php
+                            $bdate = new Carbon($user->bdate);
+                        ?>
                         <div class="illuminator">
-                            <div class="number">{{ str_pad($i, 2, 0, STR_PAD_LEFT); }}</div>
-                            <div style="background-image: url(http://placehold.it/100x100);" class="avatar"></div>
+                            <div class="number">{{ str_pad($user->number_week, 2, 0, STR_PAD_LEFT); }}</div>
+                        @if(!empty($user->photo) && File::exists(public_path($user->photo)))
+                            <div style="background-image: url({{ asset($profile->photo) }});" class="avatar"></div>
+                        @elseif(!empty($user->ulogin) && !empty($user->ulogin->photo_big))
+                            <div style="background-image: url({{ asset($user->ulogin->photo_big) }});"
+                                 class="avatar"></div>
+                        @else
+                            <div style="background-image: url({{ asset(Config::get('site.theme_path').'/images/avatar_default.png') }});"
+                                 class="avatar"></div>
+                        @endif
                             <div class="magnifier">
-                                <div class="number">{{ str_pad($i, 2, 0, STR_PAD_LEFT); }}</div>
-                                <div style="background-image: url(http://placehold.it/100x100);" class="avatar"></div>
-                                <div class="name">Margaret Yashina</div>
-                                <div class="info">28 лет, г. Москва</div>
+                                <div class="number">{{ str_pad($user->number_week, 2, 0, STR_PAD_LEFT); }}</div>
+                            @if(!empty($user->photo) && File::exists(public_path($user->photo)))
+                                <div style="background-image: url({{ asset($profile->photo) }});" class="avatar"></div>
+                            @elseif(!empty($user->ulogin) && !empty($user->ulogin->photo_big))
+                                <div style="background-image: url({{ asset($user->ulogin->photo_big) }});"
+                                     class="avatar"></div>
+                            @else
+                                <div style="background-image: url({{ asset(Config::get('site.theme_path').'/images/avatar_default.png') }});"
+                                     class="avatar"></div>
+                            @endif
+                                <div class="name">{{ $user->name }} {{ $user->surname }}</div>
+                                <div class="info">{{ $bdate->diffInYears($now).' '.Lang::choice('год,|года,|лет,', $bdate->diffInYears($now)) }} {{ !empty($user->city) ? $user->city : '' }}</div>
                             </div>
                         </div>
-                    @endfor
+                    @endforeach
                     </div>
                 </div>
             </div>
