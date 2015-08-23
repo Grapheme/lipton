@@ -285,6 +285,9 @@ $(document).ready(function () {
                         if (data.select_certificates) {
                             $('.select-gain').fadeIn();
                         }
+                        if (data.wonLotteryTicketId !== false) {
+                            $('#select-certificates-form input[name="ticket_id"]').val(data.wonLotteryTicketId);
+                        }
                     } else if (undefined != data.responseText && data.responseText.length > 0) {
                         $('#js-profile-error').html(data.responseText);
                         $('.profile-error-wrapper').fadeIn();
@@ -327,7 +330,11 @@ $(document).ready(function () {
                     $('.promo-code-2 button').removeClass('loading');
                     if (true === data.status) {
                         if (data.select_certificates) {
+                            $(".second-code-holder").hide();
                             $('.select-gain').fadeIn();
+                        }
+                        if (data.wonLotteryTicketId !== false) {
+                            $('#select-certificates-form input[name="ticket_id"]').val(data.wonLotteryTicketId);
                         }
                     } else if (undefined != data.responseText && data.responseText.length > 0) {
                         $('#js-profile-error').html(data.responseText);
@@ -335,7 +342,7 @@ $(document).ready(function () {
                     }
 
                     if (data.redirectURL) {
-                        setTimeout(function() { window.location.href = data.redirectURL; }, 3000);
+                        setTimeout(function() { window.location.href = data.redirectURL; }, 1000);
                     }
                 },
                 error: function (data) {
@@ -369,7 +376,7 @@ $(document).ready(function () {
                     $($form).find('button').html('Отправить');
                     $($form).find('button').removeClass('loading');
                     if (true === data.status) {
-
+                        window.location.reload();
                     } else if (undefined != data.responseText && data.responseText.length > 0) {
                         $('#js-profile-error').html(data.responseText);
                         $('.profile-error-wrapper').fadeIn();

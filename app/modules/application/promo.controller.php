@@ -49,8 +49,8 @@ class PromoController extends BaseController {
 
         if ($writing = UserWritings::where('id', (int)$url)->where('status', '>', 0)->with('user.ulogin')->first()):
             $page_data = array(
-                'page_title' => 'Рассказ от ' . @$writing->user->name . ' ' . @$writing->user->surname,
-                'page_description' => '',
+                'page_title' => 'Заголовок',
+                'page_description' => nl2br($writing->writing),
                 'page_keywords' => '',
                 'writing' => $writing,
             );
@@ -95,7 +95,7 @@ class PromoController extends BaseController {
     public function secondRegister() {
 
         $json_request = array('status' => FALSE, 'responseText' => '', 'select_certificates' => FALSE,
-            'redirectURL' => FALSE);
+            'wonLotteryTicketId' => FALSE,'redirectURL' => FALSE);
         $validator = Validator::make(Input::all(), array('promoCode2' => 'required'));
         if ($validator->passes()):
             $result = self::registerPromoCode(Input::get('promoCode2'));
@@ -106,6 +106,14 @@ class PromoController extends BaseController {
             elseif ($result === FALSE):
                 $json_request['status'] = FALSE;
             else:
+                $post['customerId'] = Auth::user()->remote_id;
+                $post['sessionKey'] = Auth::user()->sessionKey;
+                $prizes = (new ApiController())->get_prizes($post);
+                if(count($prizes)):
+                    if(isset($prizes['LinguaLeo.LotteryTicket']) && empty($prizes['LinguaLeo.LotteryTicket']['certificateCode'])):
+                        $json_request['wonLotteryTicketId'] = $prizes['LinguaLeo.LotteryTicket']['customerPrize_id'];
+                    endif;
+                endif;
                 $json_request['status'] = TRUE;
                 $json_request['select_certificates'] = TRUE;
                 $json_request['responseText'] = Config::get('api.message');
@@ -134,19 +142,22 @@ class PromoController extends BaseController {
                 $json_request['responseText'] = 'Выбранный курс недоступен';
                 return Response::json($json_request, 200);
             endif;
-            Helper::tad($certificates);
-
-            $result = self::register_certificate(Input::get('promoCode2'));
-            if ($result === -1):
+            $post['wonLotteryTicketId'] = Input::get('ticket_id');
+            $post['prizesystemname'] = Input::get('certificate');
+            $post['customerId'] = Auth::user()->remote_id;
+            $post['sessionKey'] = Auth::user()->sessionKey;
+            $api_result = (new ApiController())->register_certificate($post);
+            if ($api_result === -1):
                 Auth::logout();
                 $json_request['redirectURL'] = pageurl('auth');
                 return Response::json($json_request, 200);
-            elseif ($result === FALSE):
+            elseif ($api_result === FALSE):
                 $json_request['status'] = FALSE;
             else:
                 $json_request['status'] = TRUE;
-                $json_request['select_certificates'] = TRUE;
                 $json_request['responseText'] = Config::get('api.message');
+                Session::flash('message', Config::get('api.message'));
+                $json_request['redirectURL'] = URL::to(AuthAccount::getGroupStartUrl().'#message');
             endif;
             $json_request['responseText'] = Config::get('api.message');
         else:
