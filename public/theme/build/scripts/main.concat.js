@@ -1664,11 +1664,11 @@ $(document).ready(function () {
                     if (true === data.status) {
                         if (data.select_certificates) {
 
-                            var courseList = $('#gain-list');
-                            $.each(data.select_certificates, function(index, value) {
-                            var courseForList = $('<option value="certificates['+index+']">'+value+'<option>');
-                            courseList.append(courseForList);
-                            });
+                            //var courseList = $('#gain-list');
+                            //$.each(data.certificates, function(index, value) {
+                            //var courseForList = $('<option value="'+index+'">'+value+'<option>');
+                            //courseList.append(courseForList);
+                            //});
 
                             $('.select-gain').fadeIn();
                             // console.log(date.certificates);

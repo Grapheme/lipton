@@ -5,21 +5,16 @@
 ?>
 @if(Auth::check())
     <div class="block select-gain">
-      <div class="second-code-hack"></div>
-      <form name="select-gain" class="promo-code select-gain">
-        <h3>Выберите желаемый курс</h3>
-        <div class="fields-holder"> 
-          <select id="gain-list">
-          </select>
-          <button disabled="disabled">Отправить</button><a href="#">Отмена  </a>
-        </div>
-      </form>
+        <div class="second-code-hack"></div>
+        <a href="javascript:void(0);" class="popup-close-cross"></a>
+        @include(Helper::layout('forms.select-certificates'))
     </div>
 
     <div class="second-code-holder">
         <div class="second-code-hack"></div>
         <div class="block second-code">
             <a href="javascript:void(0);" class="popup-close-cross"></a>
+
             <h3>Есть еще один промо-код?</h3>
             @include(Helper::layout('forms.second-promo-code'))
         </div>
@@ -40,6 +35,7 @@
         <div class="second-code-hack"></div>
         <div class="error-block">
             <h3>Внимание</h3>
+
             <p id="js-profile-error">@if(Session::has('message')){{ Session::get('message') }}@endif</p>
             <a href="javascript:void(0);">Закрыть</a>
         </div>
@@ -49,7 +45,9 @@
             <div class="second-code-hack"></div>
             <div class="story-popup">
                 <a href="javascript:void(0);" class="popup-close-cross"></a>
+
                 <h2>Мой рассказ</h2>
+
                 <div class="story-wrapper">
                     <div class="story-text">
                         {{ nl2br($profile->writing->writing) }}
@@ -63,6 +61,7 @@
     <div class="second-code-hack"></div>
     <div class="error-block">
         <a class="popup-close-cross" href="javascript:void(0);"></a>
+
         <h3>Введите E-mail указанный<br>при регистрации</h3>
         @include(Helper::layout('forms.restore-password'))
     </div>
