@@ -69,7 +69,7 @@
                         <td>
                             {{ Form::model($user,array('route'=>array('moderator.participants.save',$user->id),'method'=>'post')) }}
                             {{ Form::checkbox('winner') }} Победитель <br>
-                            {{ Form::text('number_week') }} Номер недели <br>
+                            {{ Form::text('number_week', ($user->number_week > 0 ? $user->number_week : '') ) }} Номер недели <br>
 
                             {{ Form::button('Сохранить',array('class'=>'btn btn-success btn-sm','type'=>'submit','style'=>'margin-top:10px;')) }}
                             {{ Form::close() }}
