@@ -18,7 +18,7 @@ class RegisterController extends BaseController {
                 'uses' => $class . '@restorePassword'));
         });
         Route::group(array('before' => '', 'prefix' => ''), function () use ($class) {
-            Route::get('registration/activation/{activate_code}', array('as' => 'signup-activation',
+            Route::get('account/confirm-email', array('as' => 'signup-activation',
                 'uses' => $class . '@validEmail'));
             Route::post('registration/valid/phone', array('as' => 'signup.valid-phone',
                 'uses' => $class . '@validPhone'));
@@ -168,20 +168,24 @@ class RegisterController extends BaseController {
         return Response::json($json_request, 200);
     }
 
-    public function validEmail($ticket) {
+    public function validEmail() {
 
-        $api = (new ApiController())->activateEmail($ticket);
-        if ($api === FALSE):
-            return Redirect::to('/')->with('message', Config::get('api.message'));
-        else:
-            if ($account = User::where('remote_id', $api['id'])->first()):
-                $account->remote_id = $api['id'];
-                $account->sessionKey = $api['sessionKey'];
-                $account->save();
+        if(Input::has('hash')):
+            $api = (new ApiController())->activateEmail(Input::get('hash'));
+            if ($api === FALSE):
+                return Redirect::to('/')->with('message', Config::get('api.message'));
+            else:
+                if ($account = User::where('remote_id', $api['id'])->first()):
+                    $account->remote_id = $api['id'];
+                    $account->sessionKey = $api['sessionKey'];
+                    $account->save();
+                endif;
             endif;
-        endif;
-        if (Auth::check()):
-            return Redirect::route('dashboard');
+            if (Auth::check()):
+                return Redirect::route('dashboard');
+            else:
+                return Redirect::to('/');
+            endif;
         else:
             return Redirect::to('/');
         endif;
