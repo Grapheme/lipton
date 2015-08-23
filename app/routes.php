@@ -1,6 +1,6 @@
 <?php
 
-$prefix = Auth::check() ? AuthAccount::getStartPage() : 'guest';
+$prefix = Auth::check() ? AuthAccount::getStartPage() : 'participant';
 
 /**
  * Роуты для загрузки изображений в визуальном редакторе

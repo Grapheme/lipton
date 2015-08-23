@@ -660,6 +660,11 @@ class ApiController extends BaseController {
         endif;
     }
 
+    public function register_certificate(array $params = []){
+
+
+    }
+
     public function get_prizes(array $params = [], $operation = 'DirectCrm.GetCustomersPrizesGeneralData') {
 
         if (empty($params)):
@@ -676,28 +681,39 @@ class ApiController extends BaseController {
             return FALSE;
         endif;
         $this->strlen_xml = 0;
-        $uri_request = $this->config['server_url'] . "/v2/customers/current/prizes.xml?operation=$operation&countToReturn=10";
+        $uri_request = $this->config['server_url'] . "/v2/customers/current/prizes.xml?operation=$operation&countToReturn=10&includeLotteryTickets=OnlyNotWon";
         $result = self::getCurl($uri_request);
         if ($this->validCode($result, 200)):
             $totalCount = $this->getXmlValue($result['curl_result'], '', '', 'totalCount');
             $prizes = array();
             if ($totalCount > 0):
-                $prizes[0] = array(
-                    'totalCount' => $totalCount,
-                    'customerPrize_id' => $this->getXmlValue($result['curl_result'], '', 'customerPrize', 'id'),
-                    'wonDateTime' => array(
-                        'year' => $this->getXmlValue($result['curl_result'], 'customerPrize', 'wonDateTime', 'year'),
-                        'month' => $this->getXmlValue($result['curl_result'], 'customerPrize', 'wonDateTime', 'month'),
-                        'day' => $this->getXmlValue($result['curl_result'], 'customerPrize', 'wonDateTime', 'day'),
-                        'hour' => $this->getXmlValue($result['curl_result'], 'customerPrize', 'wonDateTime', 'hour'),
-                        'minute' => $this->getXmlValue($result['curl_result'], 'customerPrize', 'wonDateTime', 'minute'),
-                        'second' => $this->getXmlValue($result['curl_result'], 'customerPrize', 'wonDateTime', 'second'),
-                    ),
-                    'displayName' => $this->getXmlValue($result['curl_result'], 'customerPrize', 'displayName'),
-                    'systemName' => $this->getXmlValue($result['curl_result'], 'customerPrize', 'systemName'),
-                    'activatedCode' => $this->getXmlValue($result['curl_result'], 'customerPrize', 'activatedCode'),
-                    'certificateCode' => $this->getXmlValue($result['curl_result'], 'customerPrize', 'certificateCode'),
-                );
+                $xml_object = new SimpleXMLElement($result['curl_result']);
+                $prizes_list = array();
+                foreach ($xml_object as $item => $item_value):
+                    $prizes_list[] = array(
+                        'customerPrize_id' => (string)$item_value->attributes()->id,
+                        'wonDateTime' => array(
+                            'year' => (string)$item_value->activatedCode->attributes()->year,
+                            'month' => (string)$item_value->activatedCode->attributes()->month,
+                            'day' => (string)$item_value->activatedCode->attributes()->day,
+                            'hour' => (string)$item_value->activatedCode->attributes()->hour,
+                            'minute' => (string)$item_value->activatedCode->attributes()->minute,
+                            'second' => (string)$item_value->activatedCode->attributes()->second,
+                        ),
+                        'displayName' => (string)$item_value->displayName,
+                        'systemName' => (string)$item_value->systemName,
+                        'activatedCode' => (string)$item_value->activatedCode,
+                        'certificateCode' => (string)$item_value->certificateCode,
+                    );
+                endforeach;
+                if(count($prizes_list) > 1):
+                    foreach($prizes_list as $index => $prize):
+                        $prizes[$prize['customerPrize_id']] = $prize;
+                    endforeach;
+                    ksort($prizes);
+                else:
+                    $prizes = $prizes_list;
+                endif;
             endif;
             return $prizes;
         elseif ($this->validCode($result, 401)):
