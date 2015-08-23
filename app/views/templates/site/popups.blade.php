@@ -4,21 +4,6 @@
  */
 ?>
 @if(Auth::check())
-    <div class="block select-gain">
-        <div class="second-code-hack"></div>
-        <a href="javascript:void(0);" class="popup-close-cross"></a>
-        @include(Helper::layout('forms.select-certificates'))
-    </div>
-
-    <div class="second-code-holder">
-        <div class="second-code-hack"></div>
-        <div class="block second-code">
-            <a href="javascript:void(0);" class="popup-close-cross"></a>
-
-            <h3>Есть еще один промо-код?</h3>
-            @include(Helper::layout('forms.second-promo-code'))
-        </div>
-    </div>
     <div class="cropper-wrapper">
         <div class="second-code-hack"></div>
         <div class="block cropper-holder">
@@ -29,15 +14,6 @@
                 <a class="close" href="javascript:void(0);">Отмена</a>
                 <a class="save" href="javascript:void(0);">Сохранить</a>
             </div>
-        </div>
-    </div>
-    <div class="profile-error-wrapper">
-        <div class="second-code-hack"></div>
-        <div class="error-block">
-            <h3>Внимание</h3>
-
-            <p id="js-profile-error">@if(Session::has('message')){{ Session::get('message') }}@endif</p>
-            <a href="javascript:void(0);">Закрыть</a>
         </div>
     </div>
     @if(isset($profile->writing->writing) && !empty($profile->writing->writing))
@@ -64,5 +40,29 @@
 
         <h3>Введите E-mail указанный<br>при регистрации</h3>
         @include(Helper::layout('forms.restore-password'))
+    </div>
+</div>
+<div class="block select-gain">
+    <div class="second-code-hack"></div>
+    <a href="javascript:void(0);" class="popup-close-cross"></a>
+    @include(Helper::layout('forms.select-certificates'))
+</div>
+
+<div class="second-code-holder">
+    <div class="second-code-hack"></div>
+    <div class="block second-code">
+        <a href="javascript:void(0);" class="popup-close-cross"></a>
+
+        <h3>Есть еще один промо-код?</h3>
+        @include(Helper::layout('forms.second-promo-code'))
+    </div>
+</div>
+<div class="profile-error-wrapper">
+    <div class="second-code-hack"></div>
+    <div class="error-block">
+        <h3>Внимание</h3>
+
+        <p id="js-profile-error">@if(Session::has('message')){{ Session::get('message') }}@endif</p>
+        <a href="javascript:void(0);">Закрыть</a>
     </div>
 </div>

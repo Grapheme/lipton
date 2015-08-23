@@ -156,8 +156,7 @@ class PromoController extends BaseController {
             else:
                 $json_request['status'] = TRUE;
                 $json_request['responseText'] = Config::get('api.message');
-                Session::flash('message', Config::get('api.message'));
-                $json_request['redirectURL'] = URL::to(AuthAccount::getGroupStartUrl().'#message');
+                $json_request['redirectURL'] = URL::to(AuthAccount::getGroupStartUrl());
             endif;
             $json_request['responseText'] = Config::get('api.message');
         else:
