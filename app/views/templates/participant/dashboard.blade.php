@@ -11,6 +11,13 @@ $now = Carbon::now();
 $post['customerId'] = Auth::user()->remote_id;
 $post['sessionKey'] = Auth::user()->sessionKey;
 $prizes = (new ApiController())->get_prizes($post);
+$first_prize = $second_prize = array();
+if(count($prizes) == 1):
+    $first_prize = array_shift($prizes);
+elseif(count($prizes) > 1):
+    $first_prize = array_shift($prizes);
+    $second_prize = array_pop($prizes);
+endif;
 ?>
 @extends(Helper::layout())
 @section('style')
@@ -41,9 +48,9 @@ $prizes = (new ApiController())->get_prizes($post);
                         </div>
                         <div class="profile-promo-code">
                             <h3>Введите промо код</h3>
-                            @if(count($prizes) == 0)
+                            @if(!empty($first_prize))
                                 @include(Helper::layout('forms.first-promo-code'))
-                            @elseif(count($prizes) >= 1 && isset($prizes[0]))
+                            @else
                                 @include(Helper::layout('forms.second-promo-code'))
                             @endif
                         </div>
@@ -70,8 +77,8 @@ $prizes = (new ApiController())->get_prizes($post);
                     <div class="gained-prizes">
                         <div class="prize">
                             <div class="ico leo"></div>
-                            @if(count($prizes) > 0 && isset($prizes[0]))
-                                <p>{{ @$prizes[0]['displayName'] }}</p>
+                            @if(!empty($first_prize) && !empty($first_prize['certificateCode']))
+                                <p>{{ $first_prize['displayName'] }}</p>
                                 <a class="disabled-button">Получен</a>
                             @else
                             <p>Курс английского для путешественников</p>
@@ -79,9 +86,14 @@ $prizes = (new ApiController())->get_prizes($post);
                         </div>
                         <div class="prize">
                             <div class="ico spec"></div>
-                            @if(count($prizes) > 1 && isset($prizes[1]))
-                                <p>{{ @$prizes[1]['displayName'] }}</p>
+                            @if(!empty($second_prize))
+                                @if(empty($second_prize['certificateCode']))
+                                <p>Cпецкурс<br>на выбор</p>
+                                <a href="javascript:void(0);" class="js-select-certificates">Получить</a>
+                                @else
+                                <p>{{ $second_prize['displayName'] }}</p>
                                 <a class="disabled-button">Получен</a>
+                                @endif
                             @else
                                 <p>Cпецкурс<br>на выбор</p>
                             @endif

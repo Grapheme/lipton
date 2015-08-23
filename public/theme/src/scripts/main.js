@@ -283,17 +283,7 @@ $(document).ready(function () {
                     $('.promo-code-2 button').removeClass('loading');
                     if (true === data.status) {
                         if (data.select_certificates) {
-
-                            //var courseList = $('#gain-list');
-                            //$.each(data.certificates, function(index, value) {
-                            //var courseForList = $('<option value="'+index+'">'+value+'<option>');
-                            //courseList.append(courseForList);
-                            //});
-
                             $('.select-gain').fadeIn();
-                            // console.log(date.certificates);
-                            // заполнить селект с сертификатами
-                            // <option value="certificates[code]">certificates[title]</options>
                         }
                     } else if (undefined != data.responseText && data.responseText.length > 0) {
                         $('#js-profile-error').html(data.responseText);
@@ -337,17 +327,7 @@ $(document).ready(function () {
                     $('.promo-code-2 button').removeClass('loading');
                     if (true === data.status) {
                         if (data.select_certificates) {
-
-                            var courseList = $('#gain-list');
-                            $.each(data.select_certificates, function(index, value) {
-                            var courseForList = $('<option value="certificates['+index+']">'+value+'<option>');
-                            courseList.append(courseForList);
-                            });
-
                             $('.select-gain').fadeIn();
-                            // console.log(date.certificates);
-                            // заполнить селект с сертификатами
-                            // <option value="certificates[code]">certificates[title]</options>
                         }
                     } else if (undefined != data.responseText && data.responseText.length > 0) {
                         $('#js-profile-error').html(data.responseText);
@@ -361,6 +341,47 @@ $(document).ready(function () {
                 error: function (data) {
                     $('.promo-code-2 button').html('Отправить');
                     $('.promo-code-2 button').removeClass('loading');
+                }
+            };
+            $(form).ajaxSubmit(options);
+        }
+    });
+
+    $("#select-certificates-form").validate({
+        rules: {
+            certificate: {
+                required: true,
+            }
+        },
+        messages: {
+            certificate: {
+                required: "Необходимо выбрать курс",
+            }
+        },
+        submitHandler: function (form) {
+            var options = {
+                dataType : 'json',
+                beforeSubmit: function(arr, $form, options){
+                    $($form).find('button').addClass('loading');
+                    $($form).find('button').prepend('<i class="fa fa-circle-o-notch fa-spin"></i>');
+                },
+                success: function (data, statusText, xhr, $form) {
+                    $($form).find('button').html('Отправить');
+                    $($form).find('button').removeClass('loading');
+                    if (true === data.status) {
+
+                    } else if (undefined != data.responseText && data.responseText.length > 0) {
+                        $('#js-profile-error').html(data.responseText);
+                        $('.profile-error-wrapper').fadeIn();
+                    }
+
+                    if (data.redirectURL) {
+                        setTimeout(function() { window.location.href = data.redirectURL; }, 3000);
+                    }
+                },
+                error: function (xhr, textStatus, errorThrown) {
+                    $(form).find('button').html('Отправить');
+                    $(form).find('button').removeClass('loading');
                 }
             };
             $(form).ajaxSubmit(options);
@@ -962,5 +983,10 @@ $('form.password-recovery-form').validate({
             });
         }
         fr.readAsDataURL(file);
+    });
+
+    $(".js-select-certificates").click(function(event){
+        event.preventDefault();
+        $(".select-gain").fadeIn();
     });
 });

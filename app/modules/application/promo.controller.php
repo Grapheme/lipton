@@ -98,12 +98,6 @@ class PromoController extends BaseController {
             'redirectURL' => FALSE);
         $validator = Validator::make(Input::all(), array('promoCode2' => 'required'));
         if ($validator->passes()):
-
-            $json_request['status'] = TRUE;
-            $json_request['select_certificates'] = TRUE;
-            $json_request['responseText'] = 'Lorem Ipsum - это текст-"рыба", часто используемый в печати и вэб-дизайне.';
-            return Response::json($json_request, 200);
-
             $result = self::registerPromoCode(Input::get('promoCode2'));
             if ($result === -1):
                 Auth::logout();
@@ -130,7 +124,40 @@ class PromoController extends BaseController {
 
     public function secondRegisterCertificates(){
 
-        Helper::tad(Input::all());
+        $json_request = array('status' => FALSE, 'responseText' => '', 'redirectURL' => FALSE);
+        $validator = Validator::make(Input::all(), array('certificate' => 'required'));
+        if ($validator->passes()):
+
+            $certificates = Config::get('directcrm.certificates');
+            if(!isset($certificates[Input::get('certificate')])):
+                $json_request['status'] = FALSE;
+                $json_request['responseText'] = 'Выбранный курс недоступен';
+                return Response::json($json_request, 200);
+            endif;
+            Helper::tad($certificates);
+
+            $result = self::register_certificate(Input::get('promoCode2'));
+            if ($result === -1):
+                Auth::logout();
+                $json_request['redirectURL'] = pageurl('auth');
+                return Response::json($json_request, 200);
+            elseif ($result === FALSE):
+                $json_request['status'] = FALSE;
+            else:
+                $json_request['status'] = TRUE;
+                $json_request['select_certificates'] = TRUE;
+                $json_request['responseText'] = Config::get('api.message');
+            endif;
+            $json_request['responseText'] = Config::get('api.message');
+        else:
+            $json_request['responseText'] = $validator->messages()->all();
+        endif;
+        if (Request::ajax()):
+            return Response::json($json_request, 200);
+        else:
+            return Redirect::route('mainpage');
+        endif;
+
     }
 
     public function thirdRegister() {
