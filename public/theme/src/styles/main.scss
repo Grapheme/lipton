@@ -2624,6 +2624,13 @@ textarea:-ms-textarea-placeholder {
 						height: auto;
 					}
 
+					label {
+						display: block;
+						width: 211px;
+						top: 50px;
+						position: absolute;
+					}
+
 					input {
 						width: 211px;
 						height: 50px;
@@ -3274,7 +3281,7 @@ input.error {
 .ui-selectmenu-button span.ui-selectmenu-text {
 	padding: 0;
 	color: #000;
-    line-height: 19px;
+	line-height: 19px;
 }
 
 #sex-button {
