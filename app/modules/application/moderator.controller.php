@@ -66,7 +66,7 @@ class ModeratorController extends BaseController {
             $users = Accounts::where('group_id', 4)->orderBy('created_at', 'DESC')->with('ulogin', 'writing')->paginate(20);
         endif;
         $filter_status = '';
-        return View::make($this->module['tpl'] . 'participants', compact('users', 'filter_status'));
+        return View::make($this->module['tpl'] . 'participants', compact('users'));
     }
 
     public function participantsSave($user_id) {

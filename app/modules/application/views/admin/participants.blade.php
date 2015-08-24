@@ -48,6 +48,8 @@ $now = Carbon::now();
                             <div style="margin-top: 50px">
                                 @if(count($user['writing']) && !empty($user['writing']['writing']))
                                     <p><a target="_blank" href="{{ URL::route('show.participant.writing', $user['writing']['id'].'-'.BaseController::stringTranslite($user['name'].'-'.$user['surname'])) }}">Смотреть рассказ</a></p>
+                                @elseif(count($user['writing']) && empty($user['writing']['writing']))
+                                    <p>Рассказ пустой</p>
                                 @else
                                     <p>Рассказ отсутсвует</p>
                                 @endif
