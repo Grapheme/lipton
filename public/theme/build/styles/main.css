@@ -1793,6 +1793,9 @@ textarea:-ms-textarea-placeholder {
       overflow: hidden;
       width: 625px;
       position: relative; }
+      @media (max-width: 640px) {
+        .block .feedback-form-holder form.feedback .input-row, .block .feedback-form-holder form.story .input-row {
+          width: 100%; } }
       .block .feedback-form-holder form.feedback .input-row input, .block .feedback-form-holder form.story .input-row input {
         width: 285px;
         height: 50px;
@@ -1811,8 +1814,14 @@ textarea:-ms-textarea-placeholder {
       .block .feedback-form-holder form.feedback .input-row .input-cell, .block .feedback-form-holder form.story .input-row .input-cell {
         position: relative;
         float: left; }
+        @media (max-width: 640px) {
+          .block .feedback-form-holder form.feedback .input-row .input-cell, .block .feedback-form-holder form.story .input-row .input-cell {
+            float: none; } }
         .block .feedback-form-holder form.feedback .input-row .input-cell label, .block .feedback-form-holder form.story .input-row .input-cell label {
           margin-top: 20px; }
+          @media (max-width: 640px) {
+            .block .feedback-form-holder form.feedback .input-row .input-cell label, .block .feedback-form-holder form.story .input-row .input-cell label {
+              margin-top: 0px; } }
     .block .feedback-form-holder form.feedback textarea, .block .feedback-form-holder form.story textarea {
       width: 904px;
       height: 282px;
@@ -3116,10 +3125,9 @@ form label.error {
     @media (max-width: 640px) {
       .cropper-wrapper .cropper-holder, .sms-wrapper .cropper-holder, .profile-error-wrapper .cropper-holder {
         left: inherit !important;
-        margin-left: 0 !important;
+        margin-left: 30 !important;
         width: 310px !important;
-        height: 440px !important;
-        margin: 0 auto; }
+        height: 440px !important; }
         .cropper-wrapper .cropper-holder a.popup-close-cross, .sms-wrapper .cropper-holder a.popup-close-cross, .profile-error-wrapper .cropper-holder a.popup-close-cross {
           display: none; } }
     .cropper-wrapper .cropper-holder .cropper, .sms-wrapper .cropper-holder .cropper, .profile-error-wrapper .cropper-holder .cropper {
