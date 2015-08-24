@@ -137,6 +137,10 @@ textarea:-ms-textarea-placeholder {
 		overflow: hidden;
 		margin-top: 60px;
 
+		@include mobile {
+			display: none;
+		}
+
 		&:after {
 			content: '';
 			display: block;
@@ -638,7 +642,8 @@ textarea:-ms-textarea-placeholder {
 		z-index: 8;
 		overflow: hidden;
 		@include mobile {
-			height: 1125px;
+			height: auto;
+			background-image: url('../images/bg-promo-code.jpg');
 			background-size: cover;
 		}
 
@@ -655,6 +660,10 @@ textarea:-ms-textarea-placeholder {
 			background-image: url("../images/bg-slider-glow.png");
 			background-repeat: no-repeat;
 			margin-left: -1206px;
+
+			@include mobile {
+				display: none;
+			}
 		}
 
 		// .slider {

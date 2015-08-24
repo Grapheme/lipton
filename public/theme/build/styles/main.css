@@ -481,6 +481,9 @@ textarea:-ms-textarea-placeholder {
     height: 475px;
     overflow: hidden;
     margin-top: 60px; }
+    @media (max-width: 320px) {
+      .main-content .slider {
+        display: none; } }
     .main-content .slider:after {
       content: '';
       display: block;
@@ -845,7 +848,8 @@ textarea:-ms-textarea-placeholder {
     overflow: hidden; }
     @media (max-width: 320px) {
       .block.promo-code {
-        height: 1125px;
+        height: auto;
+        background-image: url("../images/bg-promo-code.jpg");
         background-size: cover; } }
     .block.promo-code:before {
       content: '';
@@ -860,6 +864,9 @@ textarea:-ms-textarea-placeholder {
       background-image: url("../images/bg-slider-glow.png");
       background-repeat: no-repeat;
       margin-left: -1206px; }
+      @media (max-width: 320px) {
+        .block.promo-code:before {
+          display: none; } }
     .block.promo-code .content {
       width: 1220px;
       position: absolute;
