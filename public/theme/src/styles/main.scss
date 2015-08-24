@@ -8,6 +8,12 @@
 	}
 }
 
+@mixin mobile320 {
+	@media (max-width: 320px) {
+		@content;
+	}
+}
+
 .first-preloader-image {
 	width: 1px;
 	height: 1px;
@@ -503,9 +509,14 @@ textarea:-ms-textarea-placeholder {
 				transition: .2s all;
 				margin-right: 30px;
 
-				@include mobile {
+				@include mobile320 {
 					position: absolute;
 					left: -143px;
+				}
+
+				@include mobile {
+					position: absolute;
+					left: -200px;
 				}
 
 				&:hover {
@@ -964,20 +975,21 @@ textarea:-ms-textarea-placeholder {
 					background-image: url('../images/bg-traveller-promo.png');
 
 					@include mobile {
-						    font-size: 16px;
-						    display: block;
-						    text-decoration: none;
-						    cursor: pointer;
-						    width: 300px;
-						    height: auto;
-						    margin-right: 10px;
-						    position: absolute;
-						    border-radius: 5px;
-						    padding: 26px 25px 0px;
-						    box-sizing: border-box;
-						    text-align: center;
-						    background-image: url("../images/bg-traveller-promo.png");
-						    box-sizing: border-box;
+					    font-size: 16px;
+					    display: block;
+					    text-decoration: none;
+					    cursor: pointer;
+					    width: 300px;
+					    height: auto;
+					    margin-right: 10px;
+					    position: inherit;
+					    border-radius: 5px;
+					    padding: 26px 25px 0px;
+					    box-sizing: border-box;
+					    text-align: center;
+					    background-image: url("../images/bg-traveller-promo.png");
+					    box-sizing: border-box;
+					    margin: 0 auto
 					}
 
 					.traveller-logo {
