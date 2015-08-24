@@ -216,14 +216,16 @@ class ApiController extends BaseController {
         return $data;
     }
 
-    public function postCurl($url, $post_data = NULL) {
+    public function postCurl($url, $post_data = NULL, $headers = TRUE) {
 
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_POST, TRUE);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
         curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 30);
-        curl_setopt($ch, CURLOPT_HTTPHEADER, self::curlHandle());
+        if ($headers):
+            curl_setopt($ch, CURLOPT_HTTPHEADER, self::curlHandle());
+        endif;
         if (!is_null($post_data)):
             curl_setopt($ch, CURLOPT_POSTFIELDS, $post_data);
         endif;
@@ -231,7 +233,9 @@ class ApiController extends BaseController {
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
         $data['curl_result'] = curl_exec($ch);
         $data['curl_info'] = curl_getinfo($ch);
-        $data['curl_headers'] = self::curlHandle();
+        if ($headers):
+            $data['curl_headers'] = self::curlHandle();
+        endif;
         curl_close($ch);
         return $data;
     }
@@ -755,6 +759,23 @@ class ApiController extends BaseController {
                 Config::set('api.message', $message);
             endif;
             return FALSE;
+        endif;
+    }
+    /****************************************************************************/
+    /******************************* LIKES **************************************/
+    /****************************************************************************/
+
+    public function social_likes(array $params = []){
+
+        if (empty($params)):
+            App::abort(404);
+        endif;
+        $uri_request = "http://grapheme.ru/likes.php";
+        $result = self::postCurl($uri_request, $params, FALSE);
+        if ($this->validCode($result, 200)):
+            return $result['curl_result'];
+        else:
+            return 0;
         endif;
     }
 }
