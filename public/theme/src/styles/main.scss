@@ -1612,6 +1612,15 @@ textarea:-ms-textarea-placeholder {
 						margin: 0;
 						font-size: 14px;
 
+						&.acceptionError {
+							display: none;
+							position: relative;
+							margin-bottom: -12px;
+							top: 0px;
+							color: #c90119;
+							font-size: 12px;
+						}
+
 						a {
 
 						}
@@ -3895,13 +3904,4 @@ button {
 
 input[name="login"], input[name="email"] {
 	text-transform: lowercase !important;
-}
-
-p.acceptionError {
-	display: none !important;
-	position: relative;
-	margin-bottom: -12px;
-	top: 0px;
-	color: #c90119;
-	font-size: 12px;
 }

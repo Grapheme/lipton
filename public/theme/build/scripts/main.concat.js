@@ -1426,6 +1426,9 @@ $(window).on('load', function () {
 $(document).ready(function () {
 
     // CLOSE BUTTONS ETC //
+    if (!$('.accept-block-holder label').hasClass('ui-state-active')) {
+        $('.acceptionError').fadeIn();
+    }
 
     $('form.select-gain button').click(function() {
         $('block.select-gain').fadeOut();
@@ -2044,9 +2047,6 @@ $(document).ready(function () {
                 success: function (data) {
                   $('form.full-registration button').html('Отправить');
                   $('form.full-registration button').removeClass('loading');
-                  if (!$('.accept-block-holder label').hasClass('ui-state-active')) {
-                    $('.acceptionError').fadeIn();
-                  }
                     if (data.status) {
                         if(data.valid_phone) {
                           $('.sms-wrapper').fadeIn();
