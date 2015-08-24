@@ -16,11 +16,11 @@ App::error(function (Exception $exception, $code) {
 
         case 404:
             return Redirect::route('mainpage');
-        #if(Page::where('seo_url','404')->exists()):
-        #	return spage::show('404',array('message'=>$exception->getMessage()));
-        #else:
-        #	return View::make('error404', array('message'=>$exception->getMessage()), 404);
-        #endif;
+            #if(Page::where('seo_url','404')->exists()):
+            #	return spage::show('404',array('message'=>$exception->getMessage()));
+            #else:
+            #	return View::make('error404', array('message'=>$exception->getMessage()), 404);
+            #endif;
     endswitch;
 
     if (View::exists(Helper::layout($code)))
