@@ -14,6 +14,10 @@
 	}
 }
 
+.clearfix {
+	clear: both;
+}
+
 .first-preloader-image {
 	width: 1px;
 	height: 1px;
@@ -265,6 +269,8 @@ textarea:-ms-textarea-placeholder {
 				height: 18px;
 				line-height: 18px;
 				vertical-align: middle;
+				height: 25px;
+				display: block;
 
 				@include mobile {
 					margin-left: 0;
@@ -405,7 +411,7 @@ textarea:-ms-textarea-placeholder {
 
 		@include mobile {
 			width: 320px !important;
-			margin: 0 auto;
+			margin: 0 auto !important;
 		}
 	}
 
