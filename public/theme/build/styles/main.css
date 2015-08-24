@@ -1477,8 +1477,7 @@ textarea:-ms-textarea-placeholder {
           @media (max-width: 320px) {
             .block .participate-block .forms-holder .login-block .soc-holder {
               margin: 30px auto;
-              float: none;
-              margin-top: 10px; } }
+              float: none; } }
           .block .participate-block .forms-holder .login-block .soc-holder .soc {
             display: block;
             width: 31px;
@@ -1489,13 +1488,16 @@ textarea:-ms-textarea-placeholder {
                     transition: .1s all;
             cursor: pointer; }
             @media (max-width: 320px) {
-              .block .participate-block .forms-holder .login-block .soc-holder .soc:first-child {
-                margin-left: 0px; } }
+              .block .participate-block .forms-holder .login-block .soc-holder .soc {
+                margin-top: 10px; } }
             .block .participate-block .forms-holder .login-block .soc-holder .soc:hover {
               opacity: 0.8; }
             .block .participate-block .forms-holder .login-block .soc-holder .soc.fb {
               background-image: url("../images/ico-fb-red.png");
               margin: 0; }
+              @media (max-width: 320px) {
+                .block .participate-block .forms-holder .login-block .soc-holder .soc.fb {
+                  margin-left: 0px; } }
             .block .participate-block .forms-holder .login-block .soc-holder .soc.vk {
               background-image: url("../images/ico-vk-red.png"); }
             .block .participate-block .forms-holder .login-block .soc-holder .soc.ok {

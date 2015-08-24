@@ -1481,7 +1481,6 @@ textarea:-ms-textarea-placeholder {
 					@include mobile {
 						margin: 30px auto;
 						float: none;
-						margin-top: 10px;
 					}
 
 					.soc {
@@ -1493,10 +1492,8 @@ textarea:-ms-textarea-placeholder {
 						transition: .1s all;
 						cursor: pointer;
 
-						&:first-child {
-							@include mobile {
-								margin-left: 0px;
-							}
+						@include mobile {
+							margin-top: 10px;
 						}
 
 						&:hover {
@@ -1506,6 +1503,10 @@ textarea:-ms-textarea-placeholder {
 						&.fb {
 							background-image: url('../images/ico-fb-red.png');
 							margin: 0;
+
+							@include mobile {
+								margin-left: 0px;
+							}
 						}
 
 						&.vk {
