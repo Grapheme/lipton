@@ -88,6 +88,22 @@ function curPageURL() {
                     </div>
                     <div class="widget">
                         <div id="ok_shareWidget"></div>
+                        <script>
+                            !function (d, id, did, st) {
+                              var js = d.createElement("script");
+                              js.src = "https://connect.ok.ru/connect.js";
+                              js.onload = js.onreadystatechange = function () {
+                              if (!this.readyState || this.readyState == "loaded" || this.readyState == "complete") {
+                                if (!this.executed) {
+                                  this.executed = true;
+                                  setTimeout(function () {
+                                    OK.CONNECT.insertShareWidget(id,did,st);
+                                  }, 0);
+                                }
+                              }};
+                              d.documentElement.appendChild(js);
+                            }(document,"ok_shareWidget","http://www.promo-discovery.liptontea.ru","{width:170,height:30,st:'straight',sz:20,ck:3}");
+                        </script>
                     </div>
                     
                     <!-- <script type="text/javascript" src="//vk.com/js/api/openapi.js?116"></script>
@@ -115,24 +131,6 @@ function curPageURL() {
                       js.src = "//connect.facebook.net/ru_RU/sdk.js#xfbml=1&version=v2.4&appId=608272645916709";
                       fjs.parentNode.insertBefore(js, fjs);
                     }(document, 'script', 'facebook-jssdk'));</script>
-
-                    <!-- Одноклассники -->
-                    <script>
-                    !function (d, id, did, st) {
-                      var js = d.createElement("script");
-                      js.src = "https://connect.ok.ru/connect.js";
-                      js.onload = js.onreadystatechange = function () {
-                      if (!this.readyState || this.readyState == "loaded" || this.readyState == "complete") {
-                        if (!this.executed) {
-                          this.executed = true;
-                          setTimeout(function () {
-                            OK.CONNECT.insertShareWidget(id,did,st);
-                          }, 0);
-                        }
-                      }};
-                      d.documentElement.appendChild(js);
-                    }(document,"ok_shareWidget","http://www.promo-discovery.liptontea.ru","{width:170,height:30,st:'straight',sz:20,ck:3}");
-                    </script>
 
                 </div>
                 @endif
