@@ -637,7 +637,7 @@ $(document).ready(function () {
             phone: {
                 required: true,
             },
-            acceptСheckbox: {
+            acceptCheckbox: {
                 required: true,
             },
         },
@@ -656,15 +656,15 @@ $(document).ready(function () {
             phone: {
                 required: 'Необходимо заполнить это поле!',
             },
-            acceptСheckbox: {
+            acceptCheckbox: {
                 required: 'Необходимо заполнить это поле!',
             },
         },
 
         submitHandler: function (form) {
-            if (false == $('.accept-block-holder label[for="accept"]').hasClass('ui-state-active')) {
-                return false;
-            }
+            // if (false == $('.accept-block-holder label[for="accept"]').hasClass('ui-state-active')) {
+            //     return false;
+            // }
 
             $('form.full-registration button').addClass('loading');
             $('form.full-registration button').prepend('<i class="fa fa-circle-o-notch fa-spin"></i>')
@@ -696,9 +696,9 @@ $(document).ready(function () {
                     // ERROR
                 }
             };
-            if ($('.accept-block-holder label[for="accept"]').hasClass('ui-state-active')) {
+            // if ($('.accept-block-holder label[for="accept"]').hasClass('ui-state-active')) {
                 $(form).ajaxSubmit(options);
-            }
+            // }
         }
     });
 
