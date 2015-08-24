@@ -51,15 +51,22 @@ class ModeratorController extends BaseController {
 
         if (Input::has('search')):
             $users = Accounts::where('group_id', 4)
-                ->where(function($query) {
+                ->where(function ($query) {
                     $query->where('name', 'like', '%' . Input::get('search') . '%');
                     $query->orWhere('surname', 'like', '%' . Input::get('search') . '%');
                 })
-                ->orderBy('created_at', 'DESC')->with('ulogin', 'writing')->paginate(5);
+                ->orderBy('created_at', 'DESC')->with('ulogin', 'writing')->paginate(20);
+        elseif (Input::has('filter_status')):
+            if (Input::get('filter_status') == 'codes'):
+                $users = UserCodes::groupBy('user_id')->with('users.ulogin', 'users.writing')->paginate(20);
+            elseif (Input::get('filter_status') == 'writing'):
+                $users = UserWritings::groupBy('user_id')->with('users.ulogin', 'users.writing')->paginate(20);
+            endif;
         else:
-            $users = Accounts::where('group_id', 4)->orderBy('created_at', 'DESC')->with('ulogin', 'writing')->paginate(5);
+            $users = Accounts::where('group_id', 4)->orderBy('created_at', 'DESC')->with('ulogin', 'writing')->paginate(20);
         endif;
-        return View::make($this->module['tpl'] . 'participants', compact('users'));
+        $filter_status = '';
+        return View::make($this->module['tpl'] . 'participants', compact('users', 'filter_status'));
     }
 
     public function participantsSave($user_id) {
