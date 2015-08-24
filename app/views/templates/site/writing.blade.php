@@ -59,11 +59,19 @@ $now = Carbon::now();
                          data-yashareQuickServices="vkontakte,facebook,odnoklassniki" data-yashareTheme="counter"></div>
                 </div>
                 @else
-                   <!-- Put this script tag to the <head> of your page -->
-                     <script type="text/javascript" src="//vk.com/js/api/openapi.js?116"></script>
-
+                    <!-- <script type="text/javascript" src="//vk.com/js/api/openapi.js?116"></script>
                     <script type="text/javascript">
                       VK.init({apiId: 5042647, onlyWidgets: true});
+                    </script>
+                    <div id="vk_like"></div>
+                    <script type="text/javascript">
+                    VK.Widgets.Like("vk_like", {type: "button"});
+                    </script> -->
+                    <!-- Put this script tag to the <head> of your page -->
+                    <script type="text/javascript" src="//vk.com/js/api/openapi.js?116"></script>
+
+                    <script type="text/javascript">
+                      VK.init({apiId: 5044004, onlyWidgets: true});
                     </script>
 
                     <!-- Put this div tag to the place, where the Like block will be -->
