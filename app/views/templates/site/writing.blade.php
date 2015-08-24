@@ -9,6 +9,18 @@ $text = $writing->writing;
 
 $bdate = new Carbon($user->bdate);
 $now = Carbon::now();
+
+function curPageURL() {
+   $pageURL = 'http';
+   if (@$_SERVER["HTTPS"] == "on") {$pageURL .= "s";}
+   $pageURL .= "://";
+   if (@$_SERVER["SERVER_PORT"] != "80") {
+      $pageURL .= @$_SERVER["SERVER_NAME"].":".@$_SERVER["SERVER_PORT"].@$_SERVER["REQUEST_URI"];
+  } else {
+      $pageURL .= @$_SERVER["SERVER_NAME"].@$_SERVER["REQUEST_URI"];
+  }
+  return $pageURL;
+}
 ?>
 @extends(Helper::layout())
 @section('meta_og')
@@ -54,40 +66,74 @@ $now = Carbon::now();
                 </div>
                 @if(Auth::check() && Auth::user()->id == $user->id) 
                 <div class="sharing-script">
+                    <p>
+                        <br><br>
+                        Поделитесь своей историей с друзьями. Чем больше лайков соберет история, <br>тем больше шансов стать победителем недели.
+                        <br><br>
+                    </p>
                     <script type="text/javascript" src="//yastatic.net/share/share.js" charset="utf-8"></script>
                     <div class="yashare-auto-init" data-yashareL10n="ru" data-yashareType="small"
                          data-yashareQuickServices="vkontakte,facebook,odnoklassniki" data-yashareTheme="counter"></div>
                 </div>
                 @else
-                   <!-- Put this script tag to the <head> of your page -->
-                     <script type="text/javascript" src="//vk.com/js/api/openapi.js?116"></script>
-
+                <div class="sharing-script clearfix">
+                    <p>
+                        <br><br>
+                        Чем больше лайков соберет история, тем больше шансов стать победителем недели.
+                        <br><br>
+                    </p>
+                    <div class="widget" style="display: inline-block; width: 150px;">
+                        <div id="vk_like"></div>
+                    </div>
+                    <div class="widget" style="display: inline-block; width: 150px; position: relative; top: -5px;">
+                        <div id="fb-root"></div>
+                        <!-- Your like button code -->
+                        <div class="fb-like" 
+                            data-href="<?= curPageURL(); ?>" 
+                            data-layout="button_count" 
+                            data-action="like" 
+                            data-show-faces="false" 
+                            data-share="false">
+                        </div>
+                    </div>
+                    <div class="widget" style="display: inline-block; width: 150px;">
+                        <div id="ok_shareWidget"></div>
+                        <script>
+                            !function (d, id, did, st) {
+                              var js = d.createElement("script");
+                              js.src = "https://connect.ok.ru/connect.js";
+                              js.onload = js.onreadystatechange = function () {
+                              if (!this.readyState || this.readyState == "loaded" || this.readyState == "complete") {
+                                if (!this.executed) {
+                                  this.executed = true;
+                                  setTimeout(function () {
+                                    OK.CONNECT.insertShareWidget(id,did,st);
+                                  }, 0);
+                                }
+                              }};
+                              d.documentElement.appendChild(js);
+                            }(document,"ok_shareWidget","http://www.promo-discovery.liptontea.ru","{width:170,height:30,st:'straight',sz:20,ck:3}");
+                        </script>
+                    </div>
+                    
+                    <!-- <script type="text/javascript" src="//vk.com/js/api/openapi.js?116"></script>
                     <script type="text/javascript">
                       VK.init({apiId: 5042647, onlyWidgets: true});
                     </script>
-
-                    <!-- Put this div tag to the place, where the Like block will be -->
                     <div id="vk_like"></div>
                     <script type="text/javascript">
                     VK.Widgets.Like("vk_like", {type: "button"});
+                    </script> -->
+
+                    <script type="text/javascript" src="//vk.com/js/api/openapi.js?116"></script>
+                    <script type="text/javascript">
+                      VK.init({apiId: 5044004, onlyWidgets: true});
+                    </script>
+                    <script type="text/javascript">
+                        VK.Widgets.Like("vk_like", {type: "button"});
                     </script>
 
-                    <?php
-                    function curPageURL() {
-                       $pageURL = 'http';
-                       if (@$_SERVER["HTTPS"] == "on") {$pageURL .= "s";}
-                       $pageURL .= "://";
-                       if (@$_SERVER["SERVER_PORT"] != "80") {
-                          $pageURL .= @$_SERVER["SERVER_NAME"].":".@$_SERVER["SERVER_PORT"].@$_SERVER["REQUEST_URI"];
-                      } else {
-                          $pageURL .= @$_SERVER["SERVER_NAME"].@$_SERVER["REQUEST_URI"];
-                      }
-                      return $pageURL;
-                    }
-                    ?>
-
                     <!-- Load Facebook SDK for JavaScript -->
-                    <div id="fb-root"></div>
                     <script>(function(d, s, id) {
                       var js, fjs = d.getElementsByTagName(s)[0];
                       if (d.getElementById(id)) return;
@@ -96,42 +142,7 @@ $now = Carbon::now();
                       fjs.parentNode.insertBefore(js, fjs);
                     }(document, 'script', 'facebook-jssdk'));</script>
 
-                    <!-- Your like button code -->
-                    <div class="fb-like" 
-                        data-href="http://lipton.dev.grapheme.ru" 
-                        data-layout="button_count" 
-                        data-action="like" 
-                        data-show-faces="false" 
-                        data-share="false">
-                    </div>
-                    <!-- <div class="fb-like" 
-                        data-href="<?= curPageURL(); ?>" 
-                        data-layout="standard" 
-                        data-action="like" 
-                        data-show-faces="true">
-                    </div> -->
-
-
-                    <!-- Одноклассники -->
-                    <div id="ok_shareWidget"></div>
-                    <script>
-                    !function (d, id, did, st) {
-                      var js = d.createElement("script");
-                      js.src = "https://connect.ok.ru/connect.js";
-                      js.onload = js.onreadystatechange = function () {
-                      if (!this.readyState || this.readyState == "loaded" || this.readyState == "complete") {
-                        if (!this.executed) {
-                          this.executed = true;
-                          setTimeout(function () {
-                            OK.CONNECT.insertShareWidget(id,did,st);
-                          }, 0);
-                        }
-                      }};
-                      d.documentElement.appendChild(js);
-                    }(document,"ok_shareWidget","http://www.promo-discovery.liptontea.ru","{width:145,height:50,st:'straight',sz:12,ck:3}");
-                    </script>
-
-                
+                </div>
                 @endif
             </div>
         </div>
