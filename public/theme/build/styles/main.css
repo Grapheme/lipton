@@ -2522,7 +2522,11 @@ textarea:-ms-textarea-placeholder {
             .block .profile .gained-prizes .prize:last-child {
               margin: 0 auto; } }
   .block .share-story-block {
-    margin-top: 50px; }
+    margin: 50px auto 0;
+    max-width: 48em;
+    font-size: 14px;
+    line-height: 140%;
+    text-align: center; }
     .block .share-story-block p {
       text-align: center;
       margin: 0 0 35px 0; }
