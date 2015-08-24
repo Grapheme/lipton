@@ -1309,6 +1309,11 @@ textarea:-ms-textarea-placeholder {
         font-family: 'Intro';
         line-height: 47px;
         cursor: pointer; }
+        @media (max-width: 320px) {
+          .block.second-code-holder form.promo-code-2 button, .block.second-code-holder form.send-instructions button, .block.second-code-holder form.select-gain button, .block.send-instructions form.promo-code-2 button, .block.send-instructions form.send-instructions button, .block.send-instructions form.select-gain button, .block.story form.promo-code-2 button, .block.story form.send-instructions button, .block.story form.select-gain button, .block.select-gain form.promo-code-2 button, .block.select-gain form.send-instructions button, .block.select-gain form.select-gain button {
+            float: none;
+            margin: 0 auto;
+            display: block; } }
         .block.second-code-holder form.promo-code-2 button:hover, .block.second-code-holder form.send-instructions button:hover, .block.second-code-holder form.select-gain button:hover, .block.send-instructions form.promo-code-2 button:hover, .block.send-instructions form.send-instructions button:hover, .block.send-instructions form.select-gain button:hover, .block.story form.promo-code-2 button:hover, .block.story form.send-instructions button:hover, .block.story form.select-gain button:hover, .block.select-gain form.promo-code-2 button:hover, .block.select-gain form.send-instructions button:hover, .block.select-gain form.select-gain button:hover {
           background-color: #a40000;
           color: #c90119;

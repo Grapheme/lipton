@@ -1269,6 +1269,12 @@ textarea:-ms-textarea-placeholder {
 				line-height: 47px;
 				cursor: pointer;
 
+				@include mobile {
+					float: none;
+					margin: 0 auto;
+					display: block;
+				}
+
 				&:hover {
 					background-color: #a40000;
 					color: #c90119;
