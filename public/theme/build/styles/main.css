@@ -1102,19 +1102,7 @@ textarea:-ms-textarea-placeholder {
           background-image: url("../images/bg-traveller-promo.png"); }
           @media (max-width: 320px) {
             .block.footer .content .block-right a.traveller-card {
-              display: block;
-              text-decoration: none;
-              cursor: pointer;
-              width: 250px;
-              height: 232px;
-              border-radius: 5px;
-              padding: 46px 25px 47px;
-              box-sizing: border-box;
-              text-align: center;
-              background-image: url("../images/bg-traveller-promo.jpg");
-              margin: 0 auto;
-              box-shadow: 0 0 5px 0px #000;
-              position: inherit; } }
+              font-size: 16px; } }
           .block.footer .content .block-right a.traveller-card .traveller-logo {
             width: 195px;
             height: 59px;
