@@ -3080,12 +3080,10 @@ form label.error {
     border-radius: 10px; }
     @media (max-width: 320px) {
       .cropper-wrapper .cropper-holder, .sms-wrapper .cropper-holder, .profile-error-wrapper .cropper-holder {
-        left: inherit;
-        margin-left: 0;
-        width: 310px;
-        height: 372px; }
-        .cropper-wrapper .cropper-holder .second-code-hack, .sms-wrapper .cropper-holder .second-code-hack, .profile-error-wrapper .cropper-holder .second-code-hack {
-          display: none; }
+        left: inherit !important;
+        margin-left: 0 !important;
+        width: 310px !important;
+        height: 372px !important; }
         .cropper-wrapper .cropper-holder .cropper-holder, .sms-wrapper .cropper-holder .cropper-holder, .profile-error-wrapper .cropper-holder .cropper-holder {
           position: relative;
           background-image: url("../images/bg-main.jpg");

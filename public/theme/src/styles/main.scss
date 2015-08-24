@@ -3650,14 +3650,10 @@ form {
 		border-radius: 10px;
 
 		@include mobile {
-			    left: inherit;
-			    margin-left: 0;
-			    width: 310px;
-			    height: 372px;
-			    
-			.second-code-hack {
-				display: none;
-			}
+			    left: inherit !important;
+			    margin-left: 0 !important;
+			    width: 310px !important;
+			    height: 372px !important;
 
 			.cropper-holder {
 				position: relative;
