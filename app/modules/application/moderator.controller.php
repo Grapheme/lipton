@@ -13,6 +13,8 @@ class ModeratorController extends BaseController {
             Route::group(array('before' => '', 'prefix' => 'admin'), function () use ($class) {
                 Route::get('participants', array('as' => 'moderator.participants',
                     'uses' => $class . '@participantsList'));
+                Route::post('participants/likes', array('as' => 'moderator.participants.likes',
+                    'uses' => $class . '@participantsLikes'));
                 Route::post('participant/{user_id}/save', array('before' => 'csrf',
                     'as' => 'moderator.participants.save', 'uses' => $class . '@participantsSave'));
             });
@@ -51,12 +53,13 @@ class ModeratorController extends BaseController {
 
         $users = array();
         $users_list = DB::table('users')
-            ->select(DB::raw('users.id, users.name, users.surname, users.email, users.photo, users.sex, users.phone, users.city, users.winner, users.number_week, users.bdate, users.created_at, ulogin.photo_big, count(user_codes.id) as codes, user_writings.writing, user_writings.id as writing_id, user_writings.status as writing_status'))
+            ->select(DB::raw('users.id, users.name, users.surname, users.email, users.photo, users.sex, users.phone, users.city, users.winner, users.number_week, users.bdate, users.created_at, users.total_likes, users.total_extend, ulogin.photo_big, count(user_codes.id) as codes, user_writings.writing, user_writings.id as writing_id, user_writings.status as writing_status'))
             ->where('group_id', 4)
             ->leftJoin('ulogin', 'users.id', '=', 'ulogin.user_id')
             ->leftJoin('user_codes', 'users.id', '=', 'user_codes.user_id')
             ->leftJoin('user_writings', 'users.id', '=', 'user_writings.user_id')
-            ->groupBy('users.id');
+            ->groupBy('users.id')
+            ->orderBy('users.total_likes', 'DESC');
 
         if (Input::has('search')):
             $users = $users_list
@@ -76,12 +79,12 @@ class ModeratorController extends BaseController {
                         ->orderBy('users.created_at', 'DESC');
                 endif;
                 $users_ids = array();
-                foreach($users_list->get() as $user):
-                    if($user->codes > 0):
+                foreach ($users_list->get() as $user):
+                    if ($user->codes > 0):
                         $users_ids[] = $user->id;
                     endif;
                 endforeach;
-                if(count($users_ids)):
+                if (count($users_ids)):
                     $users = $users_list->whereIn('users.id', $users_ids)->orderBy('users.created_at', 'DESC')->paginate(20);
                 else:
                     $users = $users_list->orderBy('users.created_at', 'DESC')->paginate(20);
@@ -96,12 +99,12 @@ class ModeratorController extends BaseController {
                         ->orderBy('users.created_at', 'DESC');
                 endif;
                 $users_ids = array();
-                foreach($users_list->get() as $user):
-                    if($user->writing != ''):
+                foreach ($users_list->get() as $user):
+                    if ($user->writing != ''):
                         $users_ids[] = $user->id;
                     endif;
                 endforeach;
-                if(count($users_ids)):
+                if (count($users_ids)):
                     $users = $users_list->whereIn('users.id', $users_ids)->orderBy('users.created_at', 'DESC')->paginate(20);
                 else:
                     $users = $users_list->orderBy('users.created_at', 'DESC')->paginate(20);
@@ -132,20 +135,6 @@ class ModeratorController extends BaseController {
                 $users = $users_list->orderBy('users.created_at', 'DESC')->paginate(20);
             endif;
         endif;
-        if ((Input::has('likes') || Input::get('filter_status') == 'winners') && count($users)):
-            $api = new ApiController();
-            foreach ($users as $index => $user):
-                $user = (array) $user;
-                if(!empty($user['writing'])):
-                    $post['url'] = URL::route('show.participant.writing', $user['writing_id'] . '-' . BaseController::stringTranslite($user['name'] . '-' . $user['surname']));
-                    $likes = $api->social_likes($post);
-                    $users[$index]->likes = $likes['extend'];
-                    $users[$index]->total_likes = $likes['total'];
-                else:
-                    $users[$index]->total_likes = 0;
-                endif;
-            endforeach;
-        endif;
         return View::make($this->module['tpl'] . 'participants', compact('users'));
     }
 
@@ -171,4 +160,24 @@ class ModeratorController extends BaseController {
     }
 
     /****************************************************************************/
+
+    public function participantsLikes() {
+
+        $validator = Validator::make(Input::all(), array('begin' => 'required', 'end' => 'required'));
+        if ($validator->passes()):
+            $api = new ApiController();
+            $begin = (new myDateTime())->setDateString(Input::get('begin'))->format('Y-m-d 00:00:00');
+            $end = (new myDateTime())->setDateString(Input::get('end'))->format('Y-m-d 23:59:59');
+            foreach (Accounts::where('group_id', 4)->where('created_at', '>=', $begin)->where('created_at', '<=', $end)->with('writing')->get() as $user):
+                if (!empty($user->writing) && !empty($user->writing->writing)):
+                    $post['url'] = URL::route('show.participant.writing', $user->writing->id . '-' . BaseController::stringTranslite($user->name . '-' . $user->surname));
+                    $likes = $api->social_likes($post);
+                    $user->total_extend = $likes['extend'];
+                    $user->total_likes = $likes['total'];
+                    $user->save();
+                endif;
+            endforeach;
+        endif;
+        return Redirect::back();
+    }
 }

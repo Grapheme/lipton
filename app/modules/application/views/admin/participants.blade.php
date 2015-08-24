@@ -1,55 +1,90 @@
+<?php
+$now = Carbon::now();
+$begin = $now->startOfWeek()->format('d.m.Y');
+$end = $now->endOfWeek()->format('d.m.Y')
+?>
 @extends(Helper::acclayout())
 @section('style')
+    <style type="text/css">
+        #question-likes-modal {
+            width: 350px;
+            height: 250px; /* Рaзмеры дoлжны быть фиксирoвaны */
+            border-radius: 5px;
+            border: 3px #000 solid;
+            background: #fff;
+            position: fixed; /* чтoбы oкнo былo в видимoй зoне в любoм месте */
+            top: 45%; /* oтступaем сверху 45%, oстaльные 5% пoдвинет скрипт */
+            left: 50%; /* пoлoвинa экрaнa слевa */
+            margin-top: -150px;
+            margin-left: -150px; /* тут вся мaгия центрoвки css, oтступaем влевo и вверх минус пoлoвину ширины и высoты сooтветственнo =) */
+            display: none; /* в oбычнoм сoстoянии oкнa не дoлжнo быть */
+            opacity: 0; /* пoлнoстью прoзрaчнo для aнимирoвaния */
+            z-index: 5; /* oкнo дoлжнo быть нaибoлее бoльшем слoе */
+            padding: 20px 10px;
+        }
+
+        /* Кнoпкa зaкрыть для тех ктo в тaнке) */
+        #question-likes-modal #modal_close {
+            width: 21px;
+            height: 21px;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+            display: block;
+        }
+
+        /* Пoдлoжкa */
+        #overlay {
+            z-index: 3; /* пoдлoжкa дoлжнa быть выше слoев элементoв сaйтa, нo ниже слoя мoдaльнoгo oкнa */
+            position: fixed; /* всегдa перекрывaет весь сaйт */
+            background-color: #000; /* чернaя */
+            opacity: 0.8; /* нo немнoгo прoзрaчнa */
+            width: 100%;
+            height: 100%; /* рaзмерoм вo весь экрaн */
+            top: 0;
+            left: 0; /* сверху и слевa 0, oбязaтельные свoйствa! */
+            cursor: pointer;
+            display: none; /* в oбычнoм сoстoянии её нет) */
+        }
+    </style>
 @stop
 @section('content')
     @include($module['tpl'].'/menu')
-@if(Input::has('search'))
-    <p>Результат поиска</p>
-@elseif(Input::get('filter_status') != 'winners')
-    <?php
-    $now = Carbon::now();
-    $begin = $now->startOfWeek()->format('d.m.Y');
-    $end = $now->endOfWeek()->format('d.m.Y')
-    ?>
-    <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4">
-            {{ Form::open(array('route'=>'moderator.participants','class' => 'smart-form', 'style' => 'margin-bottom:20px;', 'method'=>'get')) }}
-            {{ Form::hidden('filter_status', Input::get('filter_status')) }}
-            <header>Фильтр по дате регистрации</header>
-            <fieldset>
-                <div class="row">
-                    <section class="col col-4">
-                        <label class="label">Начало периода</label>
-                        <label class="input">
-                            {{ Form::text('begin', Input::has('begin') ? Input::get('begin') : $begin,array('class'=>'input-xs datepicker')) }}
-                        </label>
-                    </section>
-                    <section class="col col-4">
-                        <label class="label">Конец периода</label>
-                        <label class="input">
-                            {{ Form::text('end', Input::has('end') ? Input::get('end') : $end,array('class'=>'input-xs datepicker')) }}
-                        </label>
-                    </section>
-                </div>
-                <div class="row">
-                    <section class="col col-6">
-                        <label class="checkbox">
-                            {{ Form::checkbox('likes', 1, Input::has('likes')) }}
-                            <i></i>Считать лайки
-                        </label>
-                    </section>
-                </div>
-            </fieldset>
-            <footer>
-                <a href="{{ URL::route('moderator.participants') }}?filter_status=winners" class="btn btn-default">
-                    Сбросить фильтр
-                </a>
-                <button type="submit" class="btn btn-primary" style="float: left">Применить фильтр</button>
-            </footer>
-            {{ Form::close() }}
+    @if(Input::has('search'))
+        <p>Результат поиска</p>
+    @elseif(Input::get('filter_status') != 'winners')
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4">
+                {{ Form::open(array('route'=>'moderator.participants','class' => 'smart-form', 'style' => 'margin-bottom:20px;', 'method'=>'get')) }}
+                {{ Form::hidden('filter_status', Input::get('filter_status')) }}
+                <header>Фильтр по дате регистрации</header>
+                <fieldset>
+                    <div class="row">
+                        <section class="col col-4">
+                            <label class="label">Начало периода</label>
+                            <label class="input">
+                                {{ Form::text('begin', Input::has('begin') ? Input::get('begin') : $begin,array('class'=>'input-xs datepicker')) }}
+                            </label>
+                        </section>
+                        <section class="col col-4">
+                            <label class="label">Конец периода</label>
+                            <label class="input">
+                                {{ Form::text('end', Input::has('end') ? Input::get('end') : $end,array('class'=>'input-xs datepicker')) }}
+                            </label>
+                        </section>
+                    </div>
+                </fieldset>
+                <footer>
+                    <a href="{{ URL::route('moderator.participants') }}?filter_status=winners" class="btn btn-default">
+                        Сбросить фильтр
+                    </a>
+                    <button type="submit" class="btn btn-primary" style="float: left">Применить фильтр</button>
+                </footer>
+                {{ Form::close() }}
+            </div>
         </div>
-    </div>
-@endif
+    @endif
     @if(count($users))
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
@@ -94,12 +129,10 @@
                                     <i class="fa fa-envelope-o"></i> {{ HTML::mailto($user['email'], $user['email']) }}
                                     <br/>
                                     <i class="fa fa-fw fa-mobile-phone"></i>{{ $user['phone'] }}
-                                    @if(isset($user['likes']))
-                                        <br>{{ $user['likes'] }}
-                                    @endif
+                                        <br>{{ $user['total_extend'] }}
                                     @if($user['codes'] > 0)
                                         <br>
-                                        Введено {{ $user['codes'] }} {{ Lang::choice('код.|кода.|кодов.', $user['codes']) }}
+                                        {{ $user['codes'] }} {{ Lang::choice('промо-код|промо-кода|промо-кодов', $user['codes']) }}
                                     @endif
                                 </p>
                                 {{ Form::model($user,array('route'=>array('moderator.participants.save',$user['id']),'method'=>'post')) }}
@@ -159,6 +192,38 @@
             </div>
         </div>
     @endif
+    <div id="question-likes-modal">
+        <span id="modal_close">X</span>
+
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                {{ Form::open(array('route'=>'moderator.participants.likes','class' => 'smart-form', 'style' => 'margin-bottom:20px;')) }}
+                {{ Form::hidden('filter_status', Input::get('filter_status')) }}
+                <header>Процес может занять несколько минут</header>
+                <fieldset>
+                    <div class="row">
+                        <section class="col col-5">
+                            <label class="label">Начало периода</label>
+                            <label class="input">
+                                {{ Form::text('begin', Input::has('begin') ? Input::get('begin') : $begin, array('class'=>'input-xs datepicker')) }}
+                            </label>
+                        </section>
+                        <section class="col col-5">
+                            <label class="label">Конец периода</label>
+                            <label class="input">
+                                {{ Form::text('end', Input::has('end') ? Input::get('end') : $end, array('class'=>'input-xs datepicker')) }}
+                            </label>
+                        </section>
+                    </div>
+                </fieldset>
+                <footer>
+                    <button type="submit" class="btn btn-primary" style="float: left">Выполнить</button>
+                </footer>
+                {{ Form::close() }}
+            </div>
+        </div>
+    </div>
+    <div id="overlay"></div>
 @stop
 @section('scripts')
     <script type="text/javascript">
@@ -170,6 +235,24 @@
         } else {
             loadScript("{{ asset('private/js/vendor/jquery-form.min.js'); }}");
         }
+        $('#js-question-likes').click(function (event) {
+            event.preventDefault();
+            $('#overlay').fadeIn(400,
+                    function () {
+                        $('#question-likes-modal')
+                                .css('display', 'block')
+                                .animate({opacity: 1, top: '50%'}, 200);
+                    });
+        });
+        $('#modal_close, #overlay').click(function () {
+            $('#modal_form')
+                    .animate({opacity: 0, top: '45%'}, 200,
+                    function () {
+                        $(this).css('display', 'none');
+                        $('#overlay').fadeOut(400);
+                    }
+            );
+        });
     </script>
 @stop
 

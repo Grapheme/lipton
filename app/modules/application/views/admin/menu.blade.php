@@ -23,4 +23,7 @@
         {{ Input::get('filter_status') == 'winners' ? '<i class="fa fa-check"></i>' : '' }}
         Победители
     </a>
+    <a href="javascript:void(0);" class="btn btn-default" id="js-question-likes">
+        Пересчитать лайки
+    </a>
 </p>
