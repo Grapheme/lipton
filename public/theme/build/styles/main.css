@@ -1979,10 +1979,10 @@ textarea:-ms-textarea-placeholder {
           right: inherit;
           bottom: inherit;
           margin: 0 auto 30px; } }
-      .block .rules-text-block a.download-block:hover {
+      .block .rules-text-block a.download-block:hover h3 {
         text-decoration: underline; }
-        .block .rules-text-block a.download-block:hover p {
-          text-decoration: none !important; }
+      .block .rules-text-block a.download-block:hover p {
+        text-decoration: none !important; }
       .block .rules-text-block a.download-block .ico {
         width: 40px;
         height: 48px;
@@ -1998,7 +1998,8 @@ textarea:-ms-textarea-placeholder {
         color: #000;
         font-size: 12px;
         font-family: 'PT Sans', 'Open Sans', Arial;
-        text-transform: capitalize; }
+        text-transform: capitalize;
+        text-decoration: none !important; }
   .block .mosaic-holder {
     position: absolute;
     width: 100%;

@@ -16,7 +16,7 @@
                 <div class="rules-row">
                     <div class="rule-item rule-1">
                         <div class="rule-img"></div>
-                        <h3>Купите новинку чая в промо упаковке <a href="javascript:void(0);">Lipton Discovery</a><sup>*</sup></h3>
+                        <h3>Купите новинку чая в промо упаковке Lipton Discovery<sup>*</sup></h3>
                     </div>
                     <div class="rule-item rule-2">
                         <div class="rule-img"></div>
