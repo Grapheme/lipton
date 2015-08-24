@@ -3278,9 +3278,9 @@ input[name="login"], input[name="email"] {
   text-transform: lowercase !important; }
 
 p.acceptionError {
-  display: none;
+  display: none !important;
   position: relative;
   margin-bottom: -12px;
-  top: -20px;
+  top: 0px;
   color: #c90119;
   font-size: 12px; }
