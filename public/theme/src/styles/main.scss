@@ -1897,6 +1897,10 @@ textarea:-ms-textarea-placeholder {
 				width: 625px;
 				position: relative;
 
+				@include mobile {
+					width: 100%;
+				}
+
 				input {
 					width: 285px;
 					height: 50px;
@@ -1918,9 +1922,17 @@ textarea:-ms-textarea-placeholder {
 				.input-cell {
 					position: relative;
 					float: left;
+
+					@include mobile {
+						float: none;
+					}
 					
 					label {
 						margin-top: 20px;
+
+						@include mobile {
+							margin-top: 0px;
+						}
 					}
 				}
 			}
@@ -3675,10 +3687,9 @@ form {
 
 		@include mobile {
 		    left: inherit !important;
-		    margin-left: 0 !important;
+		    margin-left: 30 !important;
 		    width: 310px !important;
 		    height: 440px !important;
-		    margin: 0 auto;
 
 			a.popup-close-cross {
 				display: none;
@@ -3712,7 +3723,7 @@ form {
 				padding: 0;
 				width: 280px;
 			}
-			
+
 			a {
 				display: block;
 				width: 136px;

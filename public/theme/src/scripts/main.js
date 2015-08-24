@@ -961,7 +961,7 @@ $('form.password-recovery-form').validate({
 
     $('.cropper-wrapper .save').click(function () {
         $('.avatar-hack .hidden-avatar-input').val($('.cropper > img').cropper('getCroppedCanvas').toDataURL());
-        $('.profile-info .avatar').css('background-image: url(' + $('.avatar-hack .hidden-avatar-input').val($('.cropper > img').cropper('getCroppedCanvas').toDataURL()) + ');');
+        $('.profile-info .avatar').css('background-image', 'url(' + $('.hidden-avatar-input').val($('.cropper > img').cropper('getCroppedCanvas').toDataURL()) + ');');
         $('.cropper-wrapper').fadeOut();
     });
 
