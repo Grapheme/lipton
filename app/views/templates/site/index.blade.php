@@ -71,7 +71,7 @@ endif;
                     <a href="{{ pageurl('auth') }}" class="involvement">Принять участие</a>
                     <div class="footnote">
                         <p>
-                            <sup>*</sup> <small>Дискавери Колекшн</small>
+                            <small><sup>*</sup> Дискавери Колекшн</small>
                         </p>
                     </div>
                 </div>
