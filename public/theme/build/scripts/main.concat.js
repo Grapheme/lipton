@@ -1879,7 +1879,7 @@ $(document).ready(function () {
         },
         submitHandler: function (form) {
             $('form.story button').addClass('loading');
-            $('form.story button').prepend('<i class="fa fa-circle-o-notch fa-spin"></i>')
+            $('form.story button').prepend('<i class="fa fa-circle-o-notch fa-spin"></i>');
             var options = {
                 success: function (data) {
                     if (data.redirectURL) {
