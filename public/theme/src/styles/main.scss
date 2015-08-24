@@ -1824,6 +1824,8 @@ textarea:-ms-textarea-placeholder {
 			.input-row {
 				margin-bottom: 20px;
 				overflow: hidden;
+				width: 625px;
+				position: relative;
 
 				input {
 					width: 285px;
@@ -1842,6 +1844,11 @@ textarea:-ms-textarea-placeholder {
 						margin-bottom: 20px;
 					}
 				}
+			}
+
+			label {
+				left: -305px;
+				top: 30px;
 			}
 
 			textarea {
