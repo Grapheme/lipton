@@ -26,9 +26,13 @@
                         <div class="big-ico"></div>
                         {{ $page->block('third_prize') }}
                     </div>
-                    <a href="{{ pageurl('countries') }}" class="prize-link">Lipton Discovery Collection</a>
+                    <a href="{{ pageurl('countries') }}" class="prize-link">Lipton Discovery Collection<sup>***</sup></a>
                     <div class="footnote">
-                        <p><sup>*</sup>Дискавери</p>
+                        <p>
+                            <sup>*</sup> Дискавери
+                            <sup>**</sup> Главный приз — сертификат на туристическое путешествие.
+                            <sup>***</sup> Дискавери Колекшн
+                        </p>
                     </div>
                 </div>
             </div>
