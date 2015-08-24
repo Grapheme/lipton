@@ -118,7 +118,7 @@ textarea:-ms-textarea-placeholder {
 .main-content {
 	overflow: hidden;
 	margin-top: -106px;
-	min-height: 800px;
+	min-height: 850px;
 	position: relative;
 
 	@include mobile {
@@ -3889,4 +3889,17 @@ button {
 			display: block;
 		}
 	}
+}
+
+input[name="login"], input[name="email"] {
+	text-transform: lowercase !important;
+}
+
+p.acceptionError {
+	display: none;
+	position: relative;
+	margin-bottom: -12px;
+	top: -20px;
+	color: #c90119;
+	font-size: 12px;
 }
