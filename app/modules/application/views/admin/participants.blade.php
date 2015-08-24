@@ -70,7 +70,7 @@
                                     <p><a target="_blank"
                                           href="{{ URL::route('show.participant.writing', $user['writing']['id'].'-'.BaseController::stringTranslite($user['name'].'-'.$user['surname'])) }}">Посмотреть рассказ </a></p>
                                 @elseif(count($user['writing']) && empty($user['writing']['writing']))
-                                    <p>Рассказ пуст</p>
+                                    <p>Рассказ не завершил свой рассказ</p>
                                 @else
                                     <p>Рассказ отсутствует</p>
                                 @endif
