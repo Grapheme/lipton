@@ -559,7 +559,9 @@ textarea:-ms-textarea-placeholder {
     margin-right: 27px; }
     @media (max-width: 640px) {
       .sub-footer .sharing-block {
-        display: none; } }
+        float: none;
+        text-align: center;
+        margin: 20px auto; } }
     .sub-footer .sharing-block a {
       color: #000;
       text-decoration: underline; }
@@ -593,7 +595,7 @@ textarea:-ms-textarea-placeholder {
     @media (max-width: 640px) {
       .sub-footer .sharing-links {
         float: none;
-        height: 38px;
+        height: 63px;
         position: inherit; } }
     .sub-footer .sharing-links:before {
       content: '';
@@ -615,7 +617,7 @@ textarea:-ms-textarea-placeholder {
       @media (max-width: 640px) {
         .sub-footer .sharing-links span {
           float: none;
-          height: 38px;
+          height: 63px;
           position: inherit;
           width: 135px;
           margin: 0 auto; } }
@@ -665,7 +667,7 @@ textarea:-ms-textarea-placeholder {
     position: relative; }
     @media (max-width: 640px) {
       .block .content {
-        width: 320px;
+        width: 320px !important;
         margin: 0 auto; } }
   .block h2 {
     font-family: 'Intro-regular';
@@ -957,7 +959,7 @@ textarea:-ms-textarea-placeholder {
             @media (max-width: 640px) {
               .block.promo-code .content .promo-steps .promo-step.step-2 {
                 width: auto;
-                height: 366px;
+                height: 405px;
                 margin-bottom: 50px; } }
           .block.promo-code .content .promo-steps .promo-step.step-3 {
             width: 309px; }
@@ -1013,7 +1015,7 @@ textarea:-ms-textarea-placeholder {
       .block.footer {
         margin-top: -102px;
         height: auto;
-        padding-bottom: 232px; } }
+        padding-bottom: 10px; } }
     .block.footer .content {
       z-index: 1;
       width: 910px; }
@@ -1090,6 +1092,7 @@ textarea:-ms-textarea-placeholder {
         @media (max-width: 640px) {
           .block.footer .content .block-right {
             width: 100%;
+            margin-top: 50px;
             float: none;
             height: 230px; } }
         .block.footer .content .block-right a.traveller-card {

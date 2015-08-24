@@ -115,7 +115,7 @@ $(document).ready(function () {
         window.location.hash = '';
     })
 
-    if ($(window).width() > 320) {
+    if ($(window).width() > 640) {
         $('.country').click(function () {
             var popupContent = $(this).find('.content').clone();
             $('.learn-more-popup').html(popupContent);
