@@ -714,7 +714,8 @@ textarea:-ms-textarea-placeholder {
 			top: 0;
 
 			@include mobile {
-				margin-top: 115px;
+				margin: 115px 0 0 0;
+				left: inherit;
 				position: inherit;
 				width: 100%;
 				box-sizing: border-box;
