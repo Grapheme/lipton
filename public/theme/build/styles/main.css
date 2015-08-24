@@ -1732,9 +1732,10 @@ textarea:-ms-textarea-placeholder {
           .block .feedback-form-holder form.feedback .input-row input, .block .feedback-form-holder form.story .input-row input {
             width: 100%;
             margin-bottom: 20px; } }
-    .block .feedback-form-holder form.feedback label, .block .feedback-form-holder form.story label {
-      left: -305px;
-      top: 30px; }
+      .block .feedback-form-holder form.feedback .input-row .input-cell, .block .feedback-form-holder form.story .input-row .input-cell {
+        position: relative; }
+        .block .feedback-form-holder form.feedback .input-row .input-cell label, .block .feedback-form-holder form.story .input-row .input-cell label {
+          margin-top: 20px; }
     .block .feedback-form-holder form.feedback textarea, .block .feedback-form-holder form.story textarea {
       width: 904px;
       height: 282px;
