@@ -645,6 +645,7 @@ textarea:-ms-textarea-placeholder {
 			height: auto;
 			background-image: url('../images/bg-promo-code.jpg');
 			background-size: cover;
+			height: 1110px;
 		}
 
 		&:before {
@@ -700,12 +701,19 @@ textarea:-ms-textarea-placeholder {
 		// }
 
 		.content {
-			width: 1220px;
-			position: absolute;
+			width: auto;
+			position: inherit;
 			left: 50%;
 			margin-left: -610px;
 			z-index: 1;
 			top: 0;
+
+			@include mobile {
+				margin-top: 115px;
+				position: inherit;
+				width: 100%;
+				box-sizing: border-box;
+			}
 
 			.promo-steps {
 				margin-top: 206px;
@@ -795,7 +803,7 @@ textarea:-ms-textarea-placeholder {
 						width: 309px;
 						@include mobile {
 							width: auto;
-							height: 166px;
+							height: 176px;
 						}
 					}
 
@@ -1473,6 +1481,7 @@ textarea:-ms-textarea-placeholder {
 					@include mobile {
 						margin: 30px auto;
 						float: none;
+						margin-top: 10px;
 					}
 
 					.soc {
@@ -1483,6 +1492,12 @@ textarea:-ms-textarea-placeholder {
 						margin-left: 20px;
 						transition: .1s all;
 						cursor: pointer;
+
+						&:first-child {
+							@include mobile {
+								margin-left: 0px;
+							}
+						}
 
 						&:hover {
 							opacity: 0.8;
