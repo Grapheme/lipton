@@ -1765,7 +1765,7 @@ textarea:-ms-textarea-placeholder {
       outline: 0;
       line-height: 47px;
       cursor: pointer;
-      font-family: 'Intro-regular'; }
+      font-family: 'Intro'; }
       @media (max-width: 320px) {
         .block .feedback-form-holder form.feedback button, .block .feedback-form-holder form.story button {
           margin: 0 auto;
