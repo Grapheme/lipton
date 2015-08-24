@@ -47,14 +47,6 @@ $(document).ready(function () {
 
     // CLOSE BUTTONS ETC //
 
-    $('.full-registration-holder').click(function(){
-        if (!$('.accept-block-holder label').hasClass('ui-state-active')) {
-            $('.acceptionError').fadeIn();
-        } else {
-            $('.acceptionError').fadeOut();
-        }
-    });
-
     $('form.select-gain button').click(function() {
         $('block.select-gain').fadeOut();
     });
@@ -506,7 +498,6 @@ $(document).ready(function () {
             },
         },
         submitHandler: function (form) {
-            // $('form.story button').html('');
             $('form.story button').addClass('loading');
             $('form.story button').prepend('<i class="fa fa-circle-o-notch fa-spin"></i>')
             var options = {
@@ -662,9 +653,6 @@ $(document).ready(function () {
         },
 
         submitHandler: function (form) {
-            // if (false == $('.accept-block-holder label[for="accept"]').hasClass('ui-state-active')) {
-            //     return false;
-            // }
 
             $('form.full-registration button').addClass('loading');
             $('form.full-registration button').prepend('<i class="fa fa-circle-o-notch fa-spin"></i>')
@@ -696,9 +684,7 @@ $(document).ready(function () {
                     // ERROR
                 }
             };
-            // if ($('.accept-block-holder label[for="accept"]').hasClass('ui-state-active')) {
                 $(form).ajaxSubmit(options);
-            // }
         }
     });
 
@@ -744,7 +730,7 @@ $(document).ready(function () {
                 required: 'Необходимо заполнить это поле!',
             },
             acceptСheckbox: {
-                required: 'Необходимо заполнить это поле!',
+                required: 'Необходимо согласиться с правилами акции и условиями использования!',
             },
             city: {
                 required: 'Необходимо заполнить это поле!',
