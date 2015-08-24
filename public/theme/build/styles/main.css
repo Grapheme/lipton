@@ -1901,6 +1901,9 @@ textarea:-ms-textarea-placeholder {
         font-size: 16px;
         margin: 0;
         padding: 0; }
+        @media (max-width: 320px) {
+          .block .prize-gallery .prize-block p {
+            padding: 0 20px; } }
   .block .rules-row {
     overflow: hidden;
     margin-bottom: 51px;
@@ -2274,7 +2277,7 @@ textarea:-ms-textarea-placeholder {
           .block .profile .profile-head .profile-info {
             width: 100%;
             border: none;
-            margin-bottom: 30px;
+            margin-bottom: 70px;
             height: auto;
             float: none; } }
         .block .profile .profile-head .profile-info .avatar {
@@ -2443,6 +2446,9 @@ textarea:-ms-textarea-placeholder {
           position: absolute;
           left: 20px;
           bottom: 0; }
+          @media (max-width: 320px) {
+            .block .profile .profile-head .request .moderation {
+              margin-left: 52px; } }
           .block .profile .profile-head .request .moderation .bullet {
             width: 8px;
             height: 8px;
@@ -2908,6 +2914,13 @@ input.error {
   height: 287px;
   border-radius: 10px;
   z-index: 1001; }
+  @media (max-width: 320px) {
+    .error-block {
+      left: inherit;
+      margin-left: 0;
+      width: 310px;
+      height: 287px;
+      border-radius: 10px; } }
   .error-block h3 {
     text-transform: uppercase;
     font-size: 21px;
@@ -3270,6 +3283,9 @@ a.popup-close-cross {
 .footnote {
   font-size: 12px;
   margin-top: 30px; }
+  @media (max-width: 320px) {
+    .footnote {
+      padding: 0 20px; } }
 
 button.loading {
   background-color: #a40000 !important;

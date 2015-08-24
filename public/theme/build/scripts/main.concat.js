@@ -1481,6 +1481,7 @@ $(document).ready(function () {
     $('#sex').selectmenu();
     $('#accept').button();
     $('#gain-list').selectmenu();
+    $('#gain-list1').selectmenu();
 
     $('.accordion-item .accordion-head').click(function () {
         $(this).next().slideToggle();
