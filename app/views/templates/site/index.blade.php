@@ -24,7 +24,6 @@ endif;
 ?>
 @extends(Helper::layout())
 @section('meta_og')
-
     <meta property="og:title" content="Конкурс рассказов от Lipton Arkenstone" />
     <meta property="og:description" content="Регистрируйте промо-коды в пачках Lipton Arkenstone, напишите рассказ о себе и получите курс английского языка для туристов от Lingualeo или выиграйте увлекательное путешествие в одну из шести стран вместе с National Geographic Traveler" />
     <meta property="og:url" content="{{ URL::to(Request::path()) }}" />
