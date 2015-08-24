@@ -59,7 +59,25 @@ $now = Carbon::now();
                          data-yashareQuickServices="vkontakte,facebook,odnoklassniki" data-yashareTheme="counter"></div>
                 </div>
                 @else
-                <div class="sharing-script">
+                <div class="sharing-script clearfix">
+                    <div class="widget">
+                        <div id="vk_like"></div>
+                    </div>
+                    <div class="widget">
+                        <div id="fb-root"></div>
+                        <!-- Your like button code -->
+                        <div class="fb-like" 
+                            data-href="<?= curPageURL(); ?>" 
+                            data-layout="button_count" 
+                            data-action="like" 
+                            data-show-faces="false" 
+                            data-share="false">
+                        </div>
+                    </div>
+                    <div class="widget">
+                        <div id="ok_shareWidget"></div>
+                    </div>
+                    
                     <!-- <script type="text/javascript" src="//vk.com/js/api/openapi.js?116"></script>
                     <script type="text/javascript">
                       VK.init({apiId: 5042647, onlyWidgets: true});
@@ -68,17 +86,13 @@ $now = Carbon::now();
                     <script type="text/javascript">
                     VK.Widgets.Like("vk_like", {type: "button"});
                     </script> -->
-                    <!-- Put this script tag to the <head> of your page -->
-                    <script type="text/javascript" src="//vk.com/js/api/openapi.js?116"></script>
 
+                    <script type="text/javascript" src="//vk.com/js/api/openapi.js?116"></script>
                     <script type="text/javascript">
                       VK.init({apiId: 5044004, onlyWidgets: true});
                     </script>
-
-                    <!-- Put this div tag to the place, where the Like block will be -->
-                    <div id="vk_like"></div>
                     <script type="text/javascript">
-                    VK.Widgets.Like("vk_like", {type: "button"});
+                        VK.Widgets.Like("vk_like", {type: "button"});
                     </script>
 
                     <?php
@@ -96,7 +110,6 @@ $now = Carbon::now();
                     ?>
 
                     <!-- Load Facebook SDK for JavaScript -->
-                    <div id="fb-root"></div>
                     <script>(function(d, s, id) {
                       var js, fjs = d.getElementsByTagName(s)[0];
                       if (d.getElementById(id)) return;
@@ -105,17 +118,7 @@ $now = Carbon::now();
                       fjs.parentNode.insertBefore(js, fjs);
                     }(document, 'script', 'facebook-jssdk'));</script>
 
-                    <!-- Your like button code -->
-                    <div class="fb-like" 
-                        data-href="<?= curPageURL(); ?>" 
-                        data-layout="button_count" 
-                        data-action="like" 
-                        data-show-faces="false" 
-                        data-share="false">
-                    </div>
-
                     <!-- Одноклассники -->
-                    <div id="ok_shareWidget"></div>
                     <script>
                     !function (d, id, did, st) {
                       var js = d.createElement("script");
