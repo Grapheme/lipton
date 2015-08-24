@@ -7,7 +7,7 @@ $end = $now->endOfWeek()->format('d.m.Y')
 @section('style')
     <style type="text/css">
         #question-likes-modal {
-            width: 350px;
+            width: 365px;
             height: 250px; /* Рaзмеры дoлжны быть фиксирoвaны */
             border-radius: 5px;
             border: 3px #000 solid;
