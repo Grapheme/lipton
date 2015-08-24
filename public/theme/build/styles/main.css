@@ -1666,7 +1666,9 @@ textarea:-ms-textarea-placeholder {
       .block .faq-mask .faq-block .accordion-item .accordion-body {
         display: none;
         overflow: hidden;
-        padding-bottom: 16px; }
+        padding-bottom: 20px;
+        font-size: 14px;
+        line-height: 140%; }
   .block .scroll-nav {
     width: 147px;
     height: 47px;
