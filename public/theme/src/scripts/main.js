@@ -47,11 +47,13 @@ $(document).ready(function () {
 
     // CLOSE BUTTONS ETC //
 
-    if (!$('.accept-block-holder label').hasClass('ui-state-active')) {
-        $('.acceptionError').fadeIn();
-    } else {
-        $('.acceptionError').fadeOut();
-    }
+    $('.full-registration-holder').click(function(){
+        if (!$('.accept-block-holder label').hasClass('ui-state-active')) {
+            $('.acceptionError').fadeIn();
+        } else {
+            $('.acceptionError').fadeOut();
+        }
+    });
 
     $('form.select-gain button').click(function() {
         $('block.select-gain').fadeOut();
