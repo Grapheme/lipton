@@ -91,6 +91,12 @@
                             <i class="fa fa-envelope-o"></i> {{ HTML::mailto($user['email'], $user['email']) }}
                             <br/>
                             <i class="fa fa-fw fa-mobile-phone"></i>{{ $user['phone'] }}
+                            @if(Input::has('filter_status') && in_array(Input::get('filter_status'),array('winners', 'writing')) && isset($user['likes']))
+                                <br> Поставлено {{ $user['likes'] }} {{ Lang::choice('лайк|лайка|лайков', $user['likes']) }}.
+                            @endif
+                            @if(Input::has('filter_status') && Input::get('filter_status')== 'codes')
+                                <br> Введено {{ count($user['codes']) }} {{ Lang::choice('код|кода|кодов', count($user['codes'])) }}.
+                            @endif
                         </p>
                         {{ Form::model($user,array('route'=>array('moderator.participants.save',$user['id']),'method'=>'post')) }}
                         {{ Form::checkbox('winner') }} Победитель

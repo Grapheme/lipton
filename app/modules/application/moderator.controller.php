@@ -62,6 +62,11 @@ class ModeratorController extends BaseController {
                 $users = UserCodes::groupBy('user_id')->with('users.ulogin', 'users.writing')->paginate(20);
             elseif (Input::get('filter_status') == 'writing'):
                 $users = UserWritings::groupBy('user_id')->with('users.ulogin', 'users.writing')->paginate(20);
+                $api = new ApiController();
+                foreach($users as $index => $user):
+                    $post['url'] = URL::route('show.participant.writing', $user['users']['writing']['id'].'-'.BaseController::stringTranslite($user['users']['name'].'-'.$user['users']['surname']));
+                    $users[$index]['users']['likes'] = $api->social_likes($post);
+                endforeach;
             elseif (Input::get('filter_status') == 'winners'):
                 if (Input::has('begin') && Input::has('end')):
                     $begin = (new myDateTime())->setDateString(Input::get('begin'))->format('Y-m-d 00:00:00');
@@ -69,6 +74,13 @@ class ModeratorController extends BaseController {
                     $users = Accounts::where('group_id', 4)->where('created_at', '>=', $begin)->where('created_at', '<=', $end)->orderBy('created_at', 'DESC')->with('ulogin', 'writing')->paginate();
                 else:
                     $users = Accounts::where('group_id', 4)->where('winner', 1)->orderBy('number_week')->with('ulogin', 'writing')->paginate();
+                endif;
+                if(count($users)):
+                    $api = new ApiController();
+                    foreach($users as $index => $user):
+                        $post['url'] = URL::route('show.participant.writing', $user['writing']['id'].'-'.BaseController::stringTranslite($user['name'].'-'.$user['surname']));
+                        $users[$index]['likes'] = $api->social_likes($post);
+                    endforeach;
                 endif;
             endif;
         else:
@@ -97,5 +109,6 @@ class ModeratorController extends BaseController {
         return Redirect::back();
 
     }
+
     /****************************************************************************/
 }
