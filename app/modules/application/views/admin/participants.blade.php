@@ -68,7 +68,7 @@
                             <div>
                                 @if(count($user['writing']) && !empty($user['writing']['writing']))
                                     <p><a target="_blank"
-                                          href="{{ URL::route('show.participant.writing', $user['writing']['id'].'-'.BaseController::stringTranslite($user['name'].'-'.$user['surname'])) }}">Посмотреть рассказ участника</a></p>
+                                          href="{{ URL::route('show.participant.writing', $user['writing']['id'].'-'.BaseController::stringTranslite($user['name'].'-'.$user['surname'])) }}">Посмотреть рассказ </a></p>
                                 @elseif(count($user['writing']) && empty($user['writing']['writing']))
                                     <p>Рассказ пуст</p>
                                 @else
