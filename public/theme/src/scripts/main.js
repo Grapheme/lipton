@@ -61,11 +61,7 @@ $(document).ready(function () {
         $('.password-recovery-holder').fadeOut();
     });
 
-    if (window.location.pathname == '/') {
-        $('body').addClass('no-cup');
-    }
-
-    if (window.location.pathname == '/participant') {
+    if (window.location.pathname == '/' ? || window.location.pathname == '/participant' ||  window.location.pathname == '/countries') {
         $('body').addClass('no-cup');
     }
 
