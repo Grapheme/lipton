@@ -654,17 +654,12 @@ $(document).ready(function () {
         },
 
         submitHandler: function (form) {
+
             $('form.full-registration button').addClass('loading');
             $('form.full-registration button').prepend('<i class="fa fa-circle-o-notch fa-spin"></i>')
             $('.erros-message-block').remove();
-            $('.acceptionError').fadeOut();
 
             var options = {
-                beforeSubmit: function(){
-                    if (!$('.accept-block-holder label').hasClass('ui-state-active')) {
-                        $('.acceptionError').fadeIn();
-                    }
-                },
                 success: function (data) {
                   $('form.full-registration button').html('Отправить');
                   $('form.full-registration button').removeClass('loading');
@@ -675,6 +670,12 @@ $(document).ready(function () {
 
                     } else {
                         $('form.full-registration').append('<div class="erros-message-block">' + data.responseText + '</div>');
+
+                        if (!$('.accept-block-holder label').hasClass('ui-state-active')) {
+                            $('.acceptionError').fadeIn();
+                        } else {
+                            $('.acceptionError').fadeOut();
+                        }
                     }
 
                     if (data.redirectURL) {

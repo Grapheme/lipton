@@ -45,7 +45,7 @@
 <div class="accept-block-holder">
     <label for="accept">.</label>
     <input id="accept" name="acceptCheckbox" type="checkbox">
-    <p>Я согласен с <a href="{{ pageurl('rules') }}">правилами акции</a>, ознакомился с <a href="{{ pageurl('terms') }}">условиями
+    <p>Я изнакомился и согласен с <a href="{{ pageurl('rules') }}">правилами акции и условиями
             использования</a> предоставленных<br>мной сведений и выражаю свое согласие на их
         использование</p>
     <p class="acceptionError">Необходимо согласиться с правилами акции и условиями использования.</p>
