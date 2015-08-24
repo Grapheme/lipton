@@ -217,7 +217,7 @@ $end = $now->endOfWeek()->format('d.m.Y')
                     </div>
                 </fieldset>
                 <footer>
-                    <button type="submit" class="btn btn-primary" style="float: left">Выполнить</button>
+                    <button type="submit" id="js-btn-likes" class="btn btn-primary" style="float: left">Выполнить</button>
                 </footer>
                 {{ Form::close() }}
             </div>
@@ -252,6 +252,9 @@ $end = $now->endOfWeek()->format('d.m.Y')
                         $('#overlay').fadeOut(400);
                     }
             );
+        });
+        $("#js-btn-likes").click(function(){
+            $(this).addClass('disabled').html('Ожидайте ...');
         });
     </script>
 @stop
