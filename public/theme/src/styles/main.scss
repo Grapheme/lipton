@@ -1844,11 +1844,14 @@ textarea:-ms-textarea-placeholder {
 						margin-bottom: 20px;
 					}
 				}
-			}
 
-			label {
-				left: -305px;
-				top: 30px;
+				.input-cell {
+					position: relative;
+					
+					label {
+						margin-top: 20px;
+					}
+				}
 			}
 
 			textarea {
