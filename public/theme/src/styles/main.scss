@@ -27,6 +27,12 @@ body {
 	background-size: initial, cover;
 	min-height: 1024px;
 
+	@include mobile {
+		background-image: url(../images/bg-main.jpg);
+		background-position: center 90px;
+		background-size: cover;
+	}
+
 	&.no-cup {
 		background-image: url(../images/bg-main.jpg);
 		background-position: center 90px;
@@ -646,6 +652,8 @@ textarea:-ms-textarea-placeholder {
 		background-repeat: no-repeat;
 		z-index: 8;
 		overflow: hidden;
+		
+
 		@include mobile {
 			height: auto;
 			background-image: url('../images/bg-promo-code.jpg');
@@ -672,44 +680,9 @@ textarea:-ms-textarea-placeholder {
 			}
 		}
 
-		// .slider {
-		// 	width: 100%;
-		// 	height: 475px;
-		// 	overflow: hidden;
-		// 	margin-top: 60px;
-
-		// 	.slide {
-		// 		width: 100%;
-		// 		height: 475px;
-		// 		background-size: cover;
-		// 		background-position: center;
-		// 		z-index: 0;
-		// 		position: relative;
-
-		// 		@include mobile {
-		// 			display: none;
-		// 		}
-		// 	}
-		// }
-
-		// .slide {
-		// 	width: 100%;
-		// 	height: 475px;
-		// 	background-size: cover;
-		// 	background-position: center;
-		// 	z-index: 0;
-		// 	position: relative;
-
-		// 	@include mobile {
-		// 		display: none;
-		// 	}
-		// }
-
 		.content {
-			width: auto;
-			position: inherit;
-			left: 50%;
-			margin-left: -610px;
+			width: 1180px;
+			position: relative;
 			z-index: 1;
 			top: 0;
 
@@ -1128,6 +1101,12 @@ textarea:-ms-textarea-placeholder {
 		display: none;
 		z-index: 1000;
 
+		a.popup-close-cross {
+			@include mobile {
+				top: 160px;
+			}
+		}
+
 		.second-code-hack {
 			position: relative;
 			width: 1px;
@@ -1202,6 +1181,20 @@ textarea:-ms-textarea-placeholder {
 			width: 532px;
 			height: 287px;
 			border-radius: 10px;
+			left: inherit;
+			margin-left: 0;
+
+			@include mobile {
+				position: relative;
+				background-image: url("../images/bg-promo-popup.png");
+				display: inline-block;
+				vertical-align: middle;
+				width: 310px;
+				height: 287px;
+				border-radius: 10px;
+				padding: 0 20px;
+				box-sizing: border-box;
+			}
 
 			a.popup-close-cross {
 				display: block;
@@ -1254,6 +1247,12 @@ textarea:-ms-textarea-placeholder {
 				font-family: 'Intro';
 				line-height: 47px;
 				cursor: pointer;
+
+				@include mobile {
+					float: none !important;
+					margin: 0 auto;
+					display: block;
+				}
 
 				&:hover {
 					background-color: #a40000;
@@ -1619,6 +1618,10 @@ textarea:-ms-textarea-placeholder {
 					&.avatar-hack {
 						margin-top: -35px;
 						margin-bottom: 30px;
+
+						@include mobile {
+							height: 130px;
+						}
 
 						.profile-info {
 							cursor: pointer;
@@ -2063,6 +2066,10 @@ textarea:-ms-textarea-placeholder {
 				font-size: 16px;
 				margin: 0;
 				padding: 0;
+
+				@include mobile {
+					padding: 0 20px;
+				}
 			}
 		}
 	}
@@ -2583,7 +2590,7 @@ textarea:-ms-textarea-placeholder {
 				@include mobile {
 					width: 100%;
 					border: none;
-					margin-bottom: 30px;
+					margin-bottom: 70px;
 					height: auto;
 					float: none;
 				}
@@ -2803,6 +2810,10 @@ textarea:-ms-textarea-placeholder {
 					position: absolute;
 					left: 20px;
 					bottom: 0;
+
+					@include mobile {
+						margin-left: 52px;
+					}
 
 					.bullet {
 						width: 8px;
@@ -3329,7 +3340,7 @@ input.error {
 	line-height: 19px;
 }
 
-#sex-button {
+#sex-button, #gain-list1 {
 	width: 100% !important;
 	height: 50px;
 	border-radius: 3px;
@@ -3343,8 +3354,30 @@ input.error {
 	margin-bottom: 20px;
 }
 
+form.select-gain {
+
+	.ui-selectmenu-button {
+		width: 100% !important;
+		height: 50px;
+		border-radius: 3px;
+		border: 3px solid #ca0619;
+		padding: 14px 22px;
+		box-sizing: border-box;
+		background-color: rgba(255, 246, 186, 0.5) !important;
+		outline: 0;
+		font-family: 'PT Sans', 'Open Sans', Arial;
+		font-size: 18px;
+		margin-bottom: 20px;
+
+		@include mobile {
+			width: 270px !important;
+		}
+	}
+}
+
 .ui-selectmenu-menu.ui-front.ui-selectmenu-open {
 	width: 269px;
+	z-index: 1000;
 }
 
 .ui-menu .ui-menu-item {
@@ -3359,6 +3392,10 @@ input.error {
 	font-size: 18px;
 	border: 0;
 	margin: 0;
+
+	@include mobile {
+		height: 70px;
+	}
 }
 
 .ui-widget-content {
@@ -3440,6 +3477,14 @@ input.error {
 	height: 287px;
 	border-radius: 10px;
 	z-index: 1001;
+
+	@include mobile {
+	    left: inherit;
+	    margin-left: 0;
+	    width: 310px;
+	    height: 287px;
+	    border-radius: 10px;
+	}
 
 	h3 {
 		text-transform: uppercase;
@@ -3572,9 +3617,10 @@ form {
 		border-radius: 10px;
 
 		@include mobile {
-			.second-code-hack {
-				display: none;
-			}
+			    left: inherit !important;
+			    margin-left: 0 !important;
+			    width: 310px !important;
+			    height: 372px !important;
 
 			.cropper-holder {
 				position: relative;
@@ -3668,6 +3714,15 @@ a.popup-close-cross {
 	height: 38px;
 	right: 30px;
 	top: 30px;
+
+	@include mobile {
+		width: 20px;
+		height: 19px;
+		background-size: 20px;
+		right: 15px;
+		top: 15px;
+		z-index: 10;
+	}
 }
 
 .sms-wrapper, .password-recovery-holder {
@@ -3884,6 +3939,10 @@ a.popup-close-cross {
 .footnote {
 	font-size: 12px;
 	margin-top: 30px;
+
+	@include mobile {
+		padding: 0 20px;
+	}
 }
 
 button {
