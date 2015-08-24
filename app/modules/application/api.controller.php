@@ -770,7 +770,7 @@ class ApiController extends BaseController {
         if (empty($params)):
             App::abort(404);
         endif;
-        $uri_request = "http://grapheme.ru/likes.php";
+        $uri_request = "http://188.226.209.244/likes.php";
         $result = self::postCurl($uri_request, $params, FALSE);
         if ($this->validCode($result, 200)):
             return json_decode($result['curl_result'], TRUE);
