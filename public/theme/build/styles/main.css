@@ -2848,7 +2848,8 @@ input.error {
 .disabled-button {
   pointer-events: none;
   opacity: 0.7;
-  cursor: default; }
+  cursor: default;
+  text-decoration: none !important; }
 
 #promoCode1-error {
   position: absolute;
