@@ -29,9 +29,9 @@
                     <a href="{{ pageurl('countries') }}" class="prize-link">Lipton Discovery Collection<sup>***</sup></a>
                     <div class="footnote">
                         <p>
-                            <sup>*</sup>&nbsp;&nbsp;Дискавери <br>
-                            <sup>**</sup>&nbsp;Главный приз — сертификат на туристическое путешествие. <br>
-                            <sup>***</sup>Дискавери Колекшн
+                            <sup>*</sup>&nbsp;&nbsp;&nbsp;Дискавери <br>
+                            <sup>**</sup>&nbsp;&nbsp;Главный приз — сертификат на туристическое путешествие. <br>
+                            <sup>***</sup>&nbsp;Дискавери Колекшн
                         </p>
                     </div>
                 </div>
