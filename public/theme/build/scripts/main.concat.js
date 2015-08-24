@@ -2034,14 +2034,16 @@ $(document).ready(function () {
         },
 
         submitHandler: function (form) {
-            $('form.full-registration button').addClass('loading');
-            $('form.full-registration button').prepend('<i class="fa fa-circle-o-notch fa-spin"></i>')
-            $('.erros-message-block').remove();
+            
             if (!$('.accept-block-holder label').hasClass('ui-state-active')) {
                 $('.acceptionError').fadeIn();
             } else {
                 $('.acceptionError').fadeOut();
             }
+
+            $('form.full-registration button').addClass('loading');
+            $('form.full-registration button').prepend('<i class="fa fa-circle-o-notch fa-spin"></i>')
+            $('.erros-message-block').remove();
 
             var options = {
                 success: function (data) {
