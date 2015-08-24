@@ -129,7 +129,7 @@ $end = $now->endOfWeek()->format('d.m.Y')
                                     <i class="fa fa-envelope-o"></i> {{ HTML::mailto($user['email'], $user['email']) }}
                                     <br/>
                                     <i class="fa fa-fw fa-mobile-phone"></i>{{ $user['phone'] }}
-                                        <br>{{ $user['total_extend'] }}
+                                    <br>{{ $user['total_extend'] }}
                                     @if($user['codes'] > 0)
                                         <br>
                                         {{ $user['codes'] }} {{ Lang::choice('промо-код|промо-кода|промо-кодов', $user['codes']) }}
