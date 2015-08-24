@@ -65,10 +65,10 @@
                             {{ Form::close() }}
                         </td>
                         <td style="vertical-align:top;">
-                            <div style="margin-top: 50px">
+                            <div>
                                 @if(count($user['writing']) && !empty($user['writing']['writing']))
                                     <p><a target="_blank"
-                                          href="{{ URL::route('show.participant.writing', $user['writing']['id'].'-'.BaseController::stringTranslite($user['name'].'-'.$user['surname'])) }}">Рассказ участника</a></p>
+                                          href="{{ URL::route('show.participant.writing', $user['writing']['id'].'-'.BaseController::stringTranslite($user['name'].'-'.$user['surname'])) }}">Посмотреть рассказ участника</a></p>
                                 @elseif(count($user['writing']) && empty($user['writing']['writing']))
                                     <p>Рассказ пуст</p>
                                 @else
@@ -77,7 +77,7 @@
                             </div>
                             @if(count($user['writing']) && !empty($user['writing']['writing']))
                                 @if($user['writing']['status'] == 2)
-                                    <span class="label label-info">Ожидает модерации</span><br><br>
+                                    <span class="label label-info">Рассказ ожидает модерации</span><br><br>
                                     <a href="{{ URL::route('moderator.participants.status', array($user['id'], $user['writing']['id'], 1)) }}"
                                        class="btn btn-success btn-xs js-confirm">Одобрить рассказ</a>
                                     <a href="{{ URL::route('moderator.participants.status', array($user['id'], $user['writing']['id'], 3)) }}"
