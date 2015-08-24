@@ -1202,6 +1202,8 @@ textarea:-ms-textarea-placeholder {
 			width: 532px;
 			height: 287px;
 			border-radius: 10px;
+			left: inherit;
+			margin-left: 0;
 
 			@include mobile {
 				position: relative;
@@ -3361,6 +3363,27 @@ input.error {
 	font-family: 'PT Sans', 'Open Sans', Arial;
 	font-size: 18px;
 	margin-bottom: 20px;
+}
+
+form.select-gain {
+
+	.ui-selectmenu-button {
+		width: 100% !important;
+		height: 50px;
+		border-radius: 3px;
+		border: 3px solid #ca0619;
+		padding: 14px 22px;
+		box-sizing: border-box;
+		background-color: rgba(255, 246, 186, 0.5) !important;
+		outline: 0;
+		font-family: 'PT Sans', 'Open Sans', Arial;
+		font-size: 18px;
+		margin-bottom: 20px;
+
+		@include mobile {
+			width: 270px;
+		}
+	}
 }
 
 .ui-selectmenu-menu.ui-front.ui-selectmenu-open {
