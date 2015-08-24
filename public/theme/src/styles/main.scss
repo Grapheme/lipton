@@ -2184,7 +2184,11 @@ textarea:-ms-textarea-placeholder {
 			}
 
 			&:hover {
-				text-decoration: underline;
+
+				h3 {
+					text-decoration: underline;
+				}
+
 				p {
 					text-decoration: none !important;
 				}
@@ -2210,6 +2214,7 @@ textarea:-ms-textarea-placeholder {
 				font-size: 12px;
 				font-family: 'PT Sans', 'Open Sans', Arial;
 				text-transform: capitalize;
+				text-decoration: none !important;
 			}
 		}
 	}
