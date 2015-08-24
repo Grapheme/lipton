@@ -850,7 +850,8 @@ textarea:-ms-textarea-placeholder {
       .block.promo-code {
         height: auto;
         background-image: url("../images/bg-promo-code.jpg");
-        background-size: cover; } }
+        background-size: cover;
+        height: 1110px; } }
     .block.promo-code:before {
       content: '';
       display: block;
@@ -868,12 +869,18 @@ textarea:-ms-textarea-placeholder {
         .block.promo-code:before {
           display: none; } }
     .block.promo-code .content {
-      width: 1220px;
-      position: absolute;
+      width: auto;
+      position: inherit;
       left: 50%;
       margin-left: -610px;
       z-index: 1;
       top: 0; }
+      @media (max-width: 320px) {
+        .block.promo-code .content {
+          margin-top: 115px;
+          position: inherit;
+          width: 100%;
+          box-sizing: border-box; } }
       .block.promo-code .content .promo-steps {
         margin-top: 206px;
         width: 1220px;
@@ -944,7 +951,7 @@ textarea:-ms-textarea-placeholder {
             @media (max-width: 320px) {
               .block.promo-code .content .promo-steps .promo-step.step-3 {
                 width: auto;
-                height: 166px; } }
+                height: 176px; } }
           .block.promo-code .content .promo-steps .promo-step .step-number {
             width: 55px;
             height: 55px;
@@ -1470,7 +1477,8 @@ textarea:-ms-textarea-placeholder {
           @media (max-width: 320px) {
             .block .participate-block .forms-holder .login-block .soc-holder {
               margin: 30px auto;
-              float: none; } }
+              float: none;
+              margin-top: 10px; } }
           .block .participate-block .forms-holder .login-block .soc-holder .soc {
             display: block;
             width: 31px;
@@ -1480,6 +1488,9 @@ textarea:-ms-textarea-placeholder {
             -webkit-transition: .1s all;
                     transition: .1s all;
             cursor: pointer; }
+            @media (max-width: 320px) {
+              .block .participate-block .forms-holder .login-block .soc-holder .soc:first-child {
+                margin-left: 0px; } }
             .block .participate-block .forms-holder .login-block .soc-holder .soc:hover {
               opacity: 0.8; }
             .block .participate-block .forms-holder .login-block .soc-holder .soc.fb {
