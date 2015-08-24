@@ -13,7 +13,7 @@
             <div class="content">
                 <h2>{{ $page->seo->h1 }}</h2>
 
-                <div class="prize-gallery">
+                <div class="prize-gallery clearfix">
                     <div class="prize-block third-place">
                         <div class="big-ico"></div>
                         {{ $page->block('first_prize') }}
@@ -26,6 +26,7 @@
                         <div class="big-ico"></div>
                         {{ $page->block('third_prize') }}
                     </div>
+                    <br class="clearfix">
                     <a href="{{ pageurl('countries') }}" class="prize-link">Lipton Discovery Collection<sup>***</sup></a>
                     <div class="footnote">
                         <p>
