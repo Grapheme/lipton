@@ -128,7 +128,7 @@ $now = Carbon::now();
                         }
                       }};
                       d.documentElement.appendChild(js);
-                    }(document,"ok_shareWidget","http://www.promo-discovery.liptontea.ru","{width:145,height:25,st:'straight',sz:12,ck:3}");
+                    }(document,"ok_shareWidget","http://www.promo-discovery.liptontea.ru","{width:145,height:50,st:'straight',sz:12,ck:3}");
                     </script>
 
                 
