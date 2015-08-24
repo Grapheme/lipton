@@ -58,9 +58,9 @@ class ModeratorController extends BaseController {
                 ->orderBy('created_at', 'DESC')->with('ulogin', 'writing')->paginate(20);
         elseif (Input::has('filter_status')):
             if (Input::get('filter_status') == 'codes'):
-                $users = UserCodes::groupBy('user_id')->with('users.ulogin','users.writing')->paginate(20);
+                $users = UserCodes::groupBy('user_id')->with('users.ulogin', 'users.writing')->paginate(20);
             elseif (Input::get('filter_status') == 'writing'):
-                $users = UserWritings::groupBy('user_id')->with('users.ulogin','users.writing')->paginate(20);
+                $users = UserWritings::groupBy('user_id')->with('users.ulogin', 'users.writing')->paginate(20);
             endif;
         else:
             $users = Accounts::where('group_id', 4)->orderBy('created_at', 'DESC')->with('ulogin', 'writing')->paginate(20);
