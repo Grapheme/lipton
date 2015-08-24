@@ -28,7 +28,7 @@
                     <tr class="vertical-middle">
                         <?php $sub_index = Input::has('page') ? (int)Input::get('page') - 1 : 0;?>
                         <td>{{ ($index+1)+($sub_index*20) }}</td>
-                        <td>
+                        <td style="vertical-align:top;">
                             @if(!empty($user['photo']) && File::exists(public_path($user['photo'])))
                                 <img height="100px" src="{{ asset($user['photo']) }}"
                                      alt="{{ $user['name'] }}" class="{{ $user['name'] }}">
@@ -46,10 +46,12 @@
                                      class="{{ $user['name'] }}">
                             @endif
                         </td>
-                        <td>
+                        <td style="vertical-align:top;">
                             <p>
                                 <strong>{{ $user['name'] }} {{ $user['surname'] }}</strong><br/>
+                                @if(!empty($user['city'])
                                 {{ $user['city'] }}<br/>
+                                @endif
                                 {{ (new myDateTime())->setDateString($user['created_at'])->format('d.m.Y H:i:s') }}
                                 #{{ $user['id'] }}<br/>
                                 <i class="fa fa-envelope-o"></i> {{ HTML::mailto($user['email'], $user['email']) }}
@@ -57,26 +59,25 @@
                                 <i class="fa fa-fw fa-mobile-phone"></i>{{ $user['phone'] }}
                             </p>
                             {{ Form::model($user,array('route'=>array('moderator.participants.save',$user['id']),'method'=>'post')) }}
-                            {{ Form::checkbox('winner') }}Победитель<br>
-                            {{ Form::select('number_week', array('Номер недели',1,2,3,4,5,6,7,8,9,10), NULL, array('style'=>'width:130px;')) }}
+                            {{ Form::checkbox('winner') }} Победитель
+                            {{ Form::select('number_week', array('1 неделя','2 неделя','3 неделя','4 неделя','5 неделя','6 неделя','7 неделя','8 неделя','9 неделя','10 неделя'), NULL, array('style'=>'width:130px;')) }}<br>
                             {{ Form::button('Сохранить',array('class'=>'btn btn-success btn-xs','type'=>'submit','style'=>'margin-top:-4px;')) }}
                             {{ Form::close() }}
                         </td>
-                        <td>
+                        <td style="vertical-align:top;">
                             <div style="margin-top: 50px">
                                 @if(count($user['writing']) && !empty($user['writing']['writing']))
                                     <p><a target="_blank"
                                           href="{{ URL::route('show.participant.writing', $user['writing']['id'].'-'.BaseController::stringTranslite($user['name'].'-'.$user['surname'])) }}">Рассказ участника</a></p>
                                 @elseif(count($user['writing']) && empty($user['writing']['writing']))
-                                    <p>Рассказ пустой</p>
+                                    <p>Рассказ пуст</p>
                                 @else
-                                    <p>Рассказ отсутсвует</p>
+                                    <p>Рассказ отсутствует</p>
                                 @endif
                             </div>
                             @if(count($user['writing']) && !empty($user['writing']['writing']))
-                                <hr style="margin-bottom: 5px; margin-top: 5px;">
                                 @if($user['writing']['status'] == 2)
-                                    <span class="label label-primary">Ожидает модерации</span><br><br>
+                                    <span class="label label-info">Ожидает модерации</span><br><br>
                                     <a href="{{ URL::route('moderator.participants.status', array($user['id'], $user['writing']['id'], 1)) }}"
                                        class="btn btn-success btn-xs js-confirm">Одобрить рассказ</a>
                                     <a href="{{ URL::route('moderator.participants.status', array($user['id'], $user['writing']['id'], 3)) }}"
