@@ -1972,7 +1972,7 @@ textarea:-ms-textarea-placeholder {
       right: 0;
       bottom: 22px;
       cursor: pointer;
-      text-decoration: none; }
+      text-decoration: underline; }
       @media (max-width: 320px) {
         .block .rules-text-block a.download-block {
           position: relative;
@@ -1980,7 +1980,7 @@ textarea:-ms-textarea-placeholder {
           bottom: inherit;
           margin: 0 auto 30px; } }
       .block .rules-text-block a.download-block:hover h3 {
-        text-decoration: underline; }
+        text-decoration: none; }
       .block .rules-text-block a.download-block:hover p {
         text-decoration: none !important; }
       .block .rules-text-block a.download-block .ico {

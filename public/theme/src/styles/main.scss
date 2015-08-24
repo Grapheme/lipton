@@ -2173,7 +2173,7 @@ textarea:-ms-textarea-placeholder {
 			right: 0;
 			bottom: 22px;
 			cursor: pointer;
-			text-decoration: none;
+			text-decoration: underline;
 
 			@include mobile {
 				position: relative;
@@ -2186,7 +2186,7 @@ textarea:-ms-textarea-placeholder {
 			&:hover {
 
 				h3 {
-					text-decoration: underline;
+					text-decoration: none;
 				}
 
 				p {
