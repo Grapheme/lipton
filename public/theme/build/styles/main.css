@@ -878,10 +878,8 @@ textarea:-ms-textarea-placeholder {
         .block.promo-code:before {
           display: none; } }
     .block.promo-code .content {
-      width: auto;
-      position: inherit;
-      left: 50%;
-      margin-left: -610px;
+      width: 1180px;
+      position: relative;
       z-index: 1;
       top: 0; }
       @media (max-width: 320px) {
