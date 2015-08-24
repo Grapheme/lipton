@@ -1703,7 +1703,7 @@ textarea:-ms-textarea-placeholder {
   .block .feedback-form-holder {
     overflow: hidden;
     width: 910px;
-    height: 430px;
+    height: 500px;
     margin: 50px auto 146px; }
     @media (max-width: 320px) {
       .block .feedback-form-holder {
@@ -1733,7 +1733,8 @@ textarea:-ms-textarea-placeholder {
             width: 100%;
             margin-bottom: 20px; } }
       .block .feedback-form-holder form.feedback .input-row .input-cell, .block .feedback-form-holder form.story .input-row .input-cell {
-        position: relative; }
+        position: relative;
+        float: left; }
         .block .feedback-form-holder form.feedback .input-row .input-cell label, .block .feedback-form-holder form.story .input-row .input-cell label {
           margin-top: 20px; }
     .block .feedback-form-holder form.feedback textarea, .block .feedback-form-holder form.story textarea {

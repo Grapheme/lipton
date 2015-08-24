@@ -1808,7 +1808,7 @@ textarea:-ms-textarea-placeholder {
 	.feedback-form-holder {
 		overflow: hidden;
 		width: 910px;
-		height: 430px;
+		height: 500px;
 		margin: 50px auto 146px;
 
 		@include mobile {
@@ -1847,6 +1847,7 @@ textarea:-ms-textarea-placeholder {
 
 				.input-cell {
 					position: relative;
+					float: left;
 					
 					label {
 						margin-top: 20px;

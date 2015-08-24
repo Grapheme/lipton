@@ -535,6 +535,9 @@ $(document).ready(function () {
                 required: true,
                 email: true,
             },
+            message: {
+                required: true,
+            },
         },
 
         messages: {
@@ -547,6 +550,9 @@ $(document).ready(function () {
             email: {
                 required: 'Необходимо заполнить поле!',
                 email: 'Неверный адрес!',
+            },
+            message: {
+                required: 'Напишите ваше сообщение',
             },
         },
         submitHandler: function (form) {
