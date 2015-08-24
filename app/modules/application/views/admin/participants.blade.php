@@ -49,7 +49,7 @@
                         <td style="vertical-align:top;">
                             <p>
                                 <strong>{{ $user['name'] }} {{ $user['surname'] }}</strong><br/>
-                                @if(!empty($user['city'])
+                                @if(!empty($user['city']))
                                 {{ $user['city'] }}<br/>
                                 @endif
                                 {{ (new myDateTime())->setDateString($user['created_at'])->format('d.m.Y H:i:s') }}
