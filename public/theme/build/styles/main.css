@@ -1621,6 +1621,9 @@ textarea:-ms-textarea-placeholder {
           overflow: hidden;
           clear: both;
           height: 62px; }
+          @media (max-width: 640px) {
+            .block .participate-block .forms-holder form.full-registration .accept-block-holder, .block .participate-block .forms-holder form.profile-edit .accept-block-holder {
+              height: 115px; } }
           .block .participate-block .forms-holder form.full-registration .accept-block-holder.avatar-hack, .block .participate-block .forms-holder form.profile-edit .accept-block-holder.avatar-hack {
             margin-top: -35px;
             margin-bottom: 30px; }
@@ -2287,9 +2290,6 @@ textarea:-ms-textarea-placeholder {
       display: block;
       cursor: pointer;
       color: #c90119; }
-      @media (max-width: 640px) {
-        .block .accept-block-holder .profile-info div.hidden-input {
-          display: none; } }
       .block .accept-block-holder .profile-info div.hidden-input:hover {
         text-decoration: none; }
       .block .accept-block-holder .profile-info div.hidden-input span {
@@ -3054,6 +3054,9 @@ form label.error {
   font-weight: bold;
   background-color: rgba(201, 1, 25, 0.3);
   margin-top: 20px; }
+  @media (max-width: 640px) {
+    .erros-message-block {
+      box-sizing: border-box; } }
   .erros-message-block:before {
     content: '';
     display: block;
@@ -3115,11 +3118,13 @@ form label.error {
         left: inherit !important;
         margin-left: 0 !important;
         width: 310px !important;
-        height: 440px !important; }
+        height: 440px !important;
+        margin: 0 auto; }
         .cropper-wrapper .cropper-holder a.popup-close-cross, .sms-wrapper .cropper-holder a.popup-close-cross, .profile-error-wrapper .cropper-holder a.popup-close-cross {
           display: none; }
         .cropper-wrapper .cropper-holder .cropper, .sms-wrapper .cropper-holder .cropper, .profile-error-wrapper .cropper-holder .cropper {
           width: 300px;
+          height: 300px;
           height: auto;
           margin-left: 5px; }
         .cropper-wrapper .cropper-holder .cropper-tools, .sms-wrapper .cropper-holder .cropper-tools, .profile-error-wrapper .cropper-holder .cropper-tools {
@@ -3433,3 +3438,6 @@ input[name="login"], input[name="email"] {
 #acceptCheckbox-error {
   top: 47px !important;
   left: -41px !important; }
+  @media (max-width: 640px) {
+    #acceptCheckbox-error {
+      top: 100px !important; } }
