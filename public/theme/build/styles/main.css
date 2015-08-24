@@ -385,6 +385,11 @@ body {
   background-repeat: no-repeat;
   background-size: initial, cover;
   min-height: 1024px; }
+  @media (max-width: 320px) {
+    body {
+      background-image: url(../images/bg-main.jpg);
+      background-position: center 90px;
+      background-size: cover; } }
   body.no-cup {
     background-image: url(../images/bg-main.jpg);
     background-position: center 90px;
@@ -1596,6 +1601,9 @@ textarea:-ms-textarea-placeholder {
           .block .participate-block .forms-holder form.full-registration .accept-block-holder.avatar-hack, .block .participate-block .forms-holder form.profile-edit .accept-block-holder.avatar-hack {
             margin-top: -35px;
             margin-bottom: 30px; }
+            @media (max-width: 320px) {
+              .block .participate-block .forms-holder form.full-registration .accept-block-holder.avatar-hack, .block .participate-block .forms-holder form.profile-edit .accept-block-holder.avatar-hack {
+                height: 130px; } }
             .block .participate-block .forms-holder form.full-registration .accept-block-holder.avatar-hack .profile-info, .block .participate-block .forms-holder form.profile-edit .accept-block-holder.avatar-hack .profile-info {
               cursor: pointer; }
           @media (max-width: 320px) {
@@ -3071,32 +3079,37 @@ form label.error {
     height: 600px;
     border-radius: 10px; }
     @media (max-width: 320px) {
-      .cropper-wrapper .cropper-holder .second-code-hack, .sms-wrapper .cropper-holder .second-code-hack, .profile-error-wrapper .cropper-holder .second-code-hack {
-        display: none; }
-      .cropper-wrapper .cropper-holder .cropper-holder, .sms-wrapper .cropper-holder .cropper-holder, .profile-error-wrapper .cropper-holder .cropper-holder {
-        position: relative;
-        background-image: url("../images/bg-main.jpg");
-        width: 100%;
-        height: 600px;
-        border-radius: 10px; }
-      .cropper-wrapper .cropper-holder a.popup-close-cross, .sms-wrapper .cropper-holder a.popup-close-cross, .profile-error-wrapper .cropper-holder a.popup-close-cross {
-        position: relative;
-        background-image: url("../images/bg-main.jpg");
-        display: block;
-        vertical-align: inherit;
-        left: 0;
+      .cropper-wrapper .cropper-holder, .sms-wrapper .cropper-holder, .profile-error-wrapper .cropper-holder {
+        left: inherit;
         margin-left: 0;
-        width: 100%;
-        height: 600px;
-        border-radius: 10px; }
-      .cropper-wrapper .cropper-holder .cropper, .sms-wrapper .cropper-holder .cropper, .profile-error-wrapper .cropper-holder .cropper {
-        width: 320px;
-        height: auto; }
-      .cropper-wrapper .cropper-holder .cropper-tools, .sms-wrapper .cropper-holder .cropper-tools, .profile-error-wrapper .cropper-holder .cropper-tools {
-        width: auto;
-        margin: 0 auto;
-        margin-top: 30px;
-        padding: 0 20px; } }
+        width: 310px;
+        height: 372px; }
+        .cropper-wrapper .cropper-holder .second-code-hack, .sms-wrapper .cropper-holder .second-code-hack, .profile-error-wrapper .cropper-holder .second-code-hack {
+          display: none; }
+        .cropper-wrapper .cropper-holder .cropper-holder, .sms-wrapper .cropper-holder .cropper-holder, .profile-error-wrapper .cropper-holder .cropper-holder {
+          position: relative;
+          background-image: url("../images/bg-main.jpg");
+          width: 100%;
+          height: 600px;
+          border-radius: 10px; }
+        .cropper-wrapper .cropper-holder a.popup-close-cross, .sms-wrapper .cropper-holder a.popup-close-cross, .profile-error-wrapper .cropper-holder a.popup-close-cross {
+          position: relative;
+          background-image: url("../images/bg-main.jpg");
+          display: block;
+          vertical-align: inherit;
+          left: 0;
+          margin-left: 0;
+          width: 100%;
+          height: 600px;
+          border-radius: 10px; }
+        .cropper-wrapper .cropper-holder .cropper, .sms-wrapper .cropper-holder .cropper, .profile-error-wrapper .cropper-holder .cropper {
+          width: 320px;
+          height: auto; }
+        .cropper-wrapper .cropper-holder .cropper-tools, .sms-wrapper .cropper-holder .cropper-tools, .profile-error-wrapper .cropper-holder .cropper-tools {
+          width: auto;
+          margin: 0 auto;
+          margin-top: 30px;
+          padding: 0 20px; } }
     .cropper-wrapper .cropper-holder .cropper, .sms-wrapper .cropper-holder .cropper, .profile-error-wrapper .cropper-holder .cropper {
       width: 400px;
       height: 400px;
