@@ -665,7 +665,8 @@ textarea:-ms-textarea-placeholder {
     position: relative; }
     @media (max-width: 640px) {
       .block .content {
-        width: 100% !important; } }
+        width: 320px;
+        margin: 0 auto; } }
   .block h2 {
     font-family: 'Intro-regular';
     color: #c90119;

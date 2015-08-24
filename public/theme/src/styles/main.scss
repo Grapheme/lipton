@@ -394,7 +394,8 @@ textarea:-ms-textarea-placeholder {
 		position: relative;
 
 		@include mobile {
-			width: 100% !important;
+			width: 320px;
+			margin: 0 auto;
 		}
 	}
 
