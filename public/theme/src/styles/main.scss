@@ -1203,6 +1203,18 @@ textarea:-ms-textarea-placeholder {
 			height: 287px;
 			border-radius: 10px;
 
+			@include mobile {
+				position: relative;
+				background-image: url("../images/bg-promo-popup.png");
+				display: inline-block;
+				vertical-align: middle;
+				width: 310px;
+				height: 287px;
+				border-radius: 10px;
+				padding: 0 20px;
+				box-sizing: border-box;
+			}
+
 			a.popup-close-cross {
 				display: block;
 				position: absolute;
@@ -3337,7 +3349,7 @@ input.error {
 	line-height: 19px;
 }
 
-#sex-button {
+#sex-button, #gain-list1 {
 	width: 100% !important;
 	height: 50px;
 	border-radius: 3px;
@@ -3353,6 +3365,7 @@ input.error {
 
 .ui-selectmenu-menu.ui-front.ui-selectmenu-open {
 	width: 269px;
+	z-index: 1000;
 }
 
 .ui-menu .ui-menu-item {

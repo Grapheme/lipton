@@ -1250,6 +1250,17 @@ textarea:-ms-textarea-placeholder {
       width: 532px;
       height: 287px;
       border-radius: 10px; }
+      @media (max-width: 320px) {
+        .block.second-code-holder form.promo-code-2, .block.second-code-holder form.send-instructions, .block.second-code-holder form.select-gain, .block.send-instructions form.promo-code-2, .block.send-instructions form.send-instructions, .block.send-instructions form.select-gain, .block.story form.promo-code-2, .block.story form.send-instructions, .block.story form.select-gain, .block.select-gain form.promo-code-2, .block.select-gain form.send-instructions, .block.select-gain form.select-gain {
+          position: relative;
+          background-image: url("../images/bg-promo-popup.png");
+          display: inline-block;
+          vertical-align: middle;
+          width: 310px;
+          height: 287px;
+          border-radius: 10px;
+          padding: 0 20px;
+          box-sizing: border-box; } }
       .block.second-code-holder form.promo-code-2 a.popup-close-cross, .block.second-code-holder form.send-instructions a.popup-close-cross, .block.second-code-holder form.select-gain a.popup-close-cross, .block.send-instructions form.promo-code-2 a.popup-close-cross, .block.send-instructions form.send-instructions a.popup-close-cross, .block.send-instructions form.select-gain a.popup-close-cross, .block.story form.promo-code-2 a.popup-close-cross, .block.story form.send-instructions a.popup-close-cross, .block.story form.select-gain a.popup-close-cross, .block.select-gain form.promo-code-2 a.popup-close-cross, .block.select-gain form.send-instructions a.popup-close-cross, .block.select-gain form.select-gain a.popup-close-cross {
         display: block;
         position: absolute;
@@ -2817,7 +2828,7 @@ input.error {
   color: #000;
   line-height: 19px; }
 
-#sex-button {
+#sex-button, #gain-list1 {
   width: 100% !important;
   height: 50px;
   border-radius: 3px;
@@ -2831,7 +2842,8 @@ input.error {
   margin-bottom: 20px; }
 
 .ui-selectmenu-menu.ui-front.ui-selectmenu-open {
-  width: 269px; }
+  width: 269px;
+  z-index: 1000; }
 
 .ui-menu .ui-menu-item {
   width: 100% !important;
