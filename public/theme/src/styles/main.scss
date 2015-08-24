@@ -1591,7 +1591,7 @@ textarea:-ms-textarea-placeholder {
 					width: 100%;
 					overflow: hidden;
 					clear: both;
-					height: 52px;
+					height: 62px;
 
 					&.avatar-hack {
 						margin-top: -35px;
@@ -1866,7 +1866,7 @@ textarea:-ms-textarea-placeholder {
 			}
 
 			button {
-				width: 206px;
+				width: 210px;
 				height: 50px;
 				background-color: #c90119;
 				color: #ffde00;
@@ -1881,6 +1881,7 @@ textarea:-ms-textarea-placeholder {
 				outline: 0;
 				line-height: 47px;
 				cursor: pointer;
+				font-family: 'Intro';
 
 				@include mobile {
 					margin: 0 auto;
@@ -1901,8 +1902,10 @@ textarea:-ms-textarea-placeholder {
 					border-width: 3px 0 0 0 !important;
 					border-style: solid !important;
 					border-color: #c90119 !important;
-					font-size: 40px !important;
+					font-size: 18px;
 					line-height: 37px !important;
+					font-size: 18px;
+					font-family: 'Intro';
 				}
 			}
 		}
@@ -2621,6 +2624,13 @@ textarea:-ms-textarea-placeholder {
 						height: auto;
 					}
 
+					label {
+						display: block;
+						width: 211px;
+						top: 50px;
+						position: absolute;
+					}
+
 					input {
 						width: 211px;
 						height: 50px;
@@ -2717,8 +2727,11 @@ textarea:-ms-textarea-placeholder {
 					font-size: 18px;
 					text-transform: uppercase;
 					text-align: left;
-					text-decoration: none;
-					border-bottom: 1px dotted #c90119;
+					text-decoration: underline;
+
+					&:hover {
+						text-decoration: none;
+					}
 
 					&.watch {
 						display: block;
@@ -3268,7 +3281,7 @@ input.error {
 .ui-selectmenu-button span.ui-selectmenu-text {
 	padding: 0;
 	color: #000;
-    line-height: 19px;
+	line-height: 19px;
 }
 
 #sex-button {
@@ -3359,6 +3372,7 @@ input.error {
 	pointer-events: none;
 	opacity: 0.7;
 	cursor: default;
+	text-decoration: none !important;
 }
 
 //* ERRORS *//
@@ -3816,7 +3830,10 @@ a.popup-close-cross {
 }
 
 .fa {
-	margin-right: 10px;
+	margin-right: 5px;
+	font-size: 12px !important;
+	position: relative;
+	top: -2px;
 }
 
 .footnote {
@@ -3905,4 +3922,9 @@ button {
 
 input[name="login"], input[name="email"] {
 	text-transform: lowercase !important;
+}
+
+#acceptCheckbox-error {
+	top: 47px !important;
+    left: -41px !important;
 }

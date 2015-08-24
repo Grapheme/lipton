@@ -1552,7 +1552,7 @@ textarea:-ms-textarea-placeholder {
           width: 100%;
           overflow: hidden;
           clear: both;
-          height: 52px; }
+          height: 62px; }
           .block .participate-block .forms-holder form.full-registration .accept-block-holder.avatar-hack, .block .participate-block .forms-holder form.profile-edit .accept-block-holder.avatar-hack {
             margin-top: -35px;
             margin-bottom: 30px; }
@@ -1749,7 +1749,7 @@ textarea:-ms-textarea-placeholder {
           min-height: 200px;
           margin-top: 0px; } }
     .block .feedback-form-holder form.feedback button, .block .feedback-form-holder form.story button {
-      width: 206px;
+      width: 210px;
       height: 50px;
       background-color: #c90119;
       color: #ffde00;
@@ -1764,7 +1764,8 @@ textarea:-ms-textarea-placeholder {
               transition: .1s all;
       outline: 0;
       line-height: 47px;
-      cursor: pointer; }
+      cursor: pointer;
+      font-family: 'Intro'; }
       @media (max-width: 320px) {
         .block .feedback-form-holder form.feedback button, .block .feedback-form-holder form.story button {
           margin: 0 auto;
@@ -1781,8 +1782,10 @@ textarea:-ms-textarea-placeholder {
         border-width: 3px 0 0 0 !important;
         border-style: solid !important;
         border-color: #c90119 !important;
-        font-size: 40px !important;
-        line-height: 37px !important; }
+        font-size: 18px;
+        line-height: 37px !important;
+        font-size: 18px;
+        font-family: 'Intro'; }
   .block form.story {
     margin: 0 auto;
     display: block; }
@@ -2301,6 +2304,11 @@ textarea:-ms-textarea-placeholder {
             .block .profile .profile-head .profile-promo-code form.promo-code {
               width: 100%;
               height: auto; } }
+          .block .profile .profile-head .profile-promo-code form.promo-code label {
+            display: block;
+            width: 211px;
+            top: 50px;
+            position: absolute; }
           .block .profile .profile-head .profile-promo-code form.promo-code input {
             width: 211px;
             height: 50px;
@@ -2382,8 +2390,9 @@ textarea:-ms-textarea-placeholder {
           font-size: 18px;
           text-transform: uppercase;
           text-align: left;
-          text-decoration: none;
-          border-bottom: 1px dotted #c90119; }
+          text-decoration: underline; }
+          .block .profile .profile-head .request a:hover {
+            text-decoration: none; }
           .block .profile .profile-head .request a.watch {
             display: block;
             font-size: 16px;
@@ -2844,7 +2853,8 @@ input.error {
 .disabled-button {
   pointer-events: none;
   opacity: 0.7;
-  cursor: default; }
+  cursor: default;
+  text-decoration: none !important; }
 
 #promoCode1-error {
   position: absolute;
@@ -3217,7 +3227,10 @@ a.popup-close-cross {
   font-size: 14px; }
 
 .fa {
-  margin-right: 10px; }
+  margin-right: 5px;
+  font-size: 12px !important;
+  position: relative;
+  top: -2px; }
 
 .footnote {
   font-size: 12px;
@@ -3285,3 +3298,7 @@ button.loading {
 
 input[name="login"], input[name="email"] {
   text-transform: lowercase !important; }
+
+#acceptCheckbox-error {
+  top: 47px !important;
+  left: -41px !important; }
