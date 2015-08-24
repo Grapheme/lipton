@@ -25,10 +25,10 @@
                     <?php
                     $bdate = new Carbon($user['bdate']);
                     ?>
-                    <tr class="vertical-middle">
+                    <tr>
                         <?php $sub_index = Input::has('page') ? (int)Input::get('page') - 1 : 0;?>
                         <td>{{ ($index+1)+($sub_index*20) }}</td>
-                        <td style="vertical-align:top;">
+                        <td style="vertical-align:top;font-size:12px;">
                             @if(!empty($user['photo']) && File::exists(public_path($user['photo'])))
                                 <img height="100px" src="{{ asset($user['photo']) }}"
                                      alt="{{ $user['name'] }}" class="{{ $user['name'] }}">
@@ -46,7 +46,7 @@
                                      class="{{ $user['name'] }}">
                             @endif
                         </td>
-                        <td style="vertical-align:top;">
+                        <td style="vertical-align:top;font-size:12px;">
                             <p>
                                 <strong>{{ $user['name'] }} {{ $user['surname'] }}</strong><br/>
                                 @if(!empty($user['city']))
@@ -64,7 +64,7 @@
                             {{ Form::button('Сохранить',array('class'=>'btn btn-success btn-xs','type'=>'submit','style'=>'margin-top: 4px;')) }}
                             {{ Form::close() }}
                         </td>
-                        <td style="vertical-align:top;">
+                        <td style="vertical-align:top;font-size:12px;">
                             <div>
                                 @if(count($user['writing']) && !empty($user['writing']['writing']))
                                     <p><a target="_blank"
