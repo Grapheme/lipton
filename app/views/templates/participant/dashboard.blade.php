@@ -73,7 +73,7 @@ endif;
                                     </div>
                                 @elseif($profile->writing->status == 3)
                                     <a href="{{ URL::route('profile.tell-story') }}">Конкурс рассказов</a>
-                                    <div class="moderation neutral">Ваш рассказ отклонен. Попробуйте снова
+                                    <div class="moderation negative">Ваш рассказ отклонен
                                         <div class="bullet"></div>
                                     </div>
                                 @endif
