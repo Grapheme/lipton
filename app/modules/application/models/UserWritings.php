@@ -8,4 +8,9 @@ class UserWritings extends \User {
 
         return $this->belongsTo('Accounts', 'user_id', 'id');
     }
+
+    public function users(){
+
+        return $this->belongsTo('Accounts','user_id','id');
+    }
 }
