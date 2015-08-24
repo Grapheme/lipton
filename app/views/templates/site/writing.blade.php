@@ -59,19 +59,39 @@ $now = Carbon::now();
                          data-yashareQuickServices="vkontakte,facebook,odnoklassniki" data-yashareTheme="counter"></div>
                 </div>
                 @else
-                
-                    <!-- Put this script tag to the <head> of your page -->
-                    <script type="text/javascript" src="//vk.com/js/api/openapi.js?116"></script>
+                   
 
-                    <script type="text/javascript">
-                      VK.init({apiId: 5042647, onlyWidgets: true});
-                    </script>
+                    <?php
+                    function curPageURL() {
+                       $pageURL = 'http';
+                       if (@$_SERVER["HTTPS"] == "on") {$pageURL .= "s";}
+                       $pageURL .= "://";
+                       if (@$_SERVER["SERVER_PORT"] != "80") {
+                          $pageURL .= @$_SERVER["SERVER_NAME"].":".@$_SERVER["SERVER_PORT"].@$_SERVER["REQUEST_URI"];
+                      } else {
+                          $pageURL .= @$_SERVER["SERVER_NAME"].@$_SERVER["REQUEST_URI"];
+                      }
+                      return $pageURL;
+                    }
+                    ?>
 
-                    <!-- Put this div tag to the place, where the Like block will be -->
-                    <div id="vk_like"></div>
-                    <script type="text/javascript">
-                    VK.Widgets.Like("vk_like", {type: "button"});
-                    </script>
+                    <!-- Load Facebook SDK for JavaScript -->
+                    <div id="fb-root"></div>
+                    <script>(function(d, s, id) {
+                      var js, fjs = d.getElementsByTagName(s)[0];
+                      if (d.getElementById(id)) return;
+                      js = d.createElement(s); js.id = id;
+                      js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1";
+                      fjs.parentNode.insertBefore(js, fjs);
+                    }(document, 'script', 'facebook-jssdk'));</script>
+
+                    <!-- Your like button code -->
+                    <div class="fb-like" 
+                        data-href="<?= curPageURL(); ?>" 
+                        data-layout="standard" 
+                        data-action="like" 
+                        data-show-faces="true">
+                    </div>
 
 
                     <!-- Одноклассники -->
