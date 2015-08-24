@@ -66,6 +66,11 @@ function curPageURL() {
                 </div>
                 @if(Auth::check() && Auth::user()->id == $user->id) 
                 <div class="sharing-script">
+                    <p>
+                        <br><br>
+                        Поделитесь своей историей с друзьями. Чем больше лайков соберет история, <br>тем больше шансов стать победителем недели.
+                        <br><br>
+                    </p>
                     <script type="text/javascript" src="//yastatic.net/share/share.js" charset="utf-8"></script>
                     <div class="yashare-auto-init" data-yashareL10n="ru" data-yashareType="small"
                          data-yashareQuickServices="vkontakte,facebook,odnoklassniki" data-yashareTheme="counter"></div>
