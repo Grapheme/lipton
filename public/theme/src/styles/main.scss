@@ -2175,7 +2175,7 @@ textarea:-ms-textarea-placeholder {
 			right: 0;
 			bottom: 22px;
 			cursor: pointer;
-			text-decoration: underline;
+			text-decoration: none;
 
 			@include mobile {
 				position: relative;
@@ -2188,12 +2188,9 @@ textarea:-ms-textarea-placeholder {
 			&:hover {
 
 				h3 {
-					text-decoration: none;
-				}
-
-				p {
 					text-decoration: none !important;
 				}
+
 			}
 
 			.ico {
@@ -2209,6 +2206,7 @@ textarea:-ms-textarea-placeholder {
 				font-size: 14px;
 				margin: -4px 0 6px 0;
 				text-transform: uppercase;
+				text-decoration: underline;
 			}
 
 			p {

@@ -1974,7 +1974,7 @@ textarea:-ms-textarea-placeholder {
       right: 0;
       bottom: 22px;
       cursor: pointer;
-      text-decoration: underline; }
+      text-decoration: none; }
       @media (max-width: 320px) {
         .block .rules-text-block a.download-block {
           position: relative;
@@ -1982,8 +1982,6 @@ textarea:-ms-textarea-placeholder {
           bottom: inherit;
           margin: 0 auto 30px; } }
       .block .rules-text-block a.download-block:hover h3 {
-        text-decoration: none; }
-      .block .rules-text-block a.download-block:hover p {
         text-decoration: none !important; }
       .block .rules-text-block a.download-block .ico {
         width: 40px;
@@ -1995,7 +1993,8 @@ textarea:-ms-textarea-placeholder {
         font-family: 'Intro-regular';
         font-size: 14px;
         margin: -4px 0 6px 0;
-        text-transform: uppercase; }
+        text-transform: uppercase;
+        text-decoration: underline; }
       .block .rules-text-block a.download-block p {
         color: #000;
         font-size: 12px;
