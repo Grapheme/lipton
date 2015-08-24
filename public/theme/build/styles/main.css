@@ -2521,7 +2521,7 @@ textarea:-ms-textarea-placeholder {
       margin: 0 0 35px 0; }
   .block .sharing-script {
     margin: 0 auto;
-    width: 200px;
+    width: auto;
     text-align: center; }
   .block .share-story-author {
     height: 100px;
