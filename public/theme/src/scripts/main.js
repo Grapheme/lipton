@@ -615,6 +615,13 @@ $(document).ready(function () {
 // REGISTRATION FORM VALIDATION //
 
     $('form.full-registration').validate({
+        
+        if (!$('.accept-block-holder label').hasClass('ui-state-active')) {
+            $('.acceptionError').fadeIn();
+        } else {
+            $('.acceptionError').fadeOut();
+        },
+
         rules: {
             name: {
                 required: true,
@@ -670,12 +677,6 @@ $(document).ready(function () {
 
                     } else {
                         $('form.full-registration').append('<div class="erros-message-block">' + data.responseText + '</div>');
-
-                        if (!$('.accept-block-holder label').hasClass('ui-state-active')) {
-                            $('.acceptionError').fadeIn();
-                        } else {
-                            $('.acceptionError').fadeOut();
-                        }
                     }
 
                     if (data.redirectURL) {
