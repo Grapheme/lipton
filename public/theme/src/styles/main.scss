@@ -1904,6 +1904,7 @@ textarea:-ms-textarea-placeholder {
 					border-color: #c90119 !important;
 					font-size: 40px !important;
 					line-height: 37px !important;
+					font-size: 18px;
 				}
 			}
 		}
@@ -3818,7 +3819,7 @@ a.popup-close-cross {
 
 .fa {
 	margin-right: 5px;
-	font-size: 12px;
+	font-size: 12px !important;
 	position: relative;
 	top: -2px;
 }
