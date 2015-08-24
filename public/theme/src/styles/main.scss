@@ -244,7 +244,9 @@ textarea:-ms-textarea-placeholder {
 			margin-right: 27px;
 
 			@include mobile {
-				display: none;
+				float: none;
+				text-align: center;
+				margin: 20px auto;
 			}
 
 			a {
@@ -294,7 +296,7 @@ textarea:-ms-textarea-placeholder {
 
 			@include mobile {
 				float: none;
-				height: 38px;
+				height: 63px;
 				position: inherit;
 			}
 
@@ -321,7 +323,7 @@ textarea:-ms-textarea-placeholder {
 
 				@include mobile {
 					float: none;
-					height: 38px;
+					height: 63px;
 					position: inherit;
 					width: 135px;
 					margin: 0 auto;
@@ -394,7 +396,7 @@ textarea:-ms-textarea-placeholder {
 		position: relative;
 
 		@include mobile {
-			width: 320px;
+			width: 320px !important;
 			margin: 0 auto;
 		}
 	}
@@ -785,7 +787,7 @@ textarea:-ms-textarea-placeholder {
 
 						@include mobile {
 							width: auto;
-							height: 366px;
+							height: 405px;
 							margin-bottom: 50px;
 						}
 					}
@@ -860,7 +862,7 @@ textarea:-ms-textarea-placeholder {
 		@include mobile {
 			margin-top: -102px;
 			height: auto;
-			padding-bottom: 232px;
+			padding-bottom: 10px;
 		}
 
 		.content {
@@ -956,6 +958,7 @@ textarea:-ms-textarea-placeholder {
 
 				@include mobile {
 					width: 100%;
+					margin-top: 50px;
 					float: none;
 					height: 230px;
 				}
