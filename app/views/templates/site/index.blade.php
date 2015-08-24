@@ -73,6 +73,11 @@ endif;
                 <div class="block-right">
                     {{ $page->block('block-right') }}
                 </div>
+                <div class="footnote">
+                    <p>
+                        <sup>*</sup> Дискавери Колекшн
+                    </p>
+                </div>
             </div>
         </div>
     </div>
