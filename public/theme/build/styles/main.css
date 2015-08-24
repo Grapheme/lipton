@@ -2904,8 +2904,8 @@ input.error {
 form label.error {
   position: relative;
   display: block;
-  margin-bottom: -12px;
-  top: -20px;
+  margin-bottom: -5px;
+  top: -16px;
   color: #c90119;
   font-size: 12px; }
 
