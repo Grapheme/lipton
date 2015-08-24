@@ -1552,7 +1552,7 @@ textarea:-ms-textarea-placeholder {
           width: 100%;
           overflow: hidden;
           clear: both;
-          height: 52px; }
+          height: 62px; }
           .block .participate-block .forms-holder form.full-registration .accept-block-holder.avatar-hack, .block .participate-block .forms-holder form.profile-edit .accept-block-holder.avatar-hack {
             margin-top: -35px;
             margin-bottom: 30px; }
@@ -1730,6 +1730,41 @@ textarea:-ms-textarea-placeholder {
           .block .feedback-form-holder form.feedback .input-row input, .block .feedback-form-holder form.story .input-row input {
             width: 100%;
             margin-bottom: 20px; } }
+      .block .feedback-form-holder form.feedback .input-row button, .block .feedback-form-holder form.story .input-row button {
+        width: 206px;
+        height: 50px;
+        background-color: #c90119;
+        color: #ffde00;
+        box-shadow: none;
+        font-size: 18px;
+        border-width: 0 0 3px 0;
+        border-color: #a40000;
+        border-style: solid;
+        border-radius: 3px;
+        text-transform: uppercase;
+        -webkit-transition: .1s all;
+                transition: .1s all;
+        outline: 0;
+        line-height: 47px;
+        cursor: pointer; }
+        @media (max-width: 320px) {
+          .block .feedback-form-holder form.feedback .input-row button, .block .feedback-form-holder form.story .input-row button {
+            margin: 0 auto;
+            display: block; } }
+        .block .feedback-form-holder form.feedback .input-row button:hover, .block .feedback-form-holder form.story .input-row button:hover {
+          background-color: #a40000;
+          color: #c90119;
+          border-width: 3px 0 0 0;
+          border-style: solid;
+          border-color: #c90119; }
+        .block .feedback-form-holder form.feedback .input-row button.loading, .block .feedback-form-holder form.story .input-row button.loading {
+          background-color: #a40000 !important;
+          color: #c90119 !important;
+          border-width: 3px 0 0 0 !important;
+          border-style: solid !important;
+          border-color: #c90119 !important;
+          font-size: 40px !important;
+          line-height: 37px !important; }
     .block .feedback-form-holder form.feedback textarea, .block .feedback-form-holder form.story textarea {
       width: 904px;
       height: 282px;
@@ -1748,41 +1783,6 @@ textarea:-ms-textarea-placeholder {
           height: auto;
           min-height: 200px;
           margin-top: 0px; } }
-    .block .feedback-form-holder form.feedback button, .block .feedback-form-holder form.story button {
-      width: 206px;
-      height: 50px;
-      background-color: #c90119;
-      color: #ffde00;
-      box-shadow: none;
-      font-size: 18px;
-      border-width: 0 0 3px 0;
-      border-color: #a40000;
-      border-style: solid;
-      border-radius: 3px;
-      text-transform: uppercase;
-      -webkit-transition: .1s all;
-              transition: .1s all;
-      outline: 0;
-      line-height: 47px;
-      cursor: pointer; }
-      @media (max-width: 320px) {
-        .block .feedback-form-holder form.feedback button, .block .feedback-form-holder form.story button {
-          margin: 0 auto;
-          display: block; } }
-      .block .feedback-form-holder form.feedback button:hover, .block .feedback-form-holder form.story button:hover {
-        background-color: #a40000;
-        color: #c90119;
-        border-width: 3px 0 0 0;
-        border-style: solid;
-        border-color: #c90119; }
-      .block .feedback-form-holder form.feedback button.loading, .block .feedback-form-holder form.story button.loading {
-        background-color: #a40000 !important;
-        color: #c90119 !important;
-        border-width: 3px 0 0 0 !important;
-        border-style: solid !important;
-        border-color: #c90119 !important;
-        font-size: 40px !important;
-        line-height: 37px !important; }
   .block form.story {
     margin: 0 auto;
     display: block; }
