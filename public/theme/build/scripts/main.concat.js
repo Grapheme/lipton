@@ -2033,7 +2033,7 @@ $(document).ready(function () {
             },
         },
 
-        if (!$('.accept-block-holder label').hasClass('ui-state-active')) {
+        if ($('.accept-block-holder label').not('ui-state-active')) {
             $('.acceptionError').fadeIn();
         } else {
             $('.acceptionError').fadeOut();
