@@ -1951,7 +1951,8 @@ textarea:-ms-textarea-placeholder {
 			transition: .1s all;
 			font-family: 'Intro-regular';
 			overflow: hidden;
-			margin-top: 2em;
+			position: relative;
+      		top: 2em;
 
 			@include mobile {
 				width: 315px;
