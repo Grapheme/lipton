@@ -1972,7 +1972,7 @@ textarea:-ms-textarea-placeholder {
           right: inherit;
           bottom: inherit;
           margin: 0 auto 30px; } }
-      .block .rules-text-block a.download-block:hover h3 {
+      .block .rules-text-block a.download-block:hover p {
         text-decoration: underline !important; }
       .block .rules-text-block a.download-block .ico {
         width: 40px;
