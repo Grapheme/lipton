@@ -561,7 +561,7 @@ textarea:-ms-textarea-placeholder {
       .sub-footer .sharing-block {
         float: none;
         text-align: center;
-        margin: 20px auto; } }
+        margin: 10px auto; } }
     .sub-footer .sharing-block a {
       color: #000;
       text-decoration: underline; }
@@ -574,6 +574,9 @@ textarea:-ms-textarea-placeholder {
       height: 18px;
       line-height: 18px;
       vertical-align: middle; }
+      @media (max-width: 640px) {
+        .sub-footer .sharing-block li {
+          margin-left: 0; } }
       .sub-footer .sharing-block li:first-child {
         margin-left: 0; }
         .sub-footer .sharing-block li:first-child:before {
@@ -588,6 +591,9 @@ textarea:-ms-textarea-placeholder {
         background-color: #ffffae;
         top: 5px;
         left: -18px; }
+        @media (max-width: 640px) {
+          .sub-footer .sharing-block li:before {
+            display: none; } }
   .sub-footer .sharing-links {
     float: right;
     margin-top: 19px;
