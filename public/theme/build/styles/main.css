@@ -1820,7 +1820,8 @@ textarea:-ms-textarea-placeholder {
               transition: .1s all;
       font-family: 'Intro-regular';
       overflow: hidden;
-      margin-top: 2em; }
+      position: relative;
+      top: 2em; }
       @media (max-width: 320px) {
         .block .prize-gallery a.prize-link {
           width: 315px; } }
