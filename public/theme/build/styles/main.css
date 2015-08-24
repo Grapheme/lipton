@@ -1192,6 +1192,9 @@ textarea:-ms-textarea-placeholder {
     background-color: rgba(0, 0, 0, 0.3);
     display: none;
     z-index: 1000; }
+    @media (max-width: 320px) {
+      .block.second-code-holder a.popup-close-cross, .block.send-instructions a.popup-close-cross, .block.story a.popup-close-cross, .block.select-gain a.popup-close-cross {
+        top: 160px; } }
     .block.second-code-holder .second-code-hack, .block.send-instructions .second-code-hack, .block.story .second-code-hack, .block.select-gain .second-code-hack {
       position: relative;
       width: 1px;
@@ -1311,7 +1314,7 @@ textarea:-ms-textarea-placeholder {
         cursor: pointer; }
         @media (max-width: 320px) {
           .block.second-code-holder form.promo-code-2 button, .block.second-code-holder form.send-instructions button, .block.second-code-holder form.select-gain button, .block.send-instructions form.promo-code-2 button, .block.send-instructions form.send-instructions button, .block.send-instructions form.select-gain button, .block.story form.promo-code-2 button, .block.story form.send-instructions button, .block.story form.select-gain button, .block.select-gain form.promo-code-2 button, .block.select-gain form.send-instructions button, .block.select-gain form.select-gain button {
-            float: none;
+            float: none !important;
             margin: 0 auto;
             display: block; } }
         .block.second-code-holder form.promo-code-2 button:hover, .block.second-code-holder form.send-instructions button:hover, .block.second-code-holder form.select-gain button:hover, .block.send-instructions form.promo-code-2 button:hover, .block.send-instructions form.send-instructions button:hover, .block.send-instructions form.select-gain button:hover, .block.story form.promo-code-2 button:hover, .block.story form.send-instructions button:hover, .block.story form.select-gain button:hover, .block.select-gain form.promo-code-2 button:hover, .block.select-gain form.send-instructions button:hover, .block.select-gain form.select-gain button:hover {
@@ -2862,7 +2865,7 @@ form.select-gain .ui-selectmenu-button {
   margin-bottom: 20px; }
   @media (max-width: 320px) {
     form.select-gain .ui-selectmenu-button {
-      width: 270px; } }
+      width: 270px !important; } }
 
 .ui-selectmenu-menu.ui-front.ui-selectmenu-open {
   width: 269px;
@@ -2880,6 +2883,9 @@ form.select-gain .ui-selectmenu-button {
   font-size: 18px;
   border: 0;
   margin: 0; }
+  @media (max-width: 320px) {
+    .ui-menu .ui-menu-item {
+      height: 70px; } }
 
 .ui-widget-content {
   margin-top: -3px;
@@ -3139,6 +3145,14 @@ a.popup-close-cross {
   height: 38px;
   right: 30px;
   top: 30px; }
+  @media (max-width: 320px) {
+    a.popup-close-cross {
+      width: 20px;
+      height: 19px;
+      background-size: 20px;
+      right: 15px;
+      top: 15px;
+      z-index: 10; } }
 
 .sms-wrapper, .password-recovery-holder {
   position: fixed;
