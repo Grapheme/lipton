@@ -632,11 +632,15 @@ textarea:-ms-textarea-placeholder {
           .sub-footer .sharing-links a.soc {
             height: 38px;
             width: 38px;
-            background-size: 38px; } }
+            background-size: 38px;
+            margin-top: 10px; } }
         .sub-footer .sharing-links a.soc:hover {
           opacity: 0.8; }
         .sub-footer .sharing-links a.soc.fb {
           background-image: url("../images/ico-fb-m.png"); }
+          @media (max-width: 320px) {
+            .sub-footer .sharing-links a.soc.fb {
+              margin-left: 0px; } }
         .sub-footer .sharing-links a.soc.vk {
           background-image: url("../images/ico-vk-m.png"); }
         .sub-footer .sharing-links a.soc.ok {
@@ -1487,17 +1491,11 @@ textarea:-ms-textarea-placeholder {
             -webkit-transition: .1s all;
                     transition: .1s all;
             cursor: pointer; }
-            @media (max-width: 320px) {
-              .block .participate-block .forms-holder .login-block .soc-holder .soc {
-                margin-top: 10px; } }
             .block .participate-block .forms-holder .login-block .soc-holder .soc:hover {
               opacity: 0.8; }
             .block .participate-block .forms-holder .login-block .soc-holder .soc.fb {
               background-image: url("../images/ico-fb-red.png");
               margin: 0; }
-              @media (max-width: 320px) {
-                .block .participate-block .forms-holder .login-block .soc-holder .soc.fb {
-                  margin-left: 0px; } }
             .block .participate-block .forms-holder .login-block .soc-holder .soc.vk {
               background-image: url("../images/ico-vk-red.png"); }
             .block .participate-block .forms-holder .login-block .soc-holder .soc.ok {
