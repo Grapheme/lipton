@@ -3217,7 +3217,10 @@ a.popup-close-cross {
   font-size: 14px; }
 
 .fa {
-  margin-right: 10px; }
+  margin-right: 5px;
+  font-size: 12px;
+  position: relative;
+  top: -2px; }
 
 .footnote {
   font-size: 12px;
@@ -3285,3 +3288,7 @@ button.loading {
 
 input[name="login"], input[name="email"] {
   text-transform: lowercase !important; }
+
+#acceptCheckbox-error {
+  top: 47px !important;
+  left: -41px !important; }
