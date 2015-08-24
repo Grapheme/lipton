@@ -72,10 +72,15 @@ function curPageURL() {
                 </div>
                 @else
                 <div class="sharing-script clearfix">
+                    <p>
+                        <br><br>
+                        Чем больше лайков соберет история, тем больше шансов стать победителем недели.
+                        <br><br>
+                    </p>
                     <div class="widget" style="display: inline-block; width: 150px;">
                         <div id="vk_like"></div>
                     </div>
-                    <div class="widget" style="display: inline-block; width: 150px;">
+                    <div class="widget" style="display: inline-block; width: 150px; position: relative; top: -5px;">
                         <div id="fb-root"></div>
                         <!-- Your like button code -->
                         <div class="fb-like" 
