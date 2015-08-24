@@ -385,7 +385,7 @@ body {
   background-repeat: no-repeat;
   background-size: initial, cover;
   min-height: 1024px; }
-  @media (max-width: 320px) {
+  @media (max-width: 640px) {
     body {
       background-image: url(../images/bg-main.jpg);
       background-position: center 90px;
@@ -474,7 +474,7 @@ textarea:-ms-textarea-placeholder {
   margin-top: -106px;
   min-height: 850px;
   position: relative; }
-  @media (max-width: 320px) {
+  @media (max-width: 640px) {
     .main-content {
       position: relative;
       min-height: 600px; } }
@@ -486,7 +486,7 @@ textarea:-ms-textarea-placeholder {
     height: 475px;
     overflow: hidden;
     margin-top: 60px; }
-    @media (max-width: 320px) {
+    @media (max-width: 640px) {
       .main-content .slider {
         display: none; } }
     .main-content .slider:after {
@@ -505,7 +505,7 @@ textarea:-ms-textarea-placeholder {
       background-position: center;
       z-index: 0;
       position: relative; }
-      @media (max-width: 320px) {
+      @media (max-width: 640px) {
         .main-content .slider .slide {
           display: none; } }
 
@@ -516,7 +516,7 @@ textarea:-ms-textarea-placeholder {
   background-position: center;
   z-index: 0;
   position: relative; }
-  @media (max-width: 320px) {
+  @media (max-width: 640px) {
     .mosaic-holder .slide {
       display: none; } }
 
@@ -531,14 +531,14 @@ textarea:-ms-textarea-placeholder {
   width: 100%;
   position: relative;
   padding-bottom: 3px; }
-  @media (max-width: 320px) {
+  @media (max-width: 640px) {
     .sub-footer {
       height: auto;
       text-align: center; } }
   .sub-footer .copyright {
     max-width: 700px;
     float: left; }
-    @media (max-width: 320px) {
+    @media (max-width: 640px) {
       .sub-footer .copyright {
         float: none; } }
     .sub-footer .copyright p {
@@ -557,7 +557,7 @@ textarea:-ms-textarea-placeholder {
     text-align: right;
     margin-top: 17px;
     margin-right: 27px; }
-    @media (max-width: 320px) {
+    @media (max-width: 640px) {
       .sub-footer .sharing-block {
         display: none; } }
     .sub-footer .sharing-block a {
@@ -590,7 +590,7 @@ textarea:-ms-textarea-placeholder {
     float: right;
     margin-top: 19px;
     position: relative; }
-    @media (max-width: 320px) {
+    @media (max-width: 640px) {
       .sub-footer .sharing-links {
         float: none;
         height: 38px;
@@ -605,14 +605,14 @@ textarea:-ms-textarea-placeholder {
       background-color: #ffffae;
       top: 3px;
       left: -18px; }
-      @media (max-width: 320px) {
+      @media (max-width: 640px) {
         .sub-footer .sharing-links:before {
           display: none; } }
     .sub-footer .sharing-links span {
       display: block;
       float: left;
       height: 18px; }
-      @media (max-width: 320px) {
+      @media (max-width: 640px) {
         .sub-footer .sharing-links span {
           float: none;
           height: 38px;
@@ -633,7 +633,7 @@ textarea:-ms-textarea-placeholder {
         -webkit-transition: .1s all;
                 transition: .1s all;
         background-size: 18px; }
-        @media (max-width: 320px) {
+        @media (max-width: 640px) {
           .sub-footer .sharing-links a.soc {
             height: 38px;
             width: 38px;
@@ -643,7 +643,7 @@ textarea:-ms-textarea-placeholder {
           opacity: 0.8; }
         .sub-footer .sharing-links a.soc.fb {
           background-image: url("../images/ico-fb-m.png"); }
-          @media (max-width: 320px) {
+          @media (max-width: 640px) {
             .sub-footer .sharing-links a.soc.fb {
               margin-left: 0px; } }
         .sub-footer .sharing-links a.soc.vk {
@@ -663,7 +663,7 @@ textarea:-ms-textarea-placeholder {
     width: 960px;
     margin: 0 auto;
     position: relative; }
-    @media (max-width: 320px) {
+    @media (max-width: 640px) {
       .block .content {
         width: 100% !important; } }
   .block h2 {
@@ -675,7 +675,7 @@ textarea:-ms-textarea-placeholder {
     margin: 0;
     line-height: 23px;
     margin-top: 50px; }
-    @media (max-width: 320px) {
+    @media (max-width: 640px) {
       .block h2 {
         line-height: 33px; } }
   .block .devider {
@@ -684,7 +684,7 @@ textarea:-ms-textarea-placeholder {
     height: 100%;
     min-height: 1px;
     background-image: url("../images/bg-devider.png"); }
-    @media (max-width: 320px) {
+    @media (max-width: 640px) {
       .block .devider {
         display: none; } }
     .block .devider.no-dots {
@@ -707,7 +707,7 @@ textarea:-ms-textarea-placeholder {
       position: absolute;
       left: 50px;
       top: 31px; }
-      @media (max-width: 320px) {
+      @media (max-width: 640px) {
         .block.header .partners-block {
           display: none; } }
       .block.header .partners-block .partner-traveller {
@@ -721,7 +721,7 @@ textarea:-ms-textarea-placeholder {
       position: absolute;
       top: 26px;
       right: 50px; }
-      @media (max-width: 320px) {
+      @media (max-width: 640px) {
         .block.header .icons-block {
           width: 116px; } }
       .block.header .icons-block .partner-lingualeo {
@@ -732,10 +732,10 @@ textarea:-ms-textarea-placeholder {
         background: url("../images/logo-lingualeo.png");
         background-repeat: no-repeat;
         margin-right: 30px; }
-        @media (max-width: 320px) {
+        @media (max-width: 640px) {
           .block.header .icons-block .partner-lingualeo {
             display: none; } }
-      @media (max-width: 320px) {
+      @media (max-width: 640px) {
         .block.header .icons-block {
           top: 16px;
           right: 30px; } }
@@ -752,7 +752,7 @@ textarea:-ms-textarea-placeholder {
         -webkit-transition: .2s all;
                 transition: .2s all;
         margin-right: 30px; }
-        @media (max-width: 320px) {
+        @media (max-width: 640px) {
           .block.header .icons-block .ico-account {
             position: absolute;
             left: -143px; } }
@@ -811,7 +811,7 @@ textarea:-ms-textarea-placeholder {
     z-index: 9;
     margin-top: -23px;
     position: relative; }
-    @media (max-width: 320px) {
+    @media (max-width: 640px) {
       .block.menu-holder {
         display: none; } }
     .block.menu-holder .top-menu {
@@ -855,7 +855,7 @@ textarea:-ms-textarea-placeholder {
     background-repeat: no-repeat;
     z-index: 8;
     overflow: hidden; }
-    @media (max-width: 320px) {
+    @media (max-width: 640px) {
       .block.promo-code {
         height: auto;
         background-image: url("../images/bg-promo-code.jpg");
@@ -874,7 +874,7 @@ textarea:-ms-textarea-placeholder {
       background-image: url("../images/bg-slider-glow.png");
       background-repeat: no-repeat;
       margin-left: -1206px; }
-      @media (max-width: 320px) {
+      @media (max-width: 640px) {
         .block.promo-code:before {
           display: none; } }
     .block.promo-code .content {
@@ -882,7 +882,7 @@ textarea:-ms-textarea-placeholder {
       position: relative;
       z-index: 1;
       top: 0; }
-      @media (max-width: 320px) {
+      @media (max-width: 640px) {
         .block.promo-code .content {
           margin: 115px 0 0 0;
           left: inherit;
@@ -894,7 +894,7 @@ textarea:-ms-textarea-placeholder {
         width: 1220px;
         overflow: hidden;
         z-index: 1; }
-        @media (max-width: 320px) {
+        @media (max-width: 640px) {
           .block.promo-code .content .promo-steps {
             margin-top: 115px;
             position: inherit;
@@ -905,7 +905,7 @@ textarea:-ms-textarea-placeholder {
           float: left;
           height: 115px;
           position: relative; }
-          @media (max-width: 320px) {
+          @media (max-width: 640px) {
             .block.promo-code .content .promo-steps .promo-step {
               float: none;
               text-align: center;
@@ -919,7 +919,7 @@ textarea:-ms-textarea-placeholder {
             background-image: url("../images/ico-step-arrow.png");
             top: 32px;
             right: -30px; }
-            @media (max-width: 320px) {
+            @media (max-width: 640px) {
               .block.promo-code .content .promo-steps .promo-step:after {
                 content: '';
                 display: block;
@@ -938,7 +938,7 @@ textarea:-ms-textarea-placeholder {
           .block.promo-code .content .promo-steps .promo-step.step-1 {
             width: 344px;
             margin-right: 88px; }
-            @media (max-width: 320px) {
+            @media (max-width: 640px) {
               .block.promo-code .content .promo-steps .promo-step.step-1 {
                 width: auto;
                 height: 245px;
@@ -949,14 +949,14 @@ textarea:-ms-textarea-placeholder {
             height: 160px; }
             .block.promo-code .content .promo-steps .promo-step.step-2 form.promo-code {
               margin: 25px 0px 0px 0px; }
-            @media (max-width: 320px) {
+            @media (max-width: 640px) {
               .block.promo-code .content .promo-steps .promo-step.step-2 {
                 width: auto;
                 height: 366px;
                 margin-bottom: 50px; } }
           .block.promo-code .content .promo-steps .promo-step.step-3 {
             width: 309px; }
-            @media (max-width: 320px) {
+            @media (max-width: 640px) {
               .block.promo-code .content .promo-steps .promo-step.step-3 {
                 width: auto;
                 height: 176px; } }
@@ -971,7 +971,7 @@ textarea:-ms-textarea-placeholder {
             background-color: #cb0919;
             text-align: center;
             float: left; }
-            @media (max-width: 320px) {
+            @media (max-width: 640px) {
               .block.promo-code .content .promo-steps .promo-step .step-number {
                 float: none;
                 margin: 0 auto 20px; } }
@@ -982,7 +982,7 @@ textarea:-ms-textarea-placeholder {
             margin: 9px 0 9px 64px;
             font-weight: normal;
             text-align: left; }
-            @media (max-width: 320px) {
+            @media (max-width: 640px) {
               .block.promo-code .content .promo-steps .promo-step h2 {
                 float: none;
                 margin: 0 auto 20px;
@@ -994,7 +994,7 @@ textarea:-ms-textarea-placeholder {
             font-size: 18px;
             text-transform: uppercase;
             line-height: 22px; }
-            @media (max-width: 320px) {
+            @media (max-width: 640px) {
               .block.promo-code .content .promo-steps .promo-step p {
                 text-align: center;
                 margin: 0;
@@ -1004,7 +1004,7 @@ textarea:-ms-textarea-placeholder {
     height: 428px;
     margin-top: 38px;
     position: relative; }
-    @media (max-width: 320px) {
+    @media (max-width: 640px) {
       .block.footer {
         margin-top: -102px;
         height: auto;
@@ -1020,14 +1020,14 @@ textarea:-ms-textarea-placeholder {
         left: 50%;
         top: -50px;
         margin-left: -99px; }
-        @media (max-width: 320px) {
+        @media (max-width: 640px) {
           .block.footer .content .plane-block {
             top: -190px; } }
       .block.footer .content .block-left {
         margin-top: 80px;
         width: 50%;
         float: left; }
-        @media (max-width: 320px) {
+        @media (max-width: 640px) {
           .block.footer .content .block-left {
             width: 100%;
             float: none; } }
@@ -1038,7 +1038,7 @@ textarea:-ms-textarea-placeholder {
           margin: 0 0 30px 0;
           padding: 0;
           text-transform: uppercase; }
-          @media (max-width: 320px) {
+          @media (max-width: 640px) {
             .block.footer .content .block-left h3 {
               margin-top: 220px;
               text-align: center; } }
@@ -1046,7 +1046,7 @@ textarea:-ms-textarea-placeholder {
           font-size: 16px;
           margin: 0 0 50px 0;
           padding: 0; }
-          @media (max-width: 320px) {
+          @media (max-width: 640px) {
             .block.footer .content .block-left p {
               text-align: center; } }
         .block.footer .content .block-left a.involvement {
@@ -1068,7 +1068,7 @@ textarea:-ms-textarea-placeholder {
           line-height: 50px;
           font-family: 'Intro';
           cursor: pointer; }
-          @media (max-width: 320px) {
+          @media (max-width: 640px) {
             .block.footer .content .block-left a.involvement {
               margin: 0 auto; } }
           .block.footer .content .block-left a.involvement:hover {
@@ -1082,7 +1082,7 @@ textarea:-ms-textarea-placeholder {
         width: 50%;
         float: right;
         position: relative; }
-        @media (max-width: 320px) {
+        @media (max-width: 640px) {
           .block.footer .content .block-right {
             width: 100%;
             float: none;
@@ -1101,7 +1101,7 @@ textarea:-ms-textarea-placeholder {
           box-sizing: border-box;
           text-align: center;
           background-image: url("../images/bg-traveller-promo.png"); }
-          @media (max-width: 320px) {
+          @media (max-width: 640px) {
             .block.footer .content .block-right a.traveller-card {
               font-size: 16px;
               display: block;
@@ -1136,7 +1136,7 @@ textarea:-ms-textarea-placeholder {
     height: 50px;
     margin: 20px 0px 0px -40px;
     position: relative; }
-    @media (max-width: 320px) {
+    @media (max-width: 640px) {
       .block form.promo-code {
         width: 100%;
         margin: 20px 0px 0px 0px; } }
@@ -1152,7 +1152,7 @@ textarea:-ms-textarea-placeholder {
       font-family: 'Intro-regular';
       font-size: 24px;
       text-transform: uppercase; }
-      @media (max-width: 320px) {
+      @media (max-width: 640px) {
         .block form.promo-code input {
           float: none;
           margin: 0 auto;
@@ -1177,7 +1177,7 @@ textarea:-ms-textarea-placeholder {
       font-family: 'Intro';
       line-height: 47px;
       cursor: pointer; }
-      @media (max-width: 320px) {
+      @media (max-width: 640px) {
         .block form.promo-code button {
           float: none;
           margin: 0 auto; } }
@@ -1198,7 +1198,7 @@ textarea:-ms-textarea-placeholder {
     background-color: rgba(0, 0, 0, 0.3);
     display: none;
     z-index: 1000; }
-    @media (max-width: 320px) {
+    @media (max-width: 640px) {
       .block.second-code-holder a.popup-close-cross, .block.send-instructions a.popup-close-cross, .block.story a.popup-close-cross, .block.select-gain a.popup-close-cross {
         top: 160px; } }
     .block.second-code-holder .second-code-hack, .block.send-instructions .second-code-hack, .block.story .second-code-hack, .block.select-gain .second-code-hack {
@@ -1261,7 +1261,7 @@ textarea:-ms-textarea-placeholder {
       border-radius: 10px;
       left: inherit;
       margin-left: 0; }
-      @media (max-width: 320px) {
+      @media (max-width: 640px) {
         .block.second-code-holder form.promo-code-2, .block.second-code-holder form.send-instructions, .block.second-code-holder form.select-gain, .block.send-instructions form.promo-code-2, .block.send-instructions form.send-instructions, .block.send-instructions form.select-gain, .block.story form.promo-code-2, .block.story form.send-instructions, .block.story form.select-gain, .block.select-gain form.promo-code-2, .block.select-gain form.send-instructions, .block.select-gain form.select-gain {
           position: relative;
           background-image: url("../images/bg-promo-popup.png");
@@ -1318,7 +1318,7 @@ textarea:-ms-textarea-placeholder {
         font-family: 'Intro';
         line-height: 47px;
         cursor: pointer; }
-        @media (max-width: 320px) {
+        @media (max-width: 640px) {
           .block.second-code-holder form.promo-code-2 button, .block.second-code-holder form.send-instructions button, .block.second-code-holder form.select-gain button, .block.send-instructions form.promo-code-2 button, .block.send-instructions form.send-instructions button, .block.send-instructions form.select-gain button, .block.story form.promo-code-2 button, .block.story form.send-instructions button, .block.story form.select-gain button, .block.select-gain form.promo-code-2 button, .block.select-gain form.send-instructions button, .block.select-gain form.select-gain button {
             float: none !important;
             margin: 0 auto;
@@ -1374,24 +1374,24 @@ textarea:-ms-textarea-placeholder {
   .block .participate-block {
     width: 750px;
     margin: 50px auto 0; }
-    @media (max-width: 320px) {
+    @media (max-width: 640px) {
       .block .participate-block {
         width: 100%; } }
-    @media (max-width: 320px) {
+    @media (max-width: 640px) {
       .block .participate-block {
         width: 100%; } }
     .block .participate-block .forms-holder {
       height: 248px;
       width: 100%;
       margin-top: 74px; }
-      @media (max-width: 320px) {
+      @media (max-width: 640px) {
         .block .participate-block .forms-holder {
           height: auto; } }
       .block .participate-block .forms-holder.full-registration-holder {
         height: 400px;
         margin-top: 75px;
         padding-bottom: 165px; }
-        @media (max-width: 320px) {
+        @media (max-width: 640px) {
           .block .participate-block .forms-holder.full-registration-holder {
             height: auto;
             padding-bottom: 45px; } }
@@ -1402,7 +1402,7 @@ textarea:-ms-textarea-placeholder {
         position: relative; }
         .block .participate-block .forms-holder form.registration .avatar-hack, .block .participate-block .forms-holder form.profile-edit .avatar-hack {
           height: 130px; }
-        @media (max-width: 320px) {
+        @media (max-width: 640px) {
           .block .participate-block .forms-holder form.registration, .block .participate-block .forms-holder form.profile-edit {
             width: 100%;
             height: auto;
@@ -1420,7 +1420,7 @@ textarea:-ms-textarea-placeholder {
           font-family: 'PT Sans', 'Open Sans', Arial;
           font-size: 18px;
           margin-bottom: 20px; }
-          @media (max-width: 320px) {
+          @media (max-width: 640px) {
             .block .participate-block .forms-holder form.registration input, .block .participate-block .forms-holder form.profile-edit input {
               width: 100%; } }
         .block .participate-block .forms-holder form.registration button, .block .participate-block .forms-holder form.profile-edit button {
@@ -1442,7 +1442,7 @@ textarea:-ms-textarea-placeholder {
           font-family: 'Intro';
           line-height: 47px;
           cursor: pointer; }
-          @media (max-width: 320px) {
+          @media (max-width: 640px) {
             .block .participate-block .forms-holder form.registration button, .block .participate-block .forms-holder form.profile-edit button {
               display: block;
               margin: 0 auto; } }
@@ -1458,7 +1458,7 @@ textarea:-ms-textarea-placeholder {
       .block .participate-block .forms-holder .login-block {
         width: 325px;
         float: left; }
-        @media (max-width: 320px) {
+        @media (max-width: 640px) {
           .block .participate-block .forms-holder .login-block {
             margin-top: 50px;
             width: 100%; } }
@@ -1470,7 +1470,7 @@ textarea:-ms-textarea-placeholder {
           text-align: right;
           margin: 0;
           line-height: 23px; }
-          @media (max-width: 320px) {
+          @media (max-width: 640px) {
             .block .participate-block .forms-holder .login-block h3 {
               text-align: center; } }
         .block .participate-block .forms-holder .login-block a.login {
@@ -1494,7 +1494,7 @@ textarea:-ms-textarea-placeholder {
           text-transform: uppercase;
           cursor: pointer;
           text-decoration: none; }
-          @media (max-width: 320px) {
+          @media (max-width: 640px) {
             .block .participate-block .forms-holder .login-block a.login {
               margin: 17px auto 45px;
               float: none; } }
@@ -1508,7 +1508,7 @@ textarea:-ms-textarea-placeholder {
           width: 133px;
           height: 31px;
           float: right; }
-          @media (max-width: 320px) {
+          @media (max-width: 640px) {
             .block .participate-block .forms-holder .login-block .soc-holder {
               margin: 30px auto;
               float: none; } }
@@ -1539,7 +1539,7 @@ textarea:-ms-textarea-placeholder {
         width: 650px;
         margin: 0 auto;
         height: 100%; }
-        @media (max-width: 320px) {
+        @media (max-width: 640px) {
           .block .participate-block .forms-holder form.full-registration, .block .participate-block .forms-holder form.profile-edit {
             width: 100%; } }
         .block .participate-block .forms-holder form.full-registration .devider, .block .participate-block .forms-holder form.profile-edit .devider {
@@ -1584,7 +1584,7 @@ textarea:-ms-textarea-placeholder {
         .block .participate-block .forms-holder form.full-registration .form-block-left, .block .participate-block .forms-holder form.profile-edit .form-block-left {
           width: 275px;
           float: left; }
-          @media (max-width: 320px) {
+          @media (max-width: 640px) {
             .block .participate-block .forms-holder form.full-registration .form-block-left, .block .participate-block .forms-holder form.profile-edit .form-block-left {
               float: none;
               margin: 0 auto; } }
@@ -1592,7 +1592,7 @@ textarea:-ms-textarea-placeholder {
           width: 275px;
           float: left;
           clear: right; }
-          @media (max-width: 320px) {
+          @media (max-width: 640px) {
             .block .participate-block .forms-holder form.full-registration .form-block-right, .block .participate-block .forms-holder form.profile-edit .form-block-right {
               float: none;
               margin: 0 auto; } }
@@ -1604,12 +1604,12 @@ textarea:-ms-textarea-placeholder {
           .block .participate-block .forms-holder form.full-registration .accept-block-holder.avatar-hack, .block .participate-block .forms-holder form.profile-edit .accept-block-holder.avatar-hack {
             margin-top: -35px;
             margin-bottom: 30px; }
-            @media (max-width: 320px) {
+            @media (max-width: 640px) {
               .block .participate-block .forms-holder form.full-registration .accept-block-holder.avatar-hack, .block .participate-block .forms-holder form.profile-edit .accept-block-holder.avatar-hack {
                 height: 130px; } }
             .block .participate-block .forms-holder form.full-registration .accept-block-holder.avatar-hack .profile-info, .block .participate-block .forms-holder form.profile-edit .accept-block-holder.avatar-hack .profile-info {
               cursor: pointer; }
-          @media (max-width: 320px) {
+          @media (max-width: 640px) {
             .block .participate-block .forms-holder form.full-registration .accept-block-holder, .block .participate-block .forms-holder form.profile-edit .accept-block-holder {
               margin-bottom: 50px;
               padding: 0 20px;
@@ -1658,7 +1658,7 @@ textarea:-ms-textarea-placeholder {
     height: 430px;
     margin-top: 50px;
     box-shadow: 0px 10px 10px -10px #ffd400, 0px -10px 10px -10px #ffd400; }
-    @media (max-width: 320px) {
+    @media (max-width: 640px) {
       .block .faq-mask {
         overflow: inherit;
         width: 100%;
@@ -1670,7 +1670,7 @@ textarea:-ms-textarea-placeholder {
       overflow: auto;
       padding: 20px 0;
       box-sizing: border-box; }
-      @media (max-width: 320px) {
+      @media (max-width: 640px) {
         .block .faq-mask .faq-block {
           width: 100%;
           height: auto;
@@ -1680,7 +1680,7 @@ textarea:-ms-textarea-placeholder {
       .block .faq-mask .faq-block .column-left {
         width: 410px;
         float: left; }
-        @media (max-width: 320px) {
+        @media (max-width: 640px) {
           .block .faq-mask .faq-block .column-left {
             width: auto;
             float: none;
@@ -1689,7 +1689,7 @@ textarea:-ms-textarea-placeholder {
       .block .faq-mask .faq-block .column-right {
         width: 410px;
         float: left; }
-        @media (max-width: 320px) {
+        @media (max-width: 640px) {
           .block .faq-mask .faq-block .column-right {
             width: auto;
             float: none;
@@ -1724,7 +1724,7 @@ textarea:-ms-textarea-placeholder {
     width: 147px;
     height: 47px;
     margin: 30px auto 0; }
-    @media (max-width: 320px) {
+    @media (max-width: 640px) {
       .block .scroll-nav {
         display: none; } }
     .block .scroll-nav .scroll-button {
@@ -1758,7 +1758,7 @@ textarea:-ms-textarea-placeholder {
     width: 910px;
     height: 500px;
     margin: 50px auto 146px; }
-    @media (max-width: 320px) {
+    @media (max-width: 640px) {
       .block .feedback-form-holder {
         width: 100%;
         padding: 0 20px;
@@ -1781,7 +1781,7 @@ textarea:-ms-textarea-placeholder {
         outline: 0;
         font-size: 14px;
         margin-right: 20px; }
-        @media (max-width: 320px) {
+        @media (max-width: 640px) {
           .block .feedback-form-holder form.feedback .input-row input, .block .feedback-form-holder form.story .input-row input {
             width: 100%;
             margin-bottom: 20px; } }
@@ -1802,7 +1802,7 @@ textarea:-ms-textarea-placeholder {
       font-size: 14px;
       display: block;
       margin-bottom: 20px; }
-      @media (max-width: 320px) {
+      @media (max-width: 640px) {
         .block .feedback-form-holder form.feedback textarea, .block .feedback-form-holder form.story textarea {
           width: 100%;
           height: auto;
@@ -1826,7 +1826,7 @@ textarea:-ms-textarea-placeholder {
       line-height: 47px;
       cursor: pointer;
       font-family: 'Intro'; }
-      @media (max-width: 320px) {
+      @media (max-width: 640px) {
         .block .feedback-form-holder form.feedback button, .block .feedback-form-holder form.story button {
           margin: 0 auto;
           display: block; } }
@@ -1849,7 +1849,7 @@ textarea:-ms-textarea-placeholder {
   .block form.story {
     margin: 0 auto;
     display: block; }
-    @media (max-width: 320px) {
+    @media (max-width: 640px) {
       .block form.story {
         margin-bottom: 30px; } }
     .block form.story button {
@@ -1862,7 +1862,7 @@ textarea:-ms-textarea-placeholder {
     text-align: center;
     font-family: 'Intro-regular';
     text-transform: uppercase; }
-    @media (max-width: 320px) {
+    @media (max-width: 640px) {
       .block h3.tell-story-header {
         padding: 0 20px; } }
   .block .prize-gallery {
@@ -1893,7 +1893,7 @@ textarea:-ms-textarea-placeholder {
       overflow: hidden;
       position: relative;
       top: 2.5em; }
-      @media (max-width: 320px) {
+      @media (max-width: 640px) {
         .block .prize-gallery a.prize-link {
           width: 315px; } }
       .block .prize-gallery a.prize-link:hover {
@@ -1933,7 +1933,7 @@ textarea:-ms-textarea-placeholder {
         font-size: 16px;
         margin: 0;
         padding: 0; }
-        @media (max-width: 320px) {
+        @media (max-width: 640px) {
           .block .prize-gallery .prize-block p {
             padding: 0 20px; } }
   .block .rules-row {
@@ -1948,7 +1948,7 @@ textarea:-ms-textarea-placeholder {
       float: left;
       background-repeat: no-repeat;
       background-position: center top; }
-      @media (max-width: 320px) {
+      @media (max-width: 640px) {
         .block .rules-row .rule-item {
           margin: 0 auto;
           width: 170px;
@@ -1964,7 +1964,7 @@ textarea:-ms-textarea-placeholder {
         text-transform: uppercase; }
       .block .rules-row .rule-item:last-child {
         margin: 0; }
-        @media (max-width: 320px) {
+        @media (max-width: 640px) {
           .block .rules-row .rule-item:last-child {
             margin: 0 auto; } }
         .block .rules-row .rule-item:last-child:before {
@@ -1977,7 +1977,7 @@ textarea:-ms-textarea-placeholder {
         background-image: url("../images/ico-step-arrow.png");
         top: 50px;
         right: -70px; }
-        @media (max-width: 320px) {
+        @media (max-width: 640px) {
           .block .rules-row .rule-item:before {
             display: none; } }
       .block .rules-row .rule-item .rule-img {
@@ -2006,7 +2006,7 @@ textarea:-ms-textarea-placeholder {
     overflow: hidden;
     margin-bottom: 30px;
     position: relative; }
-    @media (max-width: 320px) {
+    @media (max-width: 640px) {
       .block .rules-text-block {
         padding: 0 20px;
         box-sizing: border-box;
@@ -2029,7 +2029,7 @@ textarea:-ms-textarea-placeholder {
       bottom: 22px;
       cursor: pointer;
       text-decoration: none; }
-      @media (max-width: 320px) {
+      @media (max-width: 640px) {
         .block .rules-text-block a.download-block {
           position: relative;
           right: inherit;
@@ -2069,7 +2069,7 @@ textarea:-ms-textarea-placeholder {
   .block.winners {
     height: 890px;
     margin-top: 58px; }
-    @media (max-width: 320px) {
+    @media (max-width: 640px) {
       .block.winners {
         height: auto; } }
     .block.winners .mosaic-row {
@@ -2091,7 +2091,7 @@ textarea:-ms-textarea-placeholder {
     .block.winners .content {
       position: relative;
       height: 900px; }
-      @media (max-width: 320px) {
+      @media (max-width: 640px) {
         .block.winners .content {
           height: auto; } }
       .block.winners .content h2 {
@@ -2109,7 +2109,7 @@ textarea:-ms-textarea-placeholder {
         margin-top: -130px;
         left: -135px;
         z-index: 0; }
-        @media (max-width: 320px) {
+        @media (max-width: 640px) {
           .block.winners .content .block-plain {
             background-image: none;
             width: 100%;
@@ -2121,7 +2121,7 @@ textarea:-ms-textarea-placeholder {
           top: 440px;
           left: 205px;
           position: absolute; }
-          @media (max-width: 320px) {
+          @media (max-width: 640px) {
             .block.winners .content .block-plain .illuminators {
               width: 100%;
               height: auto;
@@ -2140,7 +2140,7 @@ textarea:-ms-textarea-placeholder {
             box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.5);
             cursor: pointer;
             z-index: 10; }
-            @media (max-width: 320px) {
+            @media (max-width: 640px) {
               .block.winners .content .block-plain .illuminators .illuminator {
                 float: none;
                 width: 266px;
@@ -2153,7 +2153,7 @@ textarea:-ms-textarea-placeholder {
               color: #c90119;
               font-size: 13px;
               font-family: 'Intro-regular'; }
-              @media (max-width: 320px) {
+              @media (max-width: 640px) {
                 .block.winners .content .block-plain .illuminators .illuminator .number {
                   display: none; } }
             .block.winners .content .block-plain .illuminators .illuminator .avatar {
@@ -2164,7 +2164,7 @@ textarea:-ms-textarea-placeholder {
               background-size: 37px;
               background-repeat: no-repeat;
               background-position: center; }
-              @media (max-width: 320px) {
+              @media (max-width: 640px) {
                 .block.winners .content .block-plain .illuminators .illuminator .avatar {
                   display: none; } }
             .block.winners .content .block-plain .illuminators .illuminator:after {
@@ -2178,12 +2178,12 @@ textarea:-ms-textarea-placeholder {
               background-repeat: no-repeat;
               width: 15px;
               height: 9px; }
-              @media (max-width: 320px) {
+              @media (max-width: 640px) {
                 .block.winners .content .block-plain .illuminators .illuminator:after {
                   display: none; } }
             .block.winners .content .block-plain .illuminators .illuminator:last-child {
               margin-right: 0; }
-              @media (max-width: 320px) {
+              @media (max-width: 640px) {
                 .block.winners .content .block-plain .illuminators .illuminator:last-child {
                   margin: 0 auto 30px; } }
             .block.winners .content .block-plain .illuminators .illuminator:hover {
@@ -2205,7 +2205,7 @@ textarea:-ms-textarea-placeholder {
               border-radius: 3px;
               -webkit-transition: .2s all;
                       transition: .2s all; }
-              @media (max-width: 320px) {
+              @media (max-width: 640px) {
                 .block.winners .content .block-plain .illuminators .illuminator .magnifier {
                   display: block;
                   position: initial; } }
@@ -2267,6 +2267,9 @@ textarea:-ms-textarea-placeholder {
       display: block;
       cursor: pointer;
       color: #c90119; }
+      @media (max-width: 640px) {
+        .block .accept-block-holder .profile-info div.hidden-input {
+          display: none; } }
       .block .accept-block-holder .profile-info div.hidden-input:hover {
         text-decoration: none; }
       .block .accept-block-holder .profile-info div.hidden-input span {
@@ -2288,7 +2291,7 @@ textarea:-ms-textarea-placeholder {
     width: 910px;
     height: 510px;
     margin: 55px auto 0; }
-    @media (max-width: 320px) {
+    @media (max-width: 640px) {
       .block .profile {
         width: 100%;
         height: auto;
@@ -2297,7 +2300,7 @@ textarea:-ms-textarea-placeholder {
     .block .profile .profile-head {
       height: 80px;
       width: 100%; }
-      @media (max-width: 320px) {
+      @media (max-width: 640px) {
         .block .profile .profile-head {
           height: auto; } }
       .block .profile .profile-head .profile-info {
@@ -2305,7 +2308,7 @@ textarea:-ms-textarea-placeholder {
         width: 305px;
         float: left;
         border-right: 1px solid rgba(201, 1, 25, 0.3); }
-        @media (max-width: 320px) {
+        @media (max-width: 640px) {
           .block .profile .profile-head .profile-info {
             width: 100%;
             border: none;
@@ -2344,7 +2347,7 @@ textarea:-ms-textarea-placeholder {
         float: left;
         padding: 0 25px;
         box-sizing: border-box; }
-        @media (max-width: 320px) {
+        @media (max-width: 640px) {
           .block .profile .profile-head .profile-promo-code {
             width: 100%;
             border: none;
@@ -2356,7 +2359,7 @@ textarea:-ms-textarea-placeholder {
           text-align: left;
           font-size: 18px;
           margin-bottom: 7px; }
-          @media (max-width: 320px) {
+          @media (max-width: 640px) {
             .block .profile .profile-head .profile-promo-code h3 {
               margin-bottom: 20px;
               text-align: center; } }
@@ -2365,7 +2368,7 @@ textarea:-ms-textarea-placeholder {
           width: 367px;
           height: 50px;
           margin: 0; }
-          @media (max-width: 320px) {
+          @media (max-width: 640px) {
             .block .profile .profile-head .profile-promo-code form.promo-code {
               width: 100%;
               height: auto; } }
@@ -2386,7 +2389,7 @@ textarea:-ms-textarea-placeholder {
             font-family: 'Intro-regular';
             font-size: 20px;
             text-transform: uppercase; }
-            @media (max-width: 320px) {
+            @media (max-width: 640px) {
               .block .profile .profile-head .profile-promo-code form.promo-code input {
                 display: block;
                 margin: 0 auto 20px; } }
@@ -2409,7 +2412,7 @@ textarea:-ms-textarea-placeholder {
             font-family: 'Intro';
             line-height: 47px;
             cursor: pointer; }
-            @media (max-width: 320px) {
+            @media (max-width: 640px) {
               .block .profile .profile-head .profile-promo-code form.promo-code button {
                 display: block;
                 margin: 0 auto 20px;
@@ -2434,7 +2437,7 @@ textarea:-ms-textarea-placeholder {
         padding: 0;
         box-sizing: border-box;
         position: relative; }
-        @media (max-width: 320px) {
+        @media (max-width: 640px) {
           .block .profile .profile-head .request {
             width: 100%;
             border: none;
@@ -2468,7 +2471,7 @@ textarea:-ms-textarea-placeholder {
             margin-bottom: 3px;
             margin-top: 0;
             text-decoration: underline; }
-          @media (max-width: 320px) {
+          @media (max-width: 640px) {
             .block .profile .profile-head .request a {
               line-height: 50px; } }
         .block .profile .profile-head .request .moderation {
@@ -2478,7 +2481,7 @@ textarea:-ms-textarea-placeholder {
           position: absolute;
           left: 20px;
           bottom: 0; }
-          @media (max-width: 320px) {
+          @media (max-width: 640px) {
             .block .profile .profile-head .request .moderation {
               margin-left: 52px; } }
           .block .profile .profile-head .request .moderation .bullet {
@@ -2505,7 +2508,7 @@ textarea:-ms-textarea-placeholder {
       width: 890px;
       height: 9px;
       background-image: url("../images/bg-profile-border.png"); }
-      @media (max-width: 320px) {
+      @media (max-width: 640px) {
         .block .profile .profile-border {
           display: none; } }
     .block .profile h3 {
@@ -2518,7 +2521,7 @@ textarea:-ms-textarea-placeholder {
       overflow: hidden;
       width: 100%;
       height: 270px; }
-      @media (max-width: 320px) {
+      @media (max-width: 640px) {
         .block .profile .gained-prizes {
           height: auto;
           margin-bottom: 30px; } }
@@ -2528,7 +2531,7 @@ textarea:-ms-textarea-placeholder {
         float: left;
         margin-right: 110px;
         text-align: center; }
-        @media (max-width: 320px) {
+        @media (max-width: 640px) {
           .block .profile .gained-prizes .prize {
             margin: 30px auto;
             float: none; } }
@@ -2579,7 +2582,7 @@ textarea:-ms-textarea-placeholder {
             border-color: #c90119; }
         .block .profile .gained-prizes .prize:last-child {
           margin: 0; }
-          @media (max-width: 320px) {
+          @media (max-width: 640px) {
             .block .profile .gained-prizes .prize:last-child {
               margin: 0 auto; } }
   .block .share-story-block {
@@ -2633,7 +2636,7 @@ textarea:-ms-textarea-placeholder {
     background-image: url("../images/bg-glowing-plane.png");
     background-repeat: no-repeat;
     background-position: 200px 120px; }
-    @media (max-width: 320px) {
+    @media (max-width: 640px) {
       .block .collection {
         width: 100%;
         height: auto;
@@ -2645,7 +2648,7 @@ textarea:-ms-textarea-placeholder {
       cursor: pointer;
       background-position: bottom center;
       background-repeat: no-repeat; }
-      @media (max-width: 320px) {
+      @media (max-width: 640px) {
         .block .collection .country {
           position: relative;
           top: inherit !important;
@@ -2662,7 +2665,7 @@ textarea:-ms-textarea-placeholder {
         box-shadow: 0px 0px 3px 0px inset, 0 0 0px 10px #c90119; }
       .block .collection .country .content {
         display: none; }
-        @media (max-width: 320px) {
+        @media (max-width: 640px) {
           .block .collection .country .content {
             margin-top: 30px; }
             .block .collection .country .content .column-left .logo {
@@ -2678,7 +2681,7 @@ textarea:-ms-textarea-placeholder {
         margin: 43px 0 0 0;
         position: relative;
         z-index: 20; }
-        @media (max-width: 320px) {
+        @media (max-width: 640px) {
           .block .collection .country p {
             padding: 23px 0 0 0;
             margin: 0; } }
@@ -2704,7 +2707,7 @@ textarea:-ms-textarea-placeholder {
         bottom: 0px;
         left: -30px;
         background-repeat: no-repeat; }
-        @media (max-width: 320px) {
+        @media (max-width: 640px) {
           .block .collection .country .tea {
             margin-top: -55px;
             position: relative; } }
@@ -2830,7 +2833,7 @@ textarea:-ms-textarea-placeholder {
           height: 100%;
           float: left;
           position: relative; }
-          @media (max-width: 320px) {
+          @media (max-width: 640px) {
             .block .learn-more-popup-holder .learn-more-popup .content .column-right {
               display: none; } }
           .block .learn-more-popup-holder .learn-more-popup .content .column-right img {
@@ -2874,7 +2877,7 @@ form.select-gain .ui-selectmenu-button {
   font-family: 'PT Sans', 'Open Sans', Arial;
   font-size: 18px;
   margin-bottom: 20px; }
-  @media (max-width: 320px) {
+  @media (max-width: 640px) {
     form.select-gain .ui-selectmenu-button {
       width: 270px !important; } }
 
@@ -2894,7 +2897,7 @@ form.select-gain .ui-selectmenu-button {
   font-size: 18px;
   border: 0;
   margin: 0; }
-  @media (max-width: 320px) {
+  @media (max-width: 640px) {
     .ui-menu .ui-menu-item {
       height: 70px; } }
 
@@ -2966,7 +2969,7 @@ form.select-gain .ui-selectmenu-button {
   height: 287px;
   border-radius: 10px;
   z-index: 1001; }
-  @media (max-width: 320px) {
+  @media (max-width: 640px) {
     .error-block {
       left: inherit;
       margin-left: 0;
@@ -3081,7 +3084,7 @@ form label.error {
     width: 600px;
     height: 600px;
     border-radius: 10px; }
-    @media (max-width: 320px) {
+    @media (max-width: 640px) {
       .cropper-wrapper .cropper-holder, .sms-wrapper .cropper-holder, .profile-error-wrapper .cropper-holder {
         left: inherit !important;
         margin-left: 0 !important;
@@ -3147,7 +3150,7 @@ a.popup-close-cross {
   height: 38px;
   right: 30px;
   top: 30px; }
-  @media (max-width: 320px) {
+  @media (max-width: 640px) {
     a.popup-close-cross {
       width: 20px;
       height: 19px;
@@ -3334,7 +3337,7 @@ a.popup-close-cross {
 .footnote {
   font-size: 12px;
   margin-top: 30px; }
-  @media (max-width: 320px) {
+  @media (max-width: 640px) {
     .footnote {
       padding: 0 20px; } }
 
