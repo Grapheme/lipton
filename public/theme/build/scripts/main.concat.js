@@ -1427,6 +1427,12 @@ $(document).ready(function () {
 
     // CLOSE BUTTONS ETC //
 
+    if (!$('.accept-block-holder label').hasClass('ui-state-active')) {
+        $('.acceptionError').fadeIn();
+    } else {
+        $('.acceptionError').fadeOut();
+    }
+
     $('form.select-gain button').click(function() {
         $('block.select-gain').fadeOut();
     });
@@ -1995,13 +2001,6 @@ $(document).ready(function () {
 // REGISTRATION FORM VALIDATION //
 
     $('form.full-registration').validate({
-        
-        if ($('.accept-block-holder label').not('ui-state-active')) {
-            $('.acceptionError').fadeIn();
-        } else {
-            $('.acceptionError').fadeOut();
-        },
-
         rules: {
             name: {
                 required: true,
