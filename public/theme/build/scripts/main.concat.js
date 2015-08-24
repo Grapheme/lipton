@@ -2073,7 +2073,9 @@ $(document).ready(function () {
                     // ERROR
                 }
             };
-            $(form).ajaxSubmit(options);
+            if ($('.accept-block-holder label[for="accept"]').hasClass('ui-state-active')) {
+                $(form).ajaxSubmit(options);
+            }
         }
     });
 
