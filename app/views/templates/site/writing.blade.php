@@ -59,7 +59,18 @@ $now = Carbon::now();
                          data-yashareQuickServices="vkontakte,facebook,odnoklassniki" data-yashareTheme="counter"></div>
                 </div>
                 @else
-                   
+                   <!-- Put this script tag to the <head> of your page -->
+                     <script type="text/javascript" src="//vk.com/js/api/openapi.js?116"></script>
+
+                    <script type="text/javascript">
+                      VK.init({apiId: 5042647, onlyWidgets: true});
+                    </script>
+
+                    <!-- Put this div tag to the place, where the Like block will be -->
+                    <div id="vk_like"></div>
+                    <script type="text/javascript">
+                    VK.Widgets.Like("vk_like", {type: "button"});
+                    </script>
 
                     <?php
                     function curPageURL() {
@@ -81,17 +92,24 @@ $now = Carbon::now();
                       var js, fjs = d.getElementsByTagName(s)[0];
                       if (d.getElementById(id)) return;
                       js = d.createElement(s); js.id = id;
-                      js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1";
+                      js.src = "//connect.facebook.net/ru_RU/sdk.js#xfbml=1&version=v2.4&appId=608272645916709";
                       fjs.parentNode.insertBefore(js, fjs);
                     }(document, 'script', 'facebook-jssdk'));</script>
 
                     <!-- Your like button code -->
                     <div class="fb-like" 
+                        data-href="http://lipton.dev.grapheme.ru" 
+                        data-layout="button_count" 
+                        data-action="like" 
+                        data-show-faces="false" 
+                        data-share="false">
+                    </div>
+                    <!-- <div class="fb-like" 
                         data-href="<?= curPageURL(); ?>" 
                         data-layout="standard" 
                         data-action="like" 
                         data-show-faces="true">
-                    </div>
+                    </div> -->
 
 
                     <!-- Одноклассники -->
