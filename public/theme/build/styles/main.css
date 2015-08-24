@@ -1249,7 +1249,9 @@ textarea:-ms-textarea-placeholder {
       margin-left: -266px;
       width: 532px;
       height: 287px;
-      border-radius: 10px; }
+      border-radius: 10px;
+      left: inherit;
+      margin-left: 0; }
       @media (max-width: 320px) {
         .block.second-code-holder form.promo-code-2, .block.second-code-holder form.send-instructions, .block.second-code-holder form.select-gain, .block.send-instructions form.promo-code-2, .block.send-instructions form.send-instructions, .block.send-instructions form.select-gain, .block.story form.promo-code-2, .block.story form.send-instructions, .block.story form.select-gain, .block.select-gain form.promo-code-2, .block.select-gain form.send-instructions, .block.select-gain form.select-gain {
           position: relative;
@@ -1307,6 +1309,11 @@ textarea:-ms-textarea-placeholder {
         font-family: 'Intro';
         line-height: 47px;
         cursor: pointer; }
+        @media (max-width: 320px) {
+          .block.second-code-holder form.promo-code-2 button, .block.second-code-holder form.send-instructions button, .block.second-code-holder form.select-gain button, .block.send-instructions form.promo-code-2 button, .block.send-instructions form.send-instructions button, .block.send-instructions form.select-gain button, .block.story form.promo-code-2 button, .block.story form.send-instructions button, .block.story form.select-gain button, .block.select-gain form.promo-code-2 button, .block.select-gain form.send-instructions button, .block.select-gain form.select-gain button {
+            float: none;
+            margin: 0 auto;
+            display: block; } }
         .block.second-code-holder form.promo-code-2 button:hover, .block.second-code-holder form.send-instructions button:hover, .block.second-code-holder form.select-gain button:hover, .block.send-instructions form.promo-code-2 button:hover, .block.send-instructions form.send-instructions button:hover, .block.send-instructions form.select-gain button:hover, .block.story form.promo-code-2 button:hover, .block.story form.send-instructions button:hover, .block.story form.select-gain button:hover, .block.select-gain form.promo-code-2 button:hover, .block.select-gain form.send-instructions button:hover, .block.select-gain form.select-gain button:hover {
           background-color: #a40000;
           color: #c90119;
@@ -2840,6 +2847,22 @@ input.error {
   font-family: 'PT Sans', 'Open Sans', Arial;
   font-size: 18px;
   margin-bottom: 20px; }
+
+form.select-gain .ui-selectmenu-button {
+  width: 100% !important;
+  height: 50px;
+  border-radius: 3px;
+  border: 3px solid #ca0619;
+  padding: 14px 22px;
+  box-sizing: border-box;
+  background-color: rgba(255, 246, 186, 0.5) !important;
+  outline: 0;
+  font-family: 'PT Sans', 'Open Sans', Arial;
+  font-size: 18px;
+  margin-bottom: 20px; }
+  @media (max-width: 320px) {
+    form.select-gain .ui-selectmenu-button {
+      width: 270px; } }
 
 .ui-selectmenu-menu.ui-front.ui-selectmenu-open {
   width: 269px;
