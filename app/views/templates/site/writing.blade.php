@@ -72,28 +72,37 @@ $now = Carbon::now();
                     VK.Widgets.Like("vk_like", {type: "button"});
                     </script>
 
+                    <?php
+                    function curPageURL() {
+                       $pageURL = 'http';
+                       if ($_SERVER["HTTPS"] == "on") {$pageURL .= "s";}
+                       $pageURL .= "://";
+                       if ($_SERVER["SERVER_PORT"] != "80") {
+                          $pageURL .= $_SERVER["SERVER_NAME"].":".$_SERVER["SERVER_PORT"].$_SERVER["REQUEST_URI"];
+                      } else {
+                          $pageURL .= $_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"];
+                      }
+                      return $pageURL;
+                    }
+                    ?>
 
-                    <!-- 1. Include the JavaScript SDK on your page once, ideally right after the opening <body> tag. -->
-                    <!-- <div id="fb-root"></div>
-                    <script>(function(d, s, id) {
-                      var js, fjs = d.getElementsByTagName(s)[0];
-                      if (d.getElementById(id)) return;
-                      js = d.createElement(s); js.id = id;
-                      js.src = "//connect.facebook.net/ru_RU/sdk.js#xfbml=1&version=v2.4&appId=608272645916709";
-                      fjs.parentNode.insertBefore(js, fjs);
-                    }(document, 'script', 'facebook-jssdk'));</script> -->
+                    <!-- Load Facebook SDK for JavaScript -->
                     <div id="fb-root"></div>
                     <script>(function(d, s, id) {
                       var js, fjs = d.getElementsByTagName(s)[0];
                       if (d.getElementById(id)) return;
                       js = d.createElement(s); js.id = id;
-                      js.src = "//connect.facebook.net/ru_RU/sdk.js#xfbml=1&version=v2.4&appId=608272645916709";
+                      js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1";
                       fjs.parentNode.insertBefore(js, fjs);
                     }(document, 'script', 'facebook-jssdk'));</script>
 
-                    <!-- 2. Place the code for your plugin wherever you want the plugin to appear on your page. -->
-                    <!-- <div class="fb-like" data-href="http://www.promo-discovery.liptontea.ru" data-layout="button_count" data-action="like" data-show-faces="true" data-share="false"></div> -->
-                    <div class="fb-like" data-href="http://lipton.dev.grapheme.ru" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div>
+                    <!-- Your like button code -->
+                    <div class="fb-like" 
+                        data-href="<?= curPageURL(); ?>" 
+                        data-layout="standard" 
+                        data-action="like" 
+                        data-show-faces="true">
+                    </div>
 
 
                     <!-- Одноклассники -->
