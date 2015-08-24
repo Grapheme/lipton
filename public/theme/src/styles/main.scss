@@ -2173,8 +2173,9 @@ textarea:-ms-textarea-placeholder {
 			}
 
 			&:hover {
+				text-decoration: underline;
 				p {
-					text-decoration: underline !important;
+					text-decoration: none !important;
 				}
 			}
 
