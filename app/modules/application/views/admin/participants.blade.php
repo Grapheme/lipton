@@ -60,8 +60,8 @@
                             </p>
                             {{ Form::model($user,array('route'=>array('moderator.participants.save',$user['id']),'method'=>'post')) }}
                             {{ Form::checkbox('winner') }} Победитель
-                            {{ Form::select('number_week', array('1 неделя','2 неделя','3 неделя','4 неделя','5 неделя','6 неделя','7 неделя','8 неделя','9 неделя','10 неделя'), NULL, array('style'=>'width:130px;')) }}<br>
-                            {{ Form::button('Сохранить',array('class'=>'btn btn-success btn-xs','type'=>'submit','style'=>'margin-top:-4px;')) }}
+                            {{ Form::select('number_week', array('1 неделя','2 неделя','3 неделя','4 неделя','5 неделя','6 неделя','7 неделя','8 неделя','9 неделя','10 неделя'), NULL, array('style'=>'width:100px;')) }}<br>
+                            {{ Form::button('Сохранить',array('class'=>'btn btn-success btn-xs','type'=>'submit','style'=>'margin-top: 4px;')) }}
                             {{ Form::close() }}
                         </td>
                         <td style="vertical-align:top;">
