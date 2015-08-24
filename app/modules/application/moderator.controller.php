@@ -49,6 +49,7 @@ class ModeratorController extends BaseController {
 
     public function participantsList() {
 
+        $users = array();
         if (Input::has('search')):
             $users = Accounts::where('group_id', 4)
                 ->where(function ($query) {
@@ -61,11 +62,18 @@ class ModeratorController extends BaseController {
                 $users = UserCodes::groupBy('user_id')->with('users.ulogin', 'users.writing')->paginate(20);
             elseif (Input::get('filter_status') == 'writing'):
                 $users = UserWritings::groupBy('user_id')->with('users.ulogin', 'users.writing')->paginate(20);
+            elseif (Input::get('filter_status') == 'winners'):
+                if (Input::has('begin') && Input::has('end')):
+                    $begin = (new myDateTime())->setDateString(Input::get('begin'))->format('Y-m-d 00:00:00');
+                    $end = (new myDateTime())->setDateString(Input::get('end'))->format('Y-m-d 23:59:59');
+                    $users = Accounts::where('group_id', 4)->where('created_at', '>=', $begin)->where('created_at', '<=', $end)->orderBy('created_at', 'DESC')->with('ulogin', 'writing')->paginate();
+                else:
+                    $users = Accounts::where('group_id', 4)->where('winner', 1)->orderBy('number_week')->with('ulogin', 'writing')->paginate();
+                endif;
             endif;
         else:
             $users = Accounts::where('group_id', 4)->orderBy('created_at', 'DESC')->with('ulogin', 'writing')->paginate(20);
         endif;
-        $filter_status = '';
         return View::make($this->module['tpl'] . 'participants', compact('users'));
     }
 
