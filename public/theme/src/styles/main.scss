@@ -1128,6 +1128,12 @@ textarea:-ms-textarea-placeholder {
 		display: none;
 		z-index: 1000;
 
+		a.popup-close-cross {
+			@include mobile {
+				top: 160px;
+			}
+		}
+
 		.second-code-hack {
 			position: relative;
 			width: 1px;
@@ -1270,7 +1276,7 @@ textarea:-ms-textarea-placeholder {
 				cursor: pointer;
 
 				@include mobile {
-					float: none;
+					float: none !important;
 					margin: 0 auto;
 					display: block;
 				}
@@ -3387,7 +3393,7 @@ form.select-gain {
 		margin-bottom: 20px;
 
 		@include mobile {
-			width: 270px;
+			width: 270px !important;
 		}
 	}
 }
@@ -3409,6 +3415,10 @@ form.select-gain {
 	font-size: 18px;
 	border: 0;
 	margin: 0;
+
+	@include mobile {
+		height: 70px;
+	}
 }
 
 .ui-widget-content {
@@ -3726,6 +3736,15 @@ a.popup-close-cross {
 	height: 38px;
 	right: 30px;
 	top: 30px;
+
+	@include mobile {
+		width: 20px;
+		height: 19px;
+		background-size: 20px;
+		right: 15px;
+		top: 15px;
+		z-index: 10;
+	}
 }
 
 .sms-wrapper, .password-recovery-holder {
