@@ -69,14 +69,14 @@ endif;
                 <div class="block-left">
                     {{ $page->block('block-left') }}
                     <a href="{{ pageurl('auth') }}" class="involvement">Принять участие</a>
+                    <div class="footnote">
+                        <p>
+                            <sup>*</sup> Дискавери Колекшн
+                        </p>
+                    </div>
                 </div>
                 <div class="block-right">
                     {{ $page->block('block-right') }}
-                </div>
-                <div class="footnote">
-                    <p>
-                        <sup>*</sup> Дискавери Колекшн
-                    </p>
                 </div>
             </div>
         </div>
