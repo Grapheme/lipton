@@ -72,10 +72,10 @@ function curPageURL() {
                 </div>
                 @else
                 <div class="sharing-script clearfix">
-                    <div class="widget">
+                    <div class="widget" style="display: inline-block; width: 150px;">
                         <div id="vk_like"></div>
                     </div>
-                    <div class="widget">
+                    <div class="widget" style="display: inline-block; width: 150px;">
                         <div id="fb-root"></div>
                         <!-- Your like button code -->
                         <div class="fb-like" 
@@ -86,7 +86,7 @@ function curPageURL() {
                             data-share="false">
                         </div>
                     </div>
-                    <div class="widget">
+                    <div class="widget" style="display: inline-block; width: 150px;">
                         <div id="ok_shareWidget"></div>
                         <script>
                             !function (d, id, did, st) {
