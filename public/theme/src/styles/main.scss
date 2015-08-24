@@ -27,6 +27,12 @@ body {
 	background-size: initial, cover;
 	min-height: 1024px;
 
+	@include mobile {
+		background-image: url(../images/bg-main.jpg);
+		background-position: center 90px;
+		background-size: cover;
+	}
+
 	&.no-cup {
 		background-image: url(../images/bg-main.jpg);
 		background-position: center 90px;
@@ -1645,6 +1651,10 @@ textarea:-ms-textarea-placeholder {
 					&.avatar-hack {
 						margin-top: -35px;
 						margin-bottom: 30px;
+
+						@include mobile {
+							height: 130px;
+						}
 
 						.profile-info {
 							cursor: pointer;
@@ -3640,6 +3650,11 @@ form {
 		border-radius: 10px;
 
 		@include mobile {
+			    left: inherit;
+			    margin-left: 0;
+			    width: 310px;
+			    height: 372px;
+			    
 			.second-code-hack {
 				display: none;
 			}
