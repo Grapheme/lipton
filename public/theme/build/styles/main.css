@@ -1400,6 +1400,8 @@ textarea:-ms-textarea-placeholder {
         float: left;
         height: 100%;
         position: relative; }
+        .block .participate-block .forms-holder form.registration .avatar-hack, .block .participate-block .forms-holder form.profile-edit .avatar-hack {
+          height: 130px; }
         @media (max-width: 320px) {
           .block .participate-block .forms-holder form.registration, .block .participate-block .forms-holder form.profile-edit {
             width: 100%;
@@ -3084,30 +3086,19 @@ form label.error {
         left: inherit !important;
         margin-left: 0 !important;
         width: 310px !important;
-        height: 372px !important; }
-        .cropper-wrapper .cropper-holder .cropper-holder, .sms-wrapper .cropper-holder .cropper-holder, .profile-error-wrapper .cropper-holder .cropper-holder {
-          position: relative;
-          background-image: url("../images/bg-main.jpg");
-          width: 100%;
-          height: 600px;
-          border-radius: 10px; }
+        height: 440px !important; }
         .cropper-wrapper .cropper-holder a.popup-close-cross, .sms-wrapper .cropper-holder a.popup-close-cross, .profile-error-wrapper .cropper-holder a.popup-close-cross {
-          position: relative;
-          background-image: url("../images/bg-main.jpg");
-          display: block;
-          vertical-align: inherit;
-          left: 0;
-          margin-left: 0;
-          width: 21px;
-          height: 20px; }
+          display: none; }
         .cropper-wrapper .cropper-holder .cropper, .sms-wrapper .cropper-holder .cropper, .profile-error-wrapper .cropper-holder .cropper {
-          width: 320px;
-          height: auto; }
+          width: 300px;
+          height: auto;
+          margin-left: 5px; }
         .cropper-wrapper .cropper-holder .cropper-tools, .sms-wrapper .cropper-holder .cropper-tools, .profile-error-wrapper .cropper-holder .cropper-tools {
           width: auto;
           margin: 0 auto;
-          margin-top: 30px;
-          padding: 0 20px; } }
+          margin-top: 37px;
+          padding: 0;
+          width: 280px; } }
     .cropper-wrapper .cropper-holder .cropper, .sms-wrapper .cropper-holder .cropper, .profile-error-wrapper .cropper-holder .cropper {
       width: 400px;
       height: 400px;
