@@ -1566,6 +1566,13 @@ textarea:-ms-textarea-placeholder {
             display: block;
             margin: 0;
             font-size: 14px; }
+            .block .participate-block .forms-holder form.full-registration .accept-block-holder p.acceptionError, .block .participate-block .forms-holder form.profile-edit .accept-block-holder p.acceptionError {
+              display: none;
+              position: relative;
+              margin-bottom: -12px;
+              top: 0px;
+              color: #c90119;
+              font-size: 12px; }
         .block .participate-block .forms-holder form.full-registration button, .block .participate-block .forms-holder form.profile-edit button {
           display: block;
           width: 150px;
@@ -1820,7 +1827,8 @@ textarea:-ms-textarea-placeholder {
               transition: .1s all;
       font-family: 'Intro-regular';
       overflow: hidden;
-      margin-top: 2em; }
+      position: relative;
+      top: 2.5em; }
       @media (max-width: 320px) {
         .block .prize-gallery a.prize-link {
           width: 315px; } }
@@ -3276,11 +3284,3 @@ button.loading {
 
 input[name="login"], input[name="email"] {
   text-transform: lowercase !important; }
-
-p.acceptionError {
-  display: none;
-  position: relative;
-  margin-bottom: -12px;
-  top: -20px;
-  color: #c90119;
-  font-size: 12px; }
