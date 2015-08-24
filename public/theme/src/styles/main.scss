@@ -3099,6 +3099,17 @@ textarea:-ms-textarea-placeholder {
 					margin-top: 50px;
 				}
 			}
+			
+			@include mobile {
+				.text {
+					width: 200px;
+					margin-top: 20px;
+
+					&.translate {
+						font-size: 12px;
+					}
+				}
+			}
 
 			&:hover {
 				.photo {

@@ -2681,6 +2681,12 @@ textarea:-ms-textarea-placeholder {
           min-height: 180px; }
           .block .collection .country:first-child {
             margin-top: 50px; } }
+      @media (max-width: 640px) {
+        .block .collection .country .text {
+          width: 200px;
+          margin-top: 20px; }
+          .block .collection .country .text.translate {
+            font-size: 12px; } }
       .block .collection .country:hover .photo {
         box-shadow: 0px 0px 3px 0px inset, 0 0 0px 10px #c90119; }
       .block .collection .country .content {
