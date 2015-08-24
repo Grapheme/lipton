@@ -2044,7 +2044,7 @@ $(document).ready(function () {
                 success: function (data) {
                   $('form.full-registration button').html('Отправить');
                   $('form.full-registration button').removeClass('loading');
-                  if(!$('.accept-block-holder label').hasClass('ui-state-active') {
+                  if($('.accept-block-holder label').not('ui-state-active') {
                     $('.acceptionError').fadeIn();
                   }
                     if (data.status) {
