@@ -1816,12 +1816,12 @@ textarea:-ms-textarea-placeholder {
       border-style: solid;
       border-radius: 3px;
       text-transform: uppercase;
-      position: relative;
-      top: 2em;
       -webkit-transition: .1s all;
               transition: .1s all;
       font-family: 'Intro-regular';
-      overflow: hidden; }
+      overflow: hidden;
+      position: relative;
+      top: 2em; }
       @media (max-width: 320px) {
         .block .prize-gallery a.prize-link {
           width: 315px; } }
@@ -3279,9 +3279,9 @@ input[name="login"], input[name="email"] {
   text-transform: lowercase !important; }
 
 p.acceptionError {
-  display: none;
+  display: none !important;
   position: relative;
   margin-bottom: -12px;
-  top: -20px;
+  top: 0px;
   color: #c90119;
   font-size: 12px; }
