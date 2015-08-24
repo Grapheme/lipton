@@ -1816,11 +1816,12 @@ textarea:-ms-textarea-placeholder {
       border-style: solid;
       border-radius: 3px;
       text-transform: uppercase;
+      position: relative;
+      top: 2em;
       -webkit-transition: .1s all;
               transition: .1s all;
       font-family: 'Intro-regular';
-      overflow: hidden;
-      margin-top: 2em; }
+      overflow: hidden; }
       @media (max-width: 320px) {
         .block .prize-gallery a.prize-link {
           width: 315px; } }
