@@ -59,6 +59,7 @@ $now = Carbon::now();
                          data-yashareQuickServices="vkontakte,facebook,odnoklassniki" data-yashareTheme="counter"></div>
                 </div>
                 @else
+                <div class="sharing-script">
                     <!-- <script type="text/javascript" src="//vk.com/js/api/openapi.js?116"></script>
                     <script type="text/javascript">
                       VK.init({apiId: 5042647, onlyWidgets: true});
@@ -106,19 +107,12 @@ $now = Carbon::now();
 
                     <!-- Your like button code -->
                     <div class="fb-like" 
-                        data-href="http://lipton.dev.grapheme.ru" 
+                        data-href="<?= curPageURL(); ?>" 
                         data-layout="button_count" 
                         data-action="like" 
                         data-show-faces="false" 
                         data-share="false">
                     </div>
-                    <!-- <div class="fb-like" 
-                        data-href="<?= curPageURL(); ?>" 
-                        data-layout="standard" 
-                        data-action="like" 
-                        data-show-faces="true">
-                    </div> -->
-
 
                     <!-- Одноклассники -->
                     <div id="ok_shareWidget"></div>
@@ -139,8 +133,7 @@ $now = Carbon::now();
                     }(document,"ok_shareWidget","http://www.promo-discovery.liptontea.ru","{width:170,height:30,st:'straight',sz:20,ck:3}");
                     </script>
 
-
-                
+                </div>
                 @endif
             </div>
         </div>
