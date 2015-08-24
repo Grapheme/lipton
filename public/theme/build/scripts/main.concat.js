@@ -1426,9 +1426,6 @@ $(window).on('load', function () {
 $(document).ready(function () {
 
     // CLOSE BUTTONS ETC //
-    if (!$('.accept-block-holder label').hasClass('ui-state-active')) {
-        $('.acceptionError').fadeIn();
-    }
 
     $('form.select-gain button').click(function() {
         $('block.select-gain').fadeOut();
@@ -2042,6 +2039,9 @@ $(document).ready(function () {
             $('form.full-registration button').prepend('<i class="fa fa-circle-o-notch fa-spin"></i>')
             $('.erros-message-block').remove();
             $('.acceptionError').fadeOut();
+            if (!$('.accept-block-holder label').hasClass('ui-state-active')) {
+                $('.acceptionError').fadeIn();
+            }
 
             var options = {
                 success: function (data) {
