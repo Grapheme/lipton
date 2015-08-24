@@ -58,20 +58,29 @@ endif;
                             @endif
                         </div>
                         <div class="request">
-                            <div class="note"></div>
+                            <div class="note"> </div>
+
                             @if(isset($profile->writing->writing) && !empty($profile->writing->writing))
-                                <a href="javascript:void(0);">Конкурс рассказов</a>
-                                @if($profile->writing->status == 2)
+                                @if($profile->writing->status == 1)
+                                    <a href="{{ URL::route('show.participant.writing', $profile->writing->id.'-'.BaseController::stringTranslite(Auth::user()->name.'-'.Auth::user()->surname)) }}">Конкурс рассказов</a>
+                                    <div class="moderation positive">Ваш рассказ одобрен
+                                        <div class="bullet"></div>
+                                    </div>
+                                @elseif($profile->writing->status == 2)
+                                    <a href="{{ URL::route('show.participant.writing', $profile->writing->id.'-'.BaseController::stringTranslite(Auth::user()->name.'-'.Auth::user()->surname)) }}">Конкурс рассказов</a>
                                     <div class="moderation neutral">Ваш рассказ на модерации
                                         <div class="bullet"></div>
                                     </div>
-                                @elseif($profile->writing->status == 1)
-                                    <a class="watch" target="_blank"
-                                       href="{{ URL::route('show.participant.writing', $profile->writing->id.'-'.BaseController::stringTranslite(Auth::user()->name.'-'.Auth::user()->surname)) }}">Смотреть</a>
+                                @elseif($profile->writing->status == 3)
+                                    <a href="{{ URL::route('profile.tell-story') }}">Конкурс рассказов</a>
+                                    <div class="moderation neutral">Ваш рассказ отклонен. Попробуйте снова
+                                        <div class="bullet"></div>
+                                    </div>
                                 @endif
                             @else
-                                <a class="disabled-button" href="javascript:void(0);">Конкурс рассказов</a>
+                                <a href="{{ URL::route('profile.tell-story') }}">Конкурс рассказов</a>
                             @endif
+
                         </div>
                     </div>
                     <div class="profile-border"></div>
@@ -104,15 +113,6 @@ endif;
                         <div class="prize">
                             <div class="ico ngt"></div>
                             <p>Путешествие с national geographic traveler</p>
-                            @if(isset($profile->writing->status) && $profile->writing->status == 1)
-                                <a class="disabled-button">Одобрен</a>
-                            @elseif(isset($profile->writing->status) && $profile->writing->status == 2)
-                                <a class="disabled-button">Модерация</a>
-                            @elseif(isset($profile->writing->status) && $profile->writing->status == 3)
-                                <a href="{{ URL::route('profile.tell-story') }}">Изменить</a>
-                            @else
-                                <a href="{{ URL::route('profile.tell-story') }}">Написать</a>
-                            @endif
                         </div>
                     </div>
                 </div>
