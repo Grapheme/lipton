@@ -13,14 +13,14 @@ App::error(function (Exception $exception, $code) {
     switch ($code):
         case 403:
             return 'Access denied!';
-        /*
-		case 404:
-			#if(Page::where('seo_url','404')->exists()):
-			#	return spage::show('404',array('message'=>$exception->getMessage()));
-			#else:
-			#	return View::make('error404', array('message'=>$exception->getMessage()), 404);
-			#endif;
-        */
+
+        case 404:
+            return Redirect::route('mainpage');
+            #if(Page::where('seo_url','404')->exists()):
+            #	return spage::show('404',array('message'=>$exception->getMessage()));
+            #else:
+            #	return View::make('error404', array('message'=>$exception->getMessage()), 404);
+            #endif;
     endswitch;
 
     if (View::exists(Helper::layout($code)))
@@ -33,10 +33,12 @@ App::missing(function ($exception) {
     #Helper::classInfo('Route');
     #Helper::dd(get_declared_classes());
 
+    return Redirect::route('mainpage');
+
 //    return Redirect::to('/', 301);
 
-    $tpl = View::exists(Helper::layout('404')) ? Helper::layout('404') : 'error404';
-    return Response::view($tpl, array('message' => $exception->getMessage()), 404);
+//    $tpl = View::exists(Helper::layout('404')) ? Helper::layout('404') : 'error404';
+//    return Response::view($tpl, array('message' => $exception->getMessage()), 404);
 });
 
 Route::filter('auth', function () {
