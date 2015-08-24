@@ -14,6 +14,10 @@
 	}
 }
 
+.clearfix {
+	clear: both;
+}
+
 .first-preloader-image {
 	width: 1px;
 	height: 1px;
@@ -246,7 +250,7 @@ textarea:-ms-textarea-placeholder {
 			@include mobile {
 				float: none;
 				text-align: center;
-				margin: 20px auto;
+				margin: 10px auto;
 			}
 
 			a {
@@ -265,6 +269,12 @@ textarea:-ms-textarea-placeholder {
 				height: 18px;
 				line-height: 18px;
 				vertical-align: middle;
+				height: 25px;
+				display: block;
+
+				@include mobile {
+					margin-left: 0;
+				}
 
 
 				&:first-child {
@@ -285,6 +295,10 @@ textarea:-ms-textarea-placeholder {
 					background-color: #ffffae;
 					top: 5px;
 					left: -18px;
+
+					@include mobile {
+						display: none;
+					}
 				}
 			}
 		}
@@ -397,7 +411,7 @@ textarea:-ms-textarea-placeholder {
 
 		@include mobile {
 			width: 320px !important;
-			margin: 0 auto;
+			margin: 0 auto !important;
 		}
 	}
 
