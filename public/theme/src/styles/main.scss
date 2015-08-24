@@ -3898,10 +3898,10 @@ input[name="login"], input[name="email"] {
 }
 
 p.acceptionError {
-	display: none;
+	display: none !important;
 	position: relative;
 	margin-bottom: -12px;
-	top: -20px;
+	top: 0px;
 	color: #c90119;
 	font-size: 12px;
 }
