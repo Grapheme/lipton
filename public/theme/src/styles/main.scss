@@ -3,7 +3,7 @@
 // endbower
 
 @mixin mobile {
-	@media (max-width: 320px) {
+	@media (max-width: 640px) {
 		@content;
 	}
 }
@@ -2542,6 +2542,10 @@ textarea:-ms-textarea-placeholder {
     			display: block;
     			cursor: pointer;
     			color: #c90119;
+
+    			@include mobile {
+    				display: none;
+    			}
 
 				&:hover {
 					text-decoration: none;
