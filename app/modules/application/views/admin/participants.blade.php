@@ -217,7 +217,7 @@ $end = $now->endOfWeek()->format('d.m.Y')
                     </div>
                 </fieldset>
                 <footer>
-                    <button type="submit" class="btn btn-primary" style="float: left">Выполнить</button>
+                    <button type="submit" id="js-btn-likes" class="btn btn-primary" style="float: left">Выполнить</button>
                 </footer>
                 {{ Form::close() }}
             </div>
@@ -238,20 +238,23 @@ $end = $now->endOfWeek()->format('d.m.Y')
         $('#js-question-likes').click(function (event) {
             event.preventDefault();
             $('#overlay').fadeIn(400,
-                    function () {
-                        $('#question-likes-modal')
-                                .css('display', 'block')
-                                .animate({opacity: 1, top: '50%'}, 200);
-                    });
+                function () {
+                    $('#question-likes-modal')
+                            .css('display', 'block')
+                            .animate({opacity: 1, top: '50%'}, 200);
+                });
         });
         $('#modal_close, #overlay').click(function () {
             $('#modal_form')
-                    .animate({opacity: 0, top: '45%'}, 200,
-                    function () {
-                        $(this).css('display', 'none');
-                        $('#overlay').fadeOut(400);
-                    }
+                .animate({opacity: 0, top: '45%'}, 200,
+                function () {
+                    $(this).css('display', 'none');
+                    $('#overlay').fadeOut(400);
+                }
             );
+        });
+        $("#js-btn-likes").click(function(){
+            $(this).addClass('disabled').html('Ожидайте ...');
         });
     </script>
 @stop
