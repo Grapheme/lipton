@@ -13,6 +13,7 @@
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4">
             {{ Form::open(array('route'=>'moderator.participants','class' => 'smart-form', 'style' => 'margin-bottom:20px;', 'method'=>'get')) }}
             {{ Form::hidden('filter_status','winners') }}
+            <header>Фильтр по дате регистрации</header>
             <fieldset>
                 <div class="row">
                     <section class="col col-4">
