@@ -9,6 +9,18 @@ $text = $writing->writing;
 
 $bdate = new Carbon($user->bdate);
 $now = Carbon::now();
+
+function curPageURL() {
+   $pageURL = 'http';
+   if (@$_SERVER["HTTPS"] == "on") {$pageURL .= "s";}
+   $pageURL .= "://";
+   if (@$_SERVER["SERVER_PORT"] != "80") {
+      $pageURL .= @$_SERVER["SERVER_NAME"].":".@$_SERVER["SERVER_PORT"].@$_SERVER["REQUEST_URI"];
+  } else {
+      $pageURL .= @$_SERVER["SERVER_NAME"].@$_SERVER["REQUEST_URI"];
+  }
+  return $pageURL;
+}
 ?>
 @extends(Helper::layout())
 @section('meta_og')
@@ -94,20 +106,6 @@ $now = Carbon::now();
                     <script type="text/javascript">
                         VK.Widgets.Like("vk_like", {type: "button"});
                     </script>
-
-                    <?php
-                    function curPageURL() {
-                       $pageURL = 'http';
-                       if (@$_SERVER["HTTPS"] == "on") {$pageURL .= "s";}
-                       $pageURL .= "://";
-                       if (@$_SERVER["SERVER_PORT"] != "80") {
-                          $pageURL .= @$_SERVER["SERVER_NAME"].":".@$_SERVER["SERVER_PORT"].@$_SERVER["REQUEST_URI"];
-                      } else {
-                          $pageURL .= @$_SERVER["SERVER_NAME"].@$_SERVER["REQUEST_URI"];
-                      }
-                      return $pageURL;
-                    }
-                    ?>
 
                     <!-- Load Facebook SDK for JavaScript -->
                     <script>(function(d, s, id) {
