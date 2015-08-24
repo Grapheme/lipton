@@ -16,6 +16,8 @@ class AddUsersFields extends Migration {
 			$table->text('sessionKey')->nullable();
 			$table->integer('winner')->unsigned()->default(0)->nullable();
 			$table->integer('number_week')->unsigned()->default(0)->nullable();
+			$table->integer('total_likes')->unsigned()->default(0)->nullable();
+			$table->string('total_extend', 100)->nullable();
 		});
 	}
 
@@ -28,6 +30,8 @@ class AddUsersFields extends Migration {
 			$table->dropColumn('sessionKey');
 			$table->dropColumn('winner');
 			$table->dropColumn('number_week');
+			$table->dropColumn('total_likes');
+			$table->dropColumn('total_extend');
 		});
 	}
 }

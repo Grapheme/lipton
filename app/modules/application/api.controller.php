@@ -773,7 +773,7 @@ class ApiController extends BaseController {
         $uri_request = "http://grapheme.ru/likes.php";
         $result = self::postCurl($uri_request, $params, FALSE);
         if ($this->validCode($result, 200)):
-            return $result['curl_result'];
+            return json_decode($result['curl_result'], TRUE);
         else:
             return 0;
         endif;
