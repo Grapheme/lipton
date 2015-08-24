@@ -1445,6 +1445,10 @@ $(document).ready(function () {
         $('body').addClass('no-cup');
     }
 
+    if (window.location.pathname == '/participant') {
+        $('body').addClass('no-cup');
+    }
+
     $('.ico-burger').click(function () {
         $('.right-menu-holder').slideToggle(function () {
             $('.ico-burger').toggleClass('close-ico');
