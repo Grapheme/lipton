@@ -61,7 +61,11 @@ $(document).ready(function () {
         $('.password-recovery-holder').fadeOut();
     });
 
-    if ((window.location.pathname == '/') || (window.location.pathname == '/participant') ||  (window.location.pathname == '/countries') || (window.location.pathname == '/gallery-prizes')) {
+    if ((window.location.pathname == '/') ||
+        (window.location.pathname == '/participant') ||
+        (window.location.pathname == '/countries') ||
+        (window.location.pathname == '/gallery-prizes')) {
+
         $('body').addClass('no-cup');
     }
 
@@ -809,8 +813,9 @@ $('form.password-recovery-form').validate({
         success: function(data){
           if(data.status) {}
           if(data.responseText != ''){
-            $('.password-recovery-holder .error-block .recovery-message-text').append(data.responseText);
-            $('.password-recovery-holder .error-block .recovery-message-text').fadeIn();
+            $('.password-recovery-holder .error-block #js-profile-error').append(data.responseText);
+            $('.profile-error-wrapper').fadeIn();
+            $('.password-recovery-holder').fadeOut();
           }
           $('form.password-recovery-form button').html('Отправить');
           $('form.password-recovery-form button').removeClass('loading');
