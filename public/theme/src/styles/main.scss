@@ -1391,7 +1391,7 @@ textarea:-ms-textarea-placeholder {
 
 
 				.avatar-hack {
-					height: 130px;
+					height: 130px !important;
 				}
 
 				@include mobile {
@@ -1660,6 +1660,7 @@ textarea:-ms-textarea-placeholder {
 					&.avatar-hack {
 						margin-top: -35px;
 						margin-bottom: 30px;
+						height: 130px !important;
 
 						@include mobile {
 							height: 130px;
