@@ -577,11 +577,11 @@ textarea:-ms-textarea-placeholder {
       height: 18px;
       line-height: 18px;
       vertical-align: middle;
-      height: 25px;
-      display: block; }
+      height: 25px; }
       @media (max-width: 640px) {
         .sub-footer .sharing-block li {
-          margin-left: 0; } }
+          margin-left: 0;
+          display: block; } }
       .sub-footer .sharing-block li:first-child {
         margin-left: 0; }
         .sub-footer .sharing-block li:first-child:before {
