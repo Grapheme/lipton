@@ -406,16 +406,18 @@ $(document).ready(function () {
             },
             password: {
                 required: true,
-                minlength: 4
+                minlength: 4,
             }
         },
 
         messages: {
             login: {
                 required: 'Необходимо заполнить это поле!',
+                email: 'Проверте правильность адреса',
             },
             password: {
                 required: 'Необходимо заполнить это поле!',
+                minlength: 'Cлишком короткий пароль',
             }
         },
         submitHandler: function (form) {
