@@ -3063,6 +3063,18 @@ form label.error {
   font-weight: bold;
   background-color: rgba(201, 1, 25, 0.3);
   margin-top: 20px; }
+  .erros-message-block.success-message {
+    background-color: rgba(1, 201, 8, 0.3); }
+    .erros-message-block.success-message:before {
+      margin-top: -5px;
+      content: '';
+      display: block;
+      position: relative;
+      width: 28px;
+      height: 28px;
+      background-image: url("../images/ico-error.png");
+      float: left;
+      margin-right: 10px; }
   @media (max-width: 640px) {
     .erros-message-block {
       box-sizing: border-box; } }
