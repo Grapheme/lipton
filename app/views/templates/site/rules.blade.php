@@ -20,7 +20,7 @@
                     </div>
                     <div class="rule-item rule-2">
                         <div class="rule-img"></div>
-                        <h3>Зарегистрируйте код из-под крышки на&nbsp;сайте</h3>
+                        <h3>Зарегистрируйте на&nbsp;сайте код <nobr>из-под крышки</nobr></h3>
                     </div>
                     <div class="rule-item rule-3">
                         <div class="rule-img"></div>
