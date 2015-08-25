@@ -396,45 +396,6 @@ $(document).ready(function () {
         }
     });
 
-// PROFILE-FORM CODE VALIDATION //
-
-    // $('form.profile-promo-code').validate({
-    //   rules: {
-    //     promoCode2: {
-    //       required: true,
-    //     }
-    //   },
-
-    //   messages: {
-    //     promoCode2: {
-    //       required: "Необходимо заполнить поле",
-    //     }
-    //   },
-
-    //   submitHandler: function(form) {
-    //     // $('form.profile-promo-code button').html('');
-    //     $('form.profile-promo-code button').addClass('loading');
-    //     $('form.profile-promo-code button').html('<i class="fa fa-circle-o-notch fa-spin"></i>')
-    //     var options = {
-    //       success: function(data){
-
-    //           if(data.redirectURL) {
-    //             function goToCabinet () {
-    //               window.location.href = data.redirectURL;
-    //             };
-    //             setTimeout(goToCabinet, 3000);
-    //           }
-    //       },
-    //       error: function(data) {
-    //         $('form.profile-promo-code button').html('Отправить');
-    //         $('form.profile-promo-code button').removeClass('loading');
-    //         // ERROR
-    //       }
-    //     };
-    //     $(form).ajaxSubmit(options);
-    //   }
-    // });
-
 // LOGIN FORM VALIDATION //
 
     $('form.registration').validate({
@@ -753,8 +714,6 @@ $(document).ready(function () {
                 success: function (data) {
                     if (data.status) {
                         if (userPhone != userPhoneNew) {
-                            // $('#js-sms-again').click(false);
-                            // $("#msg-sms-response").html('');
                             $('.sms-wrapper').fadeIn();
                         } else {
                             if (data.redirectURL) {
@@ -864,54 +823,6 @@ $('form.password-recovery-form').validate({
     }
   });
 
-// MOSAIC //
-
-    // function mosaicBlink() {
-    //   $('.mosaic .mosaic-blured').fadeIn();
-    //   var mosaicTotal = $('.mosaic').length;
-
-    //     //в условие цикла цисло активных блоков
-
-    //   for (randomArray = 0; randomArray < 10; randomArray++ ) {
-    //     var randomMosaic = Math.floor(Math.random() * (mosaicTotal - 0 + 1)) + 0;
-    //     $('.mosaic .mosaic-blured').eq(randomMosaic).fadeOut();
-    //   }
-    //     setTimeout(mosaicBlink, 5000);
-    // }
-
-    // function mosaicBuild() {
-
-    //   var winnersWidth = $('.mosaic-holder').outerWidth();
-    //   var winnersHeight = $('.mosaic-holder').outerHeight();
-    //   var mosaicHorisontal = Math.ceil(winnersWidth / 100);
-    //   var mosaicVertical = Math.ceil(winnersHeight / 100);
-    //   var curentMosaic = 0;
-    //   var mosaicRows = 0;
-
-    //   do {
-    //   var $row = $('<div class="mosaic-row"></div>').appendTo($('.mosaic-fuckup'));
-    //   mosaicRows++;
-    //   curentMosaic = 1;
-
-    //     do {
-    //       $row.append('<div class="mosaic"><div class="mosaic-blured" style="background-position: -'+ (curentMosaic) * 75 + 'px -' + (mosaicRows-1) * 75 +'px"></div></div>');
-    //       curentMosaic++;
-    //     }
-    //     while (curentMosaic <= mosaicHorisontal);
-
-    //   }
-    //   while (mosaicRows <= mosaicVertical);
-
-    //   // mosaicBlink();
-    // }
-
-    // $(window).resize(function(){
-    //   $('.mosaic-fuckup').html('');
-    //   // mosaicBuild();
-    // });
-
-    // mosaicBuild();
-/////////
     function parseHash() {
         var hash = window.location.hash;
         if (hash == '#promo') {
@@ -949,11 +860,6 @@ $('form.password-recovery-form').validate({
             autoplay: true,
         });
     });
-
-    // CROPPER //
-    /*$('.accept-block-holder.avatar-hack').click(function() {
-     $('.cropper-wrapper').fadeIn();
-     });*/
 
     $('.cropper-wrapper .popup-close-cross, .cropper-wrapper .save').click(function () {
         $('.cropper-wrapper').fadeOut();
