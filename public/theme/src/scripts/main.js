@@ -61,7 +61,7 @@ $(document).ready(function () {
         $('.password-recovery-holder').fadeOut();
     });
 
-    if ((window.location.pathname == '/') || (window.location.pathname == '/participant') ||  (window.location.pathname == '/countries')) {
+    if ((window.location.pathname == '/') || (window.location.pathname == '/participant') ||  (window.location.pathname == '/countries') || (window.location.pathname == '/gallery-prizes')) {
         $('body').addClass('no-cup');
     }
 

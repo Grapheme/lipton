@@ -84,7 +84,7 @@ endif;
                         </div>
                     </div>
                     <div class="profile-border"></div>
-                    <h3>Полученные призы</h3>
+                    <h3>Галерея призов</h3>
 
                     <div class="gained-prizes">
                         <div class="prize">
