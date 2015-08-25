@@ -3465,5 +3465,5 @@ input[name="login"], input[name="email"] {
     #acceptCheckbox-error {
       top: 100px !important; } }
 
-.form.sms-chesk label {
+form.sms-chesk label#code-error {
   top: -8px; }
