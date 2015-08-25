@@ -93,7 +93,7 @@ endif;
                                 <p>{{ $prizes['LiptonLinguaLeoForTravellers']['displayName'] }}</p>
                                 <a class="disabled-button">Получен</a>
                             @else
-                            <p>ОНЛАЙН КУРС «АНГЛИЙСКИЙ ДЛЯ ТУРИСТОВ»</p>
+                            <p>Онлайн курс «Английский для туристов»</p>
                             @endif
                         </div>
                         <div class="prize">
