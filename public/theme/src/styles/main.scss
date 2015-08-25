@@ -4111,8 +4111,8 @@ input[name="login"], input[name="email"] {
     }
 }
 
-.form.sms-chesk {
-	label {
+form.sms-chesk {
+	label#code-error {
 		top: -8px;
 	}
 }
