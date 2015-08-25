@@ -93,21 +93,21 @@ endif;
                                 <p>{{ $prizes['LiptonLinguaLeoForTravellers']['displayName'] }}</p>
                                 <a class="disabled-button">Получен</a>
                             @else
-                            <p>Курс английского для путешественников</p>
+                            <p>ОНЛАЙН КУРС «АНГЛИЙСКИЙ ДЛЯ ТУРИСТОВ»</p>
                             @endif
                         </div>
                         <div class="prize">
                             <div class="ico spec"></div>
                             @if(count($prizes) > 1)
                                 @if(isset($prizes['LinguaLeo.LotteryTicket']) && empty($prizes['LinguaLeo.LotteryTicket']['certificateCode']))
-                                <p>Cпецкурс<br>на выбор</p>
+                                <p>ОНЛАЙН КУРС<br>НА ВЫБОР</p>
                                 <a href="javascript:void(0);" class="js-select-certificates">Получить</a>
                                 @elseif(isset($second_prize))
                                 <p>{{ $second_prize['displayName']; }}</p>
                                 <a class="disabled-button">Получен</a>
                                 @endif
                             @else
-                                <p>Онлайн курс<br>на выбор</p>
+                                <p>ОНЛАЙН КУРС<br>НА ВЫБОР</p>
                             @endif
                         </div>
                         <div class="prize">
