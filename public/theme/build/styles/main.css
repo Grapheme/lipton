@@ -1421,7 +1421,7 @@ textarea:-ms-textarea-placeholder {
         height: 100%;
         position: relative; }
         .block .participate-block .forms-holder form.registration .avatar-hack, .block .participate-block .forms-holder form.profile-edit .avatar-hack {
-          height: 130px; }
+          height: 130px !important; }
         @media (max-width: 640px) {
           .block .participate-block .forms-holder form.registration, .block .participate-block .forms-holder form.profile-edit {
             width: 100%;
@@ -1626,7 +1626,8 @@ textarea:-ms-textarea-placeholder {
               height: 115px; } }
           .block .participate-block .forms-holder form.full-registration .accept-block-holder.avatar-hack, .block .participate-block .forms-holder form.profile-edit .accept-block-holder.avatar-hack {
             margin-top: -35px;
-            margin-bottom: 30px; }
+            margin-bottom: 30px;
+            height: 130px !important; }
             @media (max-width: 640px) {
               .block .participate-block .forms-holder form.full-registration .accept-block-holder.avatar-hack, .block .participate-block .forms-holder form.profile-edit .accept-block-holder.avatar-hack {
                 height: 130px; } }
