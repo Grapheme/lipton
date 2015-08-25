@@ -3464,3 +3464,6 @@ input[name="login"], input[name="email"] {
   @media (max-width: 640px) {
     #acceptCheckbox-error {
       top: 100px !important; } }
+
+.form.sms-chesk label {
+  top: -8px; }
