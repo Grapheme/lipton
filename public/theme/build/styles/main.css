@@ -3061,9 +3061,9 @@ form label.error {
 .erros-message-block {
   width: 100%;
   padding: 11px 20px;
-  font-weight: bold;
   background-color: rgba(201, 1, 25, 0.3);
-  margin-top: 20px; }
+  margin-top: 20px;
+  line-height: 28px; }
   .erros-message-block.success-message {
     background-color: rgba(1, 201, 8, 0.3); }
     .erros-message-block.success-message:before {
