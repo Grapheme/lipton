@@ -107,12 +107,12 @@ endif;
                                 <a class="disabled-button">Получен</a>
                                 @endif
                             @else
-                                <p>Cпецкурс<br>на выбор</p>
+                                <p>Онлайн курс<br>на выбор</p>
                             @endif
                         </div>
                         <div class="prize">
                             <div class="ico ngt"></div>
-                            <p>Путешествие с national geographic traveler</p>
+                            <p>Путешествие с National geographic Traveler</p>
                         </div>
                     </div>
                 </div>

@@ -20,7 +20,7 @@ return array(
     'send_local_messages' => FALSE,
 
     'certificates' => array(
-        'LiptonLinguaLeoForTravellers' => 'Курс английского для путешественников',
+        'LiptonLinguaLeoForTravellers' => 'Онлайн курс «Английский для туристов»',
         'LiptonLinguaLeoGrammarBeginners' => 'Курс грамматики для начинающих',
         'LiptonLinguaEGE' => 'Курс ЕГЭ',
         'LiptonLinguaLeoEnglishBeginners' => 'Курс английского для начинающих',
