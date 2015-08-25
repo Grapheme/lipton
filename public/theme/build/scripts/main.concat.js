@@ -1944,7 +1944,7 @@ $(document).ready(function () {
                 success: function (data) {
                     if (data.status) {
                         $('form.feedback').html('');
-                        $('form.feedback').append('<div class="erros-message-block">' + data.responseText + '</div>');
+                        $('form.feedback').append('<div class="erros-message-block success-message">' + data.responseText + '</div>');
                     } else {
                         $('form.feedback').append('<div class="erros-message-block">' + data.responseText + '</div>');
                     }
