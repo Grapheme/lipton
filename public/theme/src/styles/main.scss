@@ -4137,11 +4137,15 @@ form.sms-chesk {
 // SOCIAL SHARING CUSTOMISATION 
 
 .sharing-script .b-share_theme_counter .b-share_type_small .b-share__link {
-	border: 0;
+	border: 0 !important;
 }
 
 .sharing-script .b-share_theme_counter .b-share-btn__vkontakte {
 	background-color: #c90119;
+
+	.b-share-icon {
+		background-image: url('../images/ico-vk-y-red.png');
+	}
 
 	&:hover {
 		background-color: #c90119;
@@ -4151,6 +4155,10 @@ form.sms-chesk {
 .sharing-script .b-share_theme_counter .b-share-btn__facebook {
 	background-color: #c90119;
 
+	.b-share-icon {
+		background-image: url('../images/ico-fb-y-red.png');
+	}
+
 	&:hover {
 		background-color: #c90119;
 	}
@@ -4159,7 +4167,15 @@ form.sms-chesk {
 .sharing-script .b-share_theme_counter .b-share-btn__odnoklassniki {
 	background-color: #c90119;
 
+	.b-share-icon {
+		background-image: url('../images/ico-ok-y-red.png');
+	}
+
 	&:hover {
 		background-color: #c90119;
 	}
+}
+
+.sharing-script .b-share_theme_counter .b-share_type_small .b-share-counter {
+	color: #FEF18B !important;
 }
