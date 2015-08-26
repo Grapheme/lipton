@@ -335,12 +335,17 @@ textarea:-ms-textarea-placeholder {
 				display: block;
 				float: left;
 				height: 18px;
+				
+				p {
+					margin: 0;
+					clear: both;
+				}
 
 				@include mobile {
 					float: none;
 					height: 63px;
 					position: inherit;
-					width: 135px;
+					width: 140px;
 					margin: 0 auto;
 				}
 			}
@@ -463,6 +468,11 @@ textarea:-ms-textarea-placeholder {
 				height: 79px;
 				background: url('../images/logo-lipton.png');
 				margin: 0 auto;
+
+				@include mobile {
+					position: relative;
+					left: -3px;
+				}
 			}
 		}
 
@@ -529,7 +539,7 @@ textarea:-ms-textarea-placeholder {
 
 				@include mobile320 {
 					position: absolute;
-					left: -143px;
+					left: -150px !important;
 				}
 
 				@include mobile {
@@ -3873,6 +3883,10 @@ a.popup-close-cross {
 			font-size: 18px;
 			text-transform: lowercase;
 			margin-bottom: 10px;
+
+			@include mobile {
+				width: 90%;
+			}
 		}
 
 		button {
@@ -4115,5 +4129,35 @@ input[name="login"], input[name="email"] {
 form.sms-chesk {
 	label#code-error {
 		top: -8px;
+	}
+}
+
+// SOCIAL SHARING CUSTOMISATION 
+
+.b-share_theme_counter .b-share_type_small .b-share__link {
+	border: 0;
+}
+
+.b-share_theme_counter .b-share-btn__vkontakte {
+	background-color: #c90119;
+
+	&:hover {
+		background-color: #c90119;
+	}
+}
+
+.b-share_theme_counter .b-share-btn__facebook {
+	background-color: #c90119;
+
+	&:hover {
+		background-color: #c90119;
+	}
+}
+
+.b-share_theme_counter .b-share-btn__odnoklassniki {
+	background-color: #c90119;
+
+	&:hover {
+		background-color: #c90119;
 	}
 }
