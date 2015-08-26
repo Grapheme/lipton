@@ -335,10 +335,12 @@ textarea:-ms-textarea-placeholder {
 				display: block;
 				float: left;
 				height: 18px;
+				width: 210px;
 				
 				p {
 					margin: 0;
 					clear: both;
+					float: left;
 				}
 
 				@include mobile {
@@ -4134,11 +4136,11 @@ form.sms-chesk {
 
 // SOCIAL SHARING CUSTOMISATION 
 
-.b-share_theme_counter .b-share_type_small .b-share__link {
+.sharing-script .b-share_theme_counter .b-share_type_small .b-share__link {
 	border: 0;
 }
 
-.b-share_theme_counter .b-share-btn__vkontakte {
+.sharing-script .b-share_theme_counter .b-share-btn__vkontakte {
 	background-color: #c90119;
 
 	&:hover {
@@ -4146,7 +4148,7 @@ form.sms-chesk {
 	}
 }
 
-.b-share_theme_counter .b-share-btn__facebook {
+.sharing-script .b-share_theme_counter .b-share-btn__facebook {
 	background-color: #c90119;
 
 	&:hover {
@@ -4154,7 +4156,7 @@ form.sms-chesk {
 	}
 }
 
-.b-share_theme_counter .b-share-btn__odnoklassniki {
+.sharing-script .b-share_theme_counter .b-share-btn__odnoklassniki {
 	background-color: #c90119;
 
 	&:hover {
