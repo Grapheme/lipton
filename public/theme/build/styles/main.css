@@ -3484,25 +3484,31 @@ form.sms-chesk label#code-error {
   border: 0 !important; }
 
 .sharing-script .b-share_theme_counter .b-share-btn__vkontakte {
-  background-color: #c90119; }
+  background-color: #EB0013; }
   .sharing-script .b-share_theme_counter .b-share-btn__vkontakte .b-share-icon {
-    background-image: url("../images/ico-vk-y-red.png"); }
+    background-image: url("../images/ico-vk-y-red.png");
+    background-size: 18px;
+    background-position: 0; }
   .sharing-script .b-share_theme_counter .b-share-btn__vkontakte:hover {
-    background-color: #c90119; }
+    background-color: #EB0013; }
 
 .sharing-script .b-share_theme_counter .b-share-btn__facebook {
-  background-color: #c90119; }
+  background-color: #EB0013; }
   .sharing-script .b-share_theme_counter .b-share-btn__facebook .b-share-icon {
-    background-image: url("../images/ico-fb-y-red.png"); }
+    background-image: url("../images/ico-fb-y-red.png");
+    background-size: 18px;
+    background-position: 0; }
   .sharing-script .b-share_theme_counter .b-share-btn__facebook:hover {
-    background-color: #c90119; }
+    background-color: #EB0013; }
 
 .sharing-script .b-share_theme_counter .b-share-btn__odnoklassniki {
-  background-color: #c90119; }
+  background-color: #EB0013; }
   .sharing-script .b-share_theme_counter .b-share-btn__odnoklassniki .b-share-icon {
-    background-image: url("../images/ico-ok-y-red.png"); }
+    background-image: url("../images/ico-ok-y-red.png");
+    background-size: 18px;
+    background-position: 0; }
   .sharing-script .b-share_theme_counter .b-share-btn__odnoklassniki:hover {
-    background-color: #c90119; }
+    background-color: #EB0013; }
 
 .sharing-script .b-share_theme_counter .b-share_type_small .b-share-counter {
   color: #FEF18B !important; }
