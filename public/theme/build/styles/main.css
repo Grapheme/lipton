@@ -3512,3 +3512,6 @@ form.sms-chesk label#code-error {
 
 .sharing-script .b-share_theme_counter .b-share_type_small .b-share-counter {
   color: #FEF18B !important; }
+
+.sharing-script .b-share-btn__counter {
+  border-radius: 0 !important; }
