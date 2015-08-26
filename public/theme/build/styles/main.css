@@ -624,10 +624,12 @@ textarea:-ms-textarea-placeholder {
     .sub-footer .sharing-links span {
       display: block;
       float: left;
-      height: 18px; }
+      height: 18px;
+      width: 210px; }
       .sub-footer .sharing-links span p {
         margin: 0;
-        clear: both; }
+        clear: both;
+        float: left; }
       @media (max-width: 640px) {
         .sub-footer .sharing-links span {
           float: none;
@@ -3478,20 +3480,20 @@ input[name="login"], input[name="email"] {
 form.sms-chesk label#code-error {
   top: -8px; }
 
-.b-share_theme_counter .b-share_type_small .b-share__link {
+.sharing-script .b-share_theme_counter .b-share_type_small .b-share__link {
   border: 0; }
 
-.b-share_theme_counter .b-share-btn__vkontakte {
+.sharing-script .b-share_theme_counter .b-share-btn__vkontakte {
   background-color: #c90119; }
-  .b-share_theme_counter .b-share-btn__vkontakte:hover {
+  .sharing-script .b-share_theme_counter .b-share-btn__vkontakte:hover {
     background-color: #c90119; }
 
-.b-share_theme_counter .b-share-btn__facebook {
+.sharing-script .b-share_theme_counter .b-share-btn__facebook {
   background-color: #c90119; }
-  .b-share_theme_counter .b-share-btn__facebook:hover {
+  .sharing-script .b-share_theme_counter .b-share-btn__facebook:hover {
     background-color: #c90119; }
 
-.b-share_theme_counter .b-share-btn__odnoklassniki {
+.sharing-script .b-share_theme_counter .b-share-btn__odnoklassniki {
   background-color: #c90119; }
-  .b-share_theme_counter .b-share-btn__odnoklassniki:hover {
+  .sharing-script .b-share_theme_counter .b-share-btn__odnoklassniki:hover {
     background-color: #c90119; }
