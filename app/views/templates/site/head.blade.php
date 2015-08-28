@@ -55,6 +55,13 @@ if (isset($page->seos) && is_object($page->seos) && isset($page->seos[Config::ge
 @section('description'){{{ $page_description }}}@stop
 @section('keywords'){{{ $page_keywords }}}@stop
 @section('h1'){{{ $page_h1 }}}@stop
+@section('meta_og')
+    <meta property="og:title" content="Конкурс рассказов от Lipton Arkenstone" />
+    <meta property="og:description" content="Регистрируйте промо-коды в пачках Lipton Arkenstone, напишите рассказ о себе и получите курс английского языка для туристов от Lingualeo или выиграйте увлекательное путешествие в одну из шести стран вместе с National Geographic Traveler" />
+    <meta property="og:url" content="{{ URL::to('/') }}" />
+    <meta property="og:image" content="{{ asset(Config::get('site.theme_path').'/images/og-images.jpg') }}" />
+    <link rel="image_src" href="{{ asset(Config::get('site.theme_path').'/images/og-images.jpg') }}" />
+@stop
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <title>@yield('title')</title>

@@ -23,13 +23,6 @@ if (isset($page['blocks']['steps_3'])):
 endif;
 ?>
 @extends(Helper::layout())
-@section('meta_og')
-    <meta property="og:title" content="Конкурс рассказов от Lipton Arkenstone" />
-    <meta property="og:description" content="Регистрируйте промо-коды в пачках Lipton Arkenstone, напишите рассказ о себе и получите курс английского языка для туристов от Lingualeo или выиграйте увлекательное путешествие в одну из шести стран вместе с National Geographic Traveler" />
-    <meta property="og:url" content="{{ URL::to(Request::path()) }}" />
-    <meta property="og:image" content="{{ asset(Config::get('site.theme_path').'/images/og-images.jpg') }}" />
-    <link rel="image_src" href="{{ asset(Config::get('site.theme_path').'/images/og-images.jpg') }}" />
-@stop
 @section('style')
 @stop
 @section('content')
