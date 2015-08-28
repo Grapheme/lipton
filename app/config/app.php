@@ -9,7 +9,7 @@ return array(
 	'use_css_local' => FALSE,
 	'use_scripts_local' => FALSE,
 	
-	'default_page_title' => 'Lingualeo',
+	'default_page_title' => 'Конкурс рассказов от Lipton Arkenstone',
 	'template' => 'site',
     'welcome_page_tpl' => 'templates.site.index', #'guests.welcome',
 
