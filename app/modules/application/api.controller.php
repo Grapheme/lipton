@@ -431,9 +431,6 @@ class ApiController extends BaseController {
         endif;
         $uri_request = $this->config['server_url'] . "/v2/customers/current/ticket?ticket=$params";
         $result = $this->postCurl($uri_request);
-
-        Helper::tad($result);
-
         if ($this->validCode($result, 200)):
             $user = array();
             $message = $this->getXmlValue($result['curl_result'], 'messages', 'message');
@@ -448,12 +445,19 @@ class ApiController extends BaseController {
             else:
                 return $user;
             endif;
-        else:
-            Config::set('api.message', 'Возникла ошибка на сервере регистрации.');
-            if ($message = $this->getErrorMessage($result)):
-                Config::set('api.message', $message);
-            endif;
+        elseif ($this->validCode($result, 401)):
+            Config::set('api.message', $result['curl_result']);
             return FALSE;
+        else:
+            try{
+                Config::set('api.message', 'Возникла ошибка на сервере регистрации.');
+                if ($message = $this->getErrorMessage($result)):
+                    Config::set('api.message', $message);
+                endif;
+                return FALSE;
+            }catch (Exception $e){
+                return FALSE;
+            }
         endif;
     }
 

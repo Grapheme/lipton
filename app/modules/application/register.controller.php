@@ -173,7 +173,7 @@ class RegisterController extends BaseController {
         if(Input::has('hash')):
             $api = (new ApiController())->activateEmail(Input::get('hash'));
             if ($api === FALSE):
-                return Redirect::to('/')->with('message', Config::get('api.message'));
+                return Redirect::to('/#message')->with('message', Config::get('api.message'));
             else:
                 if ($account = User::where('remote_id', $api['id'])->first()):
                     $account->remote_id = $api['id'];
