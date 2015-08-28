@@ -23,6 +23,9 @@ if(count($prizes) > 1):
 endif;
 ?>
 @extends(Helper::layout())
+@section('title')
+    Личный кабинет
+@stop
 @section('style')
 @stop
 @section('page_class')  @stop

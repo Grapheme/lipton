@@ -35,7 +35,7 @@ return array(
     ],
 
     'seo' => [
-        'default_title'       => 'Lingualeo',
+        'default_title'       => 'Конкурс рассказов от Lipton Arkenstone',
         'default_description' => '',
         'default_keywords'    => '',
     ],
