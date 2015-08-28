@@ -24,7 +24,7 @@
                             <h3>Войти через соцсеть</h3>
 
                             <div class="soc-holder" id="uLogin_490f3e3f" data-uloginid="490f3e3f"
-                                 data-ulogin="mobilebuttons=0;display=buttons;fields=first_name,last_name,email,sex,bdate,photo,photo_big;redirect_uri={{ URL::route('signin.ulogin') }}">
+                                 data-ulogin="mobilebuttons=0;display=buttons;optional=first_name,last_name,email,sex,bdate,photo,photo_big;redirect_uri={{ URL::route('signin.ulogin') }}">
                                 <a data-uloginbutton="facebook" class="soc fb"></a>
                                 <a data-uloginbutton="vkontakte" class="soc vk"></a>
                                 <a data-uloginbutton="odnoklassniki" class="soc ok"></a>
