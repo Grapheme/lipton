@@ -431,6 +431,9 @@ class ApiController extends BaseController {
         endif;
         $uri_request = $this->config['server_url'] . "/v2/customers/current/ticket?ticket=$params";
         $result = $this->postCurl($uri_request);
+
+        Helper::tad($result);
+
         if ($this->validCode($result, 200)):
             $user = array();
             $message = $this->getXmlValue($result['curl_result'], 'messages', 'message');
