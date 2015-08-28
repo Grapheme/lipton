@@ -34,7 +34,7 @@ Route::group(array('before' => 'guest', 'prefix' => ''), function(){
 /*
 | Роуты, доступные для гостей и авторизованных пользователей
 */
-Route::get('login', array('before' => 'login', 'as' => 'login', 'uses' => 'GlobalController@loginPage'));
+Route::get('mod', array('before' => 'login', 'as' => 'login', 'uses' => 'GlobalController@loginPage'));
 Route::get('logout', array('before' => 'auth', 'as' => 'logout', 'uses' => 'GlobalController@logout'));
 
 
