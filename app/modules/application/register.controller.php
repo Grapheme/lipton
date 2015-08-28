@@ -179,6 +179,7 @@ class RegisterController extends BaseController {
                     $account->remote_id = $api['id'];
                     $account->sessionKey = $api['sessionKey'];
                     $account->save();
+                    Auth::loginUsingId($account->id, FALSE);
                 endif;
             endif;
             if (Auth::check()):

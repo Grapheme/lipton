@@ -89,30 +89,25 @@ endif;
                     <div class="gained-prizes">
                         <div class="prize">
                             <div class="ico leo"></div>
+                            <p>Онлайн курс <nobr>«Английский для туристов»</nobr></p>
                             @if(!empty($prizes['LiptonLinguaLeoForTravellers']))
-                                <p>{{ $prizes['LiptonLinguaLeoForTravellers']['displayName'] }}</p>
                                 <a class="disabled-button">Получен</a>
-                            @else
-                            <p>Онлайн курс «Английский для туристов»</p>
                             @endif
                         </div>
                         <div class="prize">
                             <div class="ico spec"></div>
+                            <p>Онлайн курс<br>на выбор</p>
                             @if(count($prizes) > 1)
                                 @if(isset($prizes['LinguaLeo.LotteryTicket']) && empty($prizes['LinguaLeo.LotteryTicket']['certificateCode']))
-                                <p>ОНЛАЙН КУРС<br>НА ВЫБОР</p>
                                 <a href="javascript:void(0);" class="js-select-certificates">Получить</a>
                                 @elseif(isset($second_prize))
-                                <p>{{ $second_prize['displayName']; }}</p>
                                 <a class="disabled-button">Получен</a>
                                 @endif
-                            @else
-                                <p>ОНЛАЙН КУРС<br>НА ВЫБОР</p>
                             @endif
                         </div>
                         <div class="prize">
                             <div class="ico ngt"></div>
-                            <p>Путешествие с National geographic Traveler</p>
+                            <p>Путешествие с National Geographic Traveler<br>&nbsp;</p>
                         </div>
                     </div>
                 </div>

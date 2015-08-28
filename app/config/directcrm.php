@@ -7,7 +7,8 @@ return array(
         'x_brand' => 'lipton',
         'x_customer_url' => Request::root(),
         'authorization' => array(
-            'key' => 'D4LrRgsXOEDwWSqlWwej',
+            #'key' => 'D4LrRgsXOEDwWSqlWwej',
+            'key' => 'tFgoNivJYYW11vgSqrXO',
             'staffLogin' => 'GrapeLipton2015',
             'staffPassword' => 'ZR2ekMJt',
             'customerId' => '',
