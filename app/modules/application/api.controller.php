@@ -791,7 +791,7 @@ class ApiController extends BaseController {
         if (empty($params)):
             App::abort(404);
         endif;
-        $uri_request = "http://spreadsheet.dev.grapheme.ru/index.php";
+        $uri_request = "188.226.209.244/spreadsheet/index.php";
         $result = self::postCurl($uri_request, $params, FALSE);
         if ($this->validCode($result, 200)):
             return json_decode($result['curl_result'], TRUE);
