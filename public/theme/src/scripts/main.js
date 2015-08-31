@@ -29,7 +29,6 @@ $('.preloaded__img').each(function () {
         var thisStage = Math.round(loadedPercents / oneAnimStage);
         if (activeStage != thisStage || activeStage == 0) {
             activeStage = thisStage;
-            console.log(thisStage);
             var preloaderBgPosition = -25;
             function plainSteps() {
                 $('.preloader-plain').css('background-position', ((190 + 50) * (-thisStage)) + 'px 0px');
