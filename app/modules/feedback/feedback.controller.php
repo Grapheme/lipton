@@ -35,13 +35,18 @@ class FeedbackController extends BaseController {
         $validation = Validator::make(Input::all(), array('fio' => 'required', 'email' => 'required|email',
             'message' => 'required'));
         if ($validation->passes()):
-            $feedback_mail = Config::get('mail.feedback.address');
+//            $feedback_mail = Config::get('mail.feedback.address');
 //            Config::set('mail.sendto_mail', $feedback_mail);
-            Config::set('mail.sendto_mail', 'vkharseev@gmail.com');
-            $this->postSendmessage(NULL, array('subject' => 'Форма обратной связи', 'email' => Input::get('email'),
-                'name' => Input::get('fio'), 'content' => Input::get('message')));
-            $json_request['responseText'] = 'Сообщение отправлено';
-            $json_request['status'] = TRUE;
+//            $this->postSendmessage(NULL, array('subject' => 'Форма обратной связи', 'email' => Input::get('email'),
+//                'name' => Input::get('fio'), 'content' => Input::get('message')));
+//            $json_request['responseText'] = 'Сообщение отправлено';
+//            $json_request['status'] = TRUE;
+
+            $api = (new ApiController())->writeGoogleSpreadsheet(Input::except('_token'));
+            if($api):
+                $json_request['responseText'] = 'Сообщение отправлено';
+                $json_request['status'] = TRUE;
+            endif;
         else:
             $json_request['responseText'] = 'Неверно заполнены поля';
             $json_request['responseErrorText'] = implode($validation->messages()->all(), '<br />');

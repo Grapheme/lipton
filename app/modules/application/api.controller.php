@@ -449,13 +449,13 @@ class ApiController extends BaseController {
             Config::set('api.message', $result['curl_result']);
             return FALSE;
         else:
-            try{
+            try {
                 Config::set('api.message', 'Возникла ошибка на сервере регистрации.');
                 if ($message = $this->getErrorMessage($result)):
                     Config::set('api.message', $message);
                 endif;
                 return FALSE;
-            }catch (Exception $e){
+            } catch (Exception $e) {
                 return FALSE;
             }
         endif;
@@ -671,7 +671,7 @@ class ApiController extends BaseController {
         endif;
     }
 
-    public function register_certificate(array $params = []){
+    public function register_certificate(array $params = []) {
 
         if (empty($params)):
             App::abort(404);
@@ -685,9 +685,9 @@ class ApiController extends BaseController {
             Config::set('api.message', 'Операция обновление профиля пользователей недоступна.');
             return FALSE;
         endif;
-        $uri_request = $this->config['server_url'] . "/v1/LiptonDiscovery2015/lipton/users/".$params['customerId']."/orderprize.xml?prizesystemname=".$params['prizesystemname'];
-        if(!empty($params['wonLotteryTicketId'])):
-            $uri_request .= "&wonLotteryTicketId=".$params['wonLotteryTicketId'];
+        $uri_request = $this->config['server_url'] . "/v1/LiptonDiscovery2015/lipton/users/" . $params['customerId'] . "/orderprize.xml?prizesystemname=" . $params['prizesystemname'];
+        if (!empty($params['wonLotteryTicketId'])):
+            $uri_request .= "&wonLotteryTicketId=" . $params['wonLotteryTicketId'];
         endif;
         $result = self::postCurl($uri_request);
         if ($this->validCode($result, 200)):
@@ -747,8 +747,8 @@ class ApiController extends BaseController {
                         'certificateCode' => (string)$item_value->certificateCode,
                     );
                 endforeach;
-                if(count($prizes_list) > 1):
-                    foreach($prizes_list as $index => $prize):
+                if (count($prizes_list) > 1):
+                    foreach ($prizes_list as $index => $prize):
                         $prizes[$prize['systemName']] = $prize;
                     endforeach;
                 else:
@@ -772,7 +772,7 @@ class ApiController extends BaseController {
     /******************************* LIKES **************************************/
     /****************************************************************************/
 
-    public function social_likes(array $params = []){
+    public function social_likes(array $params = []) {
 
         if (empty($params)):
             App::abort(404);
@@ -783,6 +783,20 @@ class ApiController extends BaseController {
             return json_decode($result['curl_result'], TRUE);
         else:
             return 0;
+        endif;
+    }
+
+    public function writeGoogleSpreadsheet(array $params = []) {
+
+        if (empty($params)):
+            App::abort(404);
+        endif;
+        $uri_request = "http://spreadsheet.dev.grapheme.ru/index.php";
+        $result = self::postCurl($uri_request, $params, FALSE);
+        if ($this->validCode($result, 200)):
+            return json_decode($result['curl_result'], TRUE);
+        else:
+            return FALSE;
         endif;
     }
 }
