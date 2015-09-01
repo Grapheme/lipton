@@ -61,7 +61,7 @@ endif;
                 <div class="plane-block"></div>
                 <div class="block-left">
                     {{ $page->block('block-left') }}
-                    <a href="{{ pageurl('auth') }}" class="involvement">Принять участие</a>
+                    <a onclick="ga('send', 'event', 'PrinyatUchastie', 'Autorization'); return true;" href="{{ pageurl('auth') }}" class="involvement">Принять участие</a>
                     <div class="footnote">
                         <p>
                             <br><small><sup>*</sup> Дискавери Колекшн</small>
