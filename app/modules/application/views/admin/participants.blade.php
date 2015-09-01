@@ -176,7 +176,7 @@ $end = $now->endOfWeek()->format('d.m.Y')
                     @endforeach
                     </tbody>
                 </table>
-                {{ $users->links() }}
+                {{ $users->appends(array('filter_status' => Input::get('filter_status')))->links() }}
             </div>
         </div>
     @else
