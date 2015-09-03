@@ -815,7 +815,7 @@ $('form.password-recovery-form').validate({
         success: function(data){
           if(data.status) {}
           if(data.responseText != ''){
-            $('.profile-error-wrapper #js-profile-error').append(data.responseText);
+            $('.profile-error-wrapper #js-profile-error').html(data.responseText);
             $('.profile-error-wrapper').fadeIn();
             $('.password-recovery-holder').fadeOut();
           }
