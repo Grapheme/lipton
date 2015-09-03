@@ -3,7 +3,9 @@ Options +FollowSymLinks
 Options -Indexes
 
 php_flag short_open_tag on
-php_flag session.cookie_httponly On
+<IfModule php5_module>
+    php_flag session.cookie_httponly on
+</IfModule>
 
 <IfModule mod_rewrite.c>
 
