@@ -11,5 +11,5 @@ return array(
 	'cookie' => 'site_session',
 	'path' => '/',
 	'domain' => null,
-	'secure' => false,
+	'secure' => true,
 );
