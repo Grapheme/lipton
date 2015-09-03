@@ -4,6 +4,7 @@ Options -Indexes
 
 php_flag short_open_tag on
 <IfModule php5_module>
+    php_flag session.cookie_secure on
     php_flag session.cookie_httponly on
 </IfModule>
 

@@ -76,7 +76,7 @@ $end = $now->endOfWeek()->format('d.m.Y')
                     </div>
                 </fieldset>
                 <footer>
-                    <a href="{{ URL::route('moderator.participants') }}?filter_status=winners" class="btn btn-default">
+                    <a href="{{ URL::route('moderator.participants') }}" class="btn btn-default">
                         Сбросить фильтр
                     </a>
                     <button type="submit" class="btn btn-primary" style="float: left">Применить фильтр</button>
@@ -176,7 +176,7 @@ $end = $now->endOfWeek()->format('d.m.Y')
                     @endforeach
                     </tbody>
                 </table>
-                {{ $users->appends(array('filter_status' => Input::get('filter_status')))->links() }}
+                {{ $users->appends(Input::only('filter_status', 'begin', 'end'))->links() }}
             </div>
         </div>
     @else
