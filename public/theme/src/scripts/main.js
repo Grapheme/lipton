@@ -42,6 +42,9 @@ $(window).on('load', function () {
     $('.preloader').fadeOut();
 });
 
+if (top.location.href != self.location.href)
+    top.location.href = self.location.href;
+
 $(document).ready(function () {
 
     // CLOSE BUTTONS ETC //
