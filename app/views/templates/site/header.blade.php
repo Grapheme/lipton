@@ -30,9 +30,9 @@
 <div class="block menu-holder">
     <div class="content">
         <ul class="top-menu">
-            <li><a onclick="ga('send', 'event', 'Chainaya', 'Click'); return true;" href="http://discovery.liptontea.ru">Чайная коллекция</a></li>
-            <li><a onclick="ga('send', 'event', 'MirChaya', 'Click'); return true;" href="http://www.liptontea.ru">Мир чая</a></li>
-            <li><a onclick="ga('send', 'event', 'Goodstater', 'Click'); return true;" href="http://goodstarter.liptontea.ru">Goodstarter</a></li>
+            <li><a onclick="ga('send', 'event', 'Chainaya', 'Click'); return true;" target="_blank" href="http://discovery.liptontea.ru">Чайная коллекция</a></li>
+            <li><a onclick="ga('send', 'event', 'MirChaya', 'Click'); return true;" target="_blank" href="http://www.liptontea.ru">Мир чая</a></li>
+            <li><a onclick="ga('send', 'event', 'Goodstater', 'Click'); return true;" target="_blank" href="http://goodstarter.liptontea.ru">Goodstarter</a></li>
         </ul>
     </div>
 </div>
