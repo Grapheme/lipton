@@ -1227,8 +1227,6 @@ textarea:-ms-textarea-placeholder {
 			width: 532px;
 			height: 287px;
 			border-radius: 10px;
-			left: inherit;
-			margin-left: 0;
 
 			@include mobile {
 				position: relative;
@@ -1240,6 +1238,8 @@ textarea:-ms-textarea-placeholder {
 				border-radius: 10px;
 				padding: 0 20px;
 				box-sizing: border-box;
+				left: inherit;
+				margin-left: 0;
 			}
 
 			a.popup-close-cross {
@@ -3451,6 +3451,12 @@ form.select-gain {
 		@include mobile {
 			width: 270px !important;
 		}
+	}
+
+	button {
+		display: block;
+	    margin: 0 auto;
+	    float: none !important;
 	}
 }
 
