@@ -245,7 +245,7 @@ $end = $now->endOfWeek()->format('d.m.Y')
                 });
         });
         $('#modal_close, #overlay').click(function () {
-            $('#modal_form')
+            $('#question-likes-modal')
                 .animate({opacity: 0, top: '45%'}, 200,
                 function () {
                     $(this).css('display', 'none');
