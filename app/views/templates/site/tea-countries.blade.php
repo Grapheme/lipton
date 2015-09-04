@@ -34,11 +34,8 @@ endfor;
                                 <div class="logo">
                                     <img src="{{ asset(Config::get('site.theme_path').'/images/countries/resolt.png') }}">
                                 </div>
-                                <div class="text">Черный чай с бодрящим ароматом ананаса, <br>
-                                    грейпфрута и нотками рома откроет Вам <br>
-                                    яркие и зажигательные ритмы острова Кубы.
-                                </div>
-                                <div class="text translate">*Cuba Resort — Куба Резорт</div>
+                                <div class="text">{{ @$countries[0]['desc'] }}</div>
+                                <div class="text translate">{{ @$countries[0]['translate'] }}</div>
                             </div>
                             <div class="column-right"><img
                                         src="{{ asset(Config::get('site.theme_path')) }}/images/bg-tea-cuba-big.png">
@@ -55,11 +52,8 @@ endfor;
                                 <div class="logo">
                                     <img src="{{ asset(Config::get('site.theme_path').'/images/countries/earl-grey.png') }}">
                                 </div>
-                                <div class="text">Классический черный чай с ароматом<br>
-                                    бергамота познакомит Вас с истинными традициями<br>
-                                    британского чаепития Викторианской эпохи.
-                                </div>
-                                <div class="text translate">*Victorian Earl Grey — Викториэн Эрл Грэй</div>
+                                <div class="text">{{ @$countries[1]['desc'] }}</div>
+                                <div class="text translate">{{ @$countries[1]['translate'] }}</div>
                             </div>
                             <div class="column-right"><img
                                         src="{{ asset(Config::get('site.theme_path')) }}/images/bg-tea-england-big.png">
@@ -76,13 +70,8 @@ endfor;
                                 <div class="logo">
                                     <img src="{{ asset(Config::get('site.theme_path').'/images/countries/temple.png') }}">
                                 </div>
-                                <div class="text">
-                                    Классический зеленый чай с легким <br>
-                                    цветочным ароматом откроет загадочный <br>
-                                    мир Азии и подарит мгновенье <br>
-                                    безмятежности и спокойствия!
-                                </div>
-                                <div class="text translate">*Oriental Temple — Ориентл Тэмпл</div>
+                                <div class="text">{{ @$countries[2]['desc'] }}</div>
+                                <div class="text translate">{{ @$countries[2]['translate'] }}</div>
                             </div>
                             <div class="column-right"><img
                                         src="{{ asset(Config::get('site.theme_path')) }}/images/bg-tea-china-big.png">
@@ -99,13 +88,8 @@ endfor;
                                 <div class="logo">
                                     <img src="{{ asset(Config::get('site.theme_path').'/images/countries/ceylon.png') }}">
                                 </div>
-                                <div class="text">
-                                    Классический черный чай с острова Цейлон<br>
-                                    с нотками сухофруктов и красно-янтарным <br>
-                                    оттенком настоя откроет великолепие <br>
-                                    жемчужины Индийского океана.
-                                </div>
-                                <div class="text translate">*Heart of Ceylon — Хат оф Сейлон</div>
+                                <div class="text">{{ @$countries[3]['desc'] }}</div>
+                                <div class="text translate">{{ @$countries[3]['translate'] }}</div>
                             </div>
                             <div class="column-right"><img
                                         src="{{ asset(Config::get('site.theme_path')) }}/images/bg-tea-shri-big.png">
@@ -122,12 +106,8 @@ endfor;
                                 <div class="logo">
                                     <img src="{{ asset(Config::get('site.theme_path').'/images/countries/delight.png') }}">
                                 </div>
-                                <div class="text">Слегка терпкий зеленый чай с медовым <br>
-                                    послевкусием и легким ароматом зеленого <br>
-                                    яблока и инжира откроет Вам утонченный <br>
-                                    и загадочный мир Востока.
-                                </div>
-                                <div class="text translate">*Sultan Delight — Салтн Дилайт</div>
+                                <div class="text">{{ @$countries[4]['desc'] }}</div>
+                                <div class="text translate">{{ @$countries[4]['translate'] }}</div>
                             </div>
                             <div class="column-right"><img
                                         src="{{ asset(Config::get('site.theme_path')) }}/images/bg-tea-turkey-big.png">
@@ -144,11 +124,8 @@ endfor;
                                 <div class="logo">
                                     <img src="{{ asset(Config::get('site.theme_path').'/images/countries/marrakesh.png') }}">
                                 </div>
-                                <div class="text">Пряный чёрный чай со вкусом мяты и мандарина<br>и слегка горьковатым
-                                    послевкусием имбиря<br>откроет вам пленительный мир Марокко,<br>полный контрастов и
-                                    разных культур.
-                                </div>
-                                <div class="text translate">*Spicy Marrakesh — Спайси Марракеш</div>
+                                <div class="text">{{ @$countries[5]['desc'] }}</div>
+                                <div class="text translate">{{ @$countries[5]['translate'] }}</div>
                             </div>
                             <div class="column-right"><img
                                         src="{{ asset(Config::get('site.theme_path')) }}/images/bg-tea-marokko-big.png">
