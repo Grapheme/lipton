@@ -58,6 +58,19 @@ return array(
                     ],
                 ],
             ],
+            'tea_countries' => [
+                'title' => 'Страны',
+                'fields' => [
+                    'desc' => [
+                        'title' => 'Описание',
+                        'type' => 'textarea',
+                    ],
+                    'translate' => [
+                        'title' => 'Сноска',
+                        'type' => 'text',
+                    ],
+                ],
+            ],
         ];
 
         return $block_tpls;
