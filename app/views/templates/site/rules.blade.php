@@ -16,19 +16,19 @@
                 <div class="rules-row">
                     <div class="rule-item rule-1">
                         <div class="rule-img"></div>
-                        <h3>Купите новинку чая в промо упаковке Lipton Discovery<sup>*</sup></h3>
+                        <h3>{{ $page->block('stage_1') }}</h3>
                     </div>
                     <div class="rule-item rule-2">
                         <div class="rule-img"></div>
-                        <h3>Зарегистрируйте на&nbsp;сайте код <nobr>из-под крышки</nobr></h3>
+                        <h3>{{ $page->block('stage_2') }}</h3>
                     </div>
                     <div class="rule-item rule-3">
                         <div class="rule-img"></div>
-                        <h3>Гарантированно получите приз от&nbsp;Lingualeo</h3>
+                        <h3>{{ $page->block('stage_3') }}</h3>
                     </div>
                     <div class="rule-item rule-4">
                         <div class="rule-img"></div>
-                        <h3>Получите возможность отправиться в&nbsp;путешествие</h3>
+                        <h3>{{ $page->block('stage_4') }}</h3>
                     </div>
                 </div>
                 <div class="rules-text-block">

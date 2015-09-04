@@ -67,7 +67,7 @@ class ParticipantController extends BaseController {
             $post = Input::all();
             if (self::accountUpdate($post)):
                 $result = self::crmAccountUpdate($post);
-                if($result === -1):
+                if ($result === -1):
                     Auth::logout();
                     $json_request['responseText'] = Config::get('api.message');
                     $json_request['redirectURL'] = pageurl('auth');
@@ -118,18 +118,18 @@ class ParticipantController extends BaseController {
         return TRUE;
     }
 
-    private function crmAccountUpdate($post){
+    private function crmAccountUpdate($post) {
 
         $post['customerId'] = Auth::user()->remote_id;
         $post['sessionKey'] = Auth::user()->sessionKey;
         $api = (new ApiController())->get_register($post);
-        if($api === -1):
+        if ($api === -1):
             return -1;
-        elseif(isset($api['version'])):
+        elseif (isset($api['version'])):
             $post['version'] = $api['version'];
             $post['email'] = Auth::user()->email;
             $api = (new ApiController())->update_register($post);
-            if($api === -1):
+            if ($api === -1):
                 return -1;
             elseif (is_array($api)):
                 Auth::user()->remote_id = @$api['id'];
@@ -142,18 +142,18 @@ class ParticipantController extends BaseController {
     }
 
     /****************************************************************************/
-    public function tellStory(){
+    public function tellStory() {
 
         $story = UserWritings::where('user_id', Auth::user()->id)->first();
-        if(!$story):
+        if (!$story):
             $story = new UserWritings();
             $story->user_id = Auth::user()->id;
             $story->writing = '';
             $story->status = 0;
             $story->save();
-        elseif($story->status == 2):
+        elseif ($story->status == 2):
             return Redirect::route('dashboard')->with('message', 'Ваш рассказ находится на модерации. Дождитесь пожалуйста ответа.');
-        elseif($story->status == 1):
+        elseif ($story->status == 1):
             return Redirect::route('dashboard')->with('message', 'Ваш рассказ прошел модерацию. Дождитесь завершения розыгрыша.');
         endif;
 
