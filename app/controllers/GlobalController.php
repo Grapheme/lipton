@@ -105,7 +105,7 @@ class GlobalController extends \BaseController {
 			$user->name = $post['name'];
 			$user->surname = $post['surname'];
 			$user->email = $post['email'];
-			$user->active = 0;
+			$user->active = 1;
 			$user->password = Hash::make($post['password']);
 			$user->photo = 'img/avatars/male.png';
 			$user->thumbnail = 'img/avatars/male.png';
