@@ -43,11 +43,11 @@
     <p class="field-title">Дата рождения</p>
 
     <div class="birthday">
-        <input name="dd" value="{{ (new myDateTime())->setDateString($profile->bdate)->format('d') }}" placeholder="ДД"
+        <input name="dd" value="{{ Carbon::createFromFormat('Y-m-d H:i:s', $profile->bdate)->format('d') }}" placeholder="ДД"
                for="full-registration-form" autocomplete="off" class="dd">
-        <input name="mm" value="{{ (new myDateTime())->setDateString($profile->bdate)->format('m') }}" placeholder="ММ"
+        <input name="mm" value="{{  Carbon::createFromFormat('Y-m-d H:i:s', $profile->bdate)->format('m') }}" placeholder="ММ"
                for="full-registration-form" autocomplete="off" class="mm">
-        <input name="yyyy" value="{{ (new myDateTime())->setDateString($profile->bdate)->format('Y') }}"
+        <input name="yyyy" value="{{  Carbon::createFromFormat('Y-m-d H:i:s', $profile->bdate)->format('Y') }}"
                placeholder="ГГГГ" for="full-registration-form" autocomplete="off" class="yyyy">
     </div>
 </div>

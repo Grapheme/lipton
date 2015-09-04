@@ -108,7 +108,7 @@ class ParticipantController extends BaseController {
             $user->city = $post['city'];
             $user->phone = $post['phone'];
             $user->sex = $post['sex'];
-            $bdate = (new myDateTime())->setDateString($post['yyyy'] . '-' . $post['mm'] . '-' . $post['dd'])->format('Y-m-d');
+            $bdate = Carbon::createFromFormat('Y-m-d', $post['yyyy'] . '-' . $post['mm'] . '-' . $post['dd'])->format('Y-m-d 00:00:00');
             $user->bdate = $bdate;
             $user->save();
             $user->touch();

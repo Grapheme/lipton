@@ -34,7 +34,8 @@
                 <div class="rules-text-block">
                     {{ $page->block('content') }}
                     <div class="footnote">
-                        <p><sup>*</sup>Дискавери</p>
+                        {{ $page->block('footnote') }}
+
                     </div>
                 </div>
             </div>
