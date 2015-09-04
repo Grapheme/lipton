@@ -59,7 +59,7 @@ return $pageURL;
                         <h3>{{ $user->name }} {{ $user->surname }}</h3>
 
                         <p>
-                            @if($bdate->diffInYears($now) > 0)
+                            @if($bdate->diffInYears($now) > 0 && $bdate->diffInYears($now) < 100)
                                 {{ $bdate->diffInYears($now).' '.Lang::choice('год|года|лет', $bdate->diffInYears($now)) }}
                             @endif
                             {{ $user->city }}
