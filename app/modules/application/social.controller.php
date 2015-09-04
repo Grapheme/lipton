@@ -44,6 +44,7 @@ class SocialController extends BaseController {
             $post['provider'] = $_user['network'];
             $post['identity'] = $_user['uid'];
             if ($api = (new ApiController())->social_logon($post)):
+                Auth::user()->active = 1;
                 Auth::user()->remote_id = @$api['id'];
                 Auth::user()->sessionKey = @$api['sessionKey'];
                 Auth::user()->save();
