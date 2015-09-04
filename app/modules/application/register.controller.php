@@ -176,6 +176,7 @@ class RegisterController extends BaseController {
                 return Redirect::to('/#message')->with('message', Config::get('api.message'));
             else:
                 if ($account = User::where('remote_id', $api['id'])->first()):
+                    $account->active = 1;
                     $account->remote_id = $api['id'];
                     $account->sessionKey = $api['sessionKey'];
                     $account->save();
@@ -262,7 +263,7 @@ class RegisterController extends BaseController {
             $user->name = $post['name'];
             $user->surname = $post['surname'];
             $user->email = $post['email'];
-            $user->active = $post['verified_email'] == 1 ? 1 : 0;
+            $user->active = 1;
 
             $user->phone = $post['phone'];
             $user->sex = $post['sex'];
