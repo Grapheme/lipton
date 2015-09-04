@@ -60,7 +60,7 @@ class RegisterController extends BaseController {
                     $json_request['responseText'] = Config::get('api.message');
                     return Response::json($json_request, 200);
                 elseif(is_array($api)):
-                    if ($user = User::where('email', Input::get('login'))->where('active', 1)->first()):
+                    if ($user = User::where('email', Input::get('login'))->first()):
                         Auth::login($user);
                         if (Auth::check()):
                             Auth::user()->remote_id = @$api['id'];
