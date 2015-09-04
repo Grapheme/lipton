@@ -35,7 +35,6 @@
                     {{ $page->block('content') }}
                     <div class="footnote">
                         {{ $page->block('footnote') }}
-
                     </div>
                 </div>
             </div>

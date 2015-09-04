@@ -63,9 +63,7 @@ endif;
                     {{ $page->block('block-left') }}
                     <a onclick="ga('send', 'event', 'PrinyatUchastie', 'Autorization'); return true;" href="{{ pageurl('auth') }}" class="involvement">Принять участие</a>
                     <div class="footnote">
-                        <p>
-                            <br><small><sup>*</sup> Дискавери Колекшн</small>
-                        </p>
+                        {{ $page->block('footnote') }}
                     </div>
                 </div>
                 <div class="block-right">
