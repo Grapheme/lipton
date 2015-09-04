@@ -335,7 +335,7 @@ class ApiController extends BaseController {
         endif;
     }
 
-    public function get_register(array $params = [], $operation = 'Unilever.EditLightProfile') {
+    public function get_register(array $params = [], $operation = 'Unilever.EditFullProfile') {
 
         if (empty($params)):
             App::abort(404);
@@ -353,6 +353,15 @@ class ApiController extends BaseController {
         $result = $this->getCurl($uri_request);
         if ($this->validCode($result, 200)):
             $return['version'] = $this->getXmlValue($result['curl_result'], '', 'version');
+            $return['name'] = $this->getXmlValue($result['curl_result'], '', 'name', 'first');
+            $return['surname'] = $this->getXmlValue($result['curl_result'], '', 'name', 'last');
+            $return['sex'] = $this->getXmlValue($result['curl_result'], '', 'sex');
+            $return['dd'] = $this->getXmlValue($result['curl_result'], '', 'birthdate','day');
+            $return['mm'] = $this->getXmlValue($result['curl_result'], '', 'birthdate','month');
+            $return['yyyy'] = $this->getXmlValue($result['curl_result'], '', 'birthdate','year');
+            $return['email'] = $this->getXmlValue($result['curl_result'], '', 'email');
+            $return['phone'] = $this->getXmlValue($result['curl_result'], '', 'mobilePhone');
+            $return['city'] = $this->getXmlValue($result['curl_result'], 'postAddress', 'settlement' ,'name');
             if (empty($return['version']) && empty($return['version'])):
                 if ($message = $this->getErrorMessage($result)):
                     Config::set('api.message', $message);

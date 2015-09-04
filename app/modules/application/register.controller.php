@@ -10,11 +10,9 @@ class RegisterController extends BaseController {
     public static function returnRoutes($prefix = null) {
         $class = __CLASS__;
         Route::group(array('before' => 'guest', 'prefix' => ''), function () use ($class) {
-            Route::post('registration', array('before' => 'csrf', 'as' => 'signup.participant',
-                'uses' => $class . '@signup'));
-            Route::post('auth', array('before' => 'csrf', 'as' => 'auth.participant',
-                'uses' => $class . '@signin'));
-            Route::post('auth/restore', array('before' => 'csrf', 'as' => 'auth.participant.restore',
+            Route::post('registration', array('as' => 'signup.participant', 'uses' => $class . '@signup'));
+            Route::post('auth', array('as' => 'auth.participant', 'uses' => $class . '@signin'));
+            Route::post('auth/restore', array('as' => 'auth.participant.restore',
                 'uses' => $class . '@restorePassword'));
         });
         Route::group(array('before' => '', 'prefix' => ''), function () use ($class) {
@@ -59,7 +57,7 @@ class RegisterController extends BaseController {
                 if ($api === FALSE):
                     $json_request['responseText'] = Config::get('api.message');
                     return Response::json($json_request, 200);
-                elseif(is_array($api)):
+                elseif (is_array($api)):
                     if ($user = User::where('email', Input::get('login'))->first()):
                         Auth::login($user);
                         if (Auth::check()):
@@ -72,15 +70,49 @@ class RegisterController extends BaseController {
                             if (isset($post['code']) && !empty($post['code'])):
                                 $result = PromoController::registerPromoCode($post['code']);
                                 Session::flash('message', Config::get('api.message'));
-                                $json_request['redirectURL'] = URL::to(AuthAccount::getGroupStartUrl().'#message');
+                                $json_request['redirectURL'] = URL::to(AuthAccount::getGroupStartUrl() . '#message');
                                 setcookie("firstCodeCookie", "", time() - 3600, '/');
                             endif;
                         endif;
                     else:
-                        $json_request['responseText'] = 'Неверное имя пользователя или пароль';
+                        $post = array();
+                        $post['customerId'] = @$api['id'];
+                        $post['sessionKey'] = @$api['sessionKey'];
+                        $api = (new ApiController())->get_register($post);
+                        if (isset($api['email'])):
+                            $post['remote_id'] = $post['customerId'];
+                            $post['email'] = $api['email'];
+                            $post['name'] = @$api['name'];
+                            $post['surname'] = @$api['surname'];
+                            $post['sex'] = @$api['sex'] == 'female' ? 0 : 1;
+                            $post['dd'] = @$api['dd'];
+                            $post['mm'] = @$api['mm'];
+                            $post['yyyy'] = @$api['yyyy'];
+                            $post['phone'] = @$api['phone'];
+                            $post['city'] = @$api['city'];
+                            $post['password'] = Hash::make(Input::get('password'));
+                            $post['code'] = Input::get('promo-code');
+                            if ($account = self::getRegisterAccount($post)):
+                                Auth::loginUsingId($account->id, FALSE);
+                                if (Auth::check()):
+                                    $json_request['redirectURL'] = URL::to(AuthAccount::getGroupStartUrl());
+                                    $json_request['status'] = TRUE;
+                                    if (isset($post['code']) && !empty($post['code'])):
+                                        $result = PromoController::registerPromoCode($post['code']);
+                                        Session::flash('message', Config::get('api.message'));
+                                        $json_request['redirectURL'] = URL::to(AuthAccount::getGroupStartUrl() . '#message');
+                                        setcookie("firstCodeCookie", "", time() - 3600, '/');
+                                    endif;
+                                endif;
+                            else:
+                                $json_request['responseText'] = 'Возникла ошибка при регистрации';
+                            endif;
+                        else:
+                            $json_request['responseText'] = 'Неверное имя пользователя или пароль';
+                        endif;
                     endif;
                 else:
-                    $json_request['responseText'] = 'Неверное имя пользователя или пароль';
+                    $json_request['responseText'] = 'Возникла ошибка при регистрации';
                 endif;
             else:
                 $json_request['responseText'] = 'Неверно заполнены поля';
@@ -92,7 +124,7 @@ class RegisterController extends BaseController {
         return Response::json($json_request, 200);
     }
 
-    public function restorePassword(){
+    public function restorePassword() {
 
         $json_request = array('status' => FALSE, 'responseText' => '', 'redirectURL' => FALSE);
         if (Request::ajax()):
@@ -115,6 +147,7 @@ class RegisterController extends BaseController {
         endif;
         return Response::json($json_request, 200);
     }
+
     /****************************************************************************/
 
     public function signup() {
@@ -152,7 +185,7 @@ class RegisterController extends BaseController {
                         if (isset($post['code']) && !empty($post['code'])):
                             $result = PromoController::registerPromoCode($post['code']);
                             Session::flash('message', Config::get('api.message'));
-                            $json_request['redirectURL'] = URL::to(AuthAccount::getGroupStartUrl().'#message');
+                            $json_request['redirectURL'] = URL::to(AuthAccount::getGroupStartUrl() . '#message');
                             setcookie("firstCodeCookie", "", time() - 3600, '/');
                         endif;
                     endif;
@@ -170,7 +203,7 @@ class RegisterController extends BaseController {
 
     public function validEmail() {
 
-        if(Input::has('hash')):
+        if (Input::has('hash')):
             $api = (new ApiController())->activateEmail(Input::get('hash'));
             if ($api === FALSE):
                 return Redirect::to('/#message')->with('message', Config::get('api.message'));
@@ -267,8 +300,9 @@ class RegisterController extends BaseController {
 
             $user->phone = $post['phone'];
             $user->sex = $post['sex'];
-            $bdate = (new myDateTime())->setDateString($post['yyyy'] . '-' . $post['mm'] . '-' . $post['dd'])->format('Y-m-d');
+            $bdate = Carbon::createFromFormat('Y-m-d', $post['yyyy'] . '-' . $post['mm'] . '-' . $post['dd'])->format('Y-m-d 00:00:00');
             $user->bdate = $bdate;
+            $user->city = isset($post['city']) ? $post['city'] : '';
 
             $user->remote_id = @$post['remote_id'];
             $user->sessionKey = @$post['sessionKey'];
