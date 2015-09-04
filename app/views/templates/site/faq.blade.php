@@ -3,6 +3,8 @@
 * TITLE: FAQ
 * AVAILABLE_ONLY_IN_ADVANCED_MODE
 */
+?>
+<?php
 $questions = array();
 $medium = 0;
 if (isset($page['blocks']) && count($page['blocks'])):

@@ -4,6 +4,16 @@
  * AVAILABLE_ONLY_IN_ADVANCED_MODE
  */
 ?>
+<?php
+$countries = array();
+for ($i = 1; $i <= 6; $i++):
+    if (isset($page['blocks']['country_' . $i])):
+        if (isset($page['blocks']['country_' . $i]['meta']['content']) && !empty($page['blocks']['country_' . $i]['meta']['content'])):
+            $countries[] = json_decode($page['blocks']['country_' . $i]['meta']['content'], TRUE);
+        endif;
+    endif;
+endfor;
+?>
 @extends(Helper::layout())
 @section('style')
 @stop
@@ -16,6 +26,7 @@
                 <div class="collection">
                     <div class="country cuba">
                         <p>Куба</p>
+
                         <div class="photo"></div>
                         <div class="tea"></div>
                         <div class="content cuba">
@@ -29,7 +40,9 @@
                                 </div>
                                 <div class="text translate">*Cuba Resort — Куба Резорт</div>
                             </div>
-                            <div class="column-right"><img src="{{ asset(Config::get('site.theme_path')) }}/images/bg-tea-cuba-big.png"></div>
+                            <div class="column-right"><img
+                                        src="{{ asset(Config::get('site.theme_path')) }}/images/bg-tea-cuba-big.png">
+                            </div>
                         </div>
                     </div>
                     <div class="country england">
@@ -44,10 +57,13 @@
                                 </div>
                                 <div class="text">Классический черный чай с ароматом<br>
                                     бергамота познакомит Вас с истинными традициями<br>
-                                    британского чаепития Викторианской эпохи. </div>
+                                    британского чаепития Викторианской эпохи.
+                                </div>
                                 <div class="text translate">*Victorian Earl Grey — Викториэн Эрл Грэй</div>
                             </div>
-                            <div class="column-right"><img src="{{ asset(Config::get('site.theme_path')) }}/images/bg-tea-england-big.png"></div>
+                            <div class="column-right"><img
+                                        src="{{ asset(Config::get('site.theme_path')) }}/images/bg-tea-england-big.png">
+                            </div>
                         </div>
                     </div>
                     <div class="country china">
@@ -68,7 +84,9 @@
                                 </div>
                                 <div class="text translate">*Oriental Temple — Ориентл Тэмпл</div>
                             </div>
-                            <div class="column-right"><img src="{{ asset(Config::get('site.theme_path')) }}/images/bg-tea-china-big.png"></div>
+                            <div class="column-right"><img
+                                        src="{{ asset(Config::get('site.theme_path')) }}/images/bg-tea-china-big.png">
+                            </div>
                         </div>
                     </div>
                     <div class="country shri">
@@ -89,7 +107,9 @@
                                 </div>
                                 <div class="text translate">*Heart of Ceylon — Хат оф Сейлон</div>
                             </div>
-                            <div class="column-right"><img src="{{ asset(Config::get('site.theme_path')) }}/images/bg-tea-shri-big.png"></div>
+                            <div class="column-right"><img
+                                        src="{{ asset(Config::get('site.theme_path')) }}/images/bg-tea-shri-big.png">
+                            </div>
                         </div>
                     </div>
                     <div class="country turkey">
@@ -109,7 +129,9 @@
                                 </div>
                                 <div class="text translate">*Sultan Delight — Салтн Дилайт</div>
                             </div>
-                            <div class="column-right"><img src="{{ asset(Config::get('site.theme_path')) }}/images/bg-tea-turkey-big.png"></div>
+                            <div class="column-right"><img
+                                        src="{{ asset(Config::get('site.theme_path')) }}/images/bg-tea-turkey-big.png">
+                            </div>
                         </div>
                     </div>
                     <div class="country marokko">
@@ -128,7 +150,9 @@
                                 </div>
                                 <div class="text translate">*Spicy Marrakesh — Спайси Марракеш</div>
                             </div>
-                            <div class="column-right"><img src="{{ asset(Config::get('site.theme_path')) }}/images/bg-tea-marokko-big.png"></div>
+                            <div class="column-right"><img
+                                        src="{{ asset(Config::get('site.theme_path')) }}/images/bg-tea-marokko-big.png">
+                            </div>
                         </div>
                     </div>
                 </div>
