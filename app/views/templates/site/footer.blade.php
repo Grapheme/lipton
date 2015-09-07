@@ -19,5 +19,5 @@
     </div>
     {{ Menu::placement('footer_menu') }}
 </div>
-<div class="footer-decor-left"></div>
-<div class="footer-decor-right"></div>
+<!-- <div class="footer-decor-left"></div>
+<div class="footer-decor-right"></div> -->
