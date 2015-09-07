@@ -213,6 +213,7 @@ textarea:-ms-textarea-placeholder {
 		@include mobile {
 			height: auto;
 			text-align: center;
+			padding: 0 20px;
 		}
 
 		.copyright {
@@ -576,6 +577,7 @@ textarea:-ms-textarea-placeholder {
 					background-image: url('../images/ico-close-menu.png');
 					background-position: center;
 					background-repeat: no-repeat;
+					z-index: 10000000;
 				}
 			}
 		}
@@ -2696,6 +2698,11 @@ textarea:-ms-textarea-placeholder {
 				a {
 					text-decoration: underline;
 					float: left;
+
+					@include mobile {
+						float: none;
+						font-size: 14px;
+					}
 
 					&:hover {
 						text-decoration: none;

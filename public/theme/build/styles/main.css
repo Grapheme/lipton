@@ -537,7 +537,8 @@ textarea:-ms-textarea-placeholder {
   @media (max-width: 640px) {
     .sub-footer {
       height: auto;
-      text-align: center; } }
+      text-align: center;
+      padding: 0 20px; } }
   .sub-footer .copyright {
     max-width: 700px;
     float: left; }
@@ -803,7 +804,8 @@ textarea:-ms-textarea-placeholder {
         .block.header .icons-block .ico-burger.close-ico {
           background-image: url("../images/ico-close-menu.png");
           background-position: center;
-          background-repeat: no-repeat; }
+          background-repeat: no-repeat;
+          z-index: 10000000; }
     .block.header .right-menu-holder {
       position: absolute;
       right: 0;
@@ -2380,6 +2382,10 @@ textarea:-ms-textarea-placeholder {
         .block .profile .profile-head .profile-info a {
           text-decoration: underline;
           float: left; }
+          @media (max-width: 640px) {
+            .block .profile .profile-head .profile-info a {
+              float: none;
+              font-size: 14px; } }
           .block .profile .profile-head .profile-info a:hover {
             text-decoration: none; }
       .block .profile .profile-head .profile-promo-code {
