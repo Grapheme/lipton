@@ -3467,7 +3467,7 @@ form.select-gain {
 
 .ui-menu .ui-menu-item {
 	width: 100% !important;
-	height: 50px;
+	min-height: 50px;
 	border-radius: 3px;
 	padding: 14px 22px;
 	box-sizing: border-box;
