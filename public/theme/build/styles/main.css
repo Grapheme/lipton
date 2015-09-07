@@ -808,7 +808,7 @@ textarea:-ms-textarea-placeholder {
       position: absolute;
       right: 0;
       top: 0;
-      z-index: 100;
+      z-index: 9999999;
       width: 345px;
       height: auto;
       background-color: #c90119;
@@ -1136,7 +1136,7 @@ textarea:-ms-textarea-placeholder {
               text-decoration: none;
               cursor: pointer;
               width: 300px;
-              height: auto;
+              height: 232px;
               margin-right: 10px;
               position: inherit;
               border-radius: 5px;
@@ -1160,6 +1160,9 @@ textarea:-ms-textarea-placeholder {
             text-transform: uppercase;
             font-size: 20px;
             margin-top: 10px; }
+            @media (max-width: 640px) {
+              .block.footer .content .block-right a.traveller-card h3.new-issue {
+                font-size: 17px; } }
   .block form.promo-code {
     width: 447px;
     height: 50px;
