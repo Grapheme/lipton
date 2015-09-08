@@ -20,7 +20,7 @@
 	}
 }
 
-@mixin ipad-hor {
+@mixin ipadHor {
 	@media (max-width: 1024) {
 		@content;
 	}
@@ -821,7 +821,7 @@ textarea:-ms-textarea-placeholder {
 							margin-bottom: 50px;
 						}
 
-						@include ipad-hor {
+						@include ipadHor {
 							width: 360px;
 							margin-right: 50px;
 							margin-left: 15px;
@@ -843,7 +843,7 @@ textarea:-ms-textarea-placeholder {
 							margin-bottom: 50px;
 						}
 
-						@include ipad-hor {
+						@include ipadHor {
 							width: 270px;
 							margin-right: 47px;
 						}
@@ -889,7 +889,7 @@ textarea:-ms-textarea-placeholder {
 							text-align: center;
 						}
 
-						@include ipad-hor {
+						@include ipadHor {
 							font-size: 20px;
 						}
 					}
@@ -3285,7 +3285,7 @@ textarea:-ms-textarea-placeholder {
 				right: 0px;
 				top: 247px;
 
-				@include ipad-hor {
+				@include ipadHor {
 					right: 80px;
 				}
 
@@ -3328,7 +3328,7 @@ textarea:-ms-textarea-placeholder {
 				left: 0;
 				top: 247px;
 
-				@include ipad-hor {
+				@include ipadHor {
 					left: 70px;
 				}
 
