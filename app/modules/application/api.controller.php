@@ -590,6 +590,9 @@ class ApiController extends BaseController {
             if (empty($user['id']) && empty($user['sessionKey'])):
                 if ($message = $this->getErrorMessage($result)):
                     Config::set('api.message', $message);
+                else:
+                    $message = $this->getXmlValue($result['curl_result'], 'messages', 'message');
+                    Config::set('api.message', $message);
                 endif;
                 return FALSE;
             else:
@@ -719,8 +722,6 @@ class ApiController extends BaseController {
             endif;
             return FALSE;
         endif;
-
-        Helper::tad($result);
     }
 
     public function get_prizes(array $params = [], $operation = 'DirectCrm.GetCustomersPrizesGeneralData') {

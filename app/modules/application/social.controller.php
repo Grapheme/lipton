@@ -43,17 +43,26 @@ class SocialController extends BaseController {
             Auth::loginUsingId($check->user_id, FALSE);
             $post['provider'] = $_user['network'];
             $post['identity'] = $_user['uid'];
-            if ($api = (new ApiController())->social_logon($post)):
+            $api = (new ApiController())->social_logon($post);
+            if (is_array($api) === FALSE):
                 Auth::user()->active = 1;
                 Auth::user()->remote_id = @$api['id'];
                 Auth::user()->sessionKey = @$api['sessionKey'];
                 Auth::user()->save();
+            else:
+                Auth::logout();
+                if (Config::has('api.message')):
+                    Session::flash('message', Config::get('api.message'));
+                else:
+                    Session::flash('message', 'Возникла ошибка при авторизации через социальную сеть.');
+                endif;
+                return Redirect::to(pageurl('auth') . '#message');
             endif;
             if (isset($_COOKIE['firstCodeCookie']) && !empty($_COOKIE['firstCodeCookie'])):
                 $result = PromoController::registerPromoCode($_COOKIE['firstCodeCookie']);
                 Session::flash('message', Config::get('api.message'));
                 setcookie("firstCodeCookie", "", time() - 3600, '/');
-                return Redirect::to(AuthAccount::getGroupStartUrl().'#message');
+                return Redirect::to(AuthAccount::getGroupStartUrl() . '#message');
             endif;
             return Redirect::to(AuthAccount::getGroupStartUrl());
         elseif (isset($_user['email']) && User::where('email', @$_user['email'])->exists()):
