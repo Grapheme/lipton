@@ -228,6 +228,7 @@ textarea:-ms-textarea-placeholder {
 
 			@include mobile {
 				float: none;
+				margin: 0 auto;
 			}
 
 			p {
@@ -3893,6 +3894,12 @@ a.popup-close-cross {
 		width: 532px;
 		height: 372px;
 		border-radius: 10px;
+
+		@include ipad {
+			left: 50% !important;
+		    margin-left: -206px;
+		    width: 412px !important;
+		}
 
 		form {
 			width: 285px;
