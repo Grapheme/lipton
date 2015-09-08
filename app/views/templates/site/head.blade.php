@@ -69,5 +69,5 @@ if (isset($page->seos) && is_object($page->seos) && isset($page->seos[Config::ge
 <meta name="keywords" content="@yield('keywords')">
 <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
 @yield('meta_og')
-{{ HTML::stylemod(Config::get('site.theme_path').'/styles/vendor.css') }}
-{{ HTML::stylemod(Config::get('site.theme_path').'/styles/main.css') }}
+{{ HTML::style(Config::get('site.theme_path').'/styles/vendor.css') }}
+{{ HTML::style(Config::get('site.theme_path').'/styles/main.css') }}
