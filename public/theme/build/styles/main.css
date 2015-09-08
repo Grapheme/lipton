@@ -784,6 +784,9 @@ textarea:-ms-textarea-placeholder {
           .block.header .icons-block .ico-account {
             position: absolute;
             left: -200px; } }
+        @media (max-width: 1024px) {
+          .block.header .icons-block .ico-account {
+            left: inherit !important; } }
         .block.header .icons-block .ico-account:hover {
           background-color: #ffd400; }
         .block.header .icons-block .ico-account.logout {

@@ -14,6 +14,12 @@
 	}
 }
 
+@mixin ipad {
+	@media (max-width: 1024px) {
+		@content;
+	}
+}
+
 .clearfix {
 	clear: both;
 }
@@ -548,6 +554,10 @@ textarea:-ms-textarea-placeholder {
 				@include mobile {
 					position: absolute;
 					left: -200px;
+				}
+
+				@include ipad {
+					left: inherit !important;
 				}
 
 				&:hover {
