@@ -3,13 +3,25 @@
 // endbower
 
 @mixin mobile {
-	@media (max-width: 640px) {
+	@media (max-width: 768px) {
 		@content;
 	}
 }
 
 @mixin mobile320 {
 	@media (max-width: 320px) {
+		@content;
+	}
+}
+
+@mixin ipad {
+	@media (max-width: 768px) {
+		@content;
+	}
+}
+
+@mixin ipadHor {
+	@media (max-width: 1024px) {
 		@content;
 	}
 }
@@ -222,6 +234,7 @@ textarea:-ms-textarea-placeholder {
 
 			@include mobile {
 				float: none;
+				margin: 0 auto;
 			}
 
 			p {
@@ -540,6 +553,10 @@ textarea:-ms-textarea-placeholder {
 				transition: .2s all;
 				margin-right: 30px;
 
+				@include ipad {
+					left: inherit !important;
+				}
+
 				@include mobile320 {
 					position: absolute;
 					left: -150px !important;
@@ -803,6 +820,12 @@ textarea:-ms-textarea-placeholder {
 							height: 245px;
 							margin-bottom: 50px;
 						}
+
+						@include ipadHor {
+							width: 360px;
+							margin-right: 50px;
+							margin-left: 15px;
+						}
 					}
 
 					&.step-2 {
@@ -818,6 +841,11 @@ textarea:-ms-textarea-placeholder {
 							width: auto;
 							height: 405px;
 							margin-bottom: 50px;
+						}
+
+						@include ipadHor {
+							width: 270px;
+							margin-right: 47px;
 						}
 					}
 
@@ -859,6 +887,10 @@ textarea:-ms-textarea-placeholder {
 							float: none;
 							margin: 0 auto 20px;
 							text-align: center;
+						}
+
+						@include ipadHor {
+							font-size: 20px;
 						}
 					}
 
@@ -2211,6 +2243,10 @@ textarea:-ms-textarea-placeholder {
 				background-position: center;
 				background-repeat: no-repeat;
 				margin-bottom: 15px;
+
+				@include ipad {
+					width: 168px;
+				}
 			}
 
 			&.rule-1 {
@@ -3249,6 +3285,12 @@ textarea:-ms-textarea-placeholder {
 				right: 0px;
 				top: 247px;
 
+				@include ipadHor {
+					right: 80px;
+				}
+
+
+
 				.tea {
 					background-image: url('../images/bg-tea-china.png');
 				}
@@ -3287,6 +3329,10 @@ textarea:-ms-textarea-placeholder {
 			&.marokko {
 				left: 0;
 				top: 247px;
+
+				@include ipadHor {
+					left: 70px;
+				}
 
 				.tea {
 					background-image: url('../images/bg-tea-marokko.png');
@@ -3582,6 +3628,11 @@ form.select-gain {
 	    border-radius: 10px;
 	}
 
+	@include ipad {
+		left: 50%;
+		margin-left: -161px;
+	}
+
 	h3 {
 		text-transform: uppercase;
 		font-size: 21px;
@@ -3875,6 +3926,12 @@ a.popup-close-cross {
 		height: 372px;
 		border-radius: 10px;
 
+		@include ipad {
+			left: 50% !important;
+		    margin-left: -206px;
+		    width: 412px !important;
+		}
+
 		form {
 			width: 285px;
 			margin: 0 auto;
@@ -3984,6 +4041,10 @@ a.popup-close-cross {
 		margin: 0 auto;
 		margin-bottom: 20px;
 		display: block;
+
+		@include ipad {
+			width: 280px;
+		}
 	}
 
 	label {
