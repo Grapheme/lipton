@@ -2221,6 +2221,10 @@ textarea:-ms-textarea-placeholder {
 				background-position: center;
 				background-repeat: no-repeat;
 				margin-bottom: 15px;
+
+				@include ipad {
+					width: 168px;
+				}
 			}
 
 			&.rule-1 {
