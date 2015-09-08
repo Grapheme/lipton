@@ -3038,6 +3038,10 @@ form.select-gain button {
       width: 310px;
       height: 287px;
       border-radius: 10px; } }
+  @media (max-width: 1024px) {
+    .error-block {
+      left: 50%;
+      margin-left: -161px; } }
   .error-block h3 {
     text-transform: uppercase;
     font-size: 21px;
@@ -3305,6 +3309,9 @@ a.popup-close-cross {
       @media (max-width: 1024px) {
         .sms-wrapper .cropper-holder input, .password-recovery-holder .cropper-holder input {
           width: 90%; } }
+      @media (max-width: 1024px) {
+        .sms-wrapper .cropper-holder input, .password-recovery-holder .cropper-holder input {
+          width: 280px; } }
     .sms-wrapper .cropper-holder button, .password-recovery-holder .cropper-holder button {
       width: 150px;
       height: 50px;
