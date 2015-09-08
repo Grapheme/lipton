@@ -9,7 +9,7 @@ $countries = array();
 for ($i = 1; $i <= 6; $i++):
     if (isset($page['blocks']['country_' . $i])):
         if (isset($page['blocks']['country_' . $i]['meta']['content']) && !empty($page['blocks']['country_' . $i]['meta']['content'])):
-            $countries[] = json_decode($page['blocks']['country_' . $i]['meta']['content'], TRUE);
+            $countries[$i] = json_decode($page['blocks']['country_' . $i]['meta']['content'], TRUE);
         endif;
     endif;
 endfor;
@@ -34,8 +34,8 @@ endfor;
                                 <div class="logo">
                                     <img src="{{ asset(Config::get('site.theme_path').'/images/countries/resolt.png') }}">
                                 </div>
-                                <div class="text">{{ @$countries[0]['desc'] }}</div>
-                                <div class="text translate">{{ @$countries[0]['translate'] }}</div>
+                                <div class="text">{{ @$countries[1]['desc'] }}</div>
+                                <div class="text translate">{{ @$countries[1]['translate'] }}</div>
                             </div>
                             <div class="column-right"><img
                                         src="{{ asset(Config::get('site.theme_path')) }}/images/bg-tea-cuba-big.png">
@@ -52,8 +52,8 @@ endfor;
                                 <div class="logo">
                                     <img src="{{ asset(Config::get('site.theme_path').'/images/countries/earl-grey.png') }}">
                                 </div>
-                                <div class="text">{{ @$countries[1]['desc'] }}</div>
-                                <div class="text translate">{{ @$countries[1]['translate'] }}</div>
+                                <div class="text">{{ @$countries[6]['desc'] }}</div>
+                                <div class="text translate">{{ @$countries[6]['translate'] }}</div>
                             </div>
                             <div class="column-right"><img
                                         src="{{ asset(Config::get('site.theme_path')) }}/images/bg-tea-england-big.png">
@@ -70,8 +70,8 @@ endfor;
                                 <div class="logo">
                                     <img src="{{ asset(Config::get('site.theme_path').'/images/countries/temple.png') }}">
                                 </div>
-                                <div class="text">{{ @$countries[2]['desc'] }}</div>
-                                <div class="text translate">{{ @$countries[2]['translate'] }}</div>
+                                <div class="text">{{ @$countries[5]['desc'] }}</div>
+                                <div class="text translate">{{ @$countries[5]['translate'] }}</div>
                             </div>
                             <div class="column-right"><img
                                         src="{{ asset(Config::get('site.theme_path')) }}/images/bg-tea-china-big.png">
@@ -88,8 +88,8 @@ endfor;
                                 <div class="logo">
                                     <img src="{{ asset(Config::get('site.theme_path').'/images/countries/ceylon.png') }}">
                                 </div>
-                                <div class="text">{{ @$countries[3]['desc'] }}</div>
-                                <div class="text translate">{{ @$countries[3]['translate'] }}</div>
+                                <div class="text">{{ @$countries[4]['desc'] }}</div>
+                                <div class="text translate">{{ @$countries[4]['translate'] }}</div>
                             </div>
                             <div class="column-right"><img
                                         src="{{ asset(Config::get('site.theme_path')) }}/images/bg-tea-shri-big.png">
@@ -106,8 +106,8 @@ endfor;
                                 <div class="logo">
                                     <img src="{{ asset(Config::get('site.theme_path').'/images/countries/delight.png') }}">
                                 </div>
-                                <div class="text">{{ @$countries[4]['desc'] }}</div>
-                                <div class="text translate">{{ @$countries[4]['translate'] }}</div>
+                                <div class="text">{{ @$countries[3]['desc'] }}</div>
+                                <div class="text translate">{{ @$countries[3]['translate'] }}</div>
                             </div>
                             <div class="column-right"><img
                                         src="{{ asset(Config::get('site.theme_path')) }}/images/bg-tea-turkey-big.png">
@@ -124,8 +124,8 @@ endfor;
                                 <div class="logo">
                                     <img src="{{ asset(Config::get('site.theme_path').'/images/countries/marrakesh.png') }}">
                                 </div>
-                                <div class="text">{{ @$countries[5]['desc'] }}</div>
-                                <div class="text translate">{{ @$countries[5]['translate'] }}</div>
+                                <div class="text">{{ @$countries[2]['desc'] }}</div>
+                                <div class="text translate">{{ @$countries[2]['translate'] }}</div>
                             </div>
                             <div class="column-right"><img
                                         src="{{ asset(Config::get('site.theme_path')) }}/images/bg-tea-marokko-big.png">
