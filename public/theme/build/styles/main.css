@@ -976,6 +976,11 @@ textarea:-ms-textarea-placeholder {
                 width: auto;
                 height: 245px;
                 margin-bottom: 50px; } }
+            @media (max-width: 1024) {
+              .block.promo-code .content .promo-steps .promo-step.step-1 {
+                width: 360px;
+                margin-right: 50px;
+                margin-left: 15px; } }
           .block.promo-code .content .promo-steps .promo-step.step-2 {
             width: 412px;
             margin-right: 67px;
@@ -987,6 +992,10 @@ textarea:-ms-textarea-placeholder {
                 width: auto;
                 height: 405px;
                 margin-bottom: 50px; } }
+            @media (max-width: 1024) {
+              .block.promo-code .content .promo-steps .promo-step.step-2 {
+                width: 270px;
+                margin-right: 47px; } }
           .block.promo-code .content .promo-steps .promo-step.step-3 {
             width: 309px; }
             @media (max-width: 768px) {
@@ -1020,6 +1029,9 @@ textarea:-ms-textarea-placeholder {
                 float: none;
                 margin: 0 auto 20px;
                 text-align: center; } }
+            @media (max-width: 1024) {
+              .block.promo-code .content .promo-steps .promo-step h2 {
+                font-size: 20px; } }
           .block.promo-code .content .promo-steps .promo-step p {
             margin: 0 0 0 64px;
             font-family: 'Intro-regular';
@@ -2789,6 +2801,9 @@ textarea:-ms-textarea-placeholder {
       .block .collection .country.china {
         right: 0px;
         top: 247px; }
+        @media (max-width: 1024) {
+          .block .collection .country.china {
+            right: 80px; } }
         .block .collection .country.china .tea {
           background-image: url("../images/bg-tea-china.png"); }
         .block .collection .country.china .photo {
@@ -2810,6 +2825,9 @@ textarea:-ms-textarea-placeholder {
       .block .collection .country.marokko {
         left: 0;
         top: 247px; }
+        @media (max-width: 1024) {
+          .block .collection .country.marokko {
+            left: 70px; } }
         .block .collection .country.marokko .tea {
           background-image: url("../images/bg-tea-marokko.png");
           height: 225px;

@@ -20,6 +20,12 @@
 	}
 }
 
+@mixin ipad-hor {
+	@media (max-width: 1024) {
+		@content;
+	}
+}
+
 .clearfix {
 	clear: both;
 }
@@ -814,6 +820,12 @@ textarea:-ms-textarea-placeholder {
 							height: 245px;
 							margin-bottom: 50px;
 						}
+
+						@include ipad-hor {
+							width: 360px;
+							margin-right: 50px;
+							margin-left: 15px;
+						}
 					}
 
 					&.step-2 {
@@ -829,6 +841,11 @@ textarea:-ms-textarea-placeholder {
 							width: auto;
 							height: 405px;
 							margin-bottom: 50px;
+						}
+
+						@include ipad-hor {
+							width: 270px;
+							margin-right: 47px;
 						}
 					}
 
@@ -870,6 +887,10 @@ textarea:-ms-textarea-placeholder {
 							float: none;
 							margin: 0 auto 20px;
 							text-align: center;
+						}
+
+						@include ipad-hor {
+							font-size: 20px;
 						}
 					}
 
@@ -3264,6 +3285,10 @@ textarea:-ms-textarea-placeholder {
 				right: 0px;
 				top: 247px;
 
+				@include ipad-hor {
+					right: 80px;
+				}
+
 				.tea {
 					background-image: url('../images/bg-tea-china.png');
 				}
@@ -3302,6 +3327,10 @@ textarea:-ms-textarea-placeholder {
 			&.marokko {
 				left: 0;
 				top: 247px;
+
+				@include ipad-hor {
+					left: 70px;
+				}
 
 				.tea {
 					background-image: url('../images/bg-tea-marokko.png');
