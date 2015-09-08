@@ -21,7 +21,7 @@
 }
 
 @mixin ipadHor {
-	@media (max-width: 1024) {
+	@media (max-width: 1024px) {
 		@content;
 	}
 }
