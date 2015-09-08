@@ -776,6 +776,9 @@ textarea:-ms-textarea-placeholder {
         -webkit-transition: .2s all;
                 transition: .2s all;
         margin-right: 30px; }
+        @media (max-width: 1024px) {
+          .block.header .icons-block .ico-account {
+            left: inherit !important; } }
         @media (max-width: 320px) {
           .block.header .icons-block .ico-account {
             position: absolute;
@@ -784,9 +787,6 @@ textarea:-ms-textarea-placeholder {
           .block.header .icons-block .ico-account {
             position: absolute;
             left: -200px; } }
-        @media (max-width: 1024px) {
-          .block.header .icons-block .ico-account {
-            left: inherit !important; } }
         .block.header .icons-block .ico-account:hover {
           background-color: #ffd400; }
         .block.header .icons-block .ico-account.logout {
@@ -3309,9 +3309,6 @@ a.popup-close-cross {
       @media (max-width: 1024px) {
         .sms-wrapper .cropper-holder input, .password-recovery-holder .cropper-holder input {
           width: 90%; } }
-      @media (max-width: 1024px) {
-        .sms-wrapper .cropper-holder input, .password-recovery-holder .cropper-holder input {
-          width: 280px; } }
     .sms-wrapper .cropper-holder button, .password-recovery-holder .cropper-holder button {
       width: 150px;
       height: 50px;
@@ -3374,6 +3371,9 @@ a.popup-close-cross {
   margin: 0 auto;
   margin-bottom: 20px;
   display: block; }
+  @media (max-width: 1024px) {
+    .password-recovery-holder input {
+      width: 280px; } }
 
 .password-recovery-holder label {
   margin-left: 100px; }

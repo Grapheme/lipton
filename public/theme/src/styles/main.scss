@@ -546,6 +546,10 @@ textarea:-ms-textarea-placeholder {
 				transition: .2s all;
 				margin-right: 30px;
 
+				@include ipad {
+					left: inherit !important;
+				}
+
 				@include mobile320 {
 					position: absolute;
 					left: -150px !important;
@@ -554,10 +558,6 @@ textarea:-ms-textarea-placeholder {
 				@include mobile {
 					position: absolute;
 					left: -200px;
-				}
-
-				@include ipad {
-					left: inherit !important;
 				}
 
 				&:hover {
@@ -3921,10 +3921,6 @@ a.popup-close-cross {
 			@include mobile {
 				width: 90%;
 			}
-
-			@include ipad {
-				width: 280px;
-			}
 		}
 
 		button {
@@ -4003,6 +3999,10 @@ a.popup-close-cross {
 		margin: 0 auto;
 		margin-bottom: 20px;
 		display: block;
+
+		@include ipad {
+			width: 280px;
+		}
 	}
 
 	label {
