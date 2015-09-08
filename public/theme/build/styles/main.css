@@ -2036,6 +2036,9 @@ textarea:-ms-textarea-placeholder {
         background-position: center;
         background-repeat: no-repeat;
         margin-bottom: 15px; }
+        @media (max-width: 1024px) {
+          .block .rules-row .rule-item .rule-img {
+            width: 168px; } }
       .block .rules-row .rule-item.rule-1 {
         background-image: url("../images/bg-rule-1.png"); }
         .block .rules-row .rule-item.rule-1 .rule-img {
