@@ -42,38 +42,43 @@ class SocialController extends BaseController {
         $post['provider'] = $_user['network'];
         $post['identity'] = $_user['uid'];
         $api_social = (new ApiController())->social_logon($post);
-        if (is_array($api_social)):
-            if(Ulogin::where('identity', '=', $_user['identity'])->exists() === FALSE):
-                $post = array();
-                $post['customerId'] = @$api_social['id'];
-                $post['sessionKey'] = @$api_social['sessionKey'];
-                $api = (new ApiController())->get_register($post);
-                if (isset($api['email'])):
-                    $password = Str::random(8);
-                    $post['remote_id'] = $post['customerId'];
-                    $post['email'] = $api['email'];
-                    $post['name'] = @$api['name'];
-                    $post['surname'] = @$api['surname'];
-                    $post['sex'] = @$api['sex'] == 'female' ? 0 : 1;
-                    $post['dd'] = @$api['dd'];
-                    $post['mm'] = @$api['mm'];
-                    $post['yyyy'] = @$api['yyyy'];
-                    $post['phone'] = @$api['phone'];
-                    $post['city'] = @$api['city'];
-                    $post['password'] = Hash::make($password);
-                    $post['code'] = Input::get('promo-code');
-                    $user  = (new RegisterController())->getRegisterAccount($post);
-                    (new RegisterController())->createULogin($user->id, $post);
+        try {
+            if (is_array($api_social)):
+                if (Ulogin::where('identity', '=', $_user['identity'])->exists() === FALSE):
+                    $post = array();
+                    $post['customerId'] = @$api_social['id'];
+                    $post['sessionKey'] = @$api_social['sessionKey'];
+                    $api = (new ApiController())->get_register($post);
+                    if (isset($api['email'])):
+                        $password = Str::random(8);
+                        $post['remote_id'] = $post['customerId'];
+                        $post['email'] = $api['email'];
+                        $post['name'] = @$api['name'];
+                        $post['surname'] = @$api['surname'];
+                        $post['sex'] = @$api['sex'] == 'female' ? 0 : 1;
+                        $post['dd'] = @$api['dd'];
+                        $post['mm'] = @$api['mm'];
+                        $post['yyyy'] = @$api['yyyy'];
+                        $post['phone'] = @$api['phone'];
+                        $post['city'] = @$api['city'];
+                        $post['password'] = Hash::make($password);
+                        $post['code'] = Input::get('promo-code');
+                        $user = (new RegisterController())->getRegisterAccount($post);
+                        (new RegisterController())->createULogin($user->id, $post);
+                    endif;
                 endif;
-            endif;
-        else:
-            if (Config::has('api.message')):
-                Session::flash('message', Config::get('api.message'));
             else:
-                Session::flash('message', 'Возникла ошибка при авторизации через социальную сеть.');
+                if (Config::has('api.message')):
+                    Session::flash('message', Config::get('api.message'));
+                else:
+                    Session::flash('message', 'Возникла ошибка при авторизации через социальную сеть.');
+                endif;
+                return Redirect::to(pageurl('auth') . '#message');
             endif;
+        } catch (Exception $e) {
+            Session::flash('message', 'Возникла ошибка при авторизации через социальную сеть.');
             return Redirect::to(pageurl('auth') . '#message');
-        endif;
+        }
         if ($check = Ulogin::where('identity', '=', $_user['identity'])->first()):
             Auth::loginUsingId($check->user_id, FALSE);
             Auth::user()->active = 1;
