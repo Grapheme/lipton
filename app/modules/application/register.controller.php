@@ -288,7 +288,7 @@ class RegisterController extends BaseController {
     }
 
     /**************************************************************************/
-    private function getRegisterAccount($post = NULL) {
+    public function getRegisterAccount($post = NULL) {
 
         $user = new User;
         if (!is_null($post)):
@@ -319,7 +319,7 @@ class RegisterController extends BaseController {
         return FALSE;
     }
 
-    private function createULogin($user_id, $post) {
+    public function createULogin($user_id, $post) {
 
         $ulogin = new Ulogin();
 

@@ -39,18 +39,35 @@ class SocialController extends BaseController {
         if (isset($_user['error'])):
             return Redirect::to(URL::route('page', 'registering'));
         endif;
-        if ($check = Ulogin::where('identity', '=', $_user['identity'])->first()):
-            Auth::loginUsingId($check->user_id, FALSE);
-            $post['provider'] = $_user['network'];
-            $post['identity'] = $_user['uid'];
-            $api = (new ApiController())->social_logon($post);
-            if (is_array($api)):
-                Auth::user()->active = 1;
-                Auth::user()->remote_id = @$api['id'];
-                Auth::user()->sessionKey = @$api['sessionKey'];
-                Auth::user()->save();
+        $post['provider'] = $_user['network'];
+        $post['identity'] = $_user['uid'];
+        $api_social = (new ApiController())->social_logon($post);
+        try {
+            if (is_array($api_social)):
+                if (Ulogin::where('identity', '=', $_user['identity'])->exists() === FALSE):
+                    $post = array();
+                    $post['customerId'] = @$api_social['id'];
+                    $post['sessionKey'] = @$api_social['sessionKey'];
+                    $api = (new ApiController())->get_register($post);
+                    if (isset($api['email'])):
+                        $password = Str::random(8);
+                        $post['remote_id'] = $post['customerId'];
+                        $post['email'] = $api['email'];
+                        $post['name'] = @$api['name'];
+                        $post['surname'] = @$api['surname'];
+                        $post['sex'] = @$api['sex'] == 'female' ? 0 : 1;
+                        $post['dd'] = @$api['dd'];
+                        $post['mm'] = @$api['mm'];
+                        $post['yyyy'] = @$api['yyyy'];
+                        $post['phone'] = @$api['phone'];
+                        $post['city'] = @$api['city'];
+                        $post['password'] = Hash::make($password);
+                        $post['code'] = Input::get('promo-code');
+                        $user = (new RegisterController())->getRegisterAccount($post);
+                        (new RegisterController())->createULogin($user->id, $post);
+                    endif;
+                endif;
             else:
-                Auth::logout();
                 if (Config::has('api.message')):
                     Session::flash('message', Config::get('api.message'));
                 else:
@@ -58,6 +75,16 @@ class SocialController extends BaseController {
                 endif;
                 return Redirect::to(pageurl('auth') . '#message');
             endif;
+        } catch (Exception $e) {
+            Session::flash('message', 'Возникла ошибка при авторизации через социальную сеть.');
+            return Redirect::to(pageurl('auth') . '#message');
+        }
+        if ($check = Ulogin::where('identity', '=', $_user['identity'])->first()):
+            Auth::loginUsingId($check->user_id, FALSE);
+            Auth::user()->active = 1;
+            Auth::user()->remote_id = @$api_social['id'];
+            Auth::user()->sessionKey = @$api_social['sessionKey'];
+            Auth::user()->save();
             if (isset($_COOKIE['firstCodeCookie']) && !empty($_COOKIE['firstCodeCookie'])):
                 $result = PromoController::registerPromoCode($_COOKIE['firstCodeCookie']);
                 Session::flash('message', Config::get('api.message'));
@@ -104,26 +131,5 @@ class SocialController extends BaseController {
             endif;
         endif;
     }
-
-    private function createULogin($userID, $_user) {
-
-        $ulogin = new Ulogin();
-        $ulogin->user_id = $userID;
-        $ulogin->network = @$_user['network'];
-        $ulogin->identity = @$_user['identity'];
-        $ulogin->email = isset($_user['email']) ? $_user['email'] : '';
-        $ulogin->first_name = @$_user['first_name'];
-        $ulogin->last_name = @$_user['last_name'];
-        $ulogin->photo = @$_user['photo'];
-        $ulogin->photo_big = @$_user['photo_big'];
-        $ulogin->profile = @$_user['profile'];
-        $ulogin->access_token = isset($_user['access_token']) ? $_user['access_token'] : '';
-        $ulogin->country = isset($_user['country']) ? $_user['country'] : '';
-        $ulogin->city = isset($_user['city']) ? $_user['city'] : '';
-        $ulogin->save();
-
-        return $ulogin;
-    }
-
     /****************************************************************************/
 }
