@@ -815,16 +815,16 @@ textarea:-ms-textarea-placeholder {
 						width: 344px;
 						margin-right: 88px;
 
-						@include mobile {
-							width: auto;
-							height: 245px;
-							margin-bottom: 50px;
-						}
-
 						@include ipadHor {
 							width: 360px;
 							margin-right: 50px;
 							margin-left: 15px;
+						}
+
+						@include mobile {
+							width: auto;
+							height: 245px;
+							margin-bottom: 50px;
 						}
 					}
 
@@ -837,20 +837,22 @@ textarea:-ms-textarea-placeholder {
 							margin: 25px 0px 0px 0px;
 						}
 
+						@include ipadHor {
+							width: 270px;
+							margin-right: 47px;
+						}
+
 						@include mobile {
 							width: auto;
 							height: 405px;
 							margin-bottom: 50px;
 						}
 
-						@include ipadHor {
-							width: 270px;
-							margin-right: 47px;
-						}
 					}
 
 					&.step-3 {
 						width: 309px;
+						
 						@include mobile {
 							width: auto;
 							height: 176px;
