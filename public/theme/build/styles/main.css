@@ -893,7 +893,7 @@ textarea:-ms-textarea-placeholder {
         height: auto;
         background-image: url("../images/bg-promo-code.jpg");
         background-size: cover;
-        height: 1110px; } }
+        height: 1150px; } }
     .block.promo-code:before {
       content: '';
       display: block;
@@ -971,37 +971,40 @@ textarea:-ms-textarea-placeholder {
           .block.promo-code .content .promo-steps .promo-step.step-1 {
             width: 344px;
             margin-right: 88px; }
-            @media (max-width: 768px) {
-              .block.promo-code .content .promo-steps .promo-step.step-1 {
-                width: auto;
-                height: 245px;
-                margin-bottom: 50px; } }
             @media (max-width: 1024px) {
               .block.promo-code .content .promo-steps .promo-step.step-1 {
                 width: 360px;
                 margin-right: 50px;
                 margin-left: 15px; } }
+            @media (max-width: 768px) {
+              .block.promo-code .content .promo-steps .promo-step.step-1 {
+                width: auto;
+                height: 245px;
+                margin-bottom: 50px;
+                margin-left: 0; } }
           .block.promo-code .content .promo-steps .promo-step.step-2 {
             width: 412px;
             margin-right: 67px;
             height: 160px; }
             .block.promo-code .content .promo-steps .promo-step.step-2 form.promo-code {
               margin: 25px 0px 0px 0px; }
-            @media (max-width: 768px) {
-              .block.promo-code .content .promo-steps .promo-step.step-2 {
-                width: auto;
-                height: 405px;
-                margin-bottom: 50px; } }
             @media (max-width: 1024px) {
               .block.promo-code .content .promo-steps .promo-step.step-2 {
                 width: 270px;
                 margin-right: 47px; } }
+            @media (max-width: 768px) {
+              .block.promo-code .content .promo-steps .promo-step.step-2 {
+                width: auto;
+                height: 405px;
+                margin-bottom: 50px;
+                margin-left: 0; } }
           .block.promo-code .content .promo-steps .promo-step.step-3 {
             width: 309px; }
             @media (max-width: 768px) {
               .block.promo-code .content .promo-steps .promo-step.step-3 {
                 width: auto;
-                height: 176px; } }
+                height: 200px;
+                margin-left: 0; } }
           .block.promo-code .content .promo-steps .promo-step .step-number {
             width: 55px;
             height: 55px;
