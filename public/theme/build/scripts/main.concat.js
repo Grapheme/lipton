@@ -1839,12 +1839,14 @@ $(document).ready(function () {
         rules: {
             message: {
                 required: true,
+                maxlength: 500;
             },
         },
 
         messages: {
             message: {
                 required: 'Необходимо написать историю!',
+                maxlength: 'Введите не более 500 символов'
             },
         },
         submitHandler: function (form) {
