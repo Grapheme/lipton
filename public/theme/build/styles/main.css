@@ -893,7 +893,7 @@ textarea:-ms-textarea-placeholder {
         height: auto;
         background-image: url("../images/bg-promo-code.jpg");
         background-size: cover;
-        height: 1150px; } }
+        height: 1180px; } }
     .block.promo-code:before {
       content: '';
       display: block;
@@ -1003,7 +1003,7 @@ textarea:-ms-textarea-placeholder {
             @media (max-width: 768px) {
               .block.promo-code .content .promo-steps .promo-step.step-3 {
                 width: auto;
-                height: 200px;
+                height: 250px;
                 margin-left: 0; } }
           .block.promo-code .content .promo-steps .promo-step .step-number {
             width: 55px;
