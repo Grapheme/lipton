@@ -459,7 +459,7 @@ $(document).ready(function () {
         rules: {
             message: {
                 required: true,
-                maxlength: 500;
+                maxlength: 500,
             },
         },
 
