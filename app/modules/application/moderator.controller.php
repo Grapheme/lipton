@@ -114,7 +114,7 @@ class ModeratorController extends BaseController {
             $user->name = iconv("UTF-8", Input::get('coding'), $user->name);
             $user->surname = iconv("UTF-8", Input::get('coding'), $user->surname);
             $user->total_extend = iconv("UTF-8", Input::get('coding'), $user->total_extend);
-            $user->writing = iconv("UTF-8", Input::get('coding'), $user->writing);
+            $user->writing = iconv("UTF-8", Input::get('coding'), strip_tags(nl2br($user->writing)));
             $user->city = iconv("UTF-8", Input::get('coding'), $user->city);
             $fields = (array)$user;
             if ($glue === 'tab'):
