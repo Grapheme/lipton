@@ -68,12 +68,14 @@ class SocialController extends BaseController {
                     endif;
                 endif;
             else:
-                if (Config::has('api.message')):
+                /*
+				if (Config::has('api.message')):
                     Session::flash('message', Config::get('api.message'));
                 else:
                     Session::flash('message', 'Возникла ошибка при авторизации через социальную сеть.');
                 endif;
                 return Redirect::to(pageurl('auth') . '#message');
+				*/
             endif;
         } catch (Exception $e) {
             Session::flash('message', 'Возникла ошибка при авторизации через социальную сеть.');
@@ -81,10 +83,12 @@ class SocialController extends BaseController {
         }
         if ($check = Ulogin::where('identity', '=', $_user['identity'])->first()):
             Auth::loginUsingId($check->user_id, FALSE);
-            Auth::user()->active = 1;
-            Auth::user()->remote_id = @$api_social['id'];
-            Auth::user()->sessionKey = @$api_social['sessionKey'];
-            Auth::user()->save();
+			if (is_array($api_social)):
+				Auth::user()->active = 1;
+				Auth::user()->remote_id = @$api_social['id'];
+				Auth::user()->sessionKey = @$api_social['sessionKey'];
+				Auth::user()->save();
+			endif;
             if (isset($_COOKIE['firstCodeCookie']) && !empty($_COOKIE['firstCodeCookie'])):
                 $result = PromoController::registerPromoCode($_COOKIE['firstCodeCookie']);
                 Session::flash('message', Config::get('api.message'));
