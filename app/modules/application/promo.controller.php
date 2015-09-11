@@ -135,7 +135,6 @@ class PromoController extends BaseController {
         $json_request = array('status' => FALSE, 'responseText' => '', 'redirectURL' => FALSE);
         $validator = Validator::make(Input::all(), array('certificate' => 'required'));
         if ($validator->passes()):
-
             $certificates = Config::get('directcrm.certificates');
             if(!isset($certificates[Input::get('certificate')])):
                 $json_request['status'] = FALSE;
@@ -167,7 +166,6 @@ class PromoController extends BaseController {
         else:
             return Redirect::route('mainpage');
         endif;
-
     }
 
     public function thirdRegister() {
