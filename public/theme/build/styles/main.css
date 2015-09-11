@@ -627,7 +627,7 @@ textarea:-ms-textarea-placeholder {
       display: block;
       float: left;
       height: 18px;
-      width: 210px; }
+      width: 220px; }
       .sub-footer .sharing-links span p {
         margin: 0;
         clear: both;
@@ -2304,7 +2304,7 @@ textarea:-ms-textarea-placeholder {
                 color: #ffde00; }
   .block .accept-block-holder .profile-info {
     height: 120px;
-    width: 110px;
+    width: 130px;
     margin: 0 auto;
     margin-bottom: 20px; }
     .block .accept-block-holder .profile-info input {
@@ -3569,3 +3569,11 @@ form.sms-chesk label#code-error {
 
 .sharing-script .b-share-btn__counter {
   border-radius: 0 !important; }
+
+.js-achived-spec, .js-achived-leo {
+  font-size: 16px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  text-transform: none !important;
+  font-family: 'PT Sans', 'Open Sans', Arial !important;
+  color: #000 !important; }

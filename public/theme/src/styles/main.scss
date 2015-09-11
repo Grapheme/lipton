@@ -349,7 +349,7 @@ textarea:-ms-textarea-placeholder {
 				display: block;
 				float: left;
 				height: 18px;
-				width: 210px;
+				width: 220px;
 				
 				p {
 					margin: 0;
@@ -2607,7 +2607,7 @@ textarea:-ms-textarea-placeholder {
 		
 		.profile-info {
 			height: 120px;
-			width: 110px;
+			width: 130px;
 			margin: 0 auto;
 			margin-bottom: 20px;
 
@@ -4271,4 +4271,13 @@ form.sms-chesk {
 
 .sharing-script .b-share-btn__counter {
 	border-radius: 0 !important;
+}
+
+.js-achived-spec, .js-achived-leo {
+	font-size: 16px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    text-transform: none !important;
+    font-family: 'PT Sans', 'Open Sans', Arial !important;
+    color: #000 !important;
 }
