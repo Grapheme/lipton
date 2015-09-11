@@ -13,7 +13,7 @@
     </a>
     <a href="{{ URL::route('moderator.participants') }}?filter_status=codes" class="btn btn-default">
         {{ Input::get('filter_status') == 'codes' ? '<i class="fa fa-check"></i>' : '' }}
-        Участники с промо-кодами
+        С промо-кодами
     </a>
     <a href="{{ URL::route('moderator.participants') }}?filter_status=writing" class="btn btn-default">
         {{ Input::get('filter_status') == 'writing' ? '<i class="fa fa-check"></i>' : '' }}
@@ -25,5 +25,8 @@
     </a>
     <a href="javascript:void(0);" class="btn btn-default" id="js-question-likes">
         Пересчитать лайки
+    </a>
+    <a href="javascript:void(0);" class="btn btn-default" id="js-export-csv">
+        Экспорт в CSV
     </a>
 </p>

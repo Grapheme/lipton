@@ -6,7 +6,7 @@ $end = $now->endOfWeek()->format('d.m.Y')
 @extends(Helper::acclayout())
 @section('style')
     <style type="text/css">
-        #question-likes-modal {
+        .modal_window {
             width: 365px;
             height: 250px; /* Рaзмеры дoлжны быть фиксирoвaны */
             border-radius: 5px;
@@ -24,7 +24,7 @@ $end = $now->endOfWeek()->format('d.m.Y')
         }
 
         /* Кнoпкa зaкрыть для тех ктo в тaнке) */
-        #question-likes-modal #modal_close {
+        .modal_close {
             width: 21px;
             height: 21px;
             position: absolute;
@@ -46,6 +46,13 @@ $end = $now->endOfWeek()->format('d.m.Y')
             left: 0; /* сверху и слевa 0, oбязaтельные свoйствa! */
             cursor: pointer;
             display: none; /* в oбычнoм сoстoянии её нет) */
+        }
+
+        #export-csv-modal {
+            width: 550px;
+            height: 390px;
+            margin-left: -270px;
+            margin-top: -180px;
         }
     </style>
 @stop
@@ -192,8 +199,8 @@ $end = $now->endOfWeek()->format('d.m.Y')
             </div>
         </div>
     @endif
-    <div id="question-likes-modal">
-        <span id="modal_close">X</span>
+    <div class="modal_window" id="question-likes-modal">
+        <span class="modal_close">X</span>
 
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
@@ -224,6 +231,83 @@ $end = $now->endOfWeek()->format('d.m.Y')
             </div>
         </div>
     </div>
+
+    <div class="modal_window" id="export-csv-modal">
+        <span class="modal_close">X</span>
+
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                {{ Form::open(array('route'=>'moderator.participants.export','class' => 'smart-form', 'style' => 'margin-bottom:20px;')) }}
+                {{ Form::hidden('filter_status', Input::get('filter_status')) }}
+                <header>Экспорт участников в CSV-формат</header>
+                <fieldset>
+                    <div class="row">
+                        <section class="col col-12">
+                            <label class="label">Группа</label>
+                            <div class="inline-group">
+                                <label class="radio">
+                                    <input type="radio" checked="checked" name="filter_status" value="all">
+                                    <i></i>Все
+                                </label>
+                                <label class="radio">
+                                    <input type="radio" name="filter_status" value="codes">
+                                    <i></i>С промо-кодами
+                                </label>
+                                <label class="radio">
+                                    <input type="radio" name="filter_status" value="writing">
+                                    <i></i>Только рассказ
+                                </label>
+                                <label class="radio">
+                                    <input type="radio" name="filter_status" value="winners">
+                                    <i></i>Победители
+                                </label>
+                            </div>
+                        </section>
+                    </div>
+                    <div class="row">
+                        <section class="col col-4">
+                            <label class="label">Кодировка</label>
+                            <label class="select">
+                                <select name="coding">
+                                    <option value="windows-1251">Windows 1251</option>
+                                    <option value="utf-8">UTF-8</option>
+                                </select> <i></i>
+                            </label>
+                        </section>
+                        <section class="col col-4">
+                            <label class="label">Разделитель</label>
+                            <label class="select">
+                                <select name="glue">
+                                    <option value=";">Точка с запятой</option>
+                                    <option value="tab">Табуляция</option>
+                                </select> <i></i>
+                            </label>
+                        </section>
+                    </div>
+                    <div class="row">
+                        <section class="col col-5">
+                            <label class="label">Начало периода</label>
+                            <label class="input">
+                                {{ Form::text('begin', Input::has('begin') ? Input::get('begin') : $begin, array('class'=>'input-xs datepicker')) }}
+                            </label>
+                        </section>
+                        <section class="col col-5">
+                            <label class="label">Конец периода</label>
+                            <label class="input">
+                                {{ Form::text('end', Input::has('end') ? Input::get('end') : $end, array('class'=>'input-xs datepicker')) }}
+                            </label>
+                        </section>
+                    </div>
+                </fieldset>
+                <footer>
+                    <button type="submit" id="js-btn-likes" class="btn btn-primary" style="float: left">Выполнить
+                    </button>
+                </footer>
+                {{ Form::close() }}
+            </div>
+        </div>
+    </div>
+
     <div id="overlay"></div>
 @stop
 @section('scripts')
@@ -245,8 +329,19 @@ $end = $now->endOfWeek()->format('d.m.Y')
                                 .animate({opacity: 1, top: '50%'}, 200);
                     });
         });
-        $('#modal_close, #overlay').click(function () {
-            $('#question-likes-modal')
+
+        $('#js-export-csv').click(function (event) {
+            event.preventDefault();
+            $('#overlay').fadeIn(400,
+                    function () {
+                        $('#export-csv-modal')
+                                .css('display', 'block')
+                                .animate({opacity: 1, top: '50%'}, 200);
+                    });
+        });
+
+        $('.modal_close, #overlay').click(function () {
+            $('.modal_window')
                     .animate({opacity: 0, top: '45%'}, 200,
                     function () {
                         $(this).css('display', 'none');
