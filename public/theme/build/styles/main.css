@@ -3569,3 +3569,11 @@ form.sms-chesk label#code-error {
 
 .sharing-script .b-share-btn__counter {
   border-radius: 0 !important; }
+
+.js-achived-spec, .js-achived-leo {
+  font-size: 16px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  text-transform: none !important;
+  font-family: 'PT Sans', 'Open Sans', Arial !important;
+  color: #000 !important; }

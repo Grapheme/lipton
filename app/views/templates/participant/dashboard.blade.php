@@ -91,20 +91,20 @@ endif;
 
                     <div class="gained-prizes">
                         <div class="prize">
-                            <div class="ico leo"></div>
+                            <div class="ico leo js-prize-leo"></div>
                             <p>Онлайн курс <nobr>«Английский для туристов»</nobr></p>
                             @if(!empty($prizes['LiptonLinguaLeoForTravellers']))
-                                <a class="disabled-button">Получен</a>
+                                <p class="js-achived-leo">Доступ к онлайн курсу выслан на указанную почту.</p>
                             @endif
                         </div>
-                        <div class="prize">
+                        <div class="prize js-prize-spec">
                             <div class="ico spec"></div>
                             <p>Онлайн курс<br>на выбор</p>
                             @if(count($prizes) > 1)
                                 @if(isset($prizes['LinguaLeo.LotteryTicket']) && empty($prizes['LinguaLeo.LotteryTicket']['certificateCode']))
                                 <a href="javascript:void(0);" class="js-select-certificates">Получить</a>
                                 @elseif(isset($second_prize))
-                                <a class="disabled-button">Получен</a>
+                                <p class="js-achived-spec">Доступ к онлайн курсу выслан на указанную почту.</p>
                                 @endif
                             @endif
                         </div>
