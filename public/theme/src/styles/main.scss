@@ -277,6 +277,10 @@ textarea:-ms-textarea-placeholder {
 			margin-top: 17px;
 			margin-right: 27px;
 
+			@include footerhack {
+				margin-left: 8px;
+			}
+
 			@include mobile {
 				float: none;
 				text-align: center;
@@ -300,6 +304,10 @@ textarea:-ms-textarea-placeholder {
 				line-height: 18px;
 				vertical-align: middle;
 				height: 25px;
+
+				@include footerhack {
+					margin-left: 8px;
+				}
 				
 
 				@include mobile {
@@ -328,6 +336,10 @@ textarea:-ms-textarea-placeholder {
 					left: -18px;
 
 					@include mobile {
+						display: none;
+					}
+
+					@include footerhack {
 						display: none;
 					}
 				}
