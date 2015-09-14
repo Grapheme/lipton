@@ -534,6 +534,9 @@ textarea:-ms-textarea-placeholder {
   width: 100%;
   position: relative;
   padding-bottom: 3px; }
+  @media (min-width: 769px) and (max-width: 1370px) {
+    .sub-footer {
+      padding: 0 10px; } }
   @media (max-width: 768px) {
     .sub-footer {
       height: auto;

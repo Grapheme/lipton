@@ -8,6 +8,12 @@
 	}
 }
 
+@mixin footerhack {
+	@media (min-width: 769px) and (max-width: 1370px) {
+		@content;
+	}
+}
+
 @mixin mobile320 {
 	@media (max-width: 320px) {
 		@content;
@@ -221,6 +227,10 @@ textarea:-ms-textarea-placeholder {
 		width: 100%;
 		position: relative;
 		padding-bottom: 3px;
+
+		@include footerhack {
+			padding: 0 10px;
+		}
 
 		@include mobile {
 			height: auto;
