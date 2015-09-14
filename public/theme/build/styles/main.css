@@ -794,7 +794,7 @@ textarea:-ms-textarea-placeholder {
         -webkit-transition: .2s all;
                 transition: .2s all;
         margin-right: 30px; }
-        @media (max-width: 768px) {
+        @media (min-width: 1025px) and (max-width: 768px) {
           .block.header .icons-block .ico-account {
             left: inherit !important; } }
         @media (max-width: 320px) {
@@ -2069,7 +2069,7 @@ textarea:-ms-textarea-placeholder {
         background-position: center;
         background-repeat: no-repeat;
         margin-bottom: 15px; }
-        @media (max-width: 768px) {
+        @media (min-width: 1025px) and (max-width: 768px) {
           .block .rules-row .rule-item .rule-img {
             width: 168px; } }
       .block .rules-row .rule-item.rule-1 {
@@ -3080,7 +3080,7 @@ form.select-gain button {
       width: 310px;
       height: 287px;
       border-radius: 10px; } }
-  @media (max-width: 768px) {
+  @media (min-width: 1025px) and (max-width: 768px) {
     .error-block {
       left: 50%;
       margin-left: -161px; } }
@@ -3325,7 +3325,7 @@ a.popup-close-cross {
     width: 532px;
     height: 372px;
     border-radius: 10px; }
-    @media (max-width: 768px) {
+    @media (min-width: 1025px) and (max-width: 768px) {
       .sms-wrapper .cropper-holder, .password-recovery-holder .cropper-holder {
         left: 50% !important;
         margin-left: -206px;
@@ -3418,7 +3418,7 @@ a.popup-close-cross {
   margin: 0 auto;
   margin-bottom: 20px;
   display: block; }
-  @media (max-width: 768px) {
+  @media (min-width: 1025px) and (max-width: 768px) {
     .password-recovery-holder input {
       width: 280px; } }
 
