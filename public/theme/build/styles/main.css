@@ -569,7 +569,7 @@ textarea:-ms-textarea-placeholder {
     margin-right: 27px; }
     @media (min-width: 769px) and (max-width: 1370px) {
       .sub-footer .sharing-block {
-        margin-left: 8px; } }
+        margin-right: 8px; } }
     @media (max-width: 768px) {
       .sub-footer .sharing-block {
         float: none;
@@ -635,6 +635,9 @@ textarea:-ms-textarea-placeholder {
       top: 3px;
       left: -18px; }
       @media (max-width: 768px) {
+        .sub-footer .sharing-links:before {
+          display: none; } }
+      @media (min-width: 769px) and (max-width: 1370px) {
         .sub-footer .sharing-links:before {
           display: none; } }
     .sub-footer .sharing-links span {

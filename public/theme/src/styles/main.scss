@@ -278,7 +278,7 @@ textarea:-ms-textarea-placeholder {
 			margin-right: 27px;
 
 			@include footerhack {
-				margin-left: 8px;
+				margin-right: 8px;
 			}
 
 			@include mobile {
@@ -369,6 +369,10 @@ textarea:-ms-textarea-placeholder {
 				left: -18px;
 
 				@include mobile {
+					display: none;
+				}
+
+				@include footerhack {
 					display: none;
 				}
 			}
