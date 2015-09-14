@@ -553,6 +553,8 @@ textarea:-ms-textarea-placeholder {
         text-decoration: underline; }
         .sub-footer .copyright p a:hover {
           text-decoration: none; }
+      .sub-footer .copyright p span a {
+        margin-left: 10px; }
   .sub-footer .sharing-block {
     max-width: 700px;
     float: right;
