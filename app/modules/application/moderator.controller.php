@@ -125,7 +125,7 @@ class ModeratorController extends BaseController {
             }
             try {
                 $user->writing = iconv("UTF-8", Input::get('coding'), str_replace(array("\r\n", "\n\r", "\r",
-                    "\n", "\t", ";"), "", strip_tags(Str::limit($user->writing, 500))));
+                    "\n", "\t", ";"), "", strip_tags(Str::limit($user->writing, 1000))));
             } catch (Exception $e) {
                 $user->writing = iconv("UTF-8", Input::get('coding'), 'ВНИМАНИЕ! ВОЗНИКЛА ОШИБКА ПРИ ПЕРЕКОДИРОВАНИИ.');
             }
