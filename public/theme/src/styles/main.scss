@@ -8,6 +8,12 @@
 	}
 }
 
+@mixin footerhack {
+	@media (min-width: 769px) and (max-width: 1370px) {
+		@content;
+	}
+}
+
 @mixin mobile320 {
 	@media (max-width: 320px) {
 		@content;
@@ -15,7 +21,7 @@
 }
 
 @mixin ipad {
-	@media (max-width: 768px) {
+	@media (max-width: 1025px) and (min-width: 768px) {
 		@content;
 	}
 }
@@ -222,6 +228,10 @@ textarea:-ms-textarea-placeholder {
 		position: relative;
 		padding-bottom: 3px;
 
+		@include footerhack {
+			padding: 0 10px;
+		}
+
 		@include mobile {
 			height: auto;
 			text-align: center;
@@ -248,6 +258,12 @@ textarea:-ms-textarea-placeholder {
 						text-decoration: none;
 					}
 				}
+
+				span {
+					a {
+						margin-left: 10px;
+					}
+				}
 			}
 		}
 
@@ -260,6 +276,10 @@ textarea:-ms-textarea-placeholder {
 			text-align: right;
 			margin-top: 17px;
 			margin-right: 27px;
+
+			@include footerhack {
+				margin-right: 8px;
+			}
 
 			@include mobile {
 				float: none;
@@ -284,6 +304,10 @@ textarea:-ms-textarea-placeholder {
 				line-height: 18px;
 				vertical-align: middle;
 				height: 25px;
+
+				@include footerhack {
+					margin-left: 8px;
+				}
 				
 
 				@include mobile {
@@ -312,6 +336,10 @@ textarea:-ms-textarea-placeholder {
 					left: -18px;
 
 					@include mobile {
+						display: none;
+					}
+
+					@include footerhack {
 						display: none;
 					}
 				}
@@ -343,13 +371,17 @@ textarea:-ms-textarea-placeholder {
 				@include mobile {
 					display: none;
 				}
+
+				@include footerhack {
+					display: none;
+				}
 			}
 
 			span {
 				display: block;
 				float: left;
 				height: 18px;
-				width: 210px;
+				width: 220px;
 				
 				p {
 					margin: 0;
@@ -2607,7 +2639,7 @@ textarea:-ms-textarea-placeholder {
 		
 		.profile-info {
 			height: 120px;
-			width: 110px;
+			width: 130px;
 			margin: 0 auto;
 			margin-bottom: 20px;
 
@@ -4271,4 +4303,13 @@ form.sms-chesk {
 
 .sharing-script .b-share-btn__counter {
 	border-radius: 0 !important;
+}
+
+.js-achived-spec, .js-achived-leo {
+	font-size: 16px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    text-transform: none !important;
+    font-family: 'PT Sans', 'Open Sans', Arial !important;
+    color: #000 !important;
 }

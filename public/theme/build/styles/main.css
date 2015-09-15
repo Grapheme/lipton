@@ -534,6 +534,9 @@ textarea:-ms-textarea-placeholder {
   width: 100%;
   position: relative;
   padding-bottom: 3px; }
+  @media (min-width: 769px) and (max-width: 1370px) {
+    .sub-footer {
+      padding: 0 10px; } }
   @media (max-width: 768px) {
     .sub-footer {
       height: auto;
@@ -553,6 +556,8 @@ textarea:-ms-textarea-placeholder {
         text-decoration: underline; }
         .sub-footer .copyright p a:hover {
           text-decoration: none; }
+      .sub-footer .copyright p span a {
+        margin-left: 10px; }
   .sub-footer .sharing-block {
     max-width: 700px;
     float: right;
@@ -562,6 +567,9 @@ textarea:-ms-textarea-placeholder {
     text-align: right;
     margin-top: 17px;
     margin-right: 27px; }
+    @media (min-width: 769px) and (max-width: 1370px) {
+      .sub-footer .sharing-block {
+        margin-right: 8px; } }
     @media (max-width: 768px) {
       .sub-footer .sharing-block {
         float: none;
@@ -580,6 +588,9 @@ textarea:-ms-textarea-placeholder {
       line-height: 18px;
       vertical-align: middle;
       height: 25px; }
+      @media (min-width: 769px) and (max-width: 1370px) {
+        .sub-footer .sharing-block li {
+          margin-left: 8px; } }
       @media (max-width: 768px) {
         .sub-footer .sharing-block li {
           margin-left: 0;
@@ -599,6 +610,9 @@ textarea:-ms-textarea-placeholder {
         top: 5px;
         left: -18px; }
         @media (max-width: 768px) {
+          .sub-footer .sharing-block li:before {
+            display: none; } }
+        @media (min-width: 769px) and (max-width: 1370px) {
           .sub-footer .sharing-block li:before {
             display: none; } }
   .sub-footer .sharing-links {
@@ -623,11 +637,14 @@ textarea:-ms-textarea-placeholder {
       @media (max-width: 768px) {
         .sub-footer .sharing-links:before {
           display: none; } }
+      @media (min-width: 769px) and (max-width: 1370px) {
+        .sub-footer .sharing-links:before {
+          display: none; } }
     .sub-footer .sharing-links span {
       display: block;
       float: left;
       height: 18px;
-      width: 210px; }
+      width: 220px; }
       .sub-footer .sharing-links span p {
         margin: 0;
         clear: both;
@@ -777,7 +794,7 @@ textarea:-ms-textarea-placeholder {
         -webkit-transition: .2s all;
                 transition: .2s all;
         margin-right: 30px; }
-        @media (max-width: 768px) {
+        @media (max-width: 1025px) and (min-width: 768px) {
           .block.header .icons-block .ico-account {
             left: inherit !important; } }
         @media (max-width: 320px) {
@@ -2052,7 +2069,7 @@ textarea:-ms-textarea-placeholder {
         background-position: center;
         background-repeat: no-repeat;
         margin-bottom: 15px; }
-        @media (max-width: 768px) {
+        @media (max-width: 1025px) and (min-width: 768px) {
           .block .rules-row .rule-item .rule-img {
             width: 168px; } }
       .block .rules-row .rule-item.rule-1 {
@@ -2304,7 +2321,7 @@ textarea:-ms-textarea-placeholder {
                 color: #ffde00; }
   .block .accept-block-holder .profile-info {
     height: 120px;
-    width: 110px;
+    width: 130px;
     margin: 0 auto;
     margin-bottom: 20px; }
     .block .accept-block-holder .profile-info input {
@@ -3063,7 +3080,7 @@ form.select-gain button {
       width: 310px;
       height: 287px;
       border-radius: 10px; } }
-  @media (max-width: 768px) {
+  @media (max-width: 1025px) and (min-width: 768px) {
     .error-block {
       left: 50%;
       margin-left: -161px; } }
@@ -3308,7 +3325,7 @@ a.popup-close-cross {
     width: 532px;
     height: 372px;
     border-radius: 10px; }
-    @media (max-width: 768px) {
+    @media (max-width: 1025px) and (min-width: 768px) {
       .sms-wrapper .cropper-holder, .password-recovery-holder .cropper-holder {
         left: 50% !important;
         margin-left: -206px;
@@ -3401,7 +3418,7 @@ a.popup-close-cross {
   margin: 0 auto;
   margin-bottom: 20px;
   display: block; }
-  @media (max-width: 768px) {
+  @media (max-width: 1025px) and (min-width: 768px) {
     .password-recovery-holder input {
       width: 280px; } }
 
@@ -3569,3 +3586,11 @@ form.sms-chesk label#code-error {
 
 .sharing-script .b-share-btn__counter {
   border-radius: 0 !important; }
+
+.js-achived-spec, .js-achived-leo {
+  font-size: 16px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  text-transform: none !important;
+  font-family: 'PT Sans', 'Open Sans', Arial !important;
+  color: #000 !important; }

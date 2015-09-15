@@ -8,6 +8,9 @@
         <p>ООО «ЮНИЛЕВЕР РУСЬ». ЮРИДИЧЕСКИЙ И ПОЧТОВЫЙ АДРЕС: 123022, Г. МОСКВА, УЛ. СЕРГЕЯ МАКЕЕВА, Д. 13. </p>
 
         <p>ЭЛЕКТРОННАЯ ПОЧТА: <a href="mailto:COMMUNICATIONS.RUSSIA@UNILEVER.COM">COMMUNICATIONS.RUSSIA@UNILEVER.COM</a>
+        <span>
+            <a href="http://www.unileverprivacypolicy.com/russian/policy.aspx" title="Privacy policy" target="_blank">Privacy policy</a> 
+            <a href="http://www.unilever.ru/resource/cookiepolicy/" target="_blank">Cookie policy</a></span>
         </p>
     </div>
     <div class="sharing-links">
