@@ -346,7 +346,7 @@ class ApiController extends BaseController {
         if ($valid === -1):
             return $valid;
         elseif ($valid === FALSE):
-            Config::set('api.message', 'Операция обновление профиля пользователей недоступна.');
+            Config::set('api.message', 'Операция обновление профиля пользователя недоступна.');
             return FALSE;
         endif;
         $uri_request = $this->config['server_url'] . "/v2/customers/current?operation=$operation";
@@ -356,12 +356,12 @@ class ApiController extends BaseController {
             $return['name'] = $this->getXmlValue($result['curl_result'], '', 'name', 'first');
             $return['surname'] = $this->getXmlValue($result['curl_result'], '', 'name', 'last');
             $return['sex'] = $this->getXmlValue($result['curl_result'], '', 'sex');
-            $return['dd'] = $this->getXmlValue($result['curl_result'], '', 'birthdate','day');
-            $return['mm'] = $this->getXmlValue($result['curl_result'], '', 'birthdate','month');
-            $return['yyyy'] = $this->getXmlValue($result['curl_result'], '', 'birthdate','year');
+            $return['dd'] = $this->getXmlValue($result['curl_result'], '', 'birthdate', 'day');
+            $return['mm'] = $this->getXmlValue($result['curl_result'], '', 'birthdate', 'month');
+            $return['yyyy'] = $this->getXmlValue($result['curl_result'], '', 'birthdate', 'year');
             $return['email'] = $this->getXmlValue($result['curl_result'], '', 'email');
             $return['phone'] = $this->getXmlValue($result['curl_result'], '', 'mobilePhone');
-            $return['city'] = $this->getXmlValue($result['curl_result'], 'postAddress', 'settlement' ,'name');
+            $return['city'] = $this->getXmlValue($result['curl_result'], 'postAddress', 'settlement', 'name');
             if (empty($return['version']) && empty($return['version'])):
                 if ($message = $this->getErrorMessage($result)):
                     Config::set('api.message', $message);
@@ -391,7 +391,7 @@ class ApiController extends BaseController {
         if ($valid === -1):
             return $valid;
         elseif ($valid === FALSE):
-            Config::set('api.message', 'Операция обновление профиля пользователей недоступна.');
+            Config::set('api.message', 'Операция обновление профиля пользователя недоступна.');
             return FALSE;
         endif;
         $uri_request = $this->config['server_url'] . "/v2/customers/current?operation=$operation";
@@ -694,13 +694,10 @@ class ApiController extends BaseController {
         if ($valid === -1):
             return $valid;
         elseif ($valid === FALSE):
-            Config::set('api.message', 'Операция обновление профиля пользователей недоступна.');
+            Config::set('api.message', 'Операция регистрации промо кода не доступна.');
             return FALSE;
         endif;
-        $uri_request = $this->config['server_url'] . "/v1/LiptonDiscovery2015/lipton/users/" . $params['customerId'] . "/orderprize.xml?prizesystemname=" . $params['prizesystemname'];
-        if (!empty($params['wonLotteryTicketId'])):
-            $uri_request .= "&wonLotteryTicketId=" . $params['wonLotteryTicketId'];
-        endif;
+        $uri_request = $this->config['server_url'] . "/v1/LiptonDiscovery2015/lipton/users/" . $params['customerId'] . "/orderprize.xml?prizesystemname=" . $params['prizesystemname'] . "&wonLotteryTicketId=" . $params['wonLotteryTicketId'];
         $result = self::postCurl($uri_request);
         if ($this->validCode($result, 200)):
             if ($message = $this->getErrorMessage($result)):

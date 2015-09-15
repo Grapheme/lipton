@@ -95,7 +95,7 @@ class PromoController extends BaseController {
     public function secondRegister() {
 
         $json_request = array('status' => FALSE, 'responseText' => '', 'select_certificates' => FALSE,
-            'wonLotteryTicketId' => FALSE,'redirectURL' => FALSE);
+            'wonLotteryTicketId' => FALSE, 'redirectURL' => FALSE);
         $validator = Validator::make(Input::all(), array('promoCode2' => 'required'));
         if ($validator->passes()):
             $result = self::registerPromoCode(Input::get('promoCode2'));
@@ -109,8 +109,8 @@ class PromoController extends BaseController {
                 $post['customerId'] = Auth::user()->remote_id;
                 $post['sessionKey'] = Auth::user()->sessionKey;
                 $prizes = (new ApiController())->get_prizes($post);
-                if(count($prizes)):
-                    if(isset($prizes['LinguaLeo.LotteryTicket']) && empty($prizes['LinguaLeo.LotteryTicket']['certificateCode'])):
+                if (count($prizes)):
+                    if (isset($prizes['LinguaLeo.LotteryTicket']) && empty($prizes['LinguaLeo.LotteryTicket']['certificateCode'])):
                         $json_request['wonLotteryTicketId'] = $prizes['LinguaLeo.LotteryTicket']['customerPrize_id'];
                     endif;
                 endif;
@@ -130,13 +130,13 @@ class PromoController extends BaseController {
 
     }
 
-    public function secondRegisterCertificates(){
+    public function secondRegisterCertificates() {
 
         $json_request = array('status' => FALSE, 'responseText' => '', 'redirectURL' => FALSE);
-        $validator = Validator::make(Input::all(), array('certificate' => 'required'));
+        $validator = Validator::make(Input::all(), array('certificate' => 'required', 'ticket_id' => 'required'));
         if ($validator->passes()):
             $certificates = Config::get('directcrm.certificates');
-            if(!isset($certificates[Input::get('certificate')])):
+            if (!isset($certificates[Input::get('certificate')])):
                 $json_request['status'] = FALSE;
                 $json_request['responseText'] = 'Выбранный курс недоступен';
                 return Response::json($json_request, 200);
