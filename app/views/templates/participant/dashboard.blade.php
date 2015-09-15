@@ -11,12 +11,12 @@ $now = Carbon::now();
 $post['customerId'] = Auth::user()->remote_id;
 $post['sessionKey'] = Auth::user()->sessionKey;
 $prizes = (new ApiController())->get_prizes($post);
-if(count($prizes) > 1):
-    if(isset($prizes['LinguaLeo.LotteryTicket']) && empty($prizes['LinguaLeo.LotteryTicket']['certificateCode'])):
+if (count($prizes) > 1):
+    if (isset($prizes['LinguaLeo.LotteryTicket']) && empty($prizes['LinguaLeo.LotteryTicket']['certificateCode'])):
         Config::set('api.wonLotteryTicketId', $prizes['LinguaLeo.LotteryTicket']['customerPrize_id']);
     endif;
-    foreach($prizes as $systemName => $prize):
-        if($systemName !== 'LiptonLinguaLeoForTravellers'):
+    foreach ($prizes as $systemName => $prize):
+        if ($systemName !== 'LiptonLinguaLeoForTravellers'):
             $second_prize = $prize;
         endif;
     endforeach;
@@ -35,6 +35,7 @@ endif;
             <div class="content">
                 <h2>Личный кабинет</h2>
                 <a class="exit-cabinet" href="{{ URL::route('logout') }}">Выйти</a>
+
                 <div class="profile">
                     <div class="profile-head">
                         <div class="profile-info">
@@ -61,16 +62,18 @@ endif;
                             @endif
                         </div>
                         <div class="request">
-                            <div class="note"> </div>
+                            <div class="note"></div>
 
                             @if(isset($profile->writing->writing) && !empty($profile->writing->writing))
                                 @if($profile->writing->status == 1)
-                                    <a href="{{ URL::route('show.participant.writing', $profile->writing->id.'-'.BaseController::stringTranslite(Auth::user()->name.'-'.Auth::user()->surname)) }}">Конкурс рассказов</a>
+                                    <a href="{{ URL::route('show.participant.writing', $profile->writing->id.'-'.BaseController::stringTranslite(Auth::user()->name.'-'.Auth::user()->surname)) }}">Конкурс
+                                        рассказов</a>
                                     <div class="moderation positive">Ваш рассказ одобрен
                                         <div class="bullet"></div>
                                     </div>
                                 @elseif($profile->writing->status == 2)
-                                    <a href="{{ URL::route('show.participant.writing', $profile->writing->id.'-'.BaseController::stringTranslite(Auth::user()->name.'-'.Auth::user()->surname)) }}">Конкурс рассказов</a>
+                                    <a href="{{ URL::route('show.participant.writing', $profile->writing->id.'-'.BaseController::stringTranslite(Auth::user()->name.'-'.Auth::user()->surname)) }}">Конкурс
+                                        рассказов</a>
                                     <div class="moderation neutral">Ваш рассказ на модерации
                                         <div class="bullet"></div>
                                     </div>
@@ -102,7 +105,7 @@ endif;
                             <p>Онлайн курс<br>на выбор</p>
                             @if(count($prizes) > 1)
                                 @if(isset($prizes['LinguaLeo.LotteryTicket']) && empty($prizes['LinguaLeo.LotteryTicket']['certificateCode']))
-                                <a href="javascript:void(0);" class="js-select-certificates">Получить</a>
+                                    <a href="javascript:void(0);" class="js-select-certificates">Получить</a>
                                 @elseif(isset($second_prize))
                                 <p class="js-achived-spec">Доступ к онлайн курсу выслан на указанную почту.</p>
                                 @endif

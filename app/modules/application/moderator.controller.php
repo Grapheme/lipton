@@ -81,7 +81,7 @@ class ModeratorController extends BaseController {
     /****************************************************************************/
     public function participantsListsExport() {
 
-        $users_list = $this->getParticipants();
+        $users_list = $this->getParticipants(10000);
         $glue = Input::get('glue');
         $headers = array(
             'local_id',
@@ -111,11 +111,28 @@ class ModeratorController extends BaseController {
             $output = implode("$glue", $headers) . "\n";
         endif;
         foreach ($users_list as $user):
-            $user->name = iconv("UTF-8", Input::get('coding'), $user->name);
-            $user->surname = iconv("UTF-8", Input::get('coding'), $user->surname);
-            $user->total_extend = iconv("UTF-8", Input::get('coding'), $user->total_extend);
-            $user->writing = iconv("UTF-8", Input::get('coding'), str_replace(array("\r\n", "\r", "\n"), "", $user->writing));
-            $user->city = iconv("UTF-8", Input::get('coding'), $user->city);
+            try {
+                $user->name = iconv("UTF-8", Input::get('coding'), $user->name);
+            } catch (Exception $e) {
+            }
+            try {
+                $user->surname = iconv("UTF-8", Input::get('coding'), $user->surname);
+            } catch (Exception $e) {
+            }
+            try {
+                $user->total_extend = iconv("UTF-8", Input::get('coding'), $user->total_extend);
+            } catch (Exception $e) {
+            }
+            try {
+                $user->writing = iconv("UTF-8", Input::get('coding'), str_replace(array("\r\n", "\n\r", "\r",
+                    "\n", "\t", ";"), "", strip_tags(Str::limit($user->writing, 1000))));
+            } catch (Exception $e) {
+                $user->writing = iconv("UTF-8", Input::get('coding'), 'ВНИМАНИЕ! ВОЗНИКЛА ОШИБКА ПРИ ПЕРЕКОДИРОВАНИИ.');
+            }
+            try {
+                $user->city = iconv("UTF-8", Input::get('coding'), $user->city);
+            } catch (Exception $e) {
+            }
             $fields = (array)$user;
             if ($glue === 'tab'):
                 $output .= implode("\t", $fields) . "\n";
@@ -152,7 +169,7 @@ class ModeratorController extends BaseController {
         return Redirect::back();
     }
 
-    private function getParticipants() {
+    private function getParticipants($paginate = 20) {
 
         $users = array();
         $users_list = DB::table('users')
@@ -170,8 +187,8 @@ class ModeratorController extends BaseController {
                     $query->where('name', 'like', '%' . Input::get('search') . '%');
                     $query->orWhere('surname', 'like', '%' . Input::get('search') . '%');
                 })
-                ->paginate(20);
-        elseif (Input::has('filter_status')):
+                ->paginate($paginate);
+        elseif (Input::has('filter_status') && Input::get('filter_status') != 'all'):
             if (Input::get('filter_status') == 'codes'):
                 if (Input::has('begin') && Input::has('end')):
                     $begin = (new myDateTime())->setDateString(Input::get('begin'))->format('Y-m-d 00:00:00');
@@ -188,9 +205,9 @@ class ModeratorController extends BaseController {
                     endif;
                 endforeach;
                 if (count($users_ids)):
-                    $users = $users_list->whereIn('users.id', $users_ids)->orderBy('users.created_at', 'DESC')->paginate(20);
+                    $users = $users_list->whereIn('users.id', $users_ids)->orderBy('users.created_at', 'DESC')->paginate($paginate);
                 else:
-                    $users = $users_list->orderBy('users.created_at', 'DESC')->paginate(20);
+                    $users = $users_list->orderBy('users.created_at', 'DESC')->paginate($paginate);
                 endif;
             elseif (Input::get('filter_status') == 'writing'):
                 if (Input::has('begin') && Input::has('end')):
@@ -208,12 +225,12 @@ class ModeratorController extends BaseController {
                     endif;
                 endforeach;
                 if (count($users_ids)):
-                    $users = $users_list->whereIn('users.id', $users_ids)->orderBy('users.created_at', 'DESC')->paginate(20);
+                    $users = $users_list->whereIn('users.id', $users_ids)->orderBy('users.created_at', 'DESC')->paginate($paginate);
                 else:
-                    $users = $users_list->orderBy('users.created_at', 'DESC')->paginate(20);
+                    $users = $users_list->orderBy('users.created_at', 'DESC')->paginate($paginate);
                 endif;
             elseif (Input::get('filter_status') == 'winners'):
-                $users = $users_list->where('winner', 1)->orderBy('number_week')->paginate(20);
+                $users = $users_list->where('winner', 1)->orderBy('number_week')->paginate($paginate);
             endif;
         else:
             if (Input::has('begin') && Input::has('end')):
@@ -223,9 +240,9 @@ class ModeratorController extends BaseController {
                     ->where('users.created_at', '>=', $begin)
                     ->where('users.created_at', '<=', $end)
                     ->orderBy('users.created_at', 'DESC')
-                    ->paginate(20);
+                    ->paginate($paginate);
             else:
-                $users = $users_list->orderBy('users.created_at', 'DESC')->paginate(20);
+                $users = $users_list->orderBy('users.created_at', 'DESC')->paginate($paginate);
             endif;
         endif;
         return $users;
