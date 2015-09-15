@@ -45,7 +45,7 @@ $now = Carbon::now();
                             <div class="magnifier">
                                 <div class="number">{{ str_pad($user->number_week, 2, 0, STR_PAD_LEFT); }}</div>
                             @if(!empty($user->photo) && File::exists(public_path($user->photo)))
-                                <div style="background-image: url({{ asset($profile->photo) }});" class="avatar"></div>
+                                <div style="background-image: url({{ asset($user->photo) }});" class="avatar"></div>
                             @elseif(!empty($user->ulogin) && !empty($user->ulogin->photo_big))
                                 <div style="background-image: url({{ asset($user->ulogin->photo_big) }});"
                                      class="avatar"></div>
