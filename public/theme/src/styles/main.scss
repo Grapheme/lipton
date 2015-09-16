@@ -873,6 +873,10 @@ textarea:-ms-textarea-placeholder {
 
 						form.promo-code {
 							margin: 25px 0px 0px 0px;
+
+							@include ipadHor {
+								margin-top: 45px;
+							}
 						}
 
 						@include ipadHor {
@@ -2831,10 +2835,6 @@ textarea:-ms-textarea-placeholder {
 					@include mobile {
 						width: 100%;
 						height: auto;
-					}
-
-					@include ipadHor {
-						margin-top: 40px;
 					}
 
 					label {
