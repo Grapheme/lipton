@@ -786,6 +786,11 @@ textarea:-ms-textarea-placeholder {
 				box-sizing: border-box;
 			}
 
+			@include ipadHor {
+				width: 100%;
+				margin: 206px auto 0;
+			}
+
 			.promo-steps {
 				margin-top: 206px;
 				width: 1220px;
@@ -797,11 +802,6 @@ textarea:-ms-textarea-placeholder {
 					position: inherit;
 					width: 100%;
 					box-sizing: border-box;
-				}
-
-				@include ipadHor {
-					width: 100%;
-					margin: 206px auto 0;
 				}
 				
 				.promo-step {
