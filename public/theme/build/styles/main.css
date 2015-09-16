@@ -1069,6 +1069,10 @@ textarea:-ms-textarea-placeholder {
                 margin: 0;
                 padding: 0 20px;
                 word-wrap: nowrap; } }
+            @media (max-width: 1240px) and (min-width: 984px) {
+              .block.promo-code .content .promo-steps .promo-step p {
+                font-size: 13px;
+                line-height: 14px; } }
   .block.footer {
     height: 428px;
     margin-top: 38px;
@@ -2463,6 +2467,9 @@ textarea:-ms-textarea-placeholder {
             .block .profile .profile-head .profile-promo-code form.promo-code {
               width: 100%;
               height: auto; } }
+          @media (max-width: 1240px) and (min-width: 984px) {
+            .block .profile .profile-head .profile-promo-code form.promo-code {
+              margin-top: 40px; } }
           .block .profile .profile-head .profile-promo-code form.promo-code label {
             display: block;
             width: 211px;

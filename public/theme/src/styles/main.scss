@@ -950,6 +950,11 @@ textarea:-ms-textarea-placeholder {
 							padding: 0 20px;
 							word-wrap: nowrap;
 						}
+
+						@include ipadHor {
+							font-size: 13px;
+							line-height: 14px;
+						}
 					}
 				}
 			}
@@ -2826,6 +2831,10 @@ textarea:-ms-textarea-placeholder {
 					@include mobile {
 						width: 100%;
 						height: auto;
+					}
+
+					@include ipadHor {
+						margin-top: 40px;
 					}
 
 					label {
