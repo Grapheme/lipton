@@ -753,10 +753,6 @@ textarea:-ms-textarea-placeholder {
 			height: 1180px;
 		}
 
-		@include ipadHor {
-			width: 100%;
-		}
-
 		&:before {
 			content: '';
 			display: block;
@@ -804,7 +800,7 @@ textarea:-ms-textarea-placeholder {
 				}
 
 				@include ipadHor {
-					width: 1020px;
+					width: 100%;
 					margin: 206px auto 0;
 				}
 				
