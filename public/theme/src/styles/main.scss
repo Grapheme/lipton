@@ -3,13 +3,13 @@
 // endbower
 
 @mixin mobile {
-	@media (max-width: 768px) {
+	@media (max-width: 1024px) {
 		@content;
 	}
 }
 
 @mixin footerhack {
-	@media (min-width: 769px) and (max-width: 1370px) {
+	@media (min-width: 768px) and (max-width: 1370px) {
 		@content;
 	}
 }
@@ -27,7 +27,7 @@
 }
 
 @mixin ipadHor {
-	@media (max-width: 1240px) and (min-width: 1024px){
+	@media (max-width: 1240px) {
 		@content;
 	}
 }
