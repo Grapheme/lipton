@@ -21,13 +21,13 @@
 }
 
 @mixin ipad {
-	@media (max-width: 1025px) and (min-width: 768px) {
+	@media (max-width: 1024px) and (min-width: 768px) {
 		@content;
 	}
 }
 
 @mixin ipadHor {
-	@media (max-width: 1240px) {
+	@media (max-width: 1240px) and (min-width: 1024px){
 		@content;
 	}
 }
@@ -848,7 +848,7 @@ textarea:-ms-textarea-placeholder {
 						margin-right: 88px;
 
 						@include ipadHor {
-							width: 360px;
+							width: 320px;
 							margin-right: 50px;
 							margin-left: 15px;
 						}
