@@ -911,6 +911,9 @@ textarea:-ms-textarea-placeholder {
         background-image: url("../images/bg-promo-code.jpg");
         background-size: cover;
         height: 1180px; } }
+    @media (max-width: 1240px) and (min-width: 768px) {
+      .block.promo-code {
+        width: 100%; } }
     .block.promo-code:before {
       content: '';
       display: block;
