@@ -950,6 +950,10 @@ textarea:-ms-textarea-placeholder {
             position: inherit;
             width: 100%;
             box-sizing: border-box; } }
+        @media (max-width: 1240px) {
+          .block.promo-code .content .promo-steps {
+            width: 1020px;
+            margin: 206px auto 0; } }
         .block.promo-code .content .promo-steps .promo-step {
           display: block;
           float: left;
