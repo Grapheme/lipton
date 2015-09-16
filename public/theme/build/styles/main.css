@@ -939,6 +939,10 @@ textarea:-ms-textarea-placeholder {
           position: inherit;
           width: 100%;
           box-sizing: border-box; } }
+      @media (max-width: 1240px) and (min-width: 768px) {
+        .block.promo-code .content {
+          width: 100%;
+          margin: 206px auto 0; } }
       .block.promo-code .content .promo-steps {
         margin-top: 206px;
         width: 1220px;
@@ -950,10 +954,6 @@ textarea:-ms-textarea-placeholder {
             position: inherit;
             width: 100%;
             box-sizing: border-box; } }
-        @media (max-width: 1240px) and (min-width: 768px) {
-          .block.promo-code .content .promo-steps {
-            width: 100%;
-            margin: 206px auto 0; } }
         .block.promo-code .content .promo-steps .promo-step {
           display: block;
           float: left;
