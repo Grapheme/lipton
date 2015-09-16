@@ -988,7 +988,7 @@ textarea:-ms-textarea-placeholder {
           .block.promo-code .content .promo-steps .promo-step.step-1 {
             width: 344px;
             margin-right: 88px; }
-            @media (max-width: 1024px) {
+            @media (max-width: 1240px) {
               .block.promo-code .content .promo-steps .promo-step.step-1 {
                 width: 360px;
                 margin-right: 50px;
@@ -1005,7 +1005,7 @@ textarea:-ms-textarea-placeholder {
             height: 160px; }
             .block.promo-code .content .promo-steps .promo-step.step-2 form.promo-code {
               margin: 25px 0px 0px 0px; }
-            @media (max-width: 1024px) {
+            @media (max-width: 1240px) {
               .block.promo-code .content .promo-steps .promo-step.step-2 {
                 width: 270px;
                 margin-right: 47px; } }
@@ -1049,7 +1049,7 @@ textarea:-ms-textarea-placeholder {
                 float: none;
                 margin: 0 auto 20px;
                 text-align: center; } }
-            @media (max-width: 1024px) {
+            @media (max-width: 1240px) {
               .block.promo-code .content .promo-steps .promo-step h2 {
                 font-size: 20px; } }
           .block.promo-code .content .promo-steps .promo-step p {
@@ -2821,7 +2821,7 @@ textarea:-ms-textarea-placeholder {
       .block .collection .country.china {
         right: 0px;
         top: 247px; }
-        @media (max-width: 1024px) {
+        @media (max-width: 1240px) {
           .block .collection .country.china {
             right: 80px; } }
         .block .collection .country.china .tea {
@@ -2845,7 +2845,7 @@ textarea:-ms-textarea-placeholder {
       .block .collection .country.marokko {
         left: 0;
         top: 247px; }
-        @media (max-width: 1024px) {
+        @media (max-width: 1240px) {
           .block .collection .country.marokko {
             left: 70px; } }
         .block .collection .country.marokko .tea {
