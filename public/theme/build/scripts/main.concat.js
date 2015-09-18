@@ -1461,7 +1461,8 @@ $(document).ready(function () {
     $(document).on('click', 'div.error-block a', function () {
         $('.block.second-code').fadeOut();
         $('form.promo-code button').html('Отправить');
-        $('form.promo-code input').val('');
+
+        $('form.promo-code input:not([name="_token"], [name="ticket_id"])').val('');
     });
 
     $('.second-code .fields-holder a, a.popup-close-cross').click(function () {
