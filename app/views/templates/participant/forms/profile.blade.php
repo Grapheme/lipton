@@ -28,7 +28,8 @@
 
     <p class="field-title required">Имя</p>
     {{ Form::text('name', NULL, array('for'=>'profile-edit','autocomplete'=>'off')) }}
-
+    <!--<p class="field-title required">Город</p>-->
+    <input for="full-registration-form" autocomplete="off" name="city" type="hidden" value="">
     <p class="field-title">Пол</p>
     {{ Form::select('sex', array('Женский', 'Мужской'), Session::get('sex'), array('id' => 'sex', 'for' => 'profile-edit')) }}
 </div>

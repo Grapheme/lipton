@@ -18,8 +18,8 @@
     {{ Form::text('surname', trim(Session::get('last_name')), array('for'=>'full-registration-form','autocomplete'=>'off')) }}
     <p class="field-title required">Имя</p>
     {{ Form::text('name', trim(Session::get('first_name')), array('for'=>'full-registration-form','autocomplete'=>'off')) }}
-    <p class="field-title">Город</p>
-    <input for="full-registration-form" autocomplete="off" name="city" type="text" value="">
+    <!--<p class="field-title">Город</p>-->
+    <input for="full-registration-form" autocomplete="off" name="city" type="hidden" value="">
     <p class="field-title">Пол</p>
     {{ Form::select('sex', array('Женский', 'Мужской'), Session::get('sex'), array('id' => 'sex', 'for' => 'full-registration-form')) }}
 </div>

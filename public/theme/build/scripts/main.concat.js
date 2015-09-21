@@ -1980,9 +1980,9 @@ $(document).ready(function () {
             surname: {
                 required: true,
             },
-            city: {
-                required: true,
-            },
+            // city: {
+            //     required: true,
+            // },
             email: {
                 required: true,
                 email: true
@@ -2002,9 +2002,9 @@ $(document).ready(function () {
             surname: {
                 required: 'Необходимо заполнить это поле!',
             },
-            city: {
-                required: 'Необходимо заполнить это поле!',
-            },
+            // city: {
+            //     required: 'Необходимо заполнить это поле!',
+            // },
             email: {
                 required: 'Необходимо заполнить это поле!',
                 email: 'Проверте правильность адреса'
