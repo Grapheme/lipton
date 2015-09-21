@@ -1980,6 +1980,9 @@ $(document).ready(function () {
             surname: {
                 required: true,
             },
+            city: {
+                required: true,
+            },
             email: {
                 required: true,
                 email: true
@@ -1997,6 +2000,9 @@ $(document).ready(function () {
                 required: 'Необходимо заполнить это поле!',
             },
             surname: {
+                required: 'Необходимо заполнить это поле!',
+            },
+            city: {
                 required: 'Необходимо заполнить это поле!',
             },
             email: {
