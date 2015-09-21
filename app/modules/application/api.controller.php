@@ -292,7 +292,7 @@ class ApiController extends BaseController {
         return Response::xml([], 200, [], $result);
     }
 
-    public function send_register(array $params = [], $operation = 'Unilever.FillLightProfile') {
+    public function send_register(array $params = [], $operation = 'Unilever.FillShortProfile') {
 
         if ($this->validAvailableOperation($operation) === FALSE):
             Config::set('api.message', 'Операция добавление новых пользователей недоступна.');
@@ -388,7 +388,7 @@ class ApiController extends BaseController {
         endif;
     }
 
-    public function update_register(array $params = [], $operation = 'Unilever.EditLightProfile') {
+    public function update_register(array $params = [], $operation = 'Unilever.EditShortProfile') {
 
         if (empty($params)):
             App::abort(404);
