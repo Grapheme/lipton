@@ -28,15 +28,14 @@
 
     <p class="field-title required">Имя</p>
     {{ Form::text('name', NULL, array('for'=>'profile-edit','autocomplete'=>'off')) }}
-    <!--<p class="field-title required">Город</p>-->
-    <input for="full-registration-form" autocomplete="off" name="city" type="hidden" value="">
+
     <p class="field-title">Пол</p>
     {{ Form::select('sex', array('Женский', 'Мужской'), Session::get('sex'), array('id' => 'sex', 'for' => 'profile-edit')) }}
 </div>
 <div class="devider no-dots"></div>
 <div class="form-block-right">
-    <p class="field-title required">Город</p>
-    {{ Form::text('city', NULL, array('for'=>'profile-edit','autocomplete'=>'off')) }}
+    <!--<p class="field-title required">Город</p>-->
+    {{ Form::text('city', NULL, array('for'=>'profile-edit','autocomplete'=>'off', 'type'=>'hidden')) }}
 
     <p class="field-title required">Телефон</p>
     {{ Form::text('phone', NULL, array('for'=>'profile-edit','autocomplete'=>'off')) }}
