@@ -44,7 +44,7 @@
 </div>
 <div class="block select-gain">
     <div class="second-code-hack"></div>
-    <a href="javascript:void(0);" class="popup-close-cross"></a>
+    <!-- <a href="javascript:void(0);" class="popup-close-cross"></a> -->
     @include(Helper::layout('forms.select-certificates'))
 </div>
 

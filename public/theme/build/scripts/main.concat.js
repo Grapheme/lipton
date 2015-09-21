@@ -1461,7 +1461,8 @@ $(document).ready(function () {
     $(document).on('click', 'div.error-block a', function () {
         $('.block.second-code').fadeOut();
         $('form.promo-code button').html('Отправить');
-        $('form.promo-code input').val('');
+
+        $('form.promo-code input:not([name="_token"], [name="ticket_id"])').val('');
     });
 
     $('.second-code .fields-holder a, a.popup-close-cross').click(function () {
@@ -1839,7 +1840,7 @@ $(document).ready(function () {
         rules: {
             message: {
                 required: true,
-                maxlength: 500,
+                maxlength: 1500,
             },
         },
 
@@ -1979,6 +1980,9 @@ $(document).ready(function () {
             surname: {
                 required: true,
             },
+            city: {
+                required: true,
+            },
             email: {
                 required: true,
                 email: true
@@ -1996,6 +2000,9 @@ $(document).ready(function () {
                 required: 'Необходимо заполнить это поле!',
             },
             surname: {
+                required: 'Необходимо заполнить это поле!',
+            },
+            city: {
                 required: 'Необходимо заполнить это поле!',
             },
             email: {

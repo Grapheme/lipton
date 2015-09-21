@@ -3,13 +3,13 @@
 // endbower
 
 @mixin mobile {
-	@media (max-width: 768px) {
+	@media (max-width: 984px) and (min-width: 320px) {
 		@content;
 	}
 }
 
 @mixin footerhack {
-	@media (min-width: 769px) and (max-width: 1370px) {
+	@media (min-width: 1050px) and (max-width: 1370px) {
 		@content;
 	}
 }
@@ -21,13 +21,13 @@
 }
 
 @mixin ipad {
-	@media (max-width: 1025px) and (min-width: 768px) {
+	@media (max-width: 984px) {
 		@content;
 	}
 }
 
 @mixin ipadHor {
-	@media (max-width: 1024px) {
+	@media (max-width: 1240px) and (min-width: 984px) {
 		@content;
 	}
 }
@@ -381,7 +381,7 @@ textarea:-ms-textarea-placeholder {
 				display: block;
 				float: left;
 				height: 18px;
-				width: 220px;
+				width: 230px;
 				
 				p {
 					margin: 0;
@@ -786,6 +786,11 @@ textarea:-ms-textarea-placeholder {
 				box-sizing: border-box;
 			}
 
+			@include ipadHor {
+				width: 1015px;
+				margin: 206px auto 0;
+			}
+
 			.promo-steps {
 				margin-top: 206px;
 				width: 1220px;
@@ -848,7 +853,7 @@ textarea:-ms-textarea-placeholder {
 						margin-right: 88px;
 
 						@include ipadHor {
-							width: 360px;
+							width: 320px;
 							margin-right: 50px;
 							margin-left: 15px;
 						}
@@ -868,6 +873,10 @@ textarea:-ms-textarea-placeholder {
 
 						form.promo-code {
 							margin: 25px 0px 0px 0px;
+
+							@include ipadHor {
+								margin-top: 30px;
+							}
 						}
 
 						@include ipadHor {
@@ -944,6 +953,11 @@ textarea:-ms-textarea-placeholder {
 							margin: 0;
 							padding: 0 20px;
 							word-wrap: nowrap;
+						}
+
+						@include ipadHor {
+							font-size: 13px;
+							line-height: 14px;
 						}
 					}
 				}
