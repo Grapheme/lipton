@@ -35,7 +35,7 @@
 <div class="devider no-dots"></div>
 <div class="form-block-right">
     <!--<p class="field-title required">Город</p>-->
-    {{ Form::text('city', NULL, array('for'=>'profile-edit','autocomplete'=>'off', 'type'=>'hidden')) }}
+    {{ Form::hidden('city', NULL, array('for'=>'profile-edit','autocomplete'=>'off')) }}
 
     <p class="field-title required">Телефон</p>
     {{ Form::text('phone', NULL, array('for'=>'profile-edit','autocomplete'=>'off')) }}
