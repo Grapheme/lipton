@@ -4,7 +4,7 @@ class Accounts extends \User {
 
     public static $rules = array(
         'name' => 'required', 'surname' => 'required', 'email' => 'required|email', 'dd' => 'required', 'mm' => 'required',
-        'phone' => 'required', 'acceptCheckbox' => 'required', 'sex' => 'required', 'yyyy' => 'required'
+        'phone' => 'required', 'acceptCheckbox' => 'required', 'sex' => 'required', 'yyyy' => 'required', 'city' => ''
     );
 
     public static $update_rules = array(
