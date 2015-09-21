@@ -212,6 +212,9 @@ class ApiController extends BaseController {
         $data['curl_result'] = curl_exec($ch);
         $data['curl_info'] = curl_getinfo($ch);
         $data['curl_headers'] = self::curlHandle();
+        Log::info($data['curl_info']['url'], array('curl_result' => $data['curl_result'],
+            'http_code' => $data['curl_info']['http_code'], 'Authorization' => $data['curl_headers'][2],
+        ));
         curl_close($ch);
         return $data;
     }
@@ -236,6 +239,9 @@ class ApiController extends BaseController {
         if ($headers):
             $data['curl_headers'] = self::curlHandle();
         endif;
+        Log::info($data['curl_info']['url'], array('curl_result' => $data['curl_result'],
+            'http_code' => $data['curl_info']['http_code'], 'Authorization' => $data['curl_headers'][2],
+        ));
         curl_close($ch);
         return $data;
     }
@@ -254,6 +260,9 @@ class ApiController extends BaseController {
         $data['curl_result'] = curl_exec($ch);
         $data['curl_info'] = curl_getinfo($ch);
         $data['curl_headers'] = self::curlHandle();
+        Log::info($data['curl_info']['url'], array('curl_result' => $data['curl_result'],
+            'http_code' => $data['curl_info']['http_code'], 'Authorization' => $data['curl_headers'][2],
+        ));
         curl_close($ch);
         return $data;
     }
