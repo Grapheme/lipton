@@ -17,8 +17,8 @@
     <p class="field-title required">Фамилия</p>
     {{ Form::text('surname', trim(Session::get('last_name')), array('for'=>'full-registration-form','autocomplete'=>'off')) }}
     <p class="field-title required">Имя</p>
-    <input name="city" for="full-registration-form"></input>
     {{ Form::text('surname', trim(Session::get('last_name')), array('for'=>'full-registration-form','autocomplete'=>'off')) }}
+    <p class="field-title required">Город</p>
     {{ Form::text('city', array('for'=>'full-registration-form','autocomplete'=>'off')) }}
     <p class="field-title">Пол</p>
     {{ Form::select('sex', array('Женский', 'Мужской'), Session::get('sex'), array('id' => 'sex', 'for' => 'full-registration-form')) }}
