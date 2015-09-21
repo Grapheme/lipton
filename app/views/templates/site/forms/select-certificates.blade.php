@@ -5,7 +5,6 @@
 ?>
 {{ Form::open(array('route'=>'promo.second.register.certificates', 'name'=>'select-gain', 'id'=>'select-certificates-form', 'class'=>'promo-code select-gain')) }}
 {{ Form::hidden('ticket_id', Config::get('api.wonLotteryTicketId')) }}
-<a href="javascript:void(0);" class="popup-close-cross"></a>
 <h3>Выберите желаемый курс</h3>
 <div class="fields-holder">
     {{ Form::select('certificate', Config::get('directcrm.certificates'), FALSE, array('id'=>'gain-list1')) }}
